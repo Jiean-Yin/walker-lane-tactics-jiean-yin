@@ -1,0 +1,18 @@
+{
+	"name": "win_route",
+	"description": "Found by exhaustive search of the slice rules (every player move and target, all turns). Step diagonally into lane 4, cross into lane 5 on turn 3 so the first exchange with the lane-4 enemy happens on a player-first turn (both drop to 1 HP); on turn 4 the lane-2 enemy holds the first enemy slot of the attack order but has no target, so the player's second arrow kills the lane-4 enemy before it shoots again. Then run diagonally to column 7 lane 2, arriving on turn 7, the same turn the lane-2 enemy reaches column 0: both sides lose, ties go to the player. Search result: no other kind of win exists under these rules (no elimination win, no clean back-row win).",
+	"move_format": "[dcol, dlane]; lane -1 = up (Up/W), col +1 = right (Right/D)",
+	"target_format": "[col, lane] zero-based, or null = hold fire / no target",
+	"expected_result": "won",
+	"expected_kind": "back_row",
+	"expected_turns": 7,
+	"turns": [
+		{"move": [1, -1], "target": null},
+		{"move": [1, 0], "target": null},
+		{"move": [1, 1], "target": [4, 3]},
+		{"move": [1, 0], "target": [4, 3]},
+		{"move": [1, -1], "target": null},
+		{"move": [1, -1], "target": null},
+		{"move": [1, -1], "target": null}
+	]
+}

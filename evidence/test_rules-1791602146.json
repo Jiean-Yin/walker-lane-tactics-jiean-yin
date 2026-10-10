@@ -1,0 +1,287 @@
+{
+	"all_passed": true,
+	"checks": [
+		{
+			"check": "setup: player archer at col 0 lane 4, hp 4, facing right",
+			"detail": "{ \"id\": \"p1\", \"team\": \"player\", \"col\": 0, \"lane\": 4, \"hp\": 4, \"facing\": 1 }",
+			"pass": true
+		},
+		{
+			"check": "setup: enemy archers at col 7 lanes 1 and 3, facing left",
+			"detail": "[{ \"id\": \"e1\", \"team\": \"enemy\", \"col\": 7, \"lane\": 1, \"hp\": 4, \"facing\": -1 }, { \"id\": \"e2\", \"team\": \"enemy\", \"col\": 7, \"lane\": 3, \"hp\": 4, \"facing\": -1 }]",
+			"pass": true
+		},
+		{
+			"check": "setup: turn 1, player strikes first",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "legal moves from corner (0,4): stay + 3 on-board neighbours",
+			"detail": "[(0, 3), (1, 3), (0, 4), (1, 4)]",
+			"pass": true
+		},
+		{
+			"check": "legal moves in open board: stay + all 8 directions",
+			"detail": "[(2, 1), (3, 1), (4, 1), (2, 2), (3, 2), (4, 2), (2, 3), (3, 3), (4, 3)]",
+			"pass": true
+		},
+		{
+			"check": "off-board order is treated as stay",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "order longer than 1 square is treated as stay",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "archer range = 24 squares of the 5x5, own square excluded",
+			"detail": "24",
+			"pass": true
+		},
+		{
+			"check": "range clipped at the corner (0,4): 8 squares",
+			"detail": "8",
+			"pass": true
+		},
+		{
+			"check": "valid targets: empty squares excluded (no enemy in reach)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "valid targets: enemy squares in range only (not own square, not ally square, not out of range)",
+			"detail": "[(5, 4)]",
+			"pass": true
+		},
+		{
+			"check": "enemy valid targets hold a player unit",
+			"detail": "[(4, 2)]",
+			"pass": true
+		},
+		{
+			"check": "enemy beside the player stays (in range) and the squaremate does not count as in range",
+			"detail": "[{ \"id\": \"e1\", \"team\": \"enemy\", \"col\": 2, \"lane\": 2, \"hp\": 4, \"facing\": -1 }, { \"id\": \"e2\", \"team\": \"enemy\", \"col\": 5, \"lane\": 2, \"hp\": 4, \"facing\": -1 }]",
+			"pass": true
+		},
+		{
+			"check": "friendly fire: one arrow damages every unit in the square (player and enemy squaremate)",
+			"detail": "[\"attack\", \"damaged\", \"damaged\"]",
+			"pass": true
+		},
+		{
+			"check": "friendly fire: both damaged events share one attack key",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "squaremate enemy cannot shoot its own square",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "attack order turn 1: player first, alternate, front to back then top lane first",
+			"detail": "[\"p2\", \"e2\", \"p1\", \"e3\", \"e1\"]",
+			"pass": true
+		},
+		{
+			"check": "attack order turn 2: enemy first",
+			"detail": "[\"e2\", \"p2\", \"e3\", \"p1\", \"e1\"]",
+			"pass": true
+		},
+		{
+			"check": "first side switches every turn (turn 3 = player)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "killed before its turn: the player does not attack",
+			"detail": "[\"attack\", \"damaged\", \"killed\", \"attack_cancelled\"]",
+			"pass": true
+		},
+		{
+			"check": "attack_cancelled when the target square has no enemy left",
+			"detail": "[\"attack\", \"damaged\", \"killed\", \"attack_cancelled\"]",
+			"pass": true
+		},
+		{
+			"check": "loss by elimination of the player names the shooter's lane",
+			"detail": "{ \"result\": \"lost\", \"kind\": \"shot\", \"reason\": \"shot by the enemy archer in lane 2\", \"turn\": 2 }",
+			"pass": true
+		},
+		{
+			"check": "player striking first kills a 3-HP enemy before it shoots",
+			"detail": "[\"attack\", \"damaged\", \"killed\"]",
+			"pass": true
+		},
+		{
+			"check": "damaged event carries by, amount 3 and hp_after",
+			"detail": "{ \"type\": \"damaged\", \"unit\": \"e1\", \"team\": \"enemy\", \"by\": \"p1\", \"by_team\": \"player\", \"amount\": 3, \"hp_after\": 0, \"attack\": \"1:1\" }",
+			"pass": true
+		},
+		{
+			"check": "win by elimination",
+			"detail": "{ \"result\": \"won\", \"kind\": \"elimination\", \"reason\": \"both enemies defeated\", \"turn\": 1 }",
+			"pass": true
+		},
+		{
+			"check": "invalid player target is ignored",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "win by reaching the enemy back row",
+			"detail": "{ \"result\": \"won\", \"kind\": \"back_row\", \"reason\": \"back row reached\", \"turn\": 5 }",
+			"pass": true
+		},
+		{
+			"check": "loss when an enemy stands in column 0",
+			"detail": "{ \"result\": \"lost\", \"kind\": \"enemy_back_row\", \"reason\": \"an enemy archer reached your back row in lane 1\", \"turn\": 5 }",
+			"pass": true
+		},
+		{
+			"check": "both lose on the same turn => the player wins",
+			"detail": "{ \"result\": \"won\", \"kind\": \"back_row\", \"reason\": \"back row reached (both sides lost this turn; ties go to the player)\", \"turn\": 5 }",
+			"pass": true
+		},
+		{
+			"check": "no result -> next turn, phase move",
+			"detail": "{ \"result\": \"none\", \"kind\": \"\", \"reason\": \"\", \"turn\": 2 }",
+			"pass": true
+		},
+		{
+			"check": "turn limit 20: fewer units loses",
+			"detail": "{ \"result\": \"lost\", \"kind\": \"turn_limit\", \"reason\": \"turn limit reached with fewer pieces\", \"turn\": 20 }",
+			"pass": true
+		},
+		{
+			"check": "calling steps out of order does nothing",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "enemy AI: player in range -> stay; out of range -> 1 column toward col 0 in its lane",
+			"detail": "{ \"e1\": (0, 0), \"e2\": (-1, 0) }",
+			"pass": true
+		},
+		{
+			"check": "enemy AI decides from positions at the start of planning (simultaneous moves)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "enemy attack AI targets the player's square",
+			"detail": "{ \"e1\": (3, 4) }",
+			"pass": true
+		},
+		{
+			"check": "turn 1 with player staying: two moved events (enemies), none for the player",
+			"detail": "[{ \"type\": \"moved\", \"unit\": \"e1\", \"team\": \"enemy\", \"from\": (7, 1), \"to\": (6, 1) }, { \"type\": \"moved\", \"unit\": \"e2\", \"team\": \"enemy\", \"from\": (7, 3), \"to\": (6, 3) }]",
+			"pass": true
+		},
+		{
+			"check": "win route fixture: every target valid",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "win route fixture: result won (back row reached (both sides lost this turn; ties go to the player)) on turn 7",
+			"detail": "{ \"result\": \"won\", \"kind\": \"back_row\", \"reason\": \"back row reached (both sides lost this turn; ties go to the player)\", \"turn\": 7 }",
+			"pass": true
+		},
+		{
+			"check": "determinism: same orders => same snapshot",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "determinism: same orders => same event list",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "lose route fixture: result lost, 'shot by the enemy archer in lane 4'",
+			"detail": "{ \"result\": \"lost\", \"kind\": \"shot\", \"reason\": \"shot by the enemy archer in lane 4\", \"turn\": 4 }",
+			"pass": true
+		},
+		{
+			"check": "win route exercises hops, hits and hurts",
+			"detail": "{ \"SFX-HOP\": 17, \"SFX-HIT\": 2, \"SFX-HURT\": 1, \"damaged_enemy\": 2, \"damaged_player\": 1 }",
+			"pass": true
+		},
+		{
+			"check": "lose route exercises hits and hurts",
+			"detail": "{ \"SFX-HOP\": 9, \"SFX-HIT\": 1, \"SFX-HURT\": 2, \"damaged_enemy\": 1, \"damaged_player\": 2 }",
+			"pass": true
+		},
+		{
+			"check": "staying in the back row and always shooting loses (enemy reaches col 0)",
+			"detail": "an enemy archer reached your back row in lane 2",
+			"pass": true
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"passed": 44,
+	"report": "test_rules",
+	"total": 44,
+	"unix_time": 1791602146,
+	"win_route": [
+		{
+			"move": [
+				1.0,
+				-1.0
+			],
+			"target": null
+		},
+		{
+			"move": [
+				1.0,
+				0.0
+			],
+			"target": null
+		},
+		{
+			"move": [
+				1.0,
+				1.0
+			],
+			"target": [
+				4.0,
+				3.0
+			]
+		},
+		{
+			"move": [
+				1.0,
+				0.0
+			],
+			"target": [
+				4.0,
+				3.0
+			]
+		},
+		{
+			"move": [
+				1.0,
+				-1.0
+			],
+			"target": null
+		},
+		{
+			"move": [
+				1.0,
+				-1.0
+			],
+			"target": null
+		},
+		{
+			"move": [
+				1.0,
+				-1.0
+			],
+			"target": null
+		}
+	]
+}
