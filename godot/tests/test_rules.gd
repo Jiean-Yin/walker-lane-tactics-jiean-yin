@@ -43,9 +43,12 @@ func _run() -> void:
 	rep.check("setup: player archer at col 0 lane 4, hp 4, facing right",
 		p["col"] == 0 and p["lane"] == 4 and p["hp"] == 4 and p["facing"] == 1, p)
 	var e1: Dictionary = r.get_unit("e1")
-	var e2: Dictionary = r.get_unit("e2")
-	rep.check("setup: enemy archers at col 7 lanes 1 and 3, facing left",
-		e1["col"] == 7 and e1["lane"] == 1 and e2["col"] == 7 and e2["lane"] == 3 and e1["facing"] == -1 and e2["facing"] == -1, [e1, e2])
+	rep.check("setup: exactly one enemy archer, at col 7 lane 3 (shown lane 4), hp 4, facing left",
+		r.units.size() == 2 and r.alive_units("enemy").size() == 1 and e1["col"] == 7 and e1["lane"] == 3
+		and e1["hp"] == 4 and e1["facing"] == -1, r.units)
+	rep.check("setup: default config (HP 4, damage 3, all living units hold attack slots, enemy marches)",
+		r.config["player_hp"] == 4 and r.config["enemy_hp"] == 4 and r.config["player_damage"] == 3
+		and r.config["enemy_damage"] == 3 and r.config["attack_order_mode"] == "all_living" and (r.config["enemy_ai"] as Dictionary).is_empty(), r.config)
 	rep.check("setup: turn 1, player strikes first", r.turn == 1 and r.first_side() == "player")
 
 	# --- legal moves
@@ -154,7 +157,16 @@ func _run() -> void:
 	rep.check("player striking first kills a 3-HP enemy before it shoots", _types(ke) == ["attack", "damaged", "killed"], _types(ke))
 	rep.check("damaged event carries by, amount 3 and hp_after", ke[1]["by"] == "p1" and ke[1]["amount"] == 3 and ke[1]["hp_after"] == 0, ke[1])
 	var kr: Dictionary = kills.end_turn()
-	rep.check("win by elimination", kr["result"] == "won" and kr["kind"] == "elimination" and kr["reason"] == "both enemies defeated", kr)
+	rep.check("win by elimination", kr["result"] == "won" and kr["kind"] == "elimination" and kr["reason"] == "enemy defeated" and not kr["tie"], kr)
+	var kills2: RulesScript = _mk([
+		{"id": "p1", "team": "player", "col": 3, "lane": 2},
+		{"id": "e1", "team": "enemy", "col": 5, "lane": 2, "hp": 3},
+		{"id": "e2", "team": "enemy", "col": 7, "lane": 0, "hp": 0},
+	], 1)
+	kills2.phase = "attack"
+	kills2.resolve_attacks({"p1": Vector2i(5, 2)})
+	var kr2: Dictionary = kills2.end_turn()
+	rep.check("elimination text with two enemies", kr2["result"] == "won" and kr2["reason"] == "both enemies defeated", kr2)
 	var invalid: RulesScript = _mk([
 		{"id": "p1", "team": "player", "col": 0, "lane": 4},
 		{"id": "e1", "team": "enemy", "col": 7, "lane": 0},
@@ -227,15 +239,19 @@ func _run() -> void:
 	rep.check("enemy attack AI targets the player's square", ai2.enemy_targets() == {"e1": Vector2i(3, 4)}, ai2.enemy_targets())
 	var fresh: RulesScript = RulesScript.new()
 	var mev: Array[Dictionary] = fresh.resolve_moves({})
-	rep.check("turn 1 with player staying: two moved events (enemies), none for the player",
-		mev.size() == 2 and _count(mev, "moved", "unit", "p1") == 0 and mev[0]["from"] == Vector2i(7, 1) and mev[0]["to"] == Vector2i(6, 1), mev)
+	rep.check("turn 1 with player staying: one moved event (the enemy), none for the player",
+		mev.size() == 1 and _count(mev, "moved", "unit", "p1") == 0 and mev[0]["unit"] == "e1"
+		and mev[0]["from"] == Vector2i(7, 3) and mev[0]["to"] == Vector2i(6, 3), mev)
 
 	# --- routes
 	var win: Dictionary = Runner.load_route("res://tests/fixtures/win_route.json")
 	var w1: Dictionary = Runner.play(win)
 	rep.check("win route fixture: every target valid", w1["ok"], w1["error"])
 	rep.check("win route fixture: result won (%s) on turn %d" % [w1["result"].get("reason", ""), w1["snapshot"]["turn"]],
-		w1["result"]["result"] == "won" and w1["result"]["kind"] == win["expected_kind"] and w1["snapshot"]["turn"] == int(win["expected_turns"]), w1["result"])
+		w1["result"]["result"] == "won" and w1["result"]["kind"] == win["expected_kind"] and w1["snapshot"]["turn"] == int(win["expected_turns"])
+		and w1["result"]["reason"] == win["expected_reason"], w1["result"])
+	rep.check("win route fixture: the win is NOT a tie (no help from 'ties go to the player')",
+		w1["result"]["tie"] == false and w1["snapshot"]["result_kind"] == "elimination", w1["result"])
 	var w2: Dictionary = Runner.play(win)
 	rep.check("determinism: same orders => same snapshot", w1["snapshot"] == w2["snapshot"])
 	rep.check("determinism: same orders => same event list", str(w1["events"]) == str(w2["events"]))
@@ -244,6 +260,10 @@ func _run() -> void:
 	rep.check("lose route fixture: result lost, '%s'" % l1["result"].get("reason", ""),
 		l1["ok"] and l1["result"]["result"] == "lost" and l1["result"]["reason"] == lose["expected_reason"]
 		and l1["snapshot"]["turn"] == int(lose["expected_turns"]), l1["result"])
+	var naive_ok: bool = true
+	for st: Dictionary in lose["turns"]:
+		naive_ok = naive_ok and Runner.move_of(st) == Vector2i(1, 0)
+	rep.check("lose route is the naive plan: straight forward (+1,0) in lane 5 every turn, shooting when possible", naive_ok)
 	var ws: Dictionary = Runner.expected_sounds(w1["events"])
 	rep.check("win route exercises hops, hits and hurts", ws["SFX-HOP"] > 0 and ws["SFX-HIT"] == 2 and ws["SFX-HURT"] == 1, ws)
 	var ls: Dictionary = Runner.expected_sounds(l1["events"])
@@ -257,5 +277,21 @@ func _run() -> void:
 		stay.resolve_attacks({"p1": vts[0]} if not vts.is_empty() else {})
 		stay.end_turn()
 		guard += 1
-	rep.check("staying in the back row and always shooting loses (enemy reaches col 0)",
-		stay.result == "lost" and stay.result_kind == "enemy_back_row", stay.reason)
+	rep.check("staying in the back row and always shooting loses (shot on turn 6)",
+		stay.result == "lost" and stay.result_kind == "shot" and stay.turn == 6, stay.reason)
+	# --- variant configs stay selectable (V0: the earlier two-enemy setup)
+	var v0: RulesScript = RulesScript.new()
+	v0.reset({"units": RulesScript.TWO_ENEMY_UNITS})
+	rep.check("V0 config: two enemies at col 7 lanes 1 and 3", v0.alive_units("enemy").size() == 2
+		and v0.get_unit("e1")["lane"] == 1 and v0.get_unit("e2")["lane"] == 3)
+	var v0_route: Dictionary = {"turns": [
+		{"move": [1, -1], "target": null}, {"move": [1, 0], "target": null}, {"move": [1, 1], "target": [4, 3]},
+		{"move": [1, 0], "target": [4, 3]}, {"move": [1, -1], "target": null}, {"move": [1, -1], "target": null},
+		{"move": [1, -1], "target": null}]}
+	var v0r: Dictionary = Runner.play(v0_route, v0)
+	rep.check("V0 config: the old turn-7 route still wins, and only on the tie", v0r["ok"] and v0r["result"]["result"] == "won"
+		and v0r["result"]["tie"] == true and v0r["snapshot"]["turn"] == 7, v0r["result"])
+	var v0b: RulesScript = RulesScript.new()
+	v0b.reset({"units": RulesScript.TWO_ENEMY_UNITS, "attack_order_mode": "with_target"})
+	var v0br: Dictionary = Runner.play(v0_route, v0b)
+	rep.check("V0b config (order slots only for units with a target): the same route loses", v0br["result"]["result"] == "lost", v0br["result"])

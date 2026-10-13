@@ -1,18 +1,18 @@
 {
 	"name": "win_route",
-	"description": "Found by exhaustive search of the slice rules (every player move and target, all turns). Step diagonally into lane 4, cross into lane 5 on turn 3 so the first exchange with the lane-4 enemy happens on a player-first turn (both drop to 1 HP); on turn 4 the lane-2 enemy holds the first enemy slot of the attack order but has no target, so the player's second arrow kills the lane-4 enemy before it shoots again. Then run diagonally to column 7 lane 2, arriving on turn 7, the same turn the lane-2 enemy reaches column 0: both sides lose, ties go to the player. Search result: no other kind of win exists under these rules (no elimination win, no clean back-row win).",
+	"description": "Slice default (V4: one marching enemy archer in shown lane 4). Hold the back row for three turns while the enemy marches to column 4. On turn 4 (the enemy strikes first) step forward to column 1: the enemy also steps to column 3 and the first exchange happens with the enemy shooting first (player 4 -> 1, enemy 4 -> 1). On turn 5 the player strikes first; the enemy sees the player in range and stays, so the player's arrow kills it before it can shoot again. Elimination win, no tie rule needed.",
 	"move_format": "[dcol, dlane]; lane -1 = up (Up/W), col +1 = right (Right/D)",
 	"target_format": "[col, lane] zero-based, or null = hold fire / no target",
 	"expected_result": "won",
-	"expected_kind": "back_row",
-	"expected_turns": 7,
+	"expected_kind": "elimination",
+	"expected_tie": false,
+	"expected_reason": "enemy defeated",
+	"expected_turns": 5,
 	"turns": [
-		{"move": [1, -1], "target": null},
-		{"move": [1, 0], "target": null},
-		{"move": [1, 1], "target": [4, 3]},
-		{"move": [1, 0], "target": [4, 3]},
-		{"move": [1, -1], "target": null},
-		{"move": [1, -1], "target": null},
-		{"move": [1, -1], "target": null}
+		{"move": [0, 0], "target": null},
+		{"move": [0, 0], "target": null},
+		{"move": [0, 0], "target": null},
+		{"move": [1, 0], "target": [3, 3]},
+		{"move": [0, 0], "target": [3, 3]}
 	]
 }

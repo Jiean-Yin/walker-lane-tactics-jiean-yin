@@ -758,13 +758,13 @@ func _draw_hud(ci: CanvasItem) -> void:
 	if state == State.TITLE:
 		ci.draw_rect(Rect2(Vector2.ZERO, VIEW), Color(0.05, 0.035, 0.02, 0.72))
 		_text(ci, 640, 250, "LANE TACTICS", 80, COL_CARD)
-		_text(ci, 640, 292, "asset slice: one archer against two", 22, Color(COL_CARD, 0.8))
+		_text(ci, 640, 292, "asset slice: archer against archer", 22, Color(COL_CARD, 0.8))
 		var blink: float = 0.55 + 0.45 * sin(_time * 4.0)
 		_text(ci, 640, 370, "press Enter", 34, Color(COL_YELLOW, blink))
 		var lines: Array[String] = [
 			"Arrows / WASD: choose a square or a target    Space: stay / hold fire    Enter: confirm",
 			"R: retry    P / Esc: pause    M: music on/off    N: sound on/off    F3: footprints",
-			"Reach the red back row, or defeat both enemies. Who strikes first alternates each turn.",
+			"Reach the red back row, or defeat the enemy archer. Who strikes first alternates each turn.",
 		]
 		for i: int in lines.size():
 			_text(ci, 640, 450 + i * 32, lines[i], 18, COL_CARD)
@@ -803,6 +803,13 @@ func _draw_hud(ci: CanvasItem) -> void:
 		_draw_card(ci)
 
 
+## Title of the win card: "ENEMY DEFEATED" / "BOTH ENEMIES DEFEATED" (from the rules reason) or "BACK ROW REACHED".
+func win_card_title() -> String:
+	if String(last_result.get("kind", "")) == "elimination":
+		return String(last_result.get("reason", "enemy defeated")).to_upper()
+	return "BACK ROW REACHED"
+
+
 func _hint() -> String:
 	match state:
 		State.PLAN_MOVE:
@@ -832,13 +839,12 @@ func _draw_card(ci: CanvasItem) -> void:
 		_text(ci, 640, 420, "retries: %d" % retries, 24, COL_INK)
 		_text(ci, 640, 474, "Enter: play again    R: retry    Esc: quit", 18, COL_INK)
 	elif won:
-		var title: String = "BOTH ENEMIES DEFEATED" if String(last_result.get("kind", "")) == "elimination" else "BACK ROW REACHED"
-		_text(ci, 640, 304, title, 44, accent)
+		_text(ci, 640, 304, win_card_title(), 44, accent)
 		var extra: String = ""
 		var paren: int = reason.find("(")
 		if paren >= 0:
 			extra = reason.substr(paren + 1).trim_suffix(")")
-		_text(ci, 640, 352, extra if extra != "" else "your archer stands on the enemy back row" if String(last_result.get("kind", "")) == "back_row" else reason, 20, COL_INK)
+		_text(ci, 640, 352, extra if extra != "" else ("your archer stands on the enemy back row" if String(last_result.get("kind", "")) == "back_row" else "no enemy piece is left standing"), 20, COL_INK)
 		_text(ci, 640, 420, "Enter: results    R: retry    M: music    N: sound", 18, COL_INK)
 	else:
 		_text(ci, 640, 300, "DEFEAT", 56, accent)

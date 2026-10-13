@@ -95,4 +95,11 @@ All sounds are triggered by `AudioDirector` from **events the rules engine has a
 
 ## Revisions
 
-*(none yet)*
+### R1 — 2026-10-12: one enemy instead of two (evidence: exhaustive search, not play)
+
+- **Observation:** with the setup above (1 player archer vs 2 marching enemy archers, HP 4, damage 3), the scripted search over every player order for 20 turns found **no win except the "ties go to the player" rule**: 52 of 45,834 order sequences win, all on a turn-7 tie where both sides reach the other's back row. The naive plan (walk forward in lane 5 and shoot) also wins on that tie. A slice that can only be won through a tie rule does not show the storyboard's win, and it gives no real decision.
+- **Variants tried** (`godot/tests/analyze_variants.gd`; table in `evidence/analyze_variants-1791859618.json`): HP 6 or enemy damage 2 change nothing (two hits still kill); HP 7 lets the naive plan win; a guarding second enemy lets waiting until turn 20 win on a 1-vs-1 tie (about 90 % of sequences); two guards let the naive plan win outright. Counting only units with a target in the attack order makes the slice unwinnable.
+- **Change (accepted by Jiean):** the slice uses **one marching enemy archer in lane 4** (HP 4, damage 3). Of 259,043 order sequences, 16,577 win (6.4 %), almost all by elimination, the earliest on turn 5. Both naive plans lose. Every win needs one timing decision: take the first exchange on a turn when the enemy strikes first, then finish it on the next turn, when you strike first (pillar 2, *Plans collide*).
+- **Rule clarified in RULES.md:** a unit with no valid target keeps its place in the attack order and skips its attack (Jiean accepted this reading).
+- **Effect on the design:** storyboard panels 1, 2, 6 and 7 show two enemies; the slice shows one. TEST-REPORT lists this difference. The two-enemy setup is kept as a config option (`TWO_ENEMY_UNITS`) for later.
+- **Still to check by playing:** whether a one-enemy duel is fun, not only winnable.

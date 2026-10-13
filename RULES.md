@@ -63,6 +63,7 @@ Combat is one phase after movement. Units attack one at a time, and each attack 
 - Within a side, units go front to back (closest to the enemy first), then top lane to bottom.
 - During attack planning, an order number appears over every unit.
 - A unit killed before its turn does not attack. If its target square has no enemies left when its turn comes, the attack is cancelled.
+- A unit with no valid target keeps its place in the attack order and skips its attack. *(Added 2026-10-12 after the asset-slice search; see CHANGE-BRIEF.md revision R1.)*
 
 ### Strike back
 

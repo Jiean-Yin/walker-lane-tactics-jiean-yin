@@ -224,6 +224,9 @@ func _run() -> void:
 	rep.check("win route: scene followed the fixture", ok and route_errors.is_empty(), route_errors)
 	rep.check("win route: state WON, %s, turn %d" % [main.rules.reason, main.rules.turn],
 		_s() == "WON" and main.rules.result == "won" and main.rules.turn == int(win["expected_turns"]))
+	rep.check("win route: the result is not a tie (%s)" % main.rules.result_kind, main.rules.result_tie == false
+		and main.rules.result_kind == win["expected_kind"] and main.last_result.get("tie", true) == false)
+	rep.check("win card reads ENEMY DEFEATED", main.win_card_title() == "ENEMY DEFEATED", main.win_card_title())
 	rep.check("win route: scene snapshot == pure rules replay (inputs added no orders)", main.rules.snapshot() == pure_win["snapshot"])
 	rep.check("win route: scene events == pure rules events", str(main.event_log) == str(pure_win["events"]))
 	var win_d: Dictionary = _check_sounds("win route", before, 1)
@@ -268,8 +271,8 @@ func _run() -> void:
 	await _wait(func() -> bool: return audio.music_state == "stopped")
 	rep.check("defeat: music faded then stopped (silent on the card)", audio.music_history[-2] == "fading" and audio.music_history[-1] == "stopped"
 		and audio.music_volume_db() <= -59.0, audio.music_history.slice(-3))
-	rep.check("defeat: player piece toppled, hit enemy back to idle", main.pieces["p1"].state == "defeat" and main.pieces["e2"].state == "idle",
-		[main.pieces["p1"].state, main.pieces["e2"].state])
+	rep.check("defeat: player piece toppled, hit enemy back to idle", main.pieces["p1"].state == "defeat" and main.pieces["e1"].state == "idle",
+		[main.pieces["p1"].state, main.pieces["e1"].state])
 	var lose_snapshot: Dictionary = main.rules.snapshot()
 	_key(KEY_ENTER, true)
 	rep.check("held Enter on the defeat card does nothing", not main.show_results and _s() == "LOST")

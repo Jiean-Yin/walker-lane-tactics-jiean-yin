@@ -1,6 +1,6 @@
 {
 	"name": "lose_route",
-	"description": "Hold the back row for three turns, then on turn 4 (enemy strikes first) step up-right into range of both enemies: the lane-2 enemy shoots first (HP 4 -> 1), the player hits the lane-4 enemy (4 -> 1), and the lane-4 enemy's arrow finishes the player.",
+	"description": "Slice default (V4). The naive plan: step straight forward along shown lane 5 every turn and always shoot. The first exchange comes on turn 3, when the player strikes first (both drop to 1 HP); on turn 4 the enemy strikes first and finishes the player before its second arrow.",
 	"move_format": "[dcol, dlane]; lane -1 = up (Up/W), col +1 = right (Right/D)",
 	"target_format": "[col, lane] zero-based, or null = hold fire / no target",
 	"expected_result": "lost",
@@ -8,9 +8,9 @@
 	"expected_reason": "shot by the enemy archer in lane 4",
 	"expected_turns": 4,
 	"turns": [
-		{"move": [0, 0], "target": null},
-		{"move": [0, 0], "target": null},
-		{"move": [0, 0], "target": null},
-		{"move": [1, -1], "target": [3, 3]}
+		{"move": [1, 0], "target": null},
+		{"move": [1, 0], "target": null},
+		{"move": [1, 0], "target": [4, 3]},
+		{"move": [1, 0], "target": [4, 3]}
 	]
 }

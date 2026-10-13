@@ -27,6 +27,38 @@ var result_kind: String = ""
 var reason: String = ""
 var hits_landed: int = 0
 var units: Array[Dictionary] = []
+## True when the result went to the player only because ties go to the player.
+var result_tie: bool = false
+
+## Optional variant config (analysis only). Every key defaults to the slice behaviour:
+##   player_hp / enemy_hp          starting HP for units without an explicit "hp"   (4 / 4)
+##   player_damage / enemy_damage  damage per arrow by team                         (3 / 3)
+##   attack_order_mode             "all_living": every living unit holds a slot     ("all_living")
+##                                 "with_target": only units with a target get a slot
+##   enemy_ai                      {unit id: "march" | "guard"}; guard never moves  ({} = all march)
+##   units (reset only)            replacement start units                          (DEFAULT_UNITS)
+const DEFAULT_CONFIG: Dictionary = {
+	"player_hp": ARCHER_HP,
+	"enemy_hp": ARCHER_HP,
+	"player_damage": ARCHER_DAMAGE,
+	"enemy_damage": ARCHER_DAMAGE,
+	"attack_order_mode": "all_living",
+	"enemy_ai": {},
+}
+var config: Dictionary = DEFAULT_CONFIG.duplicate(true)
+
+## Slice start (variant V4, accepted 2026-10-12): player archer at col 0 lane 4 (shown lane 5);
+## one enemy archer at col 7 lane 3 (shown lane 4), marching.
+const DEFAULT_UNITS: Array[Dictionary] = [
+	{"id": "p1", "team": PLAYER, "col": 0, "lane": 4},
+	{"id": "e1", "team": ENEMY, "col": 7, "lane": 3},
+]
+## The earlier two-enemy setup (V0), still selectable with reset({"units": TWO_ENEMY_UNITS}).
+const TWO_ENEMY_UNITS: Array[Dictionary] = [
+	{"id": "p1", "team": PLAYER, "col": 0, "lane": 4},
+	{"id": "e1", "team": ENEMY, "col": 7, "lane": 1},
+	{"id": "e2", "team": ENEMY, "col": 7, "lane": 3},
+]
 
 var _attack_serial: int = 0
 var _last_player_killer: String = ""
@@ -36,17 +68,19 @@ func _init() -> void:
 	reset()
 
 
-## Slice start: player archer at col 0 lane 4; enemy archers at col 7 lanes 1 and 3.
-func reset() -> void:
-	setup([
-		{"id": "p1", "team": PLAYER, "col": 0, "lane": 4},
-		{"id": "e1", "team": ENEMY, "col": 7, "lane": 1},
-		{"id": "e2", "team": ENEMY, "col": 7, "lane": 3},
-	], 1)
+## Slice start (DEFAULT_UNITS). cfg is optional (see DEFAULT_CONFIG); without it the slice rules apply.
+func reset(cfg: Dictionary = {}) -> void:
+	var start: Array = cfg.get("units", DEFAULT_UNITS)
+	setup(start, 1, cfg)
 
 
 ## Custom setup (used by tests). Each entry needs id, team, col, lane; hp and facing are optional.
-func setup(unit_list: Array, start_turn: int = 1) -> void:
+## cfg is optional (see DEFAULT_CONFIG); missing keys keep the slice behaviour.
+func setup(unit_list: Array, start_turn: int = 1, cfg: Dictionary = {}) -> void:
+	config = DEFAULT_CONFIG.duplicate(true)
+	for k: Variant in cfg:
+		if k != "units":
+			config[k] = cfg[k]
 	units.clear()
 	for entry: Dictionary in unit_list:
 		var team: String = entry["team"]
@@ -55,7 +89,7 @@ func setup(unit_list: Array, start_turn: int = 1) -> void:
 			"team": team,
 			"col": int(entry["col"]),
 			"lane": int(entry["lane"]),
-			"hp": int(entry.get("hp", ARCHER_HP)),
+			"hp": int(entry.get("hp", config["player_hp"] if team == PLAYER else config["enemy_hp"])),
 			"facing": int(entry.get("facing", 1 if team == PLAYER else -1)),
 		})
 	turn = start_turn
@@ -63,6 +97,7 @@ func setup(unit_list: Array, start_turn: int = 1) -> void:
 	result = "none"
 	result_kind = ""
 	reason = ""
+	result_tie = false
 	hits_landed = 0
 	_attack_serial = 0
 	_last_player_killer = ""
@@ -181,7 +216,8 @@ func enemy_orders() -> Dictionary:
 			if in_range(cell_of(e), cell_of(p)):
 				sees_player = true
 				break
-		var step: Vector2i = Vector2i.ZERO if sees_player else Vector2i(-1, 0)
+		var guard: bool = (config["enemy_ai"] as Dictionary).get(e["id"], "march") == "guard"
+		var step: Vector2i = Vector2i.ZERO if sees_player or guard else Vector2i(-1, 0)
 		if not on_board(cell_of(e) + step):
 			step = Vector2i.ZERO
 		orders[e["id"]] = step
@@ -203,9 +239,13 @@ func enemy_targets() -> Dictionary:
 ## Combat order over every living unit: sides alternate one unit at a time, starting with first_side();
 ## within a side front to back (closest to the enemy first), then top lane to bottom.
 ## A unit with no target still holds its place in the order (it simply does not attack).
-func attack_order() -> Array[String]:
+## (Variant "with_target": only ids present in `targets` get a slot.)
+func attack_order(targets: Dictionary = {}) -> Array[String]:
 	var players: Array[Dictionary] = alive_units(PLAYER)
 	var enemies: Array[Dictionary] = alive_units(ENEMY)
+	if config["attack_order_mode"] == "with_target":
+		players = players.filter(func(u: Dictionary) -> bool: return targets.has(u["id"]))
+		enemies = enemies.filter(func(u: Dictionary) -> bool: return targets.has(u["id"]))
 	players.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		if a["col"] != b["col"]:
 			return int(a["col"]) > int(b["col"])
@@ -298,7 +338,7 @@ func resolve_attacks(player_targets: Dictionary) -> Array[Dictionary]:
 		var t: Vector2i = player_targets[id]
 		if valid_targets(u["id"]).has(t):
 			targets[u["id"]] = t
-	for id: String in attack_order():
+	for id: String in attack_order(targets):
 		var u: Dictionary = get_unit(id)
 		if int(u["hp"]) <= 0:
 			continue # killed before its turn: no attack
@@ -318,10 +358,11 @@ func resolve_attacks(player_targets: Dictionary) -> Array[Dictionary]:
 			events.append({"type": "attack_cancelled", "unit": id, "team": u["team"], "target": target, "attack": key})
 			continue
 		events.append({"type": "attack", "unit": id, "team": u["team"], "target": target, "attack": key})
+		var dmg: int = int(config["player_damage"] if u["team"] == PLAYER else config["enemy_damage"])
 		for v: Dictionary in units_at(target):
-			v["hp"] = maxi(0, int(v["hp"]) - ARCHER_DAMAGE)
+			v["hp"] = maxi(0, int(v["hp"]) - dmg)
 			events.append({"type": "damaged", "unit": v["id"], "team": v["team"], "by": id, "by_team": u["team"],
-				"amount": ARCHER_DAMAGE, "hp_after": v["hp"], "attack": key})
+				"amount": dmg, "hp_after": v["hp"], "attack": key})
 			if u["team"] == PLAYER and v["team"] == ENEMY:
 				hits_landed += 1
 			if int(v["hp"]) == 0:
@@ -337,7 +378,7 @@ func resolve_attacks(player_targets: Dictionary) -> Array[Dictionary]:
 func end_turn() -> Dictionary:
 	if phase != "end":
 		push_error("Rules.end_turn called in phase '%s'" % phase)
-		return {"result": result, "kind": result_kind, "reason": reason, "turn": turn}
+		return {"result": result, "kind": result_kind, "reason": reason, "turn": turn, "tie": result_tie}
 	var players: Array[Dictionary] = alive_units(PLAYER)
 	var enemies: Array[Dictionary] = alive_units(ENEMY)
 	var enemy_in_player_back: Dictionary = {}
@@ -355,11 +396,18 @@ func end_turn() -> Dictionary:
 		result = "won"
 		if enemies.is_empty():
 			result_kind = "elimination"
-			reason = "both enemies defeated"
+			var enemy_total: int = units.size() - units.filter(func(x: Dictionary) -> bool: return x["team"] == PLAYER).size()
+			if enemy_total == 1:
+				reason = "enemy defeated"
+			elif enemy_total == 2:
+				reason = "both enemies defeated"
+			else:
+				reason = "all enemies defeated"
 		else:
 			result_kind = "back_row"
 			reason = "back row reached"
 		if player_lost:
+			result_tie = true
 			reason += " (both sides lost this turn; ties go to the player)"
 	elif player_lost:
 		result = "lost"
@@ -378,13 +426,14 @@ func end_turn() -> Dictionary:
 			reason = "turn limit reached with fewer pieces"
 		else:
 			result = "won"
+			result_tie = players.size() == enemies.size()
 			reason = "turn limit reached; you hold as many pieces or more (ties go to you)"
 	if result == "none":
 		turn += 1
 		phase = "move"
 	else:
 		phase = "over"
-	return {"result": result, "kind": result_kind, "reason": reason, "turn": turn}
+	return {"result": result, "kind": result_kind, "reason": reason, "turn": turn, "tie": result_tie}
 
 
 ## Plain-data copy of the whole state, for test comparison.

@@ -1,0 +1,390 @@
+{
+	"all_passed": true,
+	"checks": [
+		{
+			"check": "buses Music and SFX exist (default_bus_layout.tres)",
+			"detail": "res://default_bus_layout.tres",
+			"pass": true
+		},
+		{
+			"check": "one SFX player per id with polyphony 4",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "title: state TITLE, music playing, started once",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "held (echo) Enter on the title does nothing",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "M toggles the Music bus only",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "N toggles the SFX bus only",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Enter starts play; music continues (not restarted)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "P pauses: music ducked by 12 dB",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "gameplay keys ignored while paused",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "P unpauses: music back to 0 dB",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "pause during move playback freezes the clock and the sounds",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "music ducked by 12 dB while paused during playback",
+			"detail": "-12.0",
+			"pass": true
+		},
+		{
+			"check": "Esc unpauses; music back to full",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "win route: scene followed the fixture",
+			"detail": "[]",
+			"pass": true
+		},
+		{
+			"check": "win route: state WON, enemy defeated, turn 5",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "win route: the result is not a tie (elimination)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "win card reads ENEMY DEFEATED",
+			"detail": "ENEMY DEFEATED",
+			"pass": true
+		},
+		{
+			"check": "win route: scene snapshot == pure rules replay (inputs added no orders)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "win route: scene events == pure rules events",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "win route: SFX-HOP triggers == moved events",
+			"detail": "5 vs 5",
+			"pass": true
+		},
+		{
+			"check": "win route: SFX-HIT triggers == player shots that damaged an enemy",
+			"detail": "2 vs 2",
+			"pass": true
+		},
+		{
+			"check": "win route: SFX-HIT triggers == damaged-on-enemy events (no friendly fire on this route)",
+			"detail": "2 vs 2",
+			"pass": true
+		},
+		{
+			"check": "win route: SFX-HURT triggers == damaged-on-player events",
+			"detail": "1 vs 1",
+			"pass": true
+		},
+		{
+			"check": "win route: SFX-WIN triggers == 1",
+			"detail": "1",
+			"pass": true
+		},
+		{
+			"check": "win route: every event was played back exactly once, in order",
+			"detail": "12 played / 12 events",
+			"pass": true
+		},
+		{
+			"check": "win route: rapid presses during playback were ignored",
+			"detail": "120 spam, 120 ignored",
+			"pass": true
+		},
+		{
+			"check": "echo inputs never acted",
+			"detail": "43 echoes sent, 43 ignored, []",
+			"pass": true
+		},
+		{
+			"check": "win: music stopped at once (not faded)",
+			"detail": "[\"playing\", \"ducked\", \"playing\", \"ducked\", \"playing\", \"stopped\"]",
+			"pass": true
+		},
+		{
+			"check": "win: SFX-WIN fired with the music already stopped (plays alone)",
+			"detail": "{ \"id\": \"SFX-WIN\", \"t\": 0.602, \"unit\": \"\", \"attack\": \"\", \"music\": \"stopped\", \"file\": false }",
+			"pass": true
+		},
+		{
+			"check": "win: player piece shows the win state",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "held Enter on the win card does nothing",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Enter shows the results card; SFX-WIN not re-fired",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "held Enter on results does nothing",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Enter plays again: turn 1, music restarted from the beginning",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "play again does not fire SFX-WIN",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "lose route: scene followed the fixture",
+			"detail": "[]",
+			"pass": true
+		},
+		{
+			"check": "lose route: state LOST, 'shot by the enemy archer in lane 4'",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "lose route: scene snapshot == pure rules replay",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "lose route: SFX-HOP triggers == moved events",
+			"detail": "7 vs 7",
+			"pass": true
+		},
+		{
+			"check": "lose route: SFX-HIT triggers == player shots that damaged an enemy",
+			"detail": "1 vs 1",
+			"pass": true
+		},
+		{
+			"check": "lose route: SFX-HIT triggers == damaged-on-enemy events (no friendly fire on this route)",
+			"detail": "1 vs 1",
+			"pass": true
+		},
+		{
+			"check": "lose route: SFX-HURT triggers == damaged-on-player events",
+			"detail": "2 vs 2",
+			"pass": true
+		},
+		{
+			"check": "lose route: SFX-WIN triggers == 0",
+			"detail": "0",
+			"pass": true
+		},
+		{
+			"check": "lose route: every event was played back exactly once, in order",
+			"detail": "14 played / 14 events",
+			"pass": true
+		},
+		{
+			"check": "defeat: the last sound is SFX-HURT",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "defeat: music fade started",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "defeat: music faded then stopped (silent on the card)",
+			"detail": "[\"playing\", \"fading\", \"stopped\"]",
+			"pass": true
+		},
+		{
+			"check": "defeat: player piece toppled, hit enemy back to idle",
+			"detail": "[\"defeat\", \"idle\"]",
+			"pass": true
+		},
+		{
+			"check": "held Enter on the defeat card does nothing",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "R retries: turn 1, retry count 1, fresh board",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "retry restarts the music from the beginning",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "both buses muted",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "muted win route: same result and snapshot as unmuted",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "muted win route: same events as unmuted",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "muted win route: SFX-HOP triggers == moved events",
+			"detail": "5 vs 5",
+			"pass": true
+		},
+		{
+			"check": "muted win route: SFX-HIT triggers == player shots that damaged an enemy",
+			"detail": "2 vs 2",
+			"pass": true
+		},
+		{
+			"check": "muted win route: SFX-HIT triggers == damaged-on-enemy events (no friendly fire on this route)",
+			"detail": "2 vs 2",
+			"pass": true
+		},
+		{
+			"check": "muted win route: SFX-HURT triggers == damaged-on-player events",
+			"detail": "1 vs 1",
+			"pass": true
+		},
+		{
+			"check": "muted win route: SFX-WIN triggers == 1",
+			"detail": "1",
+			"pass": true
+		},
+		{
+			"check": "muted win route: every event was played back exactly once, in order",
+			"detail": "12 played / 12 events",
+			"pass": true
+		},
+		{
+			"check": "muted lose route: same result and snapshot as unmuted",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "muted lose route: SFX-HOP triggers == moved events",
+			"detail": "7 vs 7",
+			"pass": true
+		},
+		{
+			"check": "muted lose route: SFX-HIT triggers == player shots that damaged an enemy",
+			"detail": "1 vs 1",
+			"pass": true
+		},
+		{
+			"check": "muted lose route: SFX-HIT triggers == damaged-on-enemy events (no friendly fire on this route)",
+			"detail": "1 vs 1",
+			"pass": true
+		},
+		{
+			"check": "muted lose route: SFX-HURT triggers == damaged-on-player events",
+			"detail": "2 vs 2",
+			"pass": true
+		},
+		{
+			"check": "muted lose route: SFX-WIN triggers == 0",
+			"detail": "0",
+			"pass": true
+		},
+		{
+			"check": "muted lose route: every event was played back exactly once, in order",
+			"detail": "14 played / 14 events",
+			"pass": true
+		},
+		{
+			"check": "buses unmuted again",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "no sound files present -> triggers counted without streams (placeholder audio)",
+			"detail": "music stream: false",
+			"pass": true
+		}
+	],
+	"echo_presses": 175,
+	"engine": "4.7.2-stable (official)",
+	"lose_route_sounds": {
+		"SFX-HIT": 1,
+		"SFX-HOP": 7,
+		"SFX-HURT": 2,
+		"SFX-WIN": 0
+	},
+	"music_history": [
+		"playing",
+		"ducked",
+		"playing",
+		"ducked",
+		"playing",
+		"stopped",
+		"playing",
+		"fading",
+		"stopped",
+		"playing",
+		"stopped",
+		"playing",
+		"fading"
+	],
+	"passed": 69,
+	"play_counts_total": {
+		"SFX-HIT": 6,
+		"SFX-HOP": 24,
+		"SFX-HURT": 6,
+		"SFX-WIN": 2
+	},
+	"report": "test_audio_events",
+	"spam_presses": 470,
+	"total": 69,
+	"unix_time": 1791859611,
+	"win_route_sounds": {
+		"SFX-HIT": 2,
+		"SFX-HOP": 5,
+		"SFX-HURT": 1,
+		"SFX-WIN": 1
+	}
+}
