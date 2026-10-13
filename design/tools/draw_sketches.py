@@ -26,6 +26,7 @@ LINEN = "#D8C7A0"    # board square
 LINEN2 = "#CDB98E"   # alternate board square
 TABLE = "#6B4A2E"    # table top around the board
 PAPER = "#F4EFE4"    # sketch background
+FX = True             # draw effect marks (impact star, sparkles, motion lines, ghost)
 
 # On-screen geometry (viewport 1280x720): one square = 128 x 96 px,
 # a unit is ~86 px tall at scale 1, its base disc 40 x 10 px.
@@ -82,7 +83,7 @@ def archer(x, y, s=1.0, team=TEAL, face=1, pose="idle", view="side", sil=False,
     if show_ground and not sil and pose != "defeat":
         rx = 20 * (0.75 if p["lift"] > 8 else 1.0)
         parts.append(f'<ellipse cx="0" cy="0" rx="{rx}" ry="5" fill="#000" opacity="0.18"/>')
-    if p.get("ghost") and not sil:
+    if p.get("ghost") and not sil and FX:
         parts.append(f'<g transform="translate(40,0)" opacity="0.4">'
                      f'<ellipse cx="0" cy="-3" rx="20" ry="5" fill="none" stroke="{ink}" '
                      f'stroke-dasharray="4 3" stroke-width="2"/>'
@@ -176,7 +177,7 @@ def archer(x, y, s=1.0, team=TEAL, face=1, pose="idle", view="side", sil=False,
     if p.get("dropped") and not sil:   # bow lying beside the toppled piece
         parts.append(f'<path d="M 30,-3 Q 48,-12 66,-3" fill="none" stroke="{INK}" stroke-width="5.5"/>'
                      f'<path d="M 30,-3 Q 48,-12 66,-3" fill="none" stroke="{WALNUT}" stroke-width="3"/>')
-    if not sil:
+    if not sil and FX:
         if p.get("lines"):
             parts.append(''.join(f'<line x1="{36 + i * 4}" y1="{-52 + i * 6}" x2="{52 + i * 4}" y2="{-52 + i * 6}" '
                                  f'stroke="{INK}" stroke-width="1.5"/>' for i in range(3)))

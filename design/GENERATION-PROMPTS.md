@@ -61,7 +61,15 @@ Settings: set **duration** by hand (values below); prompt influence high (about 
 
 ---
 
-## 3. Music — Suno (free tier: browser listening is unlimited, 7 downloads for the life of the account)
+## 3. Music — ElevenLabs Music (free plan; used instead of Suno, 2026-10-12)
+
+Settings: instrumental; length **about 1 min 30 s** (longer than needed, so a 16-bar loop can be cut from the middle).
+
+> Calm instrumental loop for a thoughtful tabletop strategy game. Acoustic: plucked nylon guitar and kalimba over soft wooden percussion and a warm low drone. Steady slow pulse at 80 BPM in 4/4, the same energy from start to end, no vocals, no build-up, no big ending.
+
+**Judge:** the same criteria as below. Write down the BPM the site reports, if it shows one; Claude cuts the loop at a bar boundary from that tempo.
+
+## 3b. Music — Suno (not used: no free access) (free tier: browser listening is unlimited, 7 downloads for the life of the account)
 
 Settings: **Instrumental ON**; custom mode; title "Lane Tactics planning loop".
 
