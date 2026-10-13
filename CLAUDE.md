@@ -43,7 +43,7 @@ The chosen game is **Lane Tactics** (working title): a turn-based tactics game o
 - Godot **4.7.2** (standard build, not .NET), typed GDScript, 2D, on **Windows 11**.
 - Pattern carried over from Assignment 1: headless test scripts under `godot/tests/`, run with `Godot_v4.7.2-stable_win64_console.exe --headless --path godot --script res://tests/<test>.gd`, which write timestamped reports to `evidence/`.
 - Windows problems seen in Assignment 1:
-  - Windows Defender's Controlled Folder Access blocked Python, Node and Git Bash tools inside `Documents`, so they worked in `C:\dev` instead.
+  - Windows Defender's Controlled Folder Access blocked Python, Node and Git Bash tools inside `Documents`, so they worked in a folder outside `Documents` instead.
   - `core.autocrlf=true` changes line endings, so file hashes can't be reproduced byte for byte.
   - Pillow was not installed.
 - In Assignment 1, a GitHub PR from a fork defaulted to the instructor's repository. Check the PR base repository every time.
@@ -69,7 +69,7 @@ The rules were worked out in a Claude conversation on the user's other account, 
 
 ## Status update (Oct 9, 2026, in this repository)
 
-- The repository is `C:\dev\walker-lane-tactics-jiean-yin` (Controlled Folder Access blocks `Documents`).
+- The repository lives in a folder outside `Documents` (Controlled Folder Access blocks `Documents`).
 - Assignment 2 scope was agreed: see CHANGE-BRIEF.md (a slice with one player archer vs two enemy archers, using a subset of RULES.md). The design docs (CONCEPT, STORYBOARD, CHARACTER-SHEET, CHANGE-BRIEF) were committed before any generation.
 - Sketches: `design/tools/draw_sketches.py` writes the SVGs; `bash design/tools/render_png.sh` renders the PNGs (headless Edge).
 - Game assets used by Godot live in `godot/assets/`; raw downloads go in `assets/_raw/` (ignored); rejected thumbnails go in `assets/rejected/`.
