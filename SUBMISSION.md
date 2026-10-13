@@ -11,7 +11,7 @@
 | Submitted commit SHA | Given in the Canvas submission note: the `main` commit that contains this file's final version. A commit cannot contain its own SHA. |
 | Source revision shown in the film | tag `film-source-v1` = `fcf33eff6c501d32624532ca197257a646552991` (the `godot/` folder is identical to `12f7283`, the tested revision) |
 | Godot version and operating system | Godot 4.7.2.stable.official.ed1daf0bf (standard build, Compatibility renderer) · Windows 11 Home 10.0.26200 |
-| Generative models used | **Stable Diffusion XL base 1.0** (Stability AI), run locally on my laptop GPU, CreativeML Open RAIL++-M: character poses and the tabletop background. **MusicGen small** (Meta), run locally, weights CC-BY-NC 4.0: the music loop. **ElevenLabs Sound Effects**, free web plan, run by me, non-commercial with attribution: the four sound effects. **rembg / U²-Net**, local, MIT / Apache-2.0: background removal. Tried and not used: Suno v6-mini/v6 preview and ElevenLabs Music (free plans could not download). |
+| Generative models used | **Stable Diffusion XL base 1.0** (Stability AI), run locally on my laptop GPU, CreativeML Open RAIL++-M: character poses and the tabletop background. **MusicGen small** (Meta), run locally, weights CC-BY-NC 4.0: the music loop. **ElevenLabs Sound Effects**, free web plan, run by me, non-commercial use only (ElevenLabs Terms of Use §1(c)): the four sound effects. **rembg / U²-Net**, local, MIT / Apache-2.0: background removal. Tried and not used: Suno v6-mini/v6 preview and ElevenLabs Music (free plans could not download). |
 | Final film URL and filename | *TO FILL after rendering* |
 | Final film SHA-256 | *TO FILL after rendering* |
 

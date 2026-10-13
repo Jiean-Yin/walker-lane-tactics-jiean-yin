@@ -68,55 +68,55 @@ Selected units may need an extra pose for clear viewing. We will test that later
 
 ## 2026-10-09 / 10-12 — The planned tools were not free for me
 
-- **Wanted:** TO FILL — *hint (Claude's draft, replace in your own words): to generate with the web tools in GENERATION-PROMPTS (Firefly, ElevenLabs, Suno) without paying.*
+- **Wanted:** Generate with the web tools in GENERATION-PROMPTS (Firefly, ElevenLabs, Suno) without paying.
 - **Asked:** Suno (v6-mini and v6 preview, Advanced mode), on 2026-10-09 from 23:03, after the design commit at 22:46. Lyrics field: the music prompt from GENERATION-PROMPTS plus game descriptions, e.g. "calm instrumental, acoustic, steady slow pulse, thoughtful board game and epic war mood…". Styles field: "epic war gaming music. Should be exciting and raise up mood" (later: "…and remain similar volume. Smooth continuation from end to start while repeating"). Screenshots: `assets/rejected/MUS-suno-attempt-1…4.png`.
 - **Got:** several Suno takes (titles "Thoughtful Board Game Mood", "Strategic Pulse", "Steady Pulse"…), but the free plan would not download them; the same happened with ElevenLabs Music. Firefly was not available for free either.
 - **Decided:** switched to local models that Claude ran on my laptop GPU: SDXL base 1.0 for art, MusicGen small for music. ElevenLabs Sound Effects stayed for the four sounds, which I ran myself (CHANGE-BRIEF R2).
 - **Human / Claude / model:** the Suno and ElevenLabs attempts were mine; the switch was proposed by Claude and accepted by me; the local generation was run by Claude.
-- **Still unresolved:** TO FILL — *hint: my Suno style text asked for "epic war… exciting", while CONCEPT's audio direction says calm and never heroic. Which one is the game I want?*
+- **Still unresolved:** My Suno style text asked for "epic war… exciting", while CONCEPT's audio direction says calm and never heroic. I will decide a balanced version in later testing.
 
 ## 2026-10-12 — Character reference (CHAR-REF)
 
-- **Wanted:** TO FILL — *hint: a piece that matches the sheet (ball head, one eye, navy hood, teal cylinder, base disc, thick outline) and still looks like painted wood.*
+- **Wanted:** A piece that matches the sheet (ball head, one eye, navy hood, teal cylinder, base disc, thick outline) and still looks like painted wood.
 - **Asked:** SDXL base 1.0 via Claude's script, five runs (asset log rows CHAR-REF ref01–ref05): text-only with prompt P1, then P2 ("2D game sprite…"), then image-to-image from the sheet's idle sketch at strength 0.75, 0.85 and 0.80 (P3, seeds 201–204).
 - **Got:** ref01 photo-real 3D toys on grey (no outline); ref02 cartoon humans with legs and faces; 0.75 nearly a trace of the sketch; 0.85 front views with two eyes; 0.80 four candidates close to the sheet. Claude recommended s202 and pointed out a white halo under the base after background removal.
 - **Decided:** s202, because "it looks the most like painted wood".
 - **Human / Claude / model:** images by SDXL; prompts, runs and the written comparison by Claude; the choice by me.
-- **Still unresolved:** TO FILL — *hint: the image-to-image route starts from Claude's drawing. Is the result "generated" enough for you, or would you rather try reference-image conditioning (IP-Adapter) next time?*
+- **Still unresolved:** The image-to-image route starts from Claude's drawing. I may try reference-image conditioning (IP-Adapter) next time?
 
 ## 2026-10-12 — Poses (CHAR-IDLE, DRAW, HURT, DEFEAT, WIN)
 
-- **Wanted:** TO FILL — *hint: five states that read as the same piece and are distinct at 80 px.*
+- **Wanted:** Five states that read as the same piece and are distinct at 80 px.
 - **Asked:** SDXL image-to-image from each pose sketch, strength 0.80, seeds 202, 211, 212 (asset log rows CHAR-* pose01). Claude first noticed the pose prompts were 78–81 tokens, so SDXL would cut off "painted wood grain texture", and shortened only the pose phrases (TEST-REPORT R4).
 - **Got:** 15 candidates ([assets/rejected/CHAR-POSES-pose01-compare.png](assets/rejected/CHAR-POSES-pose01-compare.png)). The same seed (202) did not keep the piece the same: draw and hurt turned the navy hood teal. Claude recommended idle 202, draw 211, hurt 211, defeat 211, win 202.
-- **Decided:** idle 211, draw 211, hurt 212, defeat 211, win 202. I chose differently from Claude for idle and hurt. TO FILL — *hint: why 211 for idle and 212 for hurt.*
+- **Decided:** idle 211, draw 211, hurt 212, defeat 211, win 202. I chose differently from Claude for idle and hurt. Both remain a simple and coherent design, as in the original concept, for clear distinction.
 - **Next:** idle 211's base came out near-white, and the halo cleanup erased it. Claude redrew the base disc behind the piece at the sheet's size; this edit is logged (TEST-REPORT R3).
 - **Human / Claude / model:** images by SDXL; background removal, base redraw and the teal → red enemy recolour by Claude's scripts; the picks by me.
-- **Still unresolved:** TO FILL — *hint: the remaining mismatches (hurt has no squint, defeat has a dot eye and a navy bow, the win arms cover the face). Which ones matter for the full game?*
+- **Still unresolved:** The remaining mismatches (hurt has no squint, defeat has a dot eye and a navy bow, the win arms cover the face).
 
 ## 2026-10-12 — Sound effects (ElevenLabs)
 
-- **Wanted:** TO FILL — *hint: what each of the four sounds should feel like (pillar 3: pieces on a table).*
+- **Wanted:** What each of the four sounds should feel like (pillar 3: pieces on a table).
 - **Asked:** ElevenLabs Sound Effects (free plan), run by me, with the four prompts in GENERATION-PROMPTS §2 plus descriptions of the game.
 - **Got:** LandingSound.mp3 (0.48 s), arrowshit.mp3 (1.0 s), gethit.mp3 (2.0 s), win.mp3 (0.48 s). Claude measured that all four start immediately, then trimmed the tails, normalised and converted them to OGG (edit-log).
-- **Decided:** TO FILL — *hint: why you kept these takes; is a 0.48 s win sound enough for the win moment?*
+- **Decided:** A quick win music should be fine to mark victory. Better effects may be tested later.
 - **Human / Claude / model:** sounds by ElevenLabs; the generation and choice by me; trimming and conversion by Claude.
 - **Still unresolved:** the exact game description I added to the prompts was not recorded, so these sounds cannot be reproduced exactly.
 
 ## 2026-10-12 — Music loop (MusicGen)
 
-- **Wanted:** TO FILL — *hint: music for planning that you could listen to over and over while thinking.*
+- **Wanted:** Suitable looping music for planning that repeats while thinking.
 - **Asked:** MusicGen small via Claude's script: prompt P9, seeds 1, 2, 3, 30 s each (asset log MUS-LOOP).
 - **Got:** three takes estimated at ~80, ~81.5 and ~107 bpm. Claude rejected take 3 as too fast for the "slow pulse" and cut 8-bar loops from takes 1 and 2 with a crossfade at the seam (seam jump 0.0016 and 0.00006), with 3-repeat previews.
 - **Decided:** s1: "smoother and static music won't disrupt the thinking and bring more peace."
 - **Human / Claude / model:** music by MusicGen; the loop cut by Claude; listening and choice by me.
-- **Still unresolved:** TO FILL — *hint: does a 24-second loop get tiring over a long game?*
+- **Still unresolved:** A 24-second loop may get tiring over a long game.
 
 ## 2026-10-13 — Playtest, sound on and muted
 
-- **Wanted:** TO FILL — *hint: to check that the assets work together and the slice reads without sound.*
+- **Wanted:** Check that the assets work together and the slice reads without sound.
 - **Asked:** I played Claude's checklist (TEST-REPORT §6): the title music over 3 loops, a loss and a win, P/R/M/N/F3, then one game fully muted.
 - **Got:** Part A all fine. Part B: "I found it not clear if the attack target is on the character's board… the enemy's moving logic seems weird, a new player cannot understand why enemy move or not."
 - **Decided:** keep the slice as it is for testing art and sound; change the target colour and simplify the enemy later: "enemy try keep moving to the end and may avoid direct contact with the opponent."
 - **Human / Claude / model:** the playtest and the decisions are mine; the checklist and this summary are Claude's.
-- **Still unresolved:** TO FILL — *hint: what else must the board show for a muted player to understand the enemy?*
+- **Still unresolved:** What else must the board show for a muted player to understand the enemy?

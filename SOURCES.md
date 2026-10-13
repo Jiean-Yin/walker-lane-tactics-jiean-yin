@@ -12,7 +12,7 @@
 |---|---|---|---|---|
 | Art (character, background) | Stable Diffusion XL base 1.0, `stabilityai/stable-diffusion-xl-base-1.0` (fp16) via 🤗 diffusers 0.41.0, PyTorch 2.14.1+cu126 | base 1.0 | locally on my laptop GPU (RTX 3070 Ti Laptop, 8 GB) | CreativeML Open RAIL++-M License (free use incl. coursework; use-based restrictions apply) |
 | Background removal | rembg with the U²-Net `u2net` model | rembg 2.x, u2net.onnx | locally (CPU) | rembg: MIT; U²-Net: Apache-2.0 |
-| Sound effects | ElevenLabs Sound Effects (web app, free plan) | as shown in the ElevenLabs app on 2026-10-12 | ElevenLabs website, run by me | ElevenLabs free plan: non-commercial use, attribution to ElevenLabs required *(to be confirmed against my account's plan page)* |
+| Sound effects | ElevenLabs Sound Effects (web app, free plan) | as shown in the ElevenLabs app on 2026-10-12 | ElevenLabs website, run by me | [ElevenLabs Terms of Use](https://elevenlabs.io/terms-of-use) (last updated 9 Oct 2026): free users may use the Services for non-commercial purposes only (§1(c)); the user retains the rights to the Output (§4(c)(ii)); no attribution requirement is stated |
 | Music (used) | MusicGen small, `facebook/musicgen-small`, via 🤗 transformers 5.19.0 | small (300M) | locally on my laptop GPU | weights CC-BY-NC 4.0 (non-commercial; acceptable for coursework) |
 | Music (tried, not used) | Suno (web app, free plan) | v6-mini and v6 preview | Suno website, run by me | free plan; outputs could not be downloaded, so nothing from Suno is in the project |
 | Music (tried, not used) | ElevenLabs Music (free plan) | — | ElevenLabs website | download not available on my free plan; nothing used |
