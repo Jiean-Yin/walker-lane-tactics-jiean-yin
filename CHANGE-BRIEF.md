@@ -103,3 +103,10 @@ All sounds are triggered by `AudioDirector` from **events the rules engine has a
 - **Rule clarified in RULES.md:** a unit with no valid target keeps its place in the attack order and skips its attack (Jiean accepted this reading).
 - **Effect on the design:** storyboard panels 1, 2, 6 and 7 show two enemies; the slice shows one. TEST-REPORT lists this difference. The two-enemy setup is kept as a config option (`TWO_ENEMY_UNITS`) for later.
 - **Still to check by playing:** whether a one-enemy duel is fun, not only winnable.
+
+### R2 — 2026-10-12: generation tools changed (no free access to the planned web tools)
+
+- **Observation:** the planned tools were not usable for free: Adobe Firefly (art) was not available to Jiean, and Suno and ElevenLabs Music produced takes that the free plans would not let Jiean download.
+- **Change:** art from **Stable Diffusion XL base 1.0 run locally**; music from **MusicGen small run locally**; sound effects stayed with **ElevenLabs** (run by Jiean). Local models record a seed for every output, so these assets are more reproducible than the web tools would have been.
+- **Pose method:** each pose is generated image-to-image from the character sheet's pose sketch (strength 0.80), with the same prompt and settings as the accepted reference. IP-Adapter (conditioning on the reference image itself) was considered but not used, to avoid another 3 GB download tonight.
+- The asset IDs, event-to-sound map and music behaviour above are unchanged. Results: TEST-REPORT.md.
