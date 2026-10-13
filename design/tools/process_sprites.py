@@ -58,6 +58,26 @@ def base_centre_x(im: Image.Image) -> float:
     return (cols[0] + cols[-1]) / 2
 
 
+WALNUT = (0x5A, 0x3A, 0x22, 255)
+
+
+def fill_base(im: Image.Image) -> tuple[Image.Image, int]:
+    """Hand-edit: redraw the base disc (sheet size 40 x 12 px at game scale) behind the piece.
+
+    Used when the model painted the base near-white and the halo cleanup erased it.
+    """
+    from PIL import ImageDraw
+    w, h = im.size
+    k = IDLE_PX / 80                                   # export pixels per game pixel
+    rx, ry = 20 * k, 6 * k
+    cx, cy = w / 2, h - ry - 2
+    under = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    ImageDraw.Draw(under).ellipse([cx - rx, cy - ry, cx + rx, cy + ry], fill=WALNUT,
+                                  outline=(0x1B, 0x14, 0x10, 255), width=int(2.5 * k))
+    out = Image.alpha_composite(under, im)
+    return out, int(np.count_nonzero(np.array(out)[..., 3]) - np.count_nonzero(np.array(im)[..., 3]))
+
+
 def recolour(im: Image.Image) -> tuple[Image.Image, int]:
     a = np.array(im).astype(np.float32) / 255
     out = a.copy()
@@ -78,6 +98,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("pairs", nargs="+", help="state=path (state in idle, draw, hurt, defeat, win)")
     ap.add_argument("--white", type=int, default=232)
+    ap.add_argument("--fill-base", nargs="*", default=[], help="states whose base disc is refilled with walnut")
     a = ap.parse_args()
     from rembg import new_session
     session = new_session("u2net")
@@ -94,6 +115,9 @@ def main() -> None:
         half = int(np.ceil(max(cx, im.width - cx))) + 2
         canvas = Image.new("RGBA", (2 * half, im.height + 2), (0, 0, 0, 0))
         canvas.paste(im, (int(round(half - cx)), 0), im)
+        filled = 0
+        if state in a.fill_base:
+            canvas, filled = fill_base(canvas)
         enemy, n = recolour(canvas)
         for img, name in ((canvas, f"archer_{state}.png"), (enemy, f"archer_{state}_enemy.png")):
             dst = OUT / name
@@ -102,6 +126,7 @@ def main() -> None:
                    "dst": str(dst.relative_to(ROOT)).replace("\\", "/"), "dst_sha256": sha(dst),
                    "steps": ["rembg u2net", f"halo: rgb>{a.white} or alpha<40 -> transparent",
                              f"scale {f:.4f} (idle -> {IDLE_PX} px)", "pad: base centre at x centre, base on bottom edge"]
+                   + ([f"redrawn base disc behind the piece: walnut #5A3A22 ellipse 40x12 game px with ink outline ({filled} px added)"] if filled else [])
                    + ([f"enemy recolour: {n} teal px (hue 165-200, sat>0.25) -> hue 4 deg"] if "enemy" in name else []),
                    "size": list(img.size), "time": time.strftime("%Y-%m-%d %H:%M:%S")}
             with LOG.open("a", encoding="utf-8") as fh:

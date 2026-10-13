@@ -302,8 +302,16 @@ func _run() -> void:
 	_key(KEY_M)
 	_key(KEY_N)
 	rep.check("buses unmuted again", not audio.is_bus_muted("Music") and not audio.is_bus_muted("SFX"))
-	rep.check("no sound files present -> triggers counted without streams (placeholder audio)",
+	rep.check("every logged trigger's file flag matches whether its stream is loaded",
 		_all_logged_have_file_flag(), "music stream: %s" % audio.has_music_stream())
+	var missing: Array[String] = []
+	for id: String in ["SFX-HOP", "SFX-HIT", "SFX-HURT", "SFX-WIN"]:
+		if not audio.has_stream(id):
+			missing.append(id)
+	if not audio.has_music_stream():
+		missing.append("MUS-LOOP")
+	rep.check("all four generated SFX and the music loop are loaded from godot/assets", missing.is_empty(),
+		"missing: %s" % ", ".join(missing))
 
 	summary["play_counts_total"] = audio.play_counts
 	summary["spam_presses"] = spam_presses
