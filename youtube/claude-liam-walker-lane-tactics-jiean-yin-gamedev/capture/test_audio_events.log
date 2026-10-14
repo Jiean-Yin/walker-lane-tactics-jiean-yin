@@ -1,0 +1,77 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  buses Music and SFX exist (default_bus_layout.tres)  (res://default_bus_layout.tres)
+PASS  one SFX player per id with polyphony 4
+PASS  title: state TITLE, music playing, started once
+PASS  held (echo) Enter on the title does nothing
+PASS  M toggles the Music bus only
+PASS  N toggles the SFX bus only
+PASS  Enter starts play; music continues (not restarted)
+PASS  P pauses: music ducked by 12 dB
+PASS  gameplay keys ignored while paused
+PASS  P unpauses: music back to 0 dB
+PASS  pause during move playback freezes the clock and the sounds
+PASS  music ducked by 12 dB while paused during playback  (-12.0)
+PASS  Esc unpauses; music back to full
+PASS  win route: scene followed the fixture  ([])
+PASS  win route: state WON, enemy defeated, turn 5
+PASS  win route: the result is not a tie (elimination)
+PASS  win card reads ENEMY DEFEATED  (ENEMY DEFEATED)
+PASS  win route: scene snapshot == pure rules replay (inputs added no orders)
+PASS  win route: scene events == pure rules events
+PASS  win route: SFX-HOP triggers == moved events  (5 vs 5)
+PASS  win route: SFX-HIT triggers == player shots that damaged an enemy  (2 vs 2)
+PASS  win route: SFX-HIT triggers == damaged-on-enemy events (no friendly fire on this route)  (2 vs 2)
+PASS  win route: SFX-HURT triggers == damaged-on-player events  (1 vs 1)
+PASS  win route: SFX-WIN triggers == 1  (1)
+PASS  win route: every event was played back exactly once, in order  (12 played / 12 events)
+PASS  win route: rapid presses during playback were ignored  (120 spam, 120 ignored)
+PASS  echo inputs never acted  (43 echoes sent, 43 ignored, [])
+PASS  win: music stopped at once (not faded)  (["playing", "ducked", "playing", "ducked", "playing", "stopped"])
+PASS  win: SFX-WIN fired with the music already stopped (plays alone)  ({ "id": "SFX-WIN", "t": 0.602, "unit": "", "attack": "", "music": "stopped", "file": true })
+PASS  win: player piece shows the win state
+PASS  held Enter on the win card does nothing
+PASS  Enter shows the results card; SFX-WIN not re-fired
+PASS  held Enter on results does nothing
+PASS  Enter plays again: turn 1, music restarted from the beginning
+PASS  play again does not fire SFX-WIN
+PASS  lose route: scene followed the fixture  ([])
+PASS  lose route: state LOST, 'shot by the enemy archer in lane 4'
+PASS  lose route: scene snapshot == pure rules replay
+PASS  lose route: SFX-HOP triggers == moved events  (7 vs 7)
+PASS  lose route: SFX-HIT triggers == player shots that damaged an enemy  (1 vs 1)
+PASS  lose route: SFX-HIT triggers == damaged-on-enemy events (no friendly fire on this route)  (1 vs 1)
+PASS  lose route: SFX-HURT triggers == damaged-on-player events  (2 vs 2)
+PASS  lose route: SFX-WIN triggers == 0  (0)
+PASS  lose route: every event was played back exactly once, in order  (14 played / 14 events)
+PASS  defeat: the last sound is SFX-HURT
+PASS  defeat: music fade started
+PASS  defeat: music faded then stopped (silent on the card)  (["playing", "fading", "stopped"])
+PASS  defeat: player piece toppled, hit enemy back to idle  (["defeat", "idle"])
+PASS  held Enter on the defeat card does nothing
+PASS  R retries: turn 1, retry count 1, fresh board
+PASS  retry restarts the music from the beginning
+PASS  both buses muted
+PASS  muted win route: same result and snapshot as unmuted
+PASS  muted win route: same events as unmuted
+PASS  muted win route: SFX-HOP triggers == moved events  (5 vs 5)
+PASS  muted win route: SFX-HIT triggers == player shots that damaged an enemy  (2 vs 2)
+PASS  muted win route: SFX-HIT triggers == damaged-on-enemy events (no friendly fire on this route)  (2 vs 2)
+PASS  muted win route: SFX-HURT triggers == damaged-on-player events  (1 vs 1)
+PASS  muted win route: SFX-WIN triggers == 1  (1)
+PASS  muted win route: every event was played back exactly once, in order  (12 played / 12 events)
+PASS  muted lose route: same result and snapshot as unmuted
+PASS  muted lose route: SFX-HOP triggers == moved events  (7 vs 7)
+PASS  muted lose route: SFX-HIT triggers == player shots that damaged an enemy  (1 vs 1)
+PASS  muted lose route: SFX-HIT triggers == damaged-on-enemy events (no friendly fire on this route)  (1 vs 1)
+PASS  muted lose route: SFX-HURT triggers == damaged-on-player events  (2 vs 2)
+PASS  muted lose route: SFX-WIN triggers == 0  (0)
+PASS  muted lose route: every event was played back exactly once, in order  (14 played / 14 events)
+PASS  buses unmuted again
+PASS  every logged trigger's file flag matches whether its stream is loaded  (music stream: true)
+PASS  all four generated SFX and the music loop are loaded from godot/assets  (missing: )
+SUMMARY test_audio_events: 70/70 passed -> <capture-copy>/evidence/test_audio_events-1791865247.json
+WARNING: 36 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 10 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

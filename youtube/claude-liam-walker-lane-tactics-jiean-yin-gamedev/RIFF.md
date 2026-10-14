@@ -1,0 +1,13 @@
+# RIFF — what each gameplay beat shows and what Liam says about it
+
+All footage: capture run-03 (scripted input, Godot Movie Maker, film-source-v1). Times are capture frames at 30 fps. Interpretation sources: S = source code, D = design docs, T = TEST-REPORT, H = hypothesis (untested).
+
+| Beat · frames | Visible observation (inspected frame by frame and in the event log) | Interpretation (source) | Narration | Suggested experiment |
+|---|---|---|---|---|
+| B03 · 0–327 | Title card over the board; Enter; turn 1 board: teal archer bottom-left facing right, red archer lane 4 right edge facing left; yellow legal squares and planned-move marker + arrow; both pieces hop (frames 214, 218, 303, 307) | Facing carries team even without colour (D pillar 1); simultaneous moves resolved before playback (S) | "The running slice, driven by scripted input…" | Play it in greyscale: does facing alone carry team? |
+| B09 · 812–1027 | Retry: both archers idle on their start squares, retries 1; F3: red 64×96 slots and blue 40×12 ellipses sit on each base disc; F3 off; win-route turn 1 starts (enemy hop) | The redrawn base disc coincides with the anchor the code uses (S piece.gd 185, main.gd F3 block) | "In the engine: retry brings both archers back in idle…" | Toggle F3 on draw and defeat: where does art leave the slot? |
+| B11 · 328–549 | Turn 3: step, hops; order numbers 1 (you) / 2 (enemy); target marker; player draw → arrow → enemy hurt pose (leans away, flipped) + "-3"; enemy draw → player hurt; both back to idle | Same art for both teams, recoloured and flipped (S/D); HP pips drop with the sound (S main.gd 506–507) | "Turn three of a naive plan…" | Mute and watch: is the hurt pose enough to read who was hit? |
+| B13 · 550–811 | Turn 4: enemy holds order 1, draws first, player topples (defeat pose) at frame 678; no player arrow; defeat card "Shot by the enemy archer in lane 4" | Alternating first side + killed-before-turn rule decide the duel (S rules.gd 160, 344; D CHANGE-BRIEF R1) | "Turn four. The enemy strikes first…" | Predict the result of stepping in on turn 3 instead of 4, then play it |
+| B14 · 1089–1593 | No narration. Win-route turns 3–5: enemy hop; T4 step-in (two hops), enemy shoots first (hurt), player answers (hit); T5 player shoots first, enemy toppled (hit); WON: music stops, win sound, win pose, win card | Each sound is one rules event; music stops before SFX-WIN plays alone (S audio_director.gd; T §5) | — (slice audio) | Listen with eyes closed: can you tell HIT from HURT? (GENERATION-PROMPTS §2 asks the same) |
+
+Untested judgements stated as such in the film: whether the duel is fun, whether a newcomer reads it (only tester: the author), whether a 24 s loop tires over a long game (H, FRICTIONAL open question).

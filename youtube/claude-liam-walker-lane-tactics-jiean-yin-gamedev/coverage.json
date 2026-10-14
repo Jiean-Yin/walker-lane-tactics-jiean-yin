@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "scope": "Features shown in this gamedev film (not a complete walkthrough).",
+  "game": {
+    "name": "walker-lane-tactics-jiean-yin",
+    "build_id": "706032df5f992ed7fc955ab3f2663c0cd2f9089669307b529b0344bfae310a68",
+    "build_id_method": "SHA-256 of capture/source-snapshot.txt = git ls-tree -r film-source-v1 godot | sort -k4"
+  },
+  "captures": {
+    "run-03-B03": {
+      "path": "media/B03.mp4",
+      "sha256": "8fcaf3db29b1410481f7842f2da927724745db4ce7ded08cae0f324aa9a8618a",
+      "build_id": "706032df5f992ed7fc955ab3f2663c0cd2f9089669307b529b0344bfae310a68",
+      "method": "scripted-input",
+      "input_log": "capture/run-03-inputs.jsonl",
+      "source": "run-03 frames 0-327 of the 4K master"
+    },
+    "run-03-B09": {
+      "path": "media/B09.mp4",
+      "sha256": "a82353d361c5119b1020364dbab2f93cdf7f6caed04f14815ed17c0c83122b23",
+      "build_id": "706032df5f992ed7fc955ab3f2663c0cd2f9089669307b529b0344bfae310a68",
+      "method": "scripted-input",
+      "input_log": "capture/run-03-inputs.jsonl",
+      "source": "run-03 frames 812-1027 of the 4K master"
+    },
+    "run-03-B11": {
+      "path": "media/B11.mp4",
+      "sha256": "6a52ed4d2309e262b5e3b06761845d7f81bc9bb357d2b129044e22ae6427d906",
+      "build_id": "706032df5f992ed7fc955ab3f2663c0cd2f9089669307b529b0344bfae310a68",
+      "method": "scripted-input",
+      "input_log": "capture/run-03-inputs.jsonl",
+      "source": "run-03 frames 328-549 of the 4K master"
+    },
+    "run-03-B13": {
+      "path": "media/B13.mp4",
+      "sha256": "341372ef077625ce829326f34f221537de21879f610f42096343989174c5e34c",
+      "build_id": "706032df5f992ed7fc955ab3f2663c0cd2f9089669307b529b0344bfae310a68",
+      "method": "scripted-input",
+      "input_log": "capture/run-03-inputs.jsonl",
+      "source": "run-03 frames 550-811 of the 4K master"
+    },
+    "run-03-B14": {
+      "path": "media/B14.mp4",
+      "sha256": "74bdf3dff35de75098affa613b592b3c2f34ea2cde63f312da50930da41245dd",
+      "build_id": "706032df5f992ed7fc955ab3f2663c0cd2f9089669307b529b0344bfae310a68",
+      "method": "scripted-input",
+      "input_log": "capture/run-03-inputs.jsonl",
+      "source": "run-03 frames 1089-1593 of the 4K master"
+    }
+  },
+  "features": [
+    {
+      "id": "title-start",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B03",
+          "beat_id": "B03",
+          "start_s": 0.0,
+          "action_s": 3.0,
+          "end_s": 5.0,
+          "observation": "Title card with controls; Enter shows the turn-1 board.",
+          "riff": "Start is one key; the board is readable before any rule is explained."
+        }
+      ]
+    },
+    {
+      "id": "idle-and-facing",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B03",
+          "beat_id": "B03",
+          "start_s": 3.0,
+          "action_s": 3.667,
+          "end_s": 5.0,
+          "observation": "Teal archer bottom-left faces right, red archer in lane 4 faces left, both idle.",
+          "riff": "Facing carries team without colour (pillar 1)."
+        }
+      ]
+    },
+    {
+      "id": "plan-move-marker",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B03",
+          "beat_id": "B03",
+          "start_s": 5.0,
+          "action_s": 6.0,
+          "end_s": 6.9,
+          "observation": "Yellow legal squares; Right moves the planned square and draws an arrow.",
+          "riff": "The plan is visible before it is committed."
+        }
+      ]
+    },
+    {
+      "id": "simultaneous-move-hop",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B03",
+          "beat_id": "B03",
+          "start_s": 6.9,
+          "action_s": 7.133,
+          "end_s": 7.933,
+          "observation": "Both pieces hop to their new squares 0.13 s apart.",
+          "riff": "Moves resolve together, then play back; the hop is the idle image lifted in code."
+        }
+      ]
+    },
+    {
+      "id": "target-and-attack-order",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B11",
+          "beat_id": "B11",
+          "start_s": 1.9,
+          "action_s": 3.067,
+          "end_s": 4.4,
+          "observation": "Red target marker on the enemy's square; order numbers 1 (you), 2 (enemy).",
+          "riff": "Who strikes first is shown before the shot."
+        }
+      ]
+    },
+    {
+      "id": "draw-pose",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B11",
+          "beat_id": "B11",
+          "start_s": 4.233,
+          "action_s": 4.467,
+          "end_s": 4.9,
+          "observation": "Player switches to the draw pose; the arrow flies.",
+          "riff": "One static image per state."
+        }
+      ]
+    },
+    {
+      "id": "hurt-pose",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B11",
+          "beat_id": "B11",
+          "start_s": 4.733,
+          "action_s": 4.967,
+          "end_s": 5.733,
+          "observation": "Enemy shows the hurt pose (flipped) with -3 and fewer pips; then the player is hurt.",
+          "riff": "Hurt leans away from the attacker; HP pips change with the hit."
+        }
+      ]
+    },
+    {
+      "id": "killed-before-turn",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B13",
+          "beat_id": "B13",
+          "start_s": 3.667,
+          "action_s": 4.267,
+          "end_s": 5.1,
+          "observation": "Enemy shoots first on turn 4; the player topples and never fires.",
+          "riff": "Alternating first side decides the duel."
+        }
+      ]
+    },
+    {
+      "id": "defeat-card",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B13",
+          "beat_id": "B13",
+          "start_s": 4.667,
+          "action_s": 5.1,
+          "end_s": 8.7,
+          "observation": "Defeat card: 'Shot by the enemy archer in lane 4', retry keys.",
+          "riff": "The cause stays on screen (pillar 4)."
+        }
+      ]
+    },
+    {
+      "id": "retry",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B09",
+          "beat_id": "B09",
+          "start_s": 0.0,
+          "action_s": 0.033,
+          "end_s": 1.6,
+          "observation": "R: fresh board at turn 1, retries 1, both archers idle.",
+          "riff": "Retry is instant."
+        }
+      ]
+    },
+    {
+      "id": "f3-footprints",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B09",
+          "beat_id": "B09",
+          "start_s": 1.1,
+          "action_s": 1.6,
+          "end_s": 4.4,
+          "observation": "Red 64x96 slots and blue 40x12 base discs drawn on both pieces.",
+          "riff": "The art is anchored on the base disc; rules use squares, not pixels."
+        }
+      ]
+    },
+    {
+      "id": "slice-audio-sfx-and-music",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B14",
+          "beat_id": "B16",
+          "start_s": 0.367,
+          "action_s": 1.367,
+          "end_s": 16.833,
+          "observation": "Heard in B14 (no narration): SFX-HOP, HOP, HOP, HURT, HIT, HIT, WIN with the music loop; music stops at the win. B16 is the narrated beat that shows this interval measured.",
+          "riff": "Each sound is one rules event, in event order."
+        }
+      ]
+    },
+    {
+      "id": "win-pose-and-card",
+      "status": "implemented",
+      "evidence": [
+        {
+          "capture": "run-03-B14",
+          "beat_id": "B16",
+          "start_s": 13.367,
+          "action_s": 13.6,
+          "end_s": 16.833,
+          "observation": "Enemy toppled, player in the win pose, 'ENEMY DEFEATED' card.",
+          "riff": "Elimination win on turn 5, no tie rule."
+        }
+      ]
+    },
+    {
+      "id": "second-enemy",
+      "status": "planned",
+      "evidence": [],
+      "reason": "Storyboard drew two enemies; the slice uses one (CHANGE-BRIEF R1). TWO_ENEMY_UNITS kept for later."
+    },
+    {
+      "id": "riders-shielders",
+      "status": "planned",
+      "evidence": [],
+      "reason": "RULES.md unit types beyond the archer; not in the asset slice."
+    }
+  ],
+  "not_filmed": [
+    {
+      "id": "pause-duck",
+      "status": "implemented",
+      "where_verified": "test_audio_events.gd (P/Esc, -12 dB), in run-03 not used"
+    },
+    {
+      "id": "mute-music-sfx",
+      "status": "implemented",
+      "where_verified": "test_audio_events.gd (M/N buses); Jiean's playtest"
+    },
+    {
+      "id": "results-card-play-again",
+      "status": "implemented",
+      "where_verified": "captured in run-03 frames 1594-1671, not used in the film"
+    },
+    {
+      "id": "back-row-win",
+      "status": "implemented",
+      "where_verified": "test_rules.gd; not reached on the capture routes"
+    }
+  ]
+}

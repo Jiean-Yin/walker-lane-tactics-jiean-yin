@@ -1,0 +1,123 @@
+{"detail":{"args":"-hide_banner -loglevel error -nostats -y -f rawvideo -pix_fmt rgba -s 3840x2160 -framerate 30 -i - -c:v ffv1 -level 3 -threads 8 -slices 24 -slicecrc 1 -g 1 -pix_fmt bgr0 <capture-copy>/run-03/run-4k.mkv","ffmpeg":"<ffmpeg>","pid":27588},"event":"encoder","frame":0,"process_frame":0,"t_s":0.0}
+{"detail":{"engine":"4.7.2-stable (official)","fixed_fps":0,"logical":"(1280, 720)","mode":"full","movie":true,"subviewport":"(3840, 2160)","window":"(1280, 720)"},"event":"capture_start","frame":0,"process_frame":0,"state":"TITLE","t_s":0.0,"turn":1}
+{"detail":"TITLE","event":"state","frame":0,"process_frame":0,"state":"TITLE","t_s":0.0,"turn":1}
+{"detail":"playing","event":"music_state","frame":0,"process_frame":0,"state":"TITLE","t_s":0.0,"turn":1}
+{"detail":"Enter (start)","event":"key","frame":90,"process_frame":89,"state":"PLAN_MOVE","t_s":3.0,"turn":1}
+{"detail":"PLAN_MOVE","event":"state","frame":90,"process_frame":90,"state":"PLAN_MOVE","t_s":3.0,"turn":1}
+{"detail":"lose_route","event":"route_start","frame":150,"process_frame":149,"state":"PLAN_MOVE","t_s":5.0,"turn":1}
+{"detail":1,"event":"turn_start","frame":150,"process_frame":149,"state":"PLAN_MOVE","t_s":5.0,"turn":1}
+{"detail":"Right (plan step) turn 1","event":"key","frame":180,"process_frame":179,"state":"PLAN_MOVE","t_s":6.0,"turn":1}
+{"detail":"Enter (confirm move) turn 1","event":"key","frame":207,"process_frame":206,"state":"PLAY_MOVES","t_s":6.9,"turn":1}
+{"detail":"PLAY_MOVES","event":"state","frame":207,"process_frame":207,"state":"PLAY_MOVES","t_s":6.9,"turn":1}
+{"detail":{"hp_after":null,"team":"player","type":"moved","unit":"p1"},"event":"rules_event_shown","frame":214,"process_frame":214,"state":"PLAY_MOVES","t_s":7.133,"turn":1}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"p1"},"event":"sfx_trigger","frame":214,"process_frame":214,"state":"PLAY_MOVES","t_s":7.133,"turn":1}
+{"detail":{"hp_after":null,"team":"enemy","type":"moved","unit":"e1"},"event":"rules_event_shown","frame":218,"process_frame":218,"state":"PLAY_MOVES","t_s":7.267,"turn":1}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"e1"},"event":"sfx_trigger","frame":218,"process_frame":218,"state":"PLAY_MOVES","t_s":7.267,"turn":1}
+{"detail":"PLAY_ATTACKS","event":"state","frame":227,"process_frame":227,"state":"PLAY_ATTACKS","t_s":7.567,"turn":1}
+{"detail":"PLAN_MOVE","event":"state","frame":238,"process_frame":238,"state":"PLAN_MOVE","t_s":7.933,"turn":2}
+{"detail":2,"event":"turn_start","frame":239,"process_frame":238,"state":"PLAN_MOVE","t_s":7.967,"turn":2}
+{"detail":"Right (plan step) turn 2","event":"key","frame":269,"process_frame":268,"state":"PLAN_MOVE","t_s":8.967,"turn":2}
+{"detail":"Enter (confirm move) turn 2","event":"key","frame":296,"process_frame":295,"state":"PLAY_MOVES","t_s":9.867,"turn":2}
+{"detail":"PLAY_MOVES","event":"state","frame":296,"process_frame":296,"state":"PLAY_MOVES","t_s":9.867,"turn":2}
+{"detail":{"hp_after":null,"team":"player","type":"moved","unit":"p1"},"event":"rules_event_shown","frame":303,"process_frame":303,"state":"PLAY_MOVES","t_s":10.1,"turn":2}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"p1"},"event":"sfx_trigger","frame":303,"process_frame":303,"state":"PLAY_MOVES","t_s":10.1,"turn":2}
+{"detail":{"hp_after":null,"team":"enemy","type":"moved","unit":"e1"},"event":"rules_event_shown","frame":307,"process_frame":307,"state":"PLAY_MOVES","t_s":10.233,"turn":2}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"e1"},"event":"sfx_trigger","frame":307,"process_frame":307,"state":"PLAY_MOVES","t_s":10.233,"turn":2}
+{"detail":"PLAY_ATTACKS","event":"state","frame":316,"process_frame":316,"state":"PLAY_ATTACKS","t_s":10.533,"turn":2}
+{"detail":"PLAN_MOVE","event":"state","frame":327,"process_frame":327,"state":"PLAN_MOVE","t_s":10.9,"turn":3}
+{"detail":3,"event":"turn_start","frame":328,"process_frame":327,"state":"PLAN_MOVE","t_s":10.933,"turn":3}
+{"detail":"Right (plan step) turn 3","event":"key","frame":358,"process_frame":357,"state":"PLAN_MOVE","t_s":11.933,"turn":3}
+{"detail":"Enter (confirm move) turn 3","event":"key","frame":385,"process_frame":384,"state":"PLAY_MOVES","t_s":12.833,"turn":3}
+{"detail":"PLAY_MOVES","event":"state","frame":385,"process_frame":385,"state":"PLAY_MOVES","t_s":12.833,"turn":3}
+{"detail":{"hp_after":null,"team":"player","type":"moved","unit":"p1"},"event":"rules_event_shown","frame":392,"process_frame":392,"state":"PLAY_MOVES","t_s":13.067,"turn":3}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"p1"},"event":"sfx_trigger","frame":392,"process_frame":392,"state":"PLAY_MOVES","t_s":13.067,"turn":3}
+{"detail":{"hp_after":null,"team":"enemy","type":"moved","unit":"e1"},"event":"rules_event_shown","frame":396,"process_frame":396,"state":"PLAY_MOVES","t_s":13.2,"turn":3}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"e1"},"event":"sfx_trigger","frame":396,"process_frame":396,"state":"PLAY_MOVES","t_s":13.2,"turn":3}
+{"detail":"PLAN_ATTACK","event":"state","frame":405,"process_frame":405,"state":"PLAN_ATTACK","t_s":13.5,"turn":3}
+{"detail":"Enter (shoot) turn 3","event":"key","frame":460,"process_frame":459,"state":"PLAY_ATTACKS","t_s":15.333,"turn":3}
+{"detail":"PLAY_ATTACKS","event":"state","frame":460,"process_frame":460,"state":"PLAY_ATTACKS","t_s":15.333,"turn":3}
+{"detail":{"hp_after":null,"team":"player","type":"attack","unit":"p1"},"event":"rules_event_shown","frame":460,"process_frame":460,"state":"PLAY_ATTACKS","t_s":15.333,"turn":3}
+{"detail":{"hp_after":1,"team":"enemy","type":"damaged","unit":"e1"},"event":"rules_event_shown","frame":476,"process_frame":476,"state":"PLAY_ATTACKS","t_s":15.867,"turn":3}
+{"detail":{"file_loaded":true,"id":"SFX-HIT","music":"playing","unit":"e1"},"event":"sfx_trigger","frame":476,"process_frame":476,"state":"PLAY_ATTACKS","t_s":15.867,"turn":3}
+{"detail":{"hp_after":null,"team":"enemy","type":"attack","unit":"e1"},"event":"rules_event_shown","frame":491,"process_frame":491,"state":"PLAY_ATTACKS","t_s":16.367,"turn":3}
+{"detail":{"hp_after":1,"team":"player","type":"damaged","unit":"p1"},"event":"rules_event_shown","frame":507,"process_frame":507,"state":"PLAY_ATTACKS","t_s":16.9,"turn":3}
+{"detail":{"file_loaded":true,"id":"SFX-HURT","music":"playing","unit":"p1"},"event":"sfx_trigger","frame":507,"process_frame":507,"state":"PLAY_ATTACKS","t_s":16.9,"turn":3}
+{"detail":"PLAN_MOVE","event":"state","frame":533,"process_frame":533,"state":"PLAN_MOVE","t_s":17.767,"turn":4}
+{"detail":4,"event":"turn_start","frame":534,"process_frame":533,"state":"PLAN_MOVE","t_s":17.8,"turn":4}
+{"detail":"Right (plan step) turn 4","event":"key","frame":564,"process_frame":563,"state":"PLAN_MOVE","t_s":18.8,"turn":4}
+{"detail":"Enter (confirm move) turn 4","event":"key","frame":591,"process_frame":590,"state":"PLAY_MOVES","t_s":19.7,"turn":4}
+{"detail":"PLAY_MOVES","event":"state","frame":591,"process_frame":591,"state":"PLAY_MOVES","t_s":19.7,"turn":4}
+{"detail":{"hp_after":null,"team":"player","type":"moved","unit":"p1"},"event":"rules_event_shown","frame":598,"process_frame":598,"state":"PLAY_MOVES","t_s":19.933,"turn":4}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"p1"},"event":"sfx_trigger","frame":598,"process_frame":598,"state":"PLAY_MOVES","t_s":19.933,"turn":4}
+{"detail":"PLAN_ATTACK","event":"state","frame":607,"process_frame":607,"state":"PLAN_ATTACK","t_s":20.233,"turn":4}
+{"detail":"Enter (shoot) turn 4","event":"key","frame":662,"process_frame":661,"state":"PLAY_ATTACKS","t_s":22.067,"turn":4}
+{"detail":"PLAY_ATTACKS","event":"state","frame":662,"process_frame":662,"state":"PLAY_ATTACKS","t_s":22.067,"turn":4}
+{"detail":{"hp_after":null,"team":"enemy","type":"attack","unit":"e1"},"event":"rules_event_shown","frame":662,"process_frame":662,"state":"PLAY_ATTACKS","t_s":22.067,"turn":4}
+{"detail":{"hp_after":0,"team":"player","type":"damaged","unit":"p1"},"event":"rules_event_shown","frame":678,"process_frame":678,"state":"PLAY_ATTACKS","t_s":22.6,"turn":4}
+{"detail":{"hp_after":null,"team":"player","type":"killed","unit":"p1"},"event":"rules_event_shown","frame":678,"process_frame":678,"state":"PLAY_ATTACKS","t_s":22.6,"turn":4}
+{"detail":{"file_loaded":true,"id":"SFX-HURT","music":"playing","unit":"p1"},"event":"sfx_trigger","frame":678,"process_frame":678,"state":"PLAY_ATTACKS","t_s":22.6,"turn":4}
+{"detail":"LOST","event":"state","frame":703,"process_frame":703,"state":"LOST","t_s":23.433,"turn":4}
+{"detail":"fading","event":"music_state","frame":703,"process_frame":703,"state":"LOST","t_s":23.433,"turn":4}
+{"detail":{"name":"lose_route","reason":"shot by the enemy archer in lane 4","result":"lost"},"event":"route_end","frame":704,"process_frame":703,"state":"LOST","t_s":23.467,"turn":4}
+{"detail":"stopped","event":"music_state","frame":718,"process_frame":718,"state":"LOST","t_s":23.933,"turn":4}
+{"detail":"R (retry)","event":"key","frame":812,"process_frame":811,"state":"PLAN_MOVE","t_s":27.067,"turn":1}
+{"detail":"PLAN_MOVE","event":"state","frame":812,"process_frame":812,"state":"PLAN_MOVE","t_s":27.067,"turn":1}
+{"detail":"playing","event":"music_state","frame":812,"process_frame":812,"state":"PLAN_MOVE","t_s":27.067,"turn":1}
+{"detail":"F3 (footprints on)","event":"key","frame":860,"process_frame":859,"state":"PLAN_MOVE","t_s":28.667,"turn":1}
+{"detail":"F3 (footprints off)","event":"key","frame":944,"process_frame":943,"state":"PLAN_MOVE","t_s":31.467,"turn":1}
+{"detail":"win_route","event":"route_start","frame":968,"process_frame":967,"state":"PLAN_MOVE","t_s":32.267,"turn":1}
+{"detail":1,"event":"turn_start","frame":968,"process_frame":967,"state":"PLAN_MOVE","t_s":32.267,"turn":1}
+{"detail":"Space (stay) turn 1","event":"key","frame":1001,"process_frame":1000,"state":"PLAY_MOVES","t_s":33.367,"turn":1}
+{"detail":"PLAY_MOVES","event":"state","frame":1001,"process_frame":1001,"state":"PLAY_MOVES","t_s":33.367,"turn":1}
+{"detail":{"hp_after":null,"team":"enemy","type":"moved","unit":"e1"},"event":"rules_event_shown","frame":1008,"process_frame":1008,"state":"PLAY_MOVES","t_s":33.6,"turn":1}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"e1"},"event":"sfx_trigger","frame":1008,"process_frame":1008,"state":"PLAY_MOVES","t_s":33.6,"turn":1}
+{"detail":"PLAY_ATTACKS","event":"state","frame":1017,"process_frame":1017,"state":"PLAY_ATTACKS","t_s":33.9,"turn":1}
+{"detail":"PLAN_MOVE","event":"state","frame":1028,"process_frame":1028,"state":"PLAN_MOVE","t_s":34.267,"turn":2}
+{"detail":2,"event":"turn_start","frame":1029,"process_frame":1028,"state":"PLAN_MOVE","t_s":34.3,"turn":2}
+{"detail":"Space (stay) turn 2","event":"key","frame":1062,"process_frame":1061,"state":"PLAY_MOVES","t_s":35.4,"turn":2}
+{"detail":"PLAY_MOVES","event":"state","frame":1062,"process_frame":1062,"state":"PLAY_MOVES","t_s":35.4,"turn":2}
+{"detail":{"hp_after":null,"team":"enemy","type":"moved","unit":"e1"},"event":"rules_event_shown","frame":1069,"process_frame":1069,"state":"PLAY_MOVES","t_s":35.633,"turn":2}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"e1"},"event":"sfx_trigger","frame":1069,"process_frame":1069,"state":"PLAY_MOVES","t_s":35.633,"turn":2}
+{"detail":"PLAY_ATTACKS","event":"state","frame":1078,"process_frame":1078,"state":"PLAY_ATTACKS","t_s":35.933,"turn":2}
+{"detail":"PLAN_MOVE","event":"state","frame":1089,"process_frame":1089,"state":"PLAN_MOVE","t_s":36.3,"turn":3}
+{"detail":3,"event":"turn_start","frame":1090,"process_frame":1089,"state":"PLAN_MOVE","t_s":36.333,"turn":3}
+{"detail":"Space (stay) turn 3","event":"key","frame":1123,"process_frame":1122,"state":"PLAY_MOVES","t_s":37.433,"turn":3}
+{"detail":"PLAY_MOVES","event":"state","frame":1123,"process_frame":1123,"state":"PLAY_MOVES","t_s":37.433,"turn":3}
+{"detail":{"hp_after":null,"team":"enemy","type":"moved","unit":"e1"},"event":"rules_event_shown","frame":1130,"process_frame":1130,"state":"PLAY_MOVES","t_s":37.667,"turn":3}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"e1"},"event":"sfx_trigger","frame":1130,"process_frame":1130,"state":"PLAY_MOVES","t_s":37.667,"turn":3}
+{"detail":"PLAY_ATTACKS","event":"state","frame":1139,"process_frame":1139,"state":"PLAY_ATTACKS","t_s":37.967,"turn":3}
+{"detail":"PLAN_MOVE","event":"state","frame":1150,"process_frame":1150,"state":"PLAN_MOVE","t_s":38.333,"turn":4}
+{"detail":4,"event":"turn_start","frame":1151,"process_frame":1150,"state":"PLAN_MOVE","t_s":38.367,"turn":4}
+{"detail":"Right (plan step) turn 4","event":"key","frame":1184,"process_frame":1183,"state":"PLAN_MOVE","t_s":39.467,"turn":4}
+{"detail":"Enter (confirm move) turn 4","event":"key","frame":1211,"process_frame":1210,"state":"PLAY_MOVES","t_s":40.367,"turn":4}
+{"detail":"PLAY_MOVES","event":"state","frame":1211,"process_frame":1211,"state":"PLAY_MOVES","t_s":40.367,"turn":4}
+{"detail":{"hp_after":null,"team":"player","type":"moved","unit":"p1"},"event":"rules_event_shown","frame":1218,"process_frame":1218,"state":"PLAY_MOVES","t_s":40.6,"turn":4}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"p1"},"event":"sfx_trigger","frame":1218,"process_frame":1218,"state":"PLAY_MOVES","t_s":40.6,"turn":4}
+{"detail":{"hp_after":null,"team":"enemy","type":"moved","unit":"e1"},"event":"rules_event_shown","frame":1222,"process_frame":1222,"state":"PLAY_MOVES","t_s":40.733,"turn":4}
+{"detail":{"file_loaded":true,"id":"SFX-HOP","music":"playing","unit":"e1"},"event":"sfx_trigger","frame":1222,"process_frame":1222,"state":"PLAY_MOVES","t_s":40.733,"turn":4}
+{"detail":"PLAN_ATTACK","event":"state","frame":1231,"process_frame":1231,"state":"PLAN_ATTACK","t_s":41.033,"turn":4}
+{"detail":"Enter (shoot) turn 4","event":"key","frame":1286,"process_frame":1285,"state":"PLAY_ATTACKS","t_s":42.867,"turn":4}
+{"detail":"PLAY_ATTACKS","event":"state","frame":1286,"process_frame":1286,"state":"PLAY_ATTACKS","t_s":42.867,"turn":4}
+{"detail":{"hp_after":null,"team":"enemy","type":"attack","unit":"e1"},"event":"rules_event_shown","frame":1286,"process_frame":1286,"state":"PLAY_ATTACKS","t_s":42.867,"turn":4}
+{"detail":{"hp_after":1,"team":"player","type":"damaged","unit":"p1"},"event":"rules_event_shown","frame":1302,"process_frame":1302,"state":"PLAY_ATTACKS","t_s":43.4,"turn":4}
+{"detail":{"file_loaded":true,"id":"SFX-HURT","music":"playing","unit":"p1"},"event":"sfx_trigger","frame":1302,"process_frame":1302,"state":"PLAY_ATTACKS","t_s":43.4,"turn":4}
+{"detail":{"hp_after":null,"team":"player","type":"attack","unit":"p1"},"event":"rules_event_shown","frame":1317,"process_frame":1317,"state":"PLAY_ATTACKS","t_s":43.9,"turn":4}
+{"detail":{"hp_after":1,"team":"enemy","type":"damaged","unit":"e1"},"event":"rules_event_shown","frame":1333,"process_frame":1333,"state":"PLAY_ATTACKS","t_s":44.433,"turn":4}
+{"detail":{"file_loaded":true,"id":"SFX-HIT","music":"playing","unit":"e1"},"event":"sfx_trigger","frame":1333,"process_frame":1333,"state":"PLAY_ATTACKS","t_s":44.433,"turn":4}
+{"detail":"PLAN_MOVE","event":"state","frame":1359,"process_frame":1359,"state":"PLAN_MOVE","t_s":45.3,"turn":5}
+{"detail":5,"event":"turn_start","frame":1360,"process_frame":1359,"state":"PLAN_MOVE","t_s":45.333,"turn":5}
+{"detail":"Space (stay) turn 5","event":"key","frame":1393,"process_frame":1392,"state":"PLAY_MOVES","t_s":46.433,"turn":5}
+{"detail":"PLAY_MOVES","event":"state","frame":1393,"process_frame":1393,"state":"PLAY_MOVES","t_s":46.433,"turn":5}
+{"detail":"PLAN_ATTACK","event":"state","frame":1401,"process_frame":1401,"state":"PLAN_ATTACK","t_s":46.7,"turn":5}
+{"detail":"Enter (shoot) turn 5","event":"key","frame":1456,"process_frame":1455,"state":"PLAY_ATTACKS","t_s":48.533,"turn":5}
+{"detail":"PLAY_ATTACKS","event":"state","frame":1456,"process_frame":1456,"state":"PLAY_ATTACKS","t_s":48.533,"turn":5}
+{"detail":{"hp_after":null,"team":"player","type":"attack","unit":"p1"},"event":"rules_event_shown","frame":1456,"process_frame":1456,"state":"PLAY_ATTACKS","t_s":48.533,"turn":5}
+{"detail":{"hp_after":0,"team":"enemy","type":"damaged","unit":"e1"},"event":"rules_event_shown","frame":1472,"process_frame":1472,"state":"PLAY_ATTACKS","t_s":49.067,"turn":5}
+{"detail":{"hp_after":null,"team":"enemy","type":"killed","unit":"e1"},"event":"rules_event_shown","frame":1472,"process_frame":1472,"state":"PLAY_ATTACKS","t_s":49.067,"turn":5}
+{"detail":{"file_loaded":true,"id":"SFX-HIT","music":"playing","unit":"e1"},"event":"sfx_trigger","frame":1472,"process_frame":1472,"state":"PLAY_ATTACKS","t_s":49.067,"turn":5}
+{"detail":"WON","event":"state","frame":1497,"process_frame":1497,"state":"WON","t_s":49.9,"turn":5}
+{"detail":{"file_loaded":true,"id":"SFX-WIN","music":"stopped","unit":""},"event":"sfx_trigger","frame":1497,"process_frame":1497,"state":"WON","t_s":49.9,"turn":5}
+{"detail":"stopped","event":"music_state","frame":1497,"process_frame":1497,"state":"WON","t_s":49.9,"turn":5}
+{"detail":{"name":"win_route","reason":"enemy defeated","result":"won"},"event":"route_end","frame":1498,"process_frame":1497,"state":"WON","t_s":49.933,"turn":5}
+{"detail":"Enter (results)","event":"key","frame":1594,"process_frame":1593,"state":"WON","t_s":53.133,"turn":5}
+{"detail":{"failed":"","frames":1672,"pipe_write_ms_avg":27.4265119617225,"readback_ms_avg":23.9585514354067},"event":"capture_end","frame":1672,"process_frame":1671,"state":"WON","t_s":55.733,"turn":5}

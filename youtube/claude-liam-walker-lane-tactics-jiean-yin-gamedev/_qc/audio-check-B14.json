@@ -1,0 +1,104 @@
+{
+  "media": "media\\B14.mp4",
+  "offset_s": 0.0,
+  "segment_frames": [
+    1089,
+    1594
+  ],
+  "duration_s": 16.8333,
+  "integrated_lufs": -16.2,
+  "true_peak_dbfs": 0.4,
+  "rms_dbfs": -17.6,
+  "after_win_rms_dbfs": -180.0,
+  "order_logged": [
+    "SFX-HOP",
+    "SFX-HOP",
+    "SFX-HOP",
+    "SFX-HURT",
+    "SFX-HIT",
+    "SFX-HIT",
+    "SFX-WIN"
+  ],
+  "order_matched": [
+    "SFX-HOP",
+    "SFX-HOP",
+    "SFX-HOP",
+    "SFX-HURT",
+    "SFX-HIT",
+    "SFX-HIT",
+    "SFX-WIN"
+  ],
+  "all_matched": true,
+  "events": [
+    {
+      "sfx": "SFX-HOP",
+      "logged_frame": 1130,
+      "expected_s": 1.367,
+      "matched_s": 1.376,
+      "lag_ms": 9.4,
+      "ncc": 0.937,
+      "control_time_s": 10.4,
+      "control_ncc": 0.094
+    },
+    {
+      "sfx": "SFX-HOP",
+      "logged_frame": 1218,
+      "expected_s": 4.3,
+      "matched_s": 4.3094,
+      "lag_ms": 9.4,
+      "ncc": 0.673,
+      "control_time_s": 14.71,
+      "control_ncc": 0.0
+    },
+    {
+      "sfx": "SFX-HOP",
+      "logged_frame": 1222,
+      "expected_s": 4.433,
+      "matched_s": 4.4373,
+      "lag_ms": 4.0,
+      "ncc": 0.838,
+      "control_time_s": 5.25,
+      "control_ncc": 0.042
+    },
+    {
+      "sfx": "SFX-HURT",
+      "logged_frame": 1302,
+      "expected_s": 7.1,
+      "matched_s": 7.104,
+      "lag_ms": 4.0,
+      "ncc": 0.936,
+      "control_time_s": 14.33,
+      "control_ncc": 0.0
+    },
+    {
+      "sfx": "SFX-HIT",
+      "logged_frame": 1333,
+      "expected_s": 8.133,
+      "matched_s": 8.1387,
+      "lag_ms": 5.4,
+      "ncc": 0.993,
+      "control_time_s": 0.58,
+      "control_ncc": 0.151
+    },
+    {
+      "sfx": "SFX-HIT",
+      "logged_frame": 1472,
+      "expected_s": 12.767,
+      "matched_s": 12.768,
+      "lag_ms": 1.4,
+      "ncc": 0.986,
+      "control_time_s": 5.3,
+      "control_ncc": 0.094
+    },
+    {
+      "sfx": "SFX-WIN",
+      "logged_frame": 1497,
+      "expected_s": 13.6,
+      "matched_s": 13.6107,
+      "lag_ms": 10.7,
+      "ncc": 0.929,
+      "control_time_s": 9.26,
+      "control_ncc": 0.037
+    }
+  ]
+}

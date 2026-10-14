@@ -1,0 +1,575 @@
+{
+  "schema_version": 1,
+  "teaching_contract": "code-then-result-v1",
+  "game": {
+    "name": "walker-lane-tactics-jiean-yin",
+    "project": "godot/project.godot",
+    "source_revision": "film-source-v1 = fcf33eff6c501d32624532ca197257a646552991 (godot/ identical to 12f7283)",
+    "note": "All 51 files are byte-identical to the film-source-v1 blobs (checked before hashing)."
+  },
+  "files": [
+    {
+      "path": "assets/art/archer_defeat.png",
+      "sha256": "9e15f01883e949436ec16eab3efa2c621f09c083e6ad27492ad098bdd5d947ba",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_defeat.png.import",
+      "sha256": "41a5d7325d5fc361ef2a80719b4916a1a8e787be9cfa18580737754f1cc90bbb",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_defeat_enemy.png",
+      "sha256": "b1eab7f20f6c3f547efa6f527beb2270a8e33d321b6b48dfa6c1635bd0efc8e1",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_defeat_enemy.png.import",
+      "sha256": "a7deb107f014a03fb52417ca57b33dd35718eb221baefd1954415842153b63fa",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_draw.png",
+      "sha256": "d54a878381ddf3075d10815ce1812f36ab7ccf256a7b68d96475c4bafe09f5dc",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_draw.png.import",
+      "sha256": "f31231641c562a423806d0d14a2f8f56d1f45134c467969d9dfa432edf75d242",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_draw_enemy.png",
+      "sha256": "029f12e47c3872e34bb2323a5713fa3ce034e71260540e5bf0688c5c5e2eb39a",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_draw_enemy.png.import",
+      "sha256": "f793802f9c72ad5a2f3f466da5b82cc211356dd1aea82c513f96cd69fe4db809",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_hurt.png",
+      "sha256": "d83181874673517f70b264c9d57d1f1a6c481ea9e44a29bc293f6ba50d6305e8",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_hurt.png.import",
+      "sha256": "71dbf664993f0494c51a36b722653562ef9ca6d550531cb84ac19b87859a9b26",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_hurt_enemy.png",
+      "sha256": "4bd1df2832ded64bf1a07cd2d29083c9a3fdd648352fc08b4b0e98ed4a7d0891",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_hurt_enemy.png.import",
+      "sha256": "3687f12554808d571bff191ba22eadf59dc78cafc340498c06cf76b03b2c3bf0",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_idle.png",
+      "sha256": "8cf54fc306be896e7fc07c0c7696587db50cbb199e444fd634c589021d3a7981",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_idle.png.import",
+      "sha256": "fdd570c51a2c138752bbfd8ee047944ae910da247a7a0e1bd56ecd7a1f0c81f5",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_idle_enemy.png",
+      "sha256": "7d962587bc90369716f63ccee841e642e34c31e720d1a56b87bcdbd8b471d0b9",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_idle_enemy.png.import",
+      "sha256": "61a6a28c99198f99fd407050a32302f56802cbd2e5942be16052f9001e21663c",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_win.png",
+      "sha256": "05a1cfdf23d011603020c16cc154176bd622d6890671558cd863f19509d3e594",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_win.png.import",
+      "sha256": "24620788659bacfcd50173bc6fb9dced1d98ca1d138c38e73e33f2e8bab0dae6",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_win_enemy.png",
+      "sha256": "e1bf03dcd80433b4bedf8e7e37276f6f369adf44f29006c302ccbd69d681516c",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/archer_win_enemy.png.import",
+      "sha256": "f5ca30eade618f7ee10326d86f8d01df51533b0c3ba818a1201db667aaf2d32c",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "assets/art/env_table.png",
+      "sha256": "35ff960a4352d5d4fbd5bbb11f9ae597e0f466725fe2ad02f2075312f7f41d00",
+      "role": "generated art (texture)",
+      "component_ids": [
+        "environment-art"
+      ]
+    },
+    {
+      "path": "assets/art/env_table.png.import",
+      "sha256": "e543cfe8c5228cdfd2ef5fcb3f4a151bb9dc776584511be9661c1cbd79558776",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "environment-art"
+      ]
+    },
+    {
+      "path": "assets/music/mus_loop.ogg",
+      "sha256": "e353150ffe3b6cb892f0006da020da8295a361dfbf6c732c191a031e63c20b26",
+      "role": "generated audio",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "assets/music/mus_loop.ogg.import",
+      "sha256": "ea06146d5e7239cf7daf731177ec3f99bd6cbf17a86eadb5bebbaf71f951309c",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "assets/sfx/sfx_hit.ogg",
+      "sha256": "4f6bd9a147b1fc71860cf07ae86dc580c256b5a5220b459ab315dc1005d0932b",
+      "role": "generated audio",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "assets/sfx/sfx_hit.ogg.import",
+      "sha256": "bd094bf917d341bca763aee050e4bd19a9fd1f2f4aa4deafb7ba78ef7a39f9ec",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "assets/sfx/sfx_hop.ogg",
+      "sha256": "e0d82aef92304430d06d57fb13ea7b8ef9bf019e2ca6120a262daee75a6021d1",
+      "role": "generated audio",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "assets/sfx/sfx_hop.ogg.import",
+      "sha256": "6aed44dd33c681a09f115594cb8854bdcf2ebfe8e6c8e27e5872458ac435e802",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "assets/sfx/sfx_hurt.ogg",
+      "sha256": "0007903152462be5868d7bd6fca6bf6eb944e2e38e8fe3c42b5a212f137ee25b",
+      "role": "generated audio",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "assets/sfx/sfx_hurt.ogg.import",
+      "sha256": "2af8e5a5511d8b7fe6f7f6fe84c565496727a09c1b4e679cb2455769d576944f",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "assets/sfx/sfx_win.ogg",
+      "sha256": "4fb7467fd965625f7a5735863f72e56b576bae90804305f8f77c421e75fa03ec",
+      "role": "generated audio",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "assets/sfx/sfx_win.ogg.import",
+      "sha256": "a8651d6de4e9f1a33edd49cba4c8a62a8db73ac86d8453a759de1e92497f7833",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "default_bus_layout.tres",
+      "sha256": "a096ac71dcf358435b23bea48216ad05329edb59f842c387e61670785b5a95c4",
+      "role": "audio bus layout resource",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "game/audio_director.gd",
+      "sha256": "5be33a9e231d2cd1803adb52e47cf9073817beaeda1a262489db139686bbf308",
+      "role": "GDScript source",
+      "component_ids": [
+        "audio"
+      ]
+    },
+    {
+      "path": "game/draw_layer.gd",
+      "sha256": "838e0116940594a184aed777b592a353904b02e2b9df663ba7741b83c651c74d",
+      "role": "GDScript source",
+      "component_ids": [
+        "scene-controller"
+      ]
+    },
+    {
+      "path": "game/main.gd",
+      "sha256": "66a03dc441865aa5e40df6c8893b5ae47e2ead0a94acf02d3809a004a0db3351",
+      "role": "GDScript source",
+      "component_ids": [
+        "scene-controller"
+      ]
+    },
+    {
+      "path": "game/main.tscn",
+      "sha256": "460c8ef08c524945af9cc72f92f3e08ea8714ce7ae5e36f17cbbb0d6e1b2629b",
+      "role": "saved scene",
+      "component_ids": [
+        "scene-controller"
+      ]
+    },
+    {
+      "path": "game/piece.gd",
+      "sha256": "7953af061879a9a9281813e1f9d906006d062204f44f98280e67d312dc5c50f8",
+      "role": "GDScript source",
+      "component_ids": [
+        "piece-display"
+      ]
+    },
+    {
+      "path": "game/rules.gd",
+      "sha256": "8ab73234d9a19ee752bddb1c358c1ececd2c78adda509419968f2efe7c28e3d8",
+      "role": "GDScript source",
+      "component_ids": [
+        "rules-engine"
+      ]
+    },
+    {
+      "path": "project.godot",
+      "sha256": "1310550bc37fce99b061109de28eb4127b2c9ca466081f8dafa4bd1b9e153d19",
+      "role": "project configuration",
+      "component_ids": [
+        "scene-controller"
+      ]
+    },
+    {
+      "path": "tests/analyze_variants.gd",
+      "sha256": "63bb2b5d104f4e6741cce3af59e85cc8e8047cb7dc284b49b8bbf1ba73562450",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/capture.gd",
+      "sha256": "a0a64f2699fdd2c61acb332aa02cedc7c6ec8a36278735b55e170b3629595ff3",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/fixtures/lose_route.json",
+      "sha256": "1eb9e0046c4b778879edd1a1276ede3d0c06b8eaaf3f7c5146ccbcf5e407b5f4",
+      "role": "route fixture (test data)",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/fixtures/win_route.json",
+      "sha256": "3f04c4a423bd3a666921e0d1245a451008434002e6e3571ce877f60a6920bc1e",
+      "role": "route fixture (test data)",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/route_runner.gd",
+      "sha256": "7be5b20acdfa1a7dc00aa23675e3bf8e24ecb4b651057f316340742028c91292",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/test_audio_events.gd",
+      "sha256": "057b650474d237658e72b4ff5234533a116c6acb6ff10f5944de991f815b63e3",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/test_report.gd",
+      "sha256": "9f0ceb144e7209743f4a279ea620394a0dfb1ef99f55d9a85dc3c72c09963971",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/test_rules.gd",
+      "sha256": "8563d55bc8f8596478e7641dac1ab59dcf49131d6ddbd9b33994133666ba0cbe",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "rules-engine",
+      "explanation": "game/rules.gd is the whole rule set as plain data: board 8 x 5, units, orders in, a list of events out (moved, attack, damaged, killed, attack_cancelled), deterministic, no nodes and no audio. The attack loop alternates sides one unit at a time, the side that strikes first switches each turn (first_side), and a unit killed before its turn does not attack. Shown in B12; its consequence (the naive plan loses on turn 4) in B13.",
+      "beat_ids": [
+        "B12",
+        "B13"
+      ],
+      "files": [
+        "game/rules.gd"
+      ]
+    },
+    {
+      "id": "scene-controller",
+      "explanation": "game/main.gd asks Rules for the result first, then plays the returned events back once on its own clock (hop, draw, arrow, impact, cards) and calls AudioDirector at the moment each event is shown; it draws the board, HUD, markers and arrow in code through draw_layer.gd. main.tscn holds Main + AudioDirector; project.godot sets the 1280 x 720 canvas_items viewport. Seen running in B03 and cited in B15 (main.gd lines 411 and 507).",
+      "beat_ids": [
+        "B03",
+        "B15"
+      ],
+      "files": [
+        "game/main.gd",
+        "game/main.tscn",
+        "game/draw_layer.gd",
+        "project.godot"
+      ]
+    },
+    {
+      "id": "piece-display",
+      "explanation": "game/piece.gd swaps one static generated texture per state (idle, draw, hurt, defeat, win), scales every pose with the idle image's scale, flips the enemy with flip_h and positions the sprite from the base disc. The ten archer PNGs (player + recoloured enemy) and their import sidecars are the generated, edited character art traced in B04-B09.",
+      "beat_ids": [
+        "B07",
+        "B09",
+        "B10",
+        "B11"
+      ],
+      "files": [
+        "game/piece.gd",
+        "assets/art/archer_defeat.png",
+        "assets/art/archer_defeat.png.import",
+        "assets/art/archer_defeat_enemy.png",
+        "assets/art/archer_defeat_enemy.png.import",
+        "assets/art/archer_draw.png",
+        "assets/art/archer_draw.png.import",
+        "assets/art/archer_draw_enemy.png",
+        "assets/art/archer_draw_enemy.png.import",
+        "assets/art/archer_hurt.png",
+        "assets/art/archer_hurt.png.import",
+        "assets/art/archer_hurt_enemy.png",
+        "assets/art/archer_hurt_enemy.png.import",
+        "assets/art/archer_idle.png",
+        "assets/art/archer_idle.png.import",
+        "assets/art/archer_idle_enemy.png",
+        "assets/art/archer_idle_enemy.png.import",
+        "assets/art/archer_win.png",
+        "assets/art/archer_win.png.import",
+        "assets/art/archer_win_enemy.png",
+        "assets/art/archer_win_enemy.png.import"
+      ]
+    },
+    {
+      "id": "environment-art",
+      "explanation": "assets/art/env_table.png is the SDXL tabletop (ENV-TABLE s301, scaled/cropped to 1280 x 720) drawn behind the code-drawn linen board; credited to SDXL in B19 and visible in every gameplay beat.",
+      "beat_ids": [
+        "B03",
+        "B19"
+      ],
+      "files": [
+        "assets/art/env_table.png",
+        "assets/art/env_table.png.import"
+      ]
+    },
+    {
+      "id": "audio",
+      "explanation": "game/audio_director.gd turns already-resolved rules events into sounds (moved -> SFX-HOP, damaged enemy by the player -> SFX-HIT, damaged player -> SFX-HURT, entering WON -> SFX-WIN once) and runs the music loop (duck on pause, fade on defeat, stop on win); default_bus_layout.tres provides the Music and SFX buses for M/N. The four ElevenLabs OGGs and the MusicGen loop are the assets. Heard in B14 (no narration), explained in B15, measured in B16.",
+      "beat_ids": [
+        "B15",
+        "B16"
+      ],
+      "files": [
+        "game/audio_director.gd",
+        "default_bus_layout.tres",
+        "assets/sfx/sfx_hop.ogg",
+        "assets/sfx/sfx_hop.ogg.import",
+        "assets/sfx/sfx_hit.ogg",
+        "assets/sfx/sfx_hit.ogg.import",
+        "assets/sfx/sfx_hurt.ogg",
+        "assets/sfx/sfx_hurt.ogg.import",
+        "assets/sfx/sfx_win.ogg",
+        "assets/sfx/sfx_win.ogg.import",
+        "assets/music/mus_loop.ogg",
+        "assets/music/mus_loop.ogg.import"
+      ]
+    },
+    {
+      "id": "tests",
+      "explanation": "Headless suites: test_rules.gd (51 rules checks) and test_audio_events.gd (70 scene checks: sounds == events per id, echo/rapid input ignored, muted run identical) with route_runner.gd, test_report.gd and the two route fixtures, which also drive this film's capture; capture.gd (screenshots) and analyze_variants.gd (the exhaustive search behind CHANGE-BRIEF R1). B17 shows the recorded output; B12 cites the search. Tests use synthetic input and a fast clock, so they cannot judge feel or fun.",
+      "beat_ids": [
+        "B03",
+        "B12",
+        "B17"
+      ],
+      "files": [
+        "tests/test_rules.gd",
+        "tests/test_audio_events.gd",
+        "tests/route_runner.gd",
+        "tests/test_report.gd",
+        "tests/capture.gd",
+        "tests/analyze_variants.gd",
+        "tests/fixtures/win_route.json",
+        "tests/fixtures/lose_route.json"
+      ]
+    }
+  ],
+  "excerpts": [
+    {
+      "beat_id": "B10",
+      "path": "game/piece.gd",
+      "start_line": 175,
+      "end_line": 185,
+      "text": "\t# One scale for every pose, taken from the idle image, so all states share the same pixel size.\n\tvar ref: Texture2D = _find_texture(\"idle\")[0]\n\tif ref == null:\n\t\tref = tex\n\tvar s: float = TARGET_HEIGHT / maxf(1.0, float(ref.get_height()))\n\t_sprite.texture = tex\n\t_sprite.visible = true\n\t_sprite.modulate = found[2]\n\t_sprite.scale = Vector2(s, s)\n\t_sprite.flip_h = facing < 0\n\t_sprite.position = Vector2(0.0, -tex.get_height() * s * 0.5 + BASE_FROM_BOTTOM - _lift)"
+    },
+    {
+      "beat_id": "B12",
+      "path": "game/rules.gd",
+      "start_line": 341,
+      "end_line": 346,
+      "text": "\tfor id: String in attack_order(targets):\n\t\tvar u: Dictionary = get_unit(id)\n\t\tif int(u[\"hp\"]) <= 0:\n\t\t\tcontinue # killed before its turn: no attack\n\t\tif not targets.has(id):\n\t\t\tcontinue"
+    },
+    {
+      "beat_id": "B15",
+      "path": "game/audio_director.gd",
+      "start_line": 105,
+      "end_line": 118,
+      "text": "\tmatch String(ev.get(\"type\", \"\")):\n\t\t\"moved\":\n\t\t\t_trigger(\"SFX-HOP\", ev)\n\t\t\"damaged\":\n\t\t\tvar key: String = String(ev.get(\"attack\", \"\"))\n\t\t\tif _sounded_attacks.has(key):\n\t\t\t\tguarded_skips += 1\n\t\t\t\treturn\n\t\t\tif ev[\"team\"] == PLAYER:\n\t\t\t\t_sounded_attacks[key] = true\n\t\t\t\t_trigger(\"SFX-HURT\", ev)\n\t\t\telif ev[\"team\"] == ENEMY and ev.get(\"by_team\", \"\") == PLAYER:\n\t\t\t\t_sounded_attacks[key] = true\n\t\t\t\t_trigger(\"SFX-HIT\", ev)"
+    }
+  ],
+  "exclusions": [
+    {
+      "path": "assets/art/.gitkeep",
+      "reason": "Empty placeholder that keeps the folder in git; no content to explain."
+    },
+    {
+      "path": "assets/music/.gitkeep",
+      "reason": "Empty placeholder that keeps the folder in git; no content to explain."
+    },
+    {
+      "path": "assets/sfx/.gitkeep",
+      "reason": "Empty placeholder that keeps the folder in git; no content to explain."
+    }
+  ],
+  "code_result_pairs": [
+    {
+      "code_beat": "B10",
+      "result_beat": "B11",
+      "observation": "Lose-route turn 3 in the running game: the player's draw pose, the arrow, the enemy's hurt pose (same art recoloured, flipped to face left), then the enemy's draw and the player's hurt pose; every pose stands on the same base spot.",
+      "media": {
+        "path": "media/B11.mp4",
+        "sha256": "6a52ed4d2309e262b5e3b06761845d7f81bc9bb357d2b129044e22ae6427d906"
+      }
+    },
+    {
+      "code_beat": "B12",
+      "result_beat": "B13",
+      "observation": "Turn 4: the enemy holds order 1 and shoots first; the player's archer topples before its own attack; no player arrow is shown; the defeat card reads 'Shot by the enemy archer in lane 4'.",
+      "media": {
+        "path": "media/B13.mp4",
+        "sha256": "341372ef077625ce829326f34f221537de21879f610f42096343989174c5e34c"
+      }
+    },
+    {
+      "code_beat": "B15",
+      "result_beat": "B16",
+      "observation": "The measured B14 audio: seven onsets matched to the game's own SFX files within 1-11 ms of the logged rules-event frames, in the logged order HOP, HOP, HOP, HURT, HIT, HIT, WIN, with silence after the win.",
+      "media": {
+        "path": "media/B16.mp4",
+        "sha256": "c1ef2a37a202dbd252d123464d90d087f0dd43797fb97cfc9db0a415dc37e53d"
+      }
+    }
+  ]
+}

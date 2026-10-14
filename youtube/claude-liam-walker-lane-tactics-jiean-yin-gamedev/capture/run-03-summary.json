@@ -1,0 +1,53 @@
+{
+	"failed": "",
+	"fps": 30,
+	"frames": 1672,
+	"logical": [
+		1280,
+		720
+	],
+	"master": "run-4k.mkv (FFV1 lossless, bgr0)",
+	"mode": "full",
+	"music_history": [
+		"playing",
+		"fading",
+		"stopped",
+		"playing",
+		"stopped"
+	],
+	"notes": [
+		"OK: main.time_scale is 1.0 (normal speed)",
+		"OK: title with music playing",
+		"OK: turn 1 planned offset (1, 0)",
+		"OK: turn 2 planned offset (1, 0)",
+		"OK: turn 3 planned offset (1, 0)",
+		"OK: turn 3 target (4, 3) selectable",
+		"OK: turn 4 planned offset (1, 0)",
+		"OK: turn 4 target (4, 3) selectable",
+		"OK: lose route ends LOST: shot by the enemy archer in lane 4",
+		"OK: lose route sounds { \"SFX-HOP\": 7, \"SFX-HIT\": 1, \"SFX-HURT\": 2, \"SFX-WIN\": 0 }",
+		"OK: defeat: player piece toppled",
+		"OK: defeat: music faded out and stopped",
+		"OK: retry: turn 1, retries 1, music restarted",
+		"OK: F3 footprints shown",
+		"OK: turn 4 planned offset (1, 0)",
+		"OK: turn 4 target (3, 3) selectable",
+		"OK: turn 5 target (3, 3) selectable",
+		"OK: win route ends WON by elimination on turn 5",
+		"OK: win route sounds { \"SFX-HOP\": 5, \"SFX-HIT\": 2, \"SFX-HURT\": 1, \"SFX-WIN\": 1 }",
+		"OK: win: music stopped",
+		"OK: win: player piece in the win pose",
+		"OK: results card shown"
+	],
+	"play_counts_total": {
+		"SFX-HIT": 3,
+		"SFX-HOP": 12,
+		"SFX-HURT": 3,
+		"SFX-WIN": 1
+	},
+	"process_frame_at_frame0": 0,
+	"subviewport": [
+		3840,
+		2160
+	]
+}

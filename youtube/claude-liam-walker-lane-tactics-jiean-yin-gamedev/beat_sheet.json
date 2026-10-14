@@ -1,0 +1,1051 @@
+{
+  "metadata": {
+    "title": "Lane Tactics: From Sketch to Seed to Sound",
+    "slug": "claude-liam-walker-lane-tactics-jiean-yin-gamedev",
+    "topic": "WALKER · GODOT GAMEDEV",
+    "kind": "godot-gamedev",
+    "skill": "godot-gamedev",
+    "modifier": "walker",
+    "brand": "claude-liam",
+    "audience": "Course reviewers and makers following Walker/Claude workflows",
+    "register": "Teardown",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "aspect_ratio": "16:9",
+    "fit": "crop",
+    "captions": false,
+    "channel": "@NikBearBrown",
+    "folderLabel": "@NikBearBrown",
+    "greeting": "Hello, Liam",
+    "greeting_note": "English-only film (Jiean's request at the approval gate): 'Hello', replacing the lexicon's world-language hello. Liam never takes Wagwan.",
+    "persona": "Liam (in for Bear)",
+    "presenter": "Liam (in for Bear)",
+    "in_for_bear": true,
+    "title_status": "default title from the brief; the student may change it",
+    "game": {
+      "name": "walker-lane-tactics-jiean-yin",
+      "repository": "https://github.com/Jiean-Yin/walker-lane-tactics-jiean-yin",
+      "source_revision": "film-source-v1 = fcf33eff6c501d32624532ca197257a646552991 (godot/ identical to 12f7283)",
+      "engine": "Godot 4.7.2.stable.official.ed1daf0bf"
+    },
+    "audio_policy_note": "Narration only on narrated beats (game audio muted under narration). The slice's own music + SFX are heard only in B14 (labelled 'Slice audio — no narration'). The outro card carries only Liam's voice.",
+    "labels": {
+      "gameplay": "SCRIPTED INPUT · REAL GODOT RENDER / film-source-v1 · game audio muted",
+      "slice_audio": "SLICE AUDIO — NO NARRATION / music + SFX as recorded, same run",
+      "reconstruction": "Illustrative reconstruction of the Claude interface — not a transcript",
+      "editor": "Godot editor reconstruction (printed by GodotDevWorkbench)",
+      "raw": "Raw SDXL output — not in-engine",
+      "held": "held frame"
+    },
+    "build": {
+      "at": "2026-10-13T21:51:27",
+      "cut": "master",
+      "filled": 23,
+      "of": 23,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "narration_text": "Hello — this is Liam, in for Bear. Jiean Yin designed a game called Lane Tactics on paper first, then used generative models for its art, sound and music, and Claude Code built a small Godot slice to test them together. This prompt is an illustrative reconstruction, not a transcript. Everything after it comes from the real project.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "walker B00 — ClaudeComposerAsk; prompt begins 'Please use Walker to convert my game design document about …'. Illustrative reconstruction, labelled. Liam introduces himself first.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on",
+        "label": "Illustrative reconstruction of the Claude interface — not a transcript",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hello, Liam",
+            "topic": "WALKER · GODOT GAMEDEV",
+            "segment": "From Sketch to Seed to Sound",
+            "command": "Please use Walker to convert my game design document about Lane Tactics — carved wooden archers on a five-lane tabletop board, chess-like moves, both sides ordering at once — into a small playable Godot slice that proves the generated art, sound effects and music.",
+            "runningText": "reading CONCEPT.md…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "High",
+            "output": [
+              "Archer poses: SDXL. Sounds: ElevenLabs. Music: MusicGen.",
+              "Rules checks 51/51 · sound checks 70/70.",
+              "Source shown: film-source-v1 (fcf33ef)."
+            ]
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-10-14T01:41:05.483790+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B00.mp3",
+      "actual_duration_s": 18.37,
+      "render_duration_s": 18.4,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "narration_text": "What was built: one small playable slice of Lane Tactics, where the generated assets are judged in the running game, not in a folder. We'll follow one archer from sketch to seed to screen, and hear four sounds the rules fire.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "lead_silence_s": 0.8,
+      "role_note": "walker B01 — hesitant-writer overview of what was built. Correction 'folders' -> 'the running game' (one-token trigger; the component matches single words) is the assignment's own point (judged in the running scene, not the image folder).",
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "Hesitant-writer BLUF bookend: centred serif lines typed on cream; mostly-cream frames are the mandated design."
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on-correct",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Lane Tactics: generated assets,\njudged in folders.\nOne archer, from sketch to seed.\nFour sounds, fired by the rules.",
+            "triggerWords": "folders",
+            "replacementWords": "the running game",
+            "fontSize": 84,
+            "lineSpacing": 2.3,
+            "align": "center",
+            "seed": "lane-tactics-6194",
+            "mistakeRate": 2,
+            "hesitateWithin": 0,
+            "hesitateBetween": 1,
+            "charMs": 8,
+            "ink": "#3D3929",
+            "accent": "#D97757",
+            "bg": "#FAF9F5"
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-10-13T05:33:29.386706+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B01-timed.wav",
+      "actual_duration_s": 13.3,
+      "voice_duration_s": 12.48,
+      "clip_frames": 399,
+      "duration_note": "voice 12.480s + lead 0.8s, padded with silence to 399 frames = 399/30 s",
+      "render_duration_s": 13.3,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "CONCEPT",
+      "narration_text": "The concept, in plain terms. Carved wooden pieces on a five-lane board. You and an AI general give orders at the same moment, both plans play out together, and the first side onto the other's back row wins. Four pillars. Read the board at a glance. Plans collide. Every piece has weight. And when you lose a piece, you can see why. Each pillar names one look or sound choice, so it can be checked later.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Requirement 1: concept and four pillars in plain terms (CONCEPT.md). Rendered as our own composite (see shot.replaced_remotion).",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_stills.py B02",
+        "label": "CONCEPT.md version 1 — exact excerpt; pillar wording shortened on the cards",
+        "typography_note": "Composite of the concept document excerpt and the pillars table with our captions (>= 41 px at 4K).",
+        "replaced_remotion": {
+          "pattern": "GodotDesignBoard",
+          "reason": "its hard-coded @NikBearBrown sits ~9 px below the 16:9 title-safe edge (Gate V edge-bleed BLOCKER at y 1027-1035 of 1080); not patched in Brutalist",
+          "cards": [
+            {
+              "label": "1 · Read the board at a glance",
+              "text": "Team paint, thick outline, and facing: teal right, red left."
+            },
+            {
+              "label": "2 · Plans collide",
+              "text": "Patient music while you plan; sharp single sounds on the reveal."
+            },
+            {
+              "label": "3 · Every piece has weight",
+              "text": "Pieces hop and land with a wooden clack (SFX-HOP)."
+            },
+            {
+              "label": "4 · Fair, readable consequences",
+              "text": "The target is marked before the hit; HP pips drop with the sound."
+            }
+          ],
+          "excerpt": "You command a small army of carved wooden pieces on a five-lane tabletop board, and you face an AI general who gives its orders at the same moment you give yours. Each turn you decide where every piece steps and what it strikes; then both plans play out together, and the first side to stand a piece on the enemy's back row wins."
+        }
+      },
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 19.75,
+      "render_duration_s": 19.766666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B02.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "GAMEPLAY",
+      "narration_text": "The running slice, driven by scripted input. Your teal archer faces right; the red one faces left. You plan one step, both sides move at once, and each piece hops.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Real capture run-03 frames 0-327: title (music starts), Enter, board at start, lose-route turns 1-2 (planned-move marker, both pieces hop). Idle state on the board.",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot gameplay capture: the game's table, board and HUD run edge to edge by design; the skill forbids reframing gameplay to fill a frame. Underfill/contrast checks still apply."
+      },
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "capture": "run-03",
+        "frames": [
+          0,
+          328
+        ],
+        "capture_kind": "godot-engine-gameplay (scripted input, Movie Maker run)",
+        "label": "SCRIPTED INPUT · REAL GODOT RENDER|film-source-v1 · game audio muted",
+        "typography_note": "Raw engine capture: the HUD text is the game's own UI (diegetic). The burned label is ours and is measured separately."
+      },
+      "audio_file": "mp3/beat-B03-timed.wav",
+      "actual_duration_s": 10.933333333333334,
+      "voice_duration_s": 9.792,
+      "lead_silence_s": 0.3,
+      "clip_frames": 328,
+      "duration_note": "voice 9.792s + lead 0.3s, padded with silence to 328 frames = 328/30 s (clip length; no retiming)",
+      "render_duration_s": 10.933333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B03.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "TRACE-DESIGN",
+      "narration_text": "Step one was paper. The character sheet fixes the idle pose: a ball head with one dot eye, a navy hood, a teal body, a base disc that is always visible, and a thick dark outline, because birch wood on linen is only 1.1 to 1 contrast. That sketch is also the image the model starts from.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Asset trace 1/6 (CHAR-IDLE): character-sheet pose 2 idle, storyboard panel 2, and the img2img init image design/character/init/idle.png.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_stills.py B04",
+        "label": "Design sketches (SVG by Claude Code under Jiean Yin's direction) — not generated art",
+        "typography_note": "Composite of design sketches with our captions (>= 41 px at 4K, inside title-safe)."
+      },
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 16.81,
+      "render_duration_s": 16.833333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B04.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "TRACE-PROMPT",
+      "narration_text": "Step two: the exact recipe, from the asset log. Stable Diffusion XL base 1.0, run locally. Image-to-image from that sketch at strength point eight. In the reference runs, point seven five had traced the sketch, and point eight five drifted to a front view. Prompt P4, negative prompt N2, thirty steps, guidance seven, and three seeds.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Asset trace 2/6: gen-log.jsonl line 18 (CHAR-IDLE pose01 s211): model, img2img, init image, strength 0.8, P4 prompt, N2 negative, seed, steps, guidance, size.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_stills.py B05",
+        "label": "assets/gen-log.jsonl, CHAR-IDLE seed 211 — values verbatim, long strings wrapped for display",
+        "typography_note": "Composite of the logged record with our captions (>= 41 px at 4K)."
+      },
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 18.82,
+      "render_duration_s": 18.833333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B05.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "TRACE-RAW",
+      "narration_text": "Three raw outputs, straight from the model, and not in the engine yet. Same prompt, three seeds, three different pieces. Claude recommended seed 202. Jiean chose 211. Seed 212 was rejected for long hair and a front-facing face. Every seed and hash is logged, so any row can be regenerated.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Asset trace 3/6: assets/_raw/art/CHAR-IDLE/*.png (s202, s211, s212), hashes match gen-log; Jiean's choice s211.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_stills.py B06",
+        "label": "Raw SDXL output — not in-engine",
+        "typography_note": "Three raw 1024x1024 outputs (downscaled) with our captions."
+      },
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 17.47,
+      "render_duration_s": 17.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B06.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "TRACE-EDITS",
+      "narration_text": "Then the edits, each one logged with input and output hashes. rembg, with its U-two-net model, cuts out the background. A cleanup pass removes the white halo. The piece is scaled and anchored on its base. The enemy is the same art: only teal pixels turn red. But look at the second panel. The base disc is gone.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Asset trace 4/6: raw s211 -> 4d5ff51 archer_idle.png (rembg u2net + halo cleanup + scale/anchor; base erased, sha a00d7b5d) -> 12f7283 archer_idle.png (base disc redrawn, sha 8cf54fc3) -> archer_idle_enemy.png (teal -> red, sha 7d962587).",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_stills.py B07",
+        "label": "Asset files from the repository history and assets/edit-log.jsonl — not in-engine",
+        "typography_note": "Composite of the actual sprite files with our captions."
+      },
+      "audio_file": "mp3/beat-B07.mp3",
+      "actual_duration_s": 16.7,
+      "render_duration_s": 16.7,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B07.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "CAUSE",
+      "narration_text": "Here is the cause. This line treats any pixel brighter than 232 in all three channels as halo, and makes it transparent. That fixed the reference image's white halo. But seed 211 had painted its base near-white, so the same line erased it. The fix was a logged hand edit: a walnut disc, redrawn behind the piece at the sheet's 40 by 12.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Requirement 5 cause->effect: the halo-cleanup threshold (default --white 232) erased idle s211's near-white base; the base disc was redrawn (edit-log). Verbatim lines 43-50 and 100.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "label": "Actual source excerpt (design/tools/process_sprites.py @ film-source-v1) · reconstructed code view",
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "design/tools/process_sprites.py — film-source-v1",
+            "code": "# lines 43-50\ndef cutout(src: Path, session, white: int) -> Image.Image:\n    from rembg import remove\n    im = remove(Image.open(src).convert(\"RGB\"), session=session)\n    a = np.array(im)\n    rgb, al = a[..., :3].astype(int), a[..., 3]\n    halo = (rgb.min(axis=2) > white) | (al < 40)\n    a[..., 3] = np.where(halo, 0, al)\n    return Image.fromarray(a)\n\n# line 100\n    ap.add_argument(\"--white\", type=int, default=232)",
+            "sparkLine": "Near-white means halo — even when it is the base.",
+            "language": "python",
+            "largeText": true
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-10-13T05:12:48.366779+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 18.99,
+      "render_duration_s": 19.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B08.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "GAMEPLAY",
+      "narration_text": "In the engine: retry brings both archers back in idle. F3 draws each footprint slot and base disc.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Asset trace 6/6, in-engine result. Real capture run-03 frames 812-1027: R retry -> both archers back in idle; F3 footprint slots (red 64x96) and base discs (blue 40x12) drawn by the game; F3 off; win-route turn 1 starts (enemy hop).",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot gameplay capture: the game's table, board and HUD run edge to edge by design; the skill forbids reframing gameplay to fill a frame. Underfill/contrast checks still apply."
+      },
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "capture": "run-03",
+        "frames": [
+          812,
+          1028
+        ],
+        "capture_kind": "godot-engine-gameplay (scripted input, Movie Maker run)",
+        "label": "SCRIPTED INPUT · REAL GODOT RENDER|film-source-v1 · game audio muted",
+        "typography_note": "Raw engine capture: the HUD text is the game's own UI (diegetic). The burned label is ours and is measured separately."
+      },
+      "audio_file": "mp3/beat-B09-timed.wav",
+      "actual_duration_s": 7.2,
+      "voice_duration_s": 6.507,
+      "lead_silence_s": 0.3,
+      "clip_frames": 216,
+      "duration_note": "voice 6.507s + lead 0.3s, padded with silence to 216 frames = 216/30 s (clip length; no retiming)",
+      "render_duration_s": 7.2,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B09.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "CODE",
+      "narration_text": "Now the code that puts that image on the board. piece dot g d swaps one static image per state. Every pose takes the idle image's scale, so all five share one pixel size. flip h turns the enemy to face left. And the position is measured up from the base, so every pose stands on the same spot.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Code beat: piece.gd _apply_visual lines 175-185 (verbatim). Result follows in B11.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "piece.gd: One Image per State, One Anchor",
+            "project": "Lane Tactics asset slice",
+            "path": "res://game/piece.gd",
+            "source": "godot/game/piece.gd · lines 175–185 · film-source-v1 = fcf33ef",
+            "code": "\t# One scale for every pose, taken from the idle image, so all states share the same pixel size.\n\tvar ref: Texture2D = _find_texture(\"idle\")[0]\n\tif ref == null:\n\t\tref = tex\n\tvar s: float = TARGET_HEIGHT / maxf(1.0, float(ref.get_height()))\n\t_sprite.texture = tex\n\t_sprite.visible = true\n\t_sprite.modulate = found[2]\n\t_sprite.scale = Vector2(s, s)\n\t_sprite.flip_h = facing < 0\n\t_sprite.position = Vector2(0.0, -tex.get_height() * s * 0.5 + BASE_FROM_BOTTOM - _lift)",
+            "startLine": 175,
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "STATES (line 15)",
+                "value": "idle, draw, hurt, defeat, win (+ hop, recover → idle)"
+              },
+              {
+                "label": "TARGET_HEIGHT (line 9)",
+                "value": "80 px; idle image sets the scale"
+              }
+            ],
+            "cues": [
+              {
+                "at": 3.38,
+                "line": 180,
+                "label": "line 180: one static texture per state"
+              },
+              {
+                "at": 6.55,
+                "line": 179,
+                "label": "lines 176-179: every pose uses the idle image's scale"
+              },
+              {
+                "at": 9.66,
+                "line": 184,
+                "label": "line 184: flip_h turns the enemy to face left"
+              },
+              {
+                "at": 12.95,
+                "line": 185,
+                "label": "line 185: positioned from the base disc"
+              }
+            ],
+            "output": [
+              "Display only: piece.gd never decides anything (line 2)"
+            ],
+            "durationSeconds": 16.9
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": "2026-10-13T05:14:34.269847+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B10.mp3",
+      "actual_duration_s": 16.9,
+      "render_duration_s": 16.9,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B10.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "GAMEPLAY",
+      "narration_text": "Turn three of a naive plan: both step in, and you strike first. Draw, arrow, the enemy's hurt pose. Then it answers.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Result of B10. Real capture run-03 frames 328-549: lose-route turn 3 — planned step, hops, target marker and order numbers, then the exchange: player draw, arrow, enemy hurt (flipped, facing left), enemy draw, player hurt, both back to idle.",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot gameplay capture: the game's table, board and HUD run edge to edge by design; the skill forbids reframing gameplay to fill a frame. Underfill/contrast checks still apply."
+      },
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "capture": "run-03",
+        "frames": [
+          328,
+          550
+        ],
+        "capture_kind": "godot-engine-gameplay (scripted input, Movie Maker run)",
+        "label": "SCRIPTED INPUT · REAL GODOT RENDER|film-source-v1 · game audio muted",
+        "typography_note": "Raw engine capture: the HUD text is the game's own UI (diegetic). The burned label is ours and is measured separately.",
+        "evidence_media": "media/B11.mp4"
+      },
+      "audio_file": "mp3/beat-B11-timed.wav",
+      "actual_duration_s": 7.4,
+      "voice_duration_s": 7.125,
+      "lead_silence_s": 0.15,
+      "clip_frames": 222,
+      "duration_note": "voice 7.125s + lead 0.15s, padded with silence to 222 frames = 222/30 s (clip length; no retiming)",
+      "render_duration_s": 7.4,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B11.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "CODE",
+      "narration_text": "Why that plan loses is in rules dot g d. Attacks resolve one unit at a time, and the side that strikes first alternates every turn. A unit killed before its turn simply doesn't fire. The slice has one enemy, not two, because an exhaustive search showed two could only be beaten on the tie rule.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Code beat: rules.gd attack loop lines 341-346 (killed before its turn). Result follows in B13. R1 one-enemy change (analyze_variants.gd).",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "rules.gd: Who Strikes First",
+            "project": "Lane Tactics asset slice",
+            "path": "res://game/rules.gd",
+            "source": "godot/game/rules.gd · lines 341–346 · film-source-v1 = fcf33ef",
+            "code": "\tfor id: String in attack_order(targets):\n\t\tvar u: Dictionary = get_unit(id)\n\t\tif int(u[\"hp\"]) <= 0:\n\t\t\tcontinue # killed before its turn: no attack\n\t\tif not targets.has(id):\n\t\t\tcontinue",
+            "startLine": 341,
+            "codeFontSize": 30,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "first_side() (line 160)",
+                "value": "PLAYER if turn % 2 == 1 else ENEMY"
+              },
+              {
+                "label": "CHANGE-BRIEF R1",
+                "value": "two enemies: only tie wins (52 of 45,834)"
+              }
+            ],
+            "cues": [
+              {
+                "at": 3.0,
+                "line": 341,
+                "label": "line 341: attack_order() alternates sides, one unit each"
+              },
+              {
+                "at": 7.62,
+                "line": 344,
+                "label": "lines 343-344: killed before its turn -> no attack"
+              },
+              {
+                "at": 10.09,
+                "line": 341,
+                "label": "R1: one marching enemy (analyze_variants.gd search)"
+              }
+            ],
+            "output": [
+              "Rules return plain events; the scene only plays them back (line 7)"
+            ],
+            "durationSeconds": 16.533333333333335
+          },
+          "rendered": {
+            "out": "media/B12.mp4",
+            "at": "2026-10-13T05:16:15.754747+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B12.mp3",
+      "actual_duration_s": 16.53,
+      "render_duration_s": 16.533333333333335,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B12.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "GAMEPLAY",
+      "narration_text": "Turn four. The enemy strikes first, your archer topples, and its own arrow never flies. Next: the winning route, with only the slice's own sound.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Result of B12. Real capture run-03 frames 550-811: lose-route turn 4 — enemy strikes first (order 1), player toppled (defeat pose) before its own shot; defeat card 'Shot by the enemy archer in lane 4'. Final frame held to finish the sentence (labelled).",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot gameplay capture: the game's table, board and HUD run edge to edge by design; the skill forbids reframing gameplay to fill a frame. Underfill/contrast checks still apply."
+      },
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "capture": "run-03",
+        "frames": [
+          550,
+          812
+        ],
+        "capture_kind": "godot-engine-gameplay (scripted input, Movie Maker run)",
+        "label": "SCRIPTED INPUT · REAL GODOT RENDER|film-source-v1 · game audio muted",
+        "typography_note": "Raw engine capture: the HUD text is the game's own UI (diegetic). The burned label is ours and is measured separately.",
+        "evidence_media": "media/B13.mp4"
+      },
+      "audio_file": "mp3/beat-B13-timed.wav",
+      "actual_duration_s": 8.733333333333333,
+      "voice_duration_s": 8.448,
+      "lead_silence_s": 0.25,
+      "clip_frames": 262,
+      "duration_note": "voice 8.448s + lead 0.25s, padded with silence to 262 frames = 262/30 s (clip length; no retiming)",
+      "render_duration_s": 8.733333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B13.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "SLICE_AUDIO",
+      "kind": "source_report",
+      "clock": "source",
+      "audio_policy": "preserve",
+      "role_note": "Requirement 4: the slice's own audio (music + SFX) with no narration. NOT a fellow's report: the compiler's source_report/preserve mechanism is used only because it is the supported way to keep a clip's own audio unretimed and unvoiced. Real capture run-03 frames 1089-1593: win-route turns 3-5 and the win card. Picture: the 4K master; sound: the AVI audio of the SAME Movie Maker run, sliced at the same frame boundaries (1600 samples per frame). Events in order: HOP (t3), HOP+HOP (t4), HURT, HIT (t4), HIT (t5, kill), WIN (music stops).",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "capture": "run-03",
+        "frames": [
+          1089,
+          1594
+        ],
+        "label": "SLICE AUDIO — NO NARRATION|music + SFX as recorded, same run",
+        "typography_note": "Raw engine capture with the game's own HUD; our label measured separately.",
+        "type_note": "Raw engine footage with its own audio; the beat is a source_report by kind/clock/audio_policy (compiler mechanism for preserved audio)."
+      },
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot gameplay capture: the game's table, board and HUD run edge to edge by design; the skill forbids reframing gameplay to fill a frame. Underfill/contrast checks still apply."
+      },
+      "actual_duration_s": 16.833333,
+      "render_duration_s": 16.833333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B14.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "CODE",
+      "narration_text": "What you just heard is wired in audio director dot g d. The rules resolve the whole turn first; playback then feeds each event here. A move plays the hop. Damage on the enemy plays the hit. Damage on you plays the hurt. And entering the win state plays the win, once. Sound never decides anything.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Code beat: audio_director.gd on_event body lines 105-118 (verbatim). Result follows in B16.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "audio_director.gd: Events In, Sounds Out",
+            "project": "Lane Tactics asset slice",
+            "path": "res://game/audio_director.gd",
+            "source": "godot/game/audio_director.gd · lines 105–118 (inside on_event, line 104) · film-source-v1 = fcf33ef",
+            "code": "\tmatch String(ev.get(\"type\", \"\")):\n\t\t\"moved\":\n\t\t\t_trigger(\"SFX-HOP\", ev)\n\t\t\"damaged\":\n\t\t\tvar key: String = String(ev.get(\"attack\", \"\"))\n\t\t\tif _sounded_attacks.has(key):\n\t\t\t\tguarded_skips += 1\n\t\t\t\treturn\n\t\t\tif ev[\"team\"] == PLAYER:\n\t\t\t\t_sounded_attacks[key] = true\n\t\t\t\t_trigger(\"SFX-HURT\", ev)\n\t\t\telif ev[\"team\"] == ENEMY and ev.get(\"by_team\", \"\") == PLAYER:\n\t\t\t\t_sounded_attacks[key] = true\n\t\t\t\t_trigger(\"SFX-HIT\", ev)",
+            "startLine": 105,
+            "codeFontSize": 23,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "SFX-WIN (lines 166–173)",
+                "value": "on_won(): music stops, win plays once"
+              },
+              {
+                "label": "Header (line 2)",
+                "value": "It never touches game state."
+              }
+            ],
+            "cues": [
+              {
+                "at": 5.72,
+                "line": 105,
+                "label": "line 105: on_event(ev) matches the event type"
+              },
+              {
+                "at": 6.96,
+                "line": 107,
+                "label": "line 107: moved -> SFX-HOP"
+              },
+              {
+                "at": 8.14,
+                "line": 118,
+                "label": "line 118: damaged enemy, by the player -> SFX-HIT"
+              },
+              {
+                "at": 10.02,
+                "line": 115,
+                "label": "line 115: damaged player -> SFX-HURT"
+              },
+              {
+                "at": 14.22,
+                "line": 103,
+                "label": "no state is written here; tests: muted run == unmuted run"
+              }
+            ],
+            "output": [
+              "Callers: main.gd 411 (landing), 507 (HP change)"
+            ],
+            "durationSeconds": 16.0
+          },
+          "rendered": {
+            "out": "media/B15.mp4",
+            "at": "2026-10-13T05:56:59.690810+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B15.mp3",
+      "actual_duration_s": 15.98,
+      "render_duration_s": 16.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B15.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "EVIDENCE",
+      "narration_text": "Here is that segment, measured from the recording. Every spike lines up with a logged rules event: the hops, the hurt, two hits, and the win, right where the music stops. And the tests confirm the other half: a fully muted run ends in exactly the same state.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Result of B15: RMS envelope of B14's audio (same AVI audio) with the logged sfx_trigger frames marked, plus held 4K frames at HOP/HURT/HIT/WIN. Labelled held frames.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "composite": "tools/make_stills.py B16",
+        "evidence_media": "media/B16.mp4",
+        "label": "Measured from capture run-03 audio · trigger frames from capture/run-03-inputs.jsonl",
+        "typography_note": "Our measurement figure (waveform + held 4K frames), captions >= 41 px."
+      },
+      "audio_file": "mp3/beat-B16.mp3",
+      "actual_duration_s": 13.99,
+      "render_duration_s": 14.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B16.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B17",
+      "act": "TESTS",
+      "narration_text": "What was tested. On a fresh clone, all 51 rules checks and all 70 sound checks pass, and this film's build re-ran both on its isolated copy. Every sound fires once per event, held keys add nothing, and a muted run ends in the identical state. Jiean also played it, with sound on and fully muted.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Requirement 6 (tested): TEST-REPORT §1/§4/§7 plus this build's re-run on the isolated copy (logs in capture/). Console lines are verbatim.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "label": "Recorded console output (verbatim lines; omissions marked …)",
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "test_rules.log + test_audio_events.log — isolated copy of film-source-v1, 2026-10-13",
+            "code": "> godot --headless --path film-source-v1-godot --script res://tests/test_rules.gd\n…\nSUMMARY test_rules: 51/51 passed -> <capture-copy>/evidence/test_rules-1791865246.json\n> godot --headless --path film-source-v1-godot --script res://tests/test_audio_events.gd\nPASS  win route: SFX-HOP triggers == moved events  (5 vs 5)\nPASS  win route: SFX-HURT triggers == damaged-on-player events  (1 vs 1)\nPASS  win route: SFX-WIN triggers == 1  (1)\nPASS  win route: rapid presses during playback were ignored  (120 spam, 120 ignored)\nPASS  echo inputs never acted  (43 echoes sent, 43 ignored, [])\n…\nPASS  muted win route: same result and snapshot as unmuted\nPASS  muted win route: same events as unmuted\n…\nSUMMARY test_audio_events: 70/70 passed -> <capture-copy>/evidence/test_audio_events-1791865247.json\n# godot = <Godot>/Godot_v4.7.2-stable_win64_console.exe",
+            "sparkLine": "TEST-REPORT, fresh clone of 12f7283: the same 51/51 and 70/70.",
+            "language": "console",
+            "largeText": false
+          },
+          "rendered": {
+            "out": "media/B17.mp4",
+            "at": "2026-10-13T05:58:06.598461+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B17.mp3",
+      "actual_duration_s": 17.41,
+      "render_duration_s": 17.433333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B17.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "B18",
+      "act": "UNCERTAIN",
+      "narration_text": "What's still uncertain. Played muted, Jiean couldn't tell whether a target was on an occupied square, or why the enemy moved or stopped. Some poses miss the sheet: no squint when hurt, a dot eye in defeat, arms over the face in the win. The ElevenLabs sounds can't be regenerated: there is no seed. Jiean's next step: a simpler enemy that keeps marching toward the end and avoids direct contact, plus a clearer target colour.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Requirement 6 (uncertain + next step): TEST-REPORT §6 quote, §2 pose mismatches, §10.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_stills.py B18",
+        "label": "Held frames: 4K engine frame (run-03) and evidence/compare crops · quotes verbatim",
+        "typography_note": "Composite with our captions (>= 41 px at 4K)."
+      },
+      "audio_file": "mp3/beat-B18.mp3",
+      "actual_duration_s": 21.06,
+      "render_duration_s": 21.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B18.mp4",
+        "filled_by": "media",
+        "at": "2026-10-13T21:51:27"
+      },
+      "qc": {
+        "contrast_regions": [
+          {
+            "label": "playtest quotes and attribution",
+            "box": [
+              0.05,
+              0.67,
+              0.42,
+              0.86
+            ]
+          },
+          {
+            "label": "pose labels",
+            "box": [
+              0.6,
+              0.22,
+              0.71,
+              0.58
+            ]
+          },
+          {
+            "label": "not-reproducible box",
+            "box": [
+              0.72,
+              0.2,
+              0.95,
+              0.46
+            ]
+          }
+        ],
+        "contrast_reason": "Mixed evidence imagery (a held engine frame on linen, sprite pairs on linen) lowers whole-frame average ink contrast; the essential text sits in these regions, dark ink on cream/white, and is tested locally."
+      }
+    },
+    {
+      "beat_id": "B19",
+      "act": "CREDITS",
+      "narration_text": "Who made what. Stable Diffusion XL, run locally, made every archer pose and the tabletop, and rembg cut them out. ElevenLabs made the four sound effects, run by Jiean. MusicGen made the music loop. Jiean picked or approved every image, sound and take, and made the scope calls. Claude Code drew the sketches, wrote the prompts and the code, ran the models, and built this film. The source shown is the tag film source v one.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Requirement 6 (contributions, which model made which asset, source revision): SOURCES.md.",
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "Form A credits card: four centred lines plus a two-line colophon; the negative space is the card form."
+      },
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "SDXL base 1.0 (local): every archer pose and the tabletop. rembg u2net: the cut-outs.",
+              "ElevenLabs Sound Effects, run by Jiean: HOP, HIT, HURT, WIN. MusicGen small (local): the loop.",
+              "Jiean Yin: the game, the scope calls, and the pick or approval of every asset.",
+              "Claude Code: sketches, prompts, model runs, edits, Godot code and tests, this film."
+            ],
+            "meta": [
+              "Game source shown: film-source-v1 = fcf33ef (godot/ identical to 12f7283) · github.com/Jiean-Yin/walker-lane-tactics-jiean-yin",
+              "Narration: Kokoro am_onyx (Liam) · captures: Godot 4.7.2 Movie Maker, scripted input"
+            ],
+            "dark": false
+          },
+          "rendered": {
+            "out": "media/B19.mp4",
+            "at": "2026-10-13T05:39:50.681378+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B19.mp3",
+      "actual_duration_s": 21.78,
+      "render_duration_s": 21.8,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B19.mp4",
+        "filled_by": "remotion:FormACard",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "VERDICT",
+      "narration_text": "Verdict. Working on screen: five archer states, a recoloured enemy, hop, hit, hurt and win sounds fired by rules events, and music that stops for the win. Defects: the target marker is hard to read on an occupied square, enemy moves go unexplained, and three poses miss the sheet. Untested: whether it's fun, and how a newcomer reads it. One human has played it, the author. Those are Jiean's calls, not the machine's.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Verdict: observed working vs defects vs untested vs human judgment.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "artifact-reveal",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Lane Tactics slice at film-source-v1.",
+            "brandLabel": "@NikBearBrown",
+            "artifactLines": [
+              "Works on screen: five archer states, enemy recolour, four sounds from rules events, music stop on win.",
+              "Defects: target marker unclear on an occupied square; enemy moves unexplained; three pose mismatches.",
+              "Untested: fun, and newcomers. One human tester, the author. Windows only.",
+              "Human judgment: Jiean picked or approved every asset and owns the next step."
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": "2026-10-13T05:43:07.332988+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "actual_duration_s": 21.03,
+      "render_duration_s": 21.033333333333335,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BVDT.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "HANDOFF",
+      "narration_text": "Your turn. Paste this. Use Walker on my Godot slice: raise the near-white halo threshold in my sprite pipeline from 232 to 245. Before running it, predict which sprites change and whether any base disc comes back. Then rerun the edits, compare the output hashes with my edit log, and show both versions in the engine. The point is the prediction. Write it down first, then let the hashes and the running scene tell you whether you were right. Liam, in for Bear.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "role_note": "Your Turn: read aloud verbatim, discussed, one bounded change + prediction + test; Liam signs off.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on",
+        "label": "Reconstructed interface · suggested prompt, not a past run",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "WALKER · YOUR TURN",
+            "segment": "One Threshold, One Prediction",
+            "command": "Use Walker on my Godot slice: raise the near-white halo threshold in my sprite pipeline from 232 to 245. Before running it, predict which sprites change and whether any base disc comes back. Then rerun the edits, compare the output hashes with my edit log, and show both versions in the engine.",
+            "runningText": "paste this into Claude…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": "2026-10-13T05:29:43.028211+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "actual_duration_s": 26.77,
+      "render_duration_s": 26.8,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BHTF.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-10-13T21:51:27"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "OUTRO",
+      "kind": "outro_voice",
+      "role_note": "OUTRO-LOCK: ClaudeTitleOutro, exact title, @NikBearBrown, slug-seeded mascot, no subline. Spoken, never scored; 1.0 s silent tail. No jingle, no game audio.",
+      "narration_text": "Lane Tactics: From Sketch to Seed to Sound. At Nik Bear Brown.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "tail_hold_s": 1.0,
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "mascot-title",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Lane Tactics: From Sketch to Seed to Sound.",
+            "slug": "claude-liam-walker-lane-tactics-jiean-yin-gamedev",
+            "handle": "@NikBearBrown",
+            "subline": ""
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": "2026-10-14T01:41:39.047489+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BOUT-timed.wav",
+      "actual_duration_s": 5.333333333333333,
+      "voice_duration_s": 4.309,
+      "lead_silence_s": 0.0,
+      "clip_frames": 160,
+      "duration_note": "voice 4.309s + lead 0.0s, padded with silence to 160 frames = 160/30 s",
+      "render_duration_s": 5.333333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BOUT.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-10-13T21:51:27"
+      }
+    }
+  ]
+}

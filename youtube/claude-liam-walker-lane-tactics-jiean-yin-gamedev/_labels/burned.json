@@ -1,0 +1,46 @@
+{
+  "B00": {
+    "text": "Illustrative reconstruction of the Claude interface — not a transcript",
+    "box_4k": [
+      1138,
+      1860,
+      2701,
+      1950
+    ],
+    "unlabelled_sha256": "da4c8ceee33483c03eff43f4aa0e154aa5423807e7317f884959e3d645e75562",
+    "labelled_sha256": "9e6b1a502704c3594db519e4936a282a01ec4f108c02f93bfade909b138ea56a"
+  },
+  "BHTF": {
+    "text": "Reconstructed interface · suggested prompt, not a past run",
+    "box_4k": [
+      1230,
+      1860,
+      2609,
+      1950
+    ],
+    "unlabelled_sha256": "44492fe9265cf6a111a3f695676b41b5eed8d6113fd41c4a26f6403bb076a1ab",
+    "labelled_sha256": "559681352a929fe3b2100b9ad37ca9622e52223585999098042a395a740c0a59"
+  },
+  "B08": {
+    "text": "Actual source excerpt (process_sprites.py @ film-source-v1) · reconstructed code view",
+    "box_4k": [
+      1474,
+      1820,
+      3480,
+      1910
+    ],
+    "unlabelled_sha256": "e33a4b0277a347daeeea99c810474dca8d1943b34df0e04562db50a8d65d3ad1",
+    "labelled_sha256": "74230ac1f2d32c7d65e7b4dc8cef45f74e33d0f2b81703e01bdf49e782421cd2"
+  },
+  "B17": {
+    "text": "Recorded console output · verbatim lines, omissions marked …",
+    "box_4k": [
+      2031,
+      1820,
+      3480,
+      1910
+    ],
+    "unlabelled_sha256": "f39b87fc2fad84366acd0808bbb4fe9a5d75ec3aa361ef189ae009a715cb0703",
+    "labelled_sha256": "1e0bafe0097eaa668d0196b4cfdc0829df2002ff0e44af92c2483c1603b19d1a"
+  }
+}

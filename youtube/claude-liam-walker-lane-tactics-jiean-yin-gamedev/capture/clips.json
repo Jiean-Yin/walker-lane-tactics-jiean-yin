@@ -1,0 +1,97 @@
+{
+  "B03": {
+    "capture": "run-03",
+    "frames": [
+      0,
+      328
+    ],
+    "n_frames": 328,
+    "duration_s": "328/30",
+    "audio": "none",
+    "label": "SCRIPTED INPUT \u00b7 REAL GODOT RENDER / film-source-v1 \u00b7 game audio muted",
+    "label_box_4k": [
+      1700,
+      112,
+      2702,
+      262
+    ],
+    "path": "media/B03.mp4",
+    "sha256": "8fcaf3db29b1410481f7842f2da927724745db4ce7ded08cae0f324aa9a8618a"
+  },
+  "B09": {
+    "capture": "run-03",
+    "frames": [
+      812,
+      1028
+    ],
+    "n_frames": 216,
+    "duration_s": "216/30",
+    "audio": "none",
+    "label": "SCRIPTED INPUT \u00b7 REAL GODOT RENDER / film-source-v1 \u00b7 game audio muted",
+    "label_box_4k": [
+      1700,
+      112,
+      2702,
+      262
+    ],
+    "path": "media/B09.mp4",
+    "sha256": "a82353d361c5119b1020364dbab2f93cdf7f6caed04f14815ed17c0c83122b23"
+  },
+  "B11": {
+    "capture": "run-03",
+    "frames": [
+      328,
+      550
+    ],
+    "n_frames": 222,
+    "duration_s": "222/30",
+    "audio": "none",
+    "label": "SCRIPTED INPUT \u00b7 REAL GODOT RENDER / film-source-v1 \u00b7 game audio muted",
+    "label_box_4k": [
+      1700,
+      112,
+      2702,
+      262
+    ],
+    "path": "media/B11.mp4",
+    "sha256": "6a52ed4d2309e262b5e3b06761845d7f81bc9bb357d2b129044e22ae6427d906"
+  },
+  "B13": {
+    "capture": "run-03",
+    "frames": [
+      550,
+      812
+    ],
+    "n_frames": 262,
+    "duration_s": "262/30",
+    "audio": "none",
+    "label": "SCRIPTED INPUT \u00b7 REAL GODOT RENDER / film-source-v1 \u00b7 game audio muted",
+    "label_box_4k": [
+      1700,
+      112,
+      2702,
+      262
+    ],
+    "path": "media/B13.mp4",
+    "sha256": "341372ef077625ce829326f34f221537de21879f610f42096343989174c5e34c"
+  },
+  "B14": {
+    "capture": "run-03",
+    "frames": [
+      1089,
+      1594
+    ],
+    "n_frames": 505,
+    "duration_s": "505/30",
+    "audio": "AVI samples 1742400-2550400 (ALAC, lossless)",
+    "label": "SLICE AUDIO \u2014 NO NARRATION / music + SFX as recorded, same run",
+    "label_box_4k": [
+      1700,
+      112,
+      2497,
+      262
+    ],
+    "path": "media/B14.mp4",
+    "sha256": "74bdf3dff35de75098affa613b592b3c2f34ea2cde63f312da50930da41245dd"
+  }
+}
