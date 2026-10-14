@@ -17,6 +17,7 @@ git clone https://github.com/Jiean-Yin/walker-lane-tactics-jiean-yin.git
 cd walker-lane-tactics-jiean-yin
 ```
 
+- **Windows:** clone into a folder whose path is shorter than about 120 characters (for example inside `Downloads`). The longest file path in the repository is 134 characters, and Windows rejects full paths over 260 unless `git config --global core.longpaths true` is set.
 - **Editor:** open Godot, **Import**, choose `godot/project.godot`, press **Run** (F5).
 - **Command line:** `<Godot exe> --path godot`
 - **Tests** (headless, each writes a timestamped report to `evidence/`):
