@@ -156,3 +156,41 @@ Same format as above. Machine: Windows 11 Home 10.0.26200, Blender 5.2.2 LTS (th
 - **Decided:** TO FILL
 - **Human / Claude / model:** Claude ran the calls and the checks; I restarted Blender and enabled the add-on between attempt 1 and attempt 2. TO FILL *(hint: anything you noticed in the Preferences or the N panel)*
 - **Still unresolved:** TO FILL
+
+## 2026-10-15 18:17–18:20 — Archer build: Blender restarts twice during the first steps (predicted failure 6)
+
+- **Wanted:** TO FILL
+- **Asked:** after the brief commit (`78b213f`) I approved Claude's archer plan and started recording.
+- **Got:**
+  1. **Step 0** (delete the default objects, metric units, save `blender/archer_piece.blend`) succeeded: `objects: 0 | units: METRIC 1.0 METERS`, file saved.
+  2. **Step 1, try 1** (`bpy.ops.mesh.primitive_cylinder_add`, 12 segments): `Error executing code: Connection to Blender lost: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。` ("An established connection was aborted by the software in your host machine"). `get_scene_info` then showed Blender's **default** scene again (Cube, Light, Camera), and `blender.exe` had a new process ID (32864 → 9344): Blender had closed and started again.
+  3. Claude repeated step 0 in the new Blender (succeeded), then **step 1, try 2** built the disc with `bmesh.ops.create_cone` (data API, no operator), in case the operator had caused it. The call returned `Code executed successfully: base_disc tris: 44`, but the next `get_scene_info` returned `Error getting scene info: Not connected to Blender`, and `blender.exe` had a new process ID again (9344 → 14908).
+  4. Claude found **no crash record**: no `*.crash.txt` in `%TEMP%` and no Application event mentioning Blender in the last 15 minutes.
+  5. **Cause:** I told Claude "I closed and reopened Blender myself". So the drops were not an MCP or Blender fault; each restart started a new, unsaved default scene and cut the socket mid-call. The `bmesh` change in try 2 was therefore not needed, but it is kept (it works and needs no operator context).
+- **Decided:** TO FILL
+- **Human / Claude / model:** I closed and reopened Blender, because TO FILL. Claude diagnosed it from process IDs and the scene contents, and logged it.
+- **Still unresolved:** TO FILL
+
+## 2026-10-15 18:20–18:23 — Archer piece built through the MCP
+
+- **Wanted:** TO FILL
+- **Asked:** the approved plan: one `execute_blender_code` call per part, `get_scene_info` after each, then join, apply transforms and look. Every body is in [tools/blender/build_archer_piece.py](tools/blender/build_archer_piece.py); the source is `blender/archer_piece.blend`.
+- **Got:**
+  - Each part landed where the plan said (scale 1, rotation 0 on every part): base disc 0.40 × 0.40 × 0.05 (44 tris), body 0.26 × 0.26 × 0.45 (44), head 0.22 (120), hood 0.25 × 0.25 × 0.16 (22), bow 0.03 × 0.06 × 0.50 (12), eye 0.03 (12). `get_scene_info` rounds to 2 decimals, so the disc's z 0.025 shows as 0.03.
+  - The first hood would have had 12 vertices at its tip (bmesh makes a "cone" with a zero-radius top ring); Claude merged them so the tip is one vertex (13 verts, 22 tris).
+  - After join + apply: one object `archer_piece`, location (0, 0, 0), rotation (0, 0, 0), scale (1, 1, 1), dimensions **0.40 × 0.40 × 0.80 m** (brief: 0.40 × 0.40 × 0.80), mesh z from 0.0000 to 0.8000, **254 triangles** (budget 400), 5 materials, 0 non-manifold edges, 0 loose vertices.
+  - **What Claude got wrong (seen in `look`, not in the numbers):** from the facing (+X) side the bow (z 0.15–0.65) stands in front of the eye (z 0.60), so the eye cannot be seen in profile, which is the view the game uses. That was a mistake in Claude's plan. Also, a straight thin cube reads more like a staff than a bow.
+  - Not checked yet: Blender's own Scene Statistics in the status bar (Claude counted triangles from the mesh), and how it looks in Godot.
+- **Decided:** TO FILL *(hint: why you fixed the eye this way rather than moving the eye or lowering the bow)*
+- **Human / Claude / model:** plan and code by Claude; approval and recording by me. No generation service.
+- **Still unresolved:** TO FILL
+
+## 2026-10-15 ~18:30 — My hand edit: the bow moved off the eye (inspect-and-revise cycle 1)
+
+- **Wanted:** TO FILL
+- **Asked:** I asked Claude for step-by-step instructions because I was not familiar with Blender yet. Claude suggested the edit (move only the bow 0.08 m along Y in Edit Mode, with Tab → L → G Y 0.08 → Enter → Tab, then check the sidebar and save).
+- **Got:** I made the edit myself in Blender's window with the mouse and keyboard and saved with Ctrl+S. Claude then checked it read-only through the MCP: the bow's 8 vertices moved from y −0.03…0.03 to **y 0.05…0.11** (x 0.15…0.18 and z 0.15…0.65 unchanged), so exactly +0.08 m. The object is still at location (0, 0, 0), rotation (0, 0, 0), scale (1, 1, 1), dimensions 0.40 × 0.40 × 0.80 m, 254 triangles, Object Mode, no unsaved changes. In the `look` side (+X) view the eye is now visible beside the bow.
+- **Decided:** TO FILL
+- **What it taught me about the interface:** TO FILL *(hint: Object Mode vs Edit Mode; that shortcuts go to the area under the mouse; why the sidebar's dimensions did not change)*
+- **Human / Claude / model:** the edit in Blender was mine; the instructions and the check were Claude's. Not in `tools/blender/build_archer_piece.py` (that file holds only Claude's code); the result is in `blender/archer_piece.blend`.
+- **Still unresolved:** TO FILL
