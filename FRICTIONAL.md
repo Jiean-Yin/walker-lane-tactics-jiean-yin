@@ -207,3 +207,15 @@ Same format as above. Machine: Windows 11 Home 10.0.26200, Blender 5.2.2 LTS (th
 - **Then (inspect-and-revise cycle 2):** Claude changed only the `linen_border` material (linear base colour 0.3231, 0.2122, 0.0908) and saved; size, scale and the 60 triangles did not change. The same temporary 3 × 3 preview now shows a clearly readable grid with a visible board edge. The change is recorded as revision A3-R1 in CHANGE-BRIEF.md (the original colour stays in the table above it) and as the last block of the build script.
 - **Human / Claude / model:** plan, code and the contrast table by Claude; approval, recording and the colour choice by me. No generation service.
 - **Still unresolved:** TO FILL *(hint: does the darker grid still look like linen under Godot's light?)*
+
+## 2026-10-15 ~18:55 — Goal flag built through the MCP
+
+- **Wanted:** TO FILL
+- **Asked:** I approved Claude's plan (base disc, pole, flag; one call each, then join and apply). I asked whether I had to record while Claude worked; Claude said yes, with Blender and the Claude window on screen, from approval until the flag is done. Code: [tools/blender/build_goal_flag.py](tools/blender/build_goal_flag.py); source `blender/goal_flag.blend`.
+- **Got:**
+  - All calls succeeded first time. Parts: base disc 0.30 × 0.30 × 0.04 (44 tris), pole 0.04 × 0.04 × 1.16 on the disc (28), flag 0.28 × 0.02 × 0.20 at x 0.02…0.30, z 0.98…1.18 (12); each with scale 1, rotation 0.
+  - After join + apply: one object `goal_flag`, location (0, 0, 0), rotation (0, 0, 0), scale (1, 1, 1), **0.45 × 0.30 × 1.20 m** (brief: 0.45 × 0.30 × 1.20), mesh x −0.1500…0.3000 (off centre in X, as the brief says), z 0.0000…1.2000, **84 triangles** (budget 150), 2 materials, 0 non-manifold edges.
+  - **What `look` showed:** it reads as a red flag on a pole from the front and three-quarter views. From exactly +X the flag is edge-on (2 cm thick) and nearly disappears, so it only reads when the camera looks roughly along Y. The 4 cm pole is visible at this framing; not yet judged at game distance.
+- **Decided:** TO FILL *(hint: is a flat box acceptable as a flag for now? how should the two flags face the camera in Godot?)*
+- **Human / Claude / model:** plan and code by Claude; approval and recording by me. No generation service.
+- **Still unresolved:** TO FILL
