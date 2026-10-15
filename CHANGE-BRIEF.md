@@ -110,3 +110,59 @@ All sounds are triggered by `AudioDirector` from **events the rules engine has a
 - **Change:** art from **Stable Diffusion XL base 1.0 run locally**; music from **MusicGen small run locally**; sound effects stayed with **ElevenLabs** (run by Jiean). Local models record a seed for every output, so these assets are more reproducible than the web tools would have been.
 - **Pose method:** each pose is generated image-to-image from the character sheet's pose sketch (strength 0.80), with the same prompt and settings as the accepted reference. IP-Adapter (conditioning on the reference image itself) was considered but not used, to avoid another 3 GB download tonight.
 - The asset IDs, event-to-sound map and music behaviour above are unchanged. Results: TEST-REPORT.md.
+
+---
+
+# Assignment 3 — three 3D assets (Blender with Claude through the MCP)
+
+*Version 1, 2026-10-15 18:20, committed before any asset was built. Results and corrections go in dated revisions at the bottom of this section; these predictions are not edited after the fact.*
+
+**Who decided what:** Claude Code proposed every number below as a numbered default, from CHARACTER-SHEET.md (proportions, palette) and CONCEPT.md (pieces, linen board, back row). Jiean accepted all seven defaults without changes. At commit time the Learn-the-window session was under way and BLENDER-NOTES.md was not written yet.
+
+**Why these three:** Lane Tactics is 2D today, so these assets live in a small Godot 3D "tabletop diorama" scene (floor, one light, a camera) that later assignments reuse. They are the three things that scene needs: a piece, the square it stands on, and the goal it walks toward.
+
+## Scale
+
+**1 board square = 1.00 m.** In Blender 1 unit = 1 m and Godot's 3D unit is also 1 m, so nothing is converted. The 2D slice puts two pieces in one square (left and right footprint slots, each half a square), so a piece's base must fit in half a square: at most 0.50 m wide.
+
+Blender is Z-up; Godot is Y-up. The glTF exporter's **+Y Up** option (on by default) converts this. Blender's "height" (Z) should arrive as Godot's Y.
+
+## The assets
+
+| | A. Archer piece | B. Linen board square | C. Back-row goal flag |
+|---|---|---|---|
+| **Name / file** | `archer_piece` | `board_square` | `goal_flag` |
+| **What it is in the game** | The unit: the carved wooden archer from the 2D slice, in player teal | The tile the 5-lane board is made of | Marks the back row you must reach to win |
+| **Where it appears** | Standing on a board square, up to two per square | Tiled 5 lanes × N rows to make the board | One at each end of the enemy's back row, just outside lanes 1 and 5 |
+| **Size W × D × H (m)** | **0.40 × 0.40 × 0.80** | **1.00 × 1.00 × 0.05** | **0.45 × 0.30 × 1.20** |
+| **Size justified by** | Base 0.40 m fits a half-square slot (0.50 m) with a margin. Height 0.80 m = 2 × base, close to the sheet's ~3.5 heads with a 0.22 m head | Exactly one square. 5 cm thick, so it reads as a game board and not a floor | Taller than the piece (1.20 m vs 0.80 m), so it can be seen over the pieces in the back row. Base 0.30 m stays inside the gap beside the board |
+| **Origin** | Centre of the underside, at Blender's world origin (0, 0, 0) | Centre of the underside, at the world origin | Centre of the underside of the base disc (the pole stands on it; the flag sticks out toward +X, so the box is off centre in X) |
+| **Why that origin** | Godot places a node at its origin, so a piece placed at a square's centre at y = 0 stands on the board, not half inside it | Tiles sit on the table at y = 0 and pieces stand on top at y = 0.05 | Stands on the table at y = 0 |
+| **Basic shapes (≤ 6)** | 6: base disc (cylinder), body (cylinder), head (sphere), hood (cone), bow (thin cube, on the +X facing side), eye (small cube, on the +X side of the head) | 5: slab (cube) + 4 border strips (cubes) | 3: base disc (cylinder), pole (cylinder), flag (thin cube) |
+| **Look: what makes it recognisable** | Ball head under a dark hood, straight cylinder body, wide disc base, a bow on the facing side: a chess-like toy piece | A flat light square with a slightly darker edge, so a grid of them shows the squares | A thin pole with a red flag on top |
+| **Flat colours** | Body teal `#1F6F78`; hood `#24323F`; head birch `#E2B887`; base and bow walnut `#5A3A22`; eye ink `#1B1410` | Slab linen `#D8C7A0`; border linen `#CDB98E` | Base and pole walnut `#5A3A22`; flag enemy red `#B23A2E` |
+| **Triangle budget** | **400** | **100** | **150** |
+| **Why that budget** | Cylinders at 12 segments (≈ 44 tris each), sphere at 12 × 6 (≈ 120), cone at 12 (≈ 22), two cubes (24): about 254. 400 leaves room if a curve looks too faceted. A default UV sphere (32 × 16, ≈ 960 tris) alone would break the course limit of 500 | 5 cubes × 12 = 60 | Base disc 12 segments (≈ 44), pole 8 segments (≈ 28), flag cube 12: about 84 |
+
+Materials: one flat Principled BSDF per colour, base colour set on the shader node (not only the viewport colour), no textures.
+
+Each asset is built in its own Blender file (`blender/<name>.blend`) around the world origin, with the code Claude runs saved in `tools/blender/build_<name>.py`, and exported to `godot/assets/models/<name>.glb`.
+
+## Predicted failure cases and how I will check them
+
+1. **An asset arrives lying on its side in Godot** (Z-up vs Y-up, or a rotation that was not applied).
+   *Check:* the headless Godot script prints each asset's bounding box; the largest-height axis must be **Y**, and the Y size must match H above. Also look at it in the 3D scene.
+2. **Scale is not applied, so the node scale is not 1 or the size is wrong** (for example by a factor of 2 if Claude scales the default 2 m cube, or by 10 or 100 from a unit mix-up).
+   *Check:* Blender's sidebar (N) shows scale 1, 1, 1 and dimensions = brief; the headless script prints node scale (1, 1, 1) and a bounding box within ±0.01 m of the brief.
+3. **The origin is in the middle, so the asset floats or sinks.**
+   *Check:* the headless script prints the bounding box's lowest Y, which must be 0.00 (±0.005 m); in the scene, each asset placed at y = 0 must sit on the floor, seen from the side at floor level.
+4. **Claude builds more than asked** (default segment counts, extra bevels or extra shapes) **and breaks the budget.**
+   *Check:* Blender's Scene Statistics (status bar) per file: triangles ≤ budget, and the object count ≤ the shapes listed above.
+5. **A colour does not survive the export** (only the viewport colour is set, or materials are merged).
+   *Check:* the headless script prints each mesh surface's material albedo; compare with the hex codes above. Look at the assets under the scene's light.
+6. **The MCP fails part-way** (socket drops, or Blender stops responding during a call).
+   *Check:* every call's result is read; get_scene_info after each step; any error is copied word for word into FRICTIONAL.md.
+
+## Revisions
+
+*(none yet)*

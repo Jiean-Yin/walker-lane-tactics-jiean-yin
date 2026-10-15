@@ -15,6 +15,9 @@ assets/_raw/
 exports/
 builds/
 
+# Blender's automatic older-save backups (.blend1, .blend2, ...); the .blend source itself is committed
+*.blend[0-9]*
+
 # Local credentials/configuration
 .env
 .env.*

@@ -120,3 +120,39 @@ Selected units may need an extra pose for clear viewing. We will test that later
 - **Decided:** keep the slice as it is for testing art and sound; change the target colour and simplify the enemy later: "enemy try keep moving to the end and may avoid direct contact with the opponent."
 - **Human / Claude / model:** the playtest and the decisions are mine; the checklist and this summary are Claude's.
 - **Still unresolved:** What else must the board show for a muted player to understand the enemy?
+
+---
+
+# Assignment 3 — First 3D assets with Claude, the Blender MCP and Blender
+
+Same format as above. Machine: Windows 11 Home 10.0.26200, Blender 5.2.2 LTS (the chapter used 5.1.2), Godot 4.7.2. The course's setup commands are written for macOS; every place this machine needed something different is listed in the entry.
+
+## 2026-10-15 17:50–18:05 — Blender MCP setup, manual route, on Windows
+
+- **Wanted:** TO FILL *(hint: how long you expected setup to take, and whether you expected the macOS steps to work as written on Windows)*
+- **Asked:** Claude Code (desktop app, Code tab) to install uv and register the MCP for Blender server with the course's manual steps, and to record what differed. I approved installing uv.
+- **Got:**
+  1. **uv.** The course's `brew install uv` is macOS-only. Claude used the README's Windows installer, `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"` (the README's uv line has no `-ExecutionPolicy ByPass`; Claude added it). It installed **uv 0.13.1** to `C:\Users\Optim\.local\bin`. The installer put that folder on the user PATH itself (checked with `[Environment]::GetEnvironmentVariable("Path","User")`), so the README's separate PATH step was not needed.
+  2. **`claude` was not on PATH.** The desktop app bundles its own Claude Code; Claude ran it by full path, version **2.1.295**.
+  3. **The course's register line failed.** `claude mcp add -e DISABLE_TELEMETRY=true blender -- uvx mcp-for-blender` printed `Invalid environment variable format: blender, environment variables should be added as: -e KEY1=value1 -e KEY2=value2`: `-e` accepts several values, so it read `blender` as a second variable. Putting the name first worked: `claude mcp add blender -e DISABLE_TELEMETRY=true -- C:\Users\Optim\.local\bin\uvx.exe mcp-for-blender`. Claude used the full path to `uvx.exe` because the desktop app was started before uv existed, so it may not see the new PATH (the README's "spawn uvx ENOENT" warning). Whether a bare `uvx` would have failed was **not tested**.
+  4. `claude mcp get blender` reported *Local config (private to you in this project)*, `√ Connected`, `DISABLE_TELEMETRY=true`. That only shows the server process starts; Blender was not connected at that point, so it proves nothing about the Blender link.
+  5. **Server version:** `mcp-for-blender` **2.1.9** (also the latest on PyPI today). uv chose Python 3.14.3; the README warns that very new Pythons can lack wheels, but the server started.
+  6. **Add-on.** `uvx mcp-for-blender addon-paths` listed `…\Blender Foundation\Blender\5.2\scripts\addons (missing)`. `uvx mcp-for-blender install-addon` created it and wrote `blender_mcp.py` (add-on version 1.8, SHA-256 `eb0facf69781a30e69792532087d8d41c6a14fcd323353250abe7988ee297fa5`).
+  7. **Claude read the add-on code before it was enabled:** the socket binds `localhost`, port 9876; all six service toggles (Poly Haven, Hyper3D, Hunyuan3D, Sketchfab, Tripo, Poly Pizza) default to off; the start button's label in this version is **Connect to Claude** (the course said the code labels it "Connect to MCP server"; that string appears once elsewhere in the file).
+- **Decided:** TO FILL
+- **Human / Claude / model:** Claude ran every command and read the add-on code; I approved the install and registration. No generation service is enabled.
+- **Still unresolved:** whether a new Claude Code session sees the Blender tools and reaches Blender (not tried yet). TO FILL *(hint: anything about the unauthenticated socket that worries you)*
+
+## 2026-10-15 18:05 — Connection test from a new Claude Code session
+
+- **Wanted:** TO FILL *(hint: did you expect it to connect on the first try?)*
+- **Asked:** a new Claude Code session (forked from the setup session so it would load the new server) to check the link only, with no building.
+- **Got:**
+  1. **The tools are there.** The new session listed nine `blender` tools: `execute_blender_code`, `look`, `get_scene_info`, `generate_3d`, `search_assets`, `import_asset`, `get_addon_status`, `disable_telemetry`, `record_trajectory_feedback`. These are the same nine names the course gives for 2.1.9, so the old session's missing tools came from it being started before the server was registered, not from a broken registration.
+  2. **Attempt 1, 18:05:** `get_addon_status` → `Error checking addon status: Could not connect to Blender. Make sure the Blender addon is running.` `get_scene_info` → `Error getting scene info: Could not connect to Blender. Make sure the Blender addon is running.`
+  3. Claude checked why: `blender.exe` was running (PID 26896), `netstat` showed nothing listening on port 9876, and the saved preferences (`userpref.blend`) did not mention `blender_mcp`. Blender had been opened for the window session *before* the add-on was installed, so the add-on was never loaded. Next: restart Blender, enable *Interface: MCP for Blender*, click **Connect to Claude**, try again.
+  4. **Attempt 2, 18:16, after I restarted Blender and enabled the add-on: connected.** `get_addon_status` returned `up_to_date: true`, protocol 13 of 13, add-on 1.8, `blender_version: "5.2.2 LTS"`, libraries polyhaven/sketchfab/polypizza all `off`, generators tripo `off (Premium only)`, hunyuan3d `off`, hyper3d `off`, `telemetry_consent: false`. `get_scene_info` returned Blender's default scene: `Cube` at (0, 0, 0), scale 1, size 2.0 × 2.0 × 2.0, 6 faces; `Light` (point, 1000 W); `Camera`. `netstat` showed Blender listening on `127.0.0.1:9876` only (not on all interfaces).
+  5. The status text calls the add-on "Interface: Blender MCP" and its button "Start MCP Server"; the Preferences entry and the panel say "MCP for Blender" and "Connect to Claude". Same add-on, three names.
+- **Decided:** TO FILL
+- **Human / Claude / model:** Claude ran the calls and the checks; I restarted Blender and enabled the add-on between attempt 1 and attempt 2. TO FILL *(hint: anything you noticed in the Preferences or the N panel)*
+- **Still unresolved:** TO FILL
