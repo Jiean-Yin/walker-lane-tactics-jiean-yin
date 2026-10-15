@@ -165,4 +165,9 @@ Each asset is built in its own Blender file (`blender/<name>.blend`) around the 
 
 ## Revisions
 
-*(none yet)*
+### A3-R1 — 2026-10-15: board_square border darkened, #CDB98E → #9A7F55 (evidence: `look`, before export)
+
+- **Observation:** built exactly as above, the border `#CDB98E` against the slab `#D8C7A0` has a contrast ratio of only **1.15 : 1**. In Blender's `look` (material shading) one square read as a flat sheet, and a temporary 3 × 3 tiled preview showed only faint grooves between squares. Prediction 5 was about colours lost in export; this is a different colour problem: the colour survived, but it was the wrong choice.
+- **Options compared by Claude** (contrast vs slab / vs table `#6B4A2E` / vs walnut base `#5A3A22`): `#B39B6E` 1.61 / 2.96 / 3.80; **`#9A7F55` 2.27 / 2.10 / 2.69**; `#85693F` 3.08 / 1.55 / 1.98; walnut 6.11 / 1.28 / 1.00.
+- **Change (chosen by Jiean):** border **`#9A7F55`** ("stitch brown"), the only option that keeps all three ratios above ~2: squares separate, the board edge still shows against the table, and piece bases stay distinct from the grid lines. Re-checked with the same tiled preview: the grid now reads clearly.
+- **Unchanged:** size 1.00 × 1.00 × 0.05 m, origin, 60 triangles, the slab colour.

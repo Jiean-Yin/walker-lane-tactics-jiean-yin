@@ -194,3 +194,16 @@ Same format as above. Machine: Windows 11 Home 10.0.26200, Blender 5.2.2 LTS (th
 - **What it taught me about the interface:** TO FILL *(hint: Object Mode vs Edit Mode; that shortcuts go to the area under the mouse; why the sidebar's dimensions did not change)*
 - **Human / Claude / model:** the edit in Blender was mine; the instructions and the check were Claude's. Not in `tools/blender/build_archer_piece.py` (that file holds only Claude's code); the result is in `blender/archer_piece.blend`.
 - **Still unresolved:** TO FILL
+
+## 2026-10-15 ~18:40 — Board square built through the MCP
+
+- **Wanted:** TO FILL
+- **Asked:** I approved Claude's plan (slab + 4 border strips, one call each, then join and apply) and recorded the build in a new clip. Code: [tools/blender/build_board_square.py](tools/blender/build_board_square.py); source `blender/board_square.blend`.
+- **Got:**
+  - Every call succeeded on the first try; no connection drops this time. Each part had scale 1 and rotation 0: slab 0.92 × 0.92 × 0.04, front/back strips 1.00 × 0.04 × 0.05 at y ∓0.48, left/right strips 0.04 × 0.92 × 0.05 at x ∓0.48, 12 tris each.
+  - After join + apply: one object `board_square`, location (0, 0, 0), rotation (0, 0, 0), scale (1, 1, 1), **1.00 × 1.00 × 0.05 m** (brief: 1.00 × 1.00 × 0.05), mesh x and y −0.5000…0.5000, z 0.0000…0.0500, **60 triangles** (budget 100), 2 materials.
+  - **What `look` showed:** as Claude warned before building, the border colour `#CDB98E` is too close to the slab `#D8C7A0` (contrast ≈ 1.1 : 1). One square alone reads as a flat sheet with a hardly visible rim. In a temporary 3 × 3 tiled preview (never saved) the squares do separate, through 8 cm faint grooves where two borders meet, but the grid is weak. The viewport also makes both linens look greyer than the hex codes suggest (Blender's default viewport lighting, not checked further).
+- **Decided:** I chose to darken the border as a brief revision (A3-R1), after Claude compared four colours: **B `#9A7F55`**. Why: TO FILL
+- **Then (inspect-and-revise cycle 2):** Claude changed only the `linen_border` material (linear base colour 0.3231, 0.2122, 0.0908) and saved; size, scale and the 60 triangles did not change. The same temporary 3 × 3 preview now shows a clearly readable grid with a visible board edge. The change is recorded as revision A3-R1 in CHANGE-BRIEF.md (the original colour stays in the table above it) and as the last block of the build script.
+- **Human / Claude / model:** plan, code and the contrast table by Claude; approval, recording and the colour choice by me. No generation service.
+- **Still unresolved:** TO FILL *(hint: does the darker grid still look like linen under Godot's light?)*
