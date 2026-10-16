@@ -55,7 +55,18 @@ Re-export (only needed after changing a `.blend`): `"/c/Program Files/Blender Fo
 - The diorama `.tscn` was written by Claude as text and is not connected to the 2D game.
 - One computer (Windows only) and one tester.
 
-**Film (Assignment 3):** to be added after rendering (link, file name and SHA-256).
+### Film (Assignment 3)
+
+**"Lane Tactics in 3D: A Piece, a Square, a Goal"**, the Brutalist `godot-gamedev walker` explainer, 4:41, 3840 × 2160, 30 fps, narrated by Liam (local Kokoro TTS).
+
+| | |
+|---|---|
+| Link | [https://youtu.be/Cb2F8_0mYhk](https://youtu.be/Cb2F8_0mYhk) (YouTube, channel @JieanYin; video title "3D Game Assets with Claude, the Blender MCP, and Blender") |
+| File | `claude-liam-walker-lane-tactics-jiean-yin-a3-gamedev.mp4` (kept out of GitHub; MP4) |
+| SHA-256 | `83d2489e2ee1f6e6c2d5ffc1df5387f086fba0c51a983904e08b93a2d4ad4240` |
+| Game source shown | commit `e415255` (`godot/` identical to the submitted tag `a3`) |
+
+It uses my own screen recordings (the archer after Claude's build, my hand edit, and the Claude window when I approved the flag build), my own Godot screenshot, and a new Movie Maker capture of the real diorama scene with a scripted camera. Claude's archer build and any Blender view of the flag build are not in my recordings; the film says so and does not reconstruct them. Beat sheet, script, prompts, capture records and QC: [youtube/claude-liam-walker-lane-tactics-jiean-yin-a3-gamedev/](youtube/claude-liam-walker-lane-tactics-jiean-yin-a3-gamedev/).
 
 ## Assignment 2 — the 2D asset slice
 

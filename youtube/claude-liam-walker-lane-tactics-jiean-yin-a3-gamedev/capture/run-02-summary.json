@@ -1,0 +1,77 @@
+{
+	"failed": "",
+	"fps": 30,
+	"frames": 1500,
+	"master": "orbit-4k.mkv (FFV1 lossless, bgr0)",
+	"mode": "full",
+	"notes": [
+		"OK: scene has WorldEnvironment",
+		"OK: scene has Floor",
+		"OK: scene has Lamp",
+		"OK: scene has Camera3D",
+		"OK: scene has board_square",
+		"OK: scene has archer_piece",
+		"OK: scene has goal_flag",
+		"OK: scene camera at (0, 1.1, 3) as saved"
+	],
+	"shots": [
+		{
+			"camera": "scene Camera3D (unchanged)",
+			"frames": [
+				0,
+				120
+			],
+			"seconds": "120/30",
+			"shot": "A_scene_camera"
+		},
+		{
+			"camera": "harness Camera3D (scripted path)",
+			"frames": [
+				120,
+				600
+			],
+			"seconds": "480/30",
+			"shot": "B_orbit_360"
+		},
+		{
+			"camera": "harness Camera3D (scripted path)",
+			"frames": [
+				600,
+				840
+			],
+			"seconds": "240/30",
+			"shot": "C_low_angle"
+		},
+		{
+			"camera": "harness Camera3D (scripted path)",
+			"frames": [
+				840,
+				1080
+			],
+			"seconds": "240/30",
+			"shot": "D_archer_profile"
+		},
+		{
+			"camera": "harness Camera3D (scripted path)",
+			"frames": [
+				1080,
+				1320
+			],
+			"seconds": "240/30",
+			"shot": "E_flag_edge_to_front"
+		},
+		{
+			"camera": "harness Camera3D (scripted path)",
+			"frames": [
+				1320,
+				1500
+			],
+			"seconds": "180/30",
+			"shot": "F_board_from_above"
+		}
+	],
+	"subviewport": [
+		3840,
+		2160
+	]
+}

@@ -1,0 +1,8 @@
+{
+  "master_frames": 1500,
+  "avi_frames": 1502,
+  "same_index_mad_mean": 1.272,
+  "same_index_mad_max": 65.629,
+  "plus_one_offset_mad_mean_sampled": 0.861,
+  "plus_one_offset_mad_max_sampled": 1.093
+}

@@ -1,0 +1,169 @@
+{
+  "B04": {
+    "segments": [
+      {
+        "src": "archer",
+        "t0": 0.0,
+        "t1": 9.6
+      }
+    ],
+    "n_frames": 288,
+    "duration_s": "288/30",
+    "sources": {
+      "archer": {
+        "path": "C:\\dev\\a3-footage\\a3-blender-archer-build-2026-10-15.mp4",
+        "sha256": "4bee3340de3199935c8fea9a8506664f080f957bedb4a9fcec2c4fd63fad5bf6"
+      }
+    },
+    "label": "STUDENT'S SCREEN RECORDING / a3-blender-archer-build-2026-10-15.mp4 · 0:00.0–0:09.6 · own audio muted",
+    "path": "media/B04.mp4",
+    "sha256": "32ef2559314715a44df8e84909b00d204998433ebe574d3e4fa1b9144d498276"
+  },
+  "B05": {
+    "segments": [
+      {
+        "src": "archer",
+        "t0": 9.6,
+        "t1": 12.6,
+        "inset": "mode"
+      },
+      {
+        "src": "archer",
+        "t0": 24.5,
+        "t1": 31.5,
+        "inset": "move"
+      },
+      {
+        "src": "archer",
+        "t0": 38.0,
+        "t1": 43.2,
+        "inset": "saved"
+      }
+    ],
+    "n_frames": 456,
+    "duration_s": "456/30",
+    "sources": {
+      "archer": {
+        "path": "C:\\dev\\a3-footage\\a3-blender-archer-build-2026-10-15.mp4",
+        "sha256": "4bee3340de3199935c8fea9a8506664f080f957bedb4a9fcec2c4fd63fad5bf6"
+      }
+    },
+    "label": "STUDENT'S SCREEN RECORDING / a3-blender-archer-build-2026-10-15.mp4 · three excerpts, cuts marked · own audio muted",
+    "path": "media/B05.mp4",
+    "sha256": "185951b1d9f78da8d14264b0b88bcfefd65b08e35098012fd13c5564fd63ede5"
+  },
+  "B06": {
+    "segments": [
+      {
+        "src": "flag",
+        "t0": 4.5,
+        "t1": 14.0,
+        "crop": "prompt"
+      },
+      {
+        "src": "flag",
+        "t0": 102.6,
+        "t1": 112.6,
+        "crop": "reports"
+      }
+    ],
+    "n_frames": 585,
+    "duration_s": "585/30",
+    "sources": {
+      "flag": {
+        "path": "C:\\dev\\a3-footage\\a3-blender-flag-build.mp4",
+        "sha256": "06f12a7ddbde2bd69dd896fd899a4c3389ce5476434617174057cfa2388d1d06"
+      }
+    },
+    "label": "STUDENT'S SCREEN RECORDING / a3-blender-flag-build.mp4 · Claude window, cropped · own audio muted",
+    "path": "media/B06.mp4",
+    "sha256": "6e494d56e5546cebb6e811e100d8890da51dbb0985257cbfc3e3f435fa46d718"
+  },
+  "B02": {
+    "still": true,
+    "n_frames": 491,
+    "path": "media/B02.mp4",
+    "sha256": "255b14e98caff906f44eb9ca5a9dcabad686698c28f08efd27b2955060a125e2",
+    "preview": "stills/B02.png"
+  },
+  "B08": {
+    "segments": [
+      {
+        "src": "orbit",
+        "a": 0,
+        "b": 120,
+        "label": "THE SCENE'S OWN CAMERA3D · REAL GODOT RENDER|asset_diorama.tscn @ e415255, camera as saved · no audio in this scene"
+      },
+      {
+        "src": "orbit",
+        "a": 120,
+        "b": 600
+      }
+    ],
+    "n_frames": 600,
+    "duration_s": "600/30",
+    "sources": {
+      "orbit": {
+        "path": "C:\\dev\\a3-capture\\run-02\\orbit-4k.mkv",
+        "sha256": "f3e6a847d422e02d68aa8be6f99a5d234790c92ffdc92233f95b2aff21be97fa"
+      }
+    },
+    "label": "SCRIPTED CAMERA · REAL GODOT RENDER / asset_diorama.tscn @ e415255 · no audio in this scene",
+    "path": "media/B08.mp4",
+    "sha256": "2a9a38e0de2b9b4c235d95b74fddd1f748985aa017f612e0eab16785c3c01945"
+  },
+  "B09": {
+    "segments": [
+      {
+        "src": "orbit",
+        "a": 600,
+        "b": 1080
+      }
+    ],
+    "n_frames": 480,
+    "duration_s": "480/30",
+    "sources": {
+      "orbit": {
+        "path": "C:\\dev\\a3-capture\\run-02\\orbit-4k.mkv",
+        "sha256": "f3e6a847d422e02d68aa8be6f99a5d234790c92ffdc92233f95b2aff21be97fa"
+      }
+    },
+    "label": "SCRIPTED CAMERA · REAL GODOT RENDER / asset_diorama.tscn @ e415255 · no audio in this scene",
+    "path": "media/B09.mp4",
+    "sha256": "5c6b9788657fa94f7997a4866dddcf19af776700363535363c60055a86b409fd"
+  },
+  "B11": {
+    "segments": [
+      {
+        "src": "orbit",
+        "a": 1320,
+        "b": 1500
+      }
+    ],
+    "n_frames": 180,
+    "duration_s": "180/30",
+    "sources": {
+      "orbit": {
+        "path": "C:\\dev\\a3-capture\\run-02\\orbit-4k.mkv",
+        "sha256": "f3e6a847d422e02d68aa8be6f99a5d234790c92ffdc92233f95b2aff21be97fa"
+      }
+    },
+    "label": "SCRIPTED CAMERA · REAL GODOT RENDER / asset_diorama.tscn @ e415255 · no audio in this scene",
+    "path": "media/B11.mp4",
+    "sha256": "6b609670980fddc8b8bb8907ca3d9f16d8f99913fbff66c1576f266df881774c"
+  },
+  "B13": {
+    "still": true,
+    "n_frames": 630,
+    "path": "media/B13.mp4",
+    "sha256": "33f5a013c2cf01cc7f47f03caa04d31fe1040b213af82d51910be71f4b2f8e07",
+    "preview": "stills/B13.png"
+  },
+  "BCRD": {
+    "still": true,
+    "n_frames": 506,
+    "path": "media/BCRD.mp4",
+    "sha256": "c3e29871c03ceecbd3abe5f5693642d3089ea1117ce2b1466b4b68b18de0a706",
+    "preview": "stills/BCRD.png"
+  }
+}

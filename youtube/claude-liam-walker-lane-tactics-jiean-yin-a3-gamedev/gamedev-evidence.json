@@ -1,0 +1,438 @@
+{
+  "schema_version": 1,
+  "teaching_contract": "code-then-result-v1",
+  "game": {
+    "name": "walker-lane-tactics-jiean-yin",
+    "project": "godot/project.godot",
+    "source_revision": "e415255 = e41525548f68b2752917ef4544024a1b2492510a (branch a3-blender-assets)",
+    "game_dir": "isolated git-archive copy of e415255:godot (core.autocrlf=false)",
+    "note": "All 59 authored files are byte-identical to the e415255 blobs (git hash-object)."
+  },
+  "files": [
+    {
+      "path": "assets/models/archer_piece.glb",
+      "sha256": "de0d2ae6f99314d73aa18d4c7c8ea55dd05ece60d6e1a66cfc958b793345da65",
+      "role": "3D model (glTF binary, exported headless from Blender)",
+      "component_ids": [
+        "archer-piece-asset"
+      ]
+    },
+    {
+      "path": "assets/models/archer_piece.glb.import",
+      "sha256": "48b42d551c455f6f6527999199c61c70cfbca9ebd8a41cfe6a1e03431afc0f56",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "archer-piece-asset"
+      ]
+    },
+    {
+      "path": "assets/models/board_square.glb",
+      "sha256": "27415dfa2d901cae4cd5e077e1cfdd12134b7aef1897d18571e5864d7b9d1e38",
+      "role": "3D model (glTF binary, exported headless from Blender)",
+      "component_ids": [
+        "board-square-asset"
+      ]
+    },
+    {
+      "path": "assets/models/board_square.glb.import",
+      "sha256": "ed67feb0c1a876cc197fc5d590ef2b63dc5f92787d1f4941eb06c9f64bc9c929",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "board-square-asset"
+      ]
+    },
+    {
+      "path": "assets/models/goal_flag.glb",
+      "sha256": "5c22bf573d56211d038f8c24a2a1de52d50cdb4cc86f6e538f119973d3ec950f",
+      "role": "3D model (glTF binary, exported headless from Blender)",
+      "component_ids": [
+        "goal-flag-asset"
+      ]
+    },
+    {
+      "path": "assets/models/goal_flag.glb.import",
+      "sha256": "ba13f7a9b492745efd95e6ae1e02d91edb3aad1b8e4e675a14c0f54b164eb3eb",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "goal-flag-asset"
+      ]
+    },
+    {
+      "path": "diorama/asset_diorama.tscn",
+      "sha256": "235820c8db9c863a5f7a1b08de3f41138b4a3b99ed923707f390fcd6323db30b",
+      "role": "saved scene",
+      "component_ids": [
+        "diorama-scene"
+      ]
+    },
+    {
+      "path": "project.godot",
+      "sha256": "1310550bc37fce99b061109de28eb4127b2c9ca466081f8dafa4bd1b9e153d19",
+      "role": "project configuration",
+      "component_ids": [
+        "diorama-scene"
+      ]
+    },
+    {
+      "path": "tests/check_assets.gd",
+      "sha256": "a31e5ec402bb70b1eabd3950ac6910a558fd9258bec752d7af5446260422fe32",
+      "role": "GDScript source",
+      "component_ids": [
+        "headless-check"
+      ]
+    },
+    {
+      "path": "tests/test_report.gd",
+      "sha256": "9f0ceb144e7209743f4a279ea620394a0dfb1ef99f55d9a85dc3c72c09963971",
+      "role": "GDScript source",
+      "component_ids": [
+        "headless-check"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "archer-piece-asset",
+      "explanation": "assets/models/archer_piece.glb: the unit, 0.40 x 0.80 x 0.40 m in Godot (Blender 0.40 x 0.40 x 0.80), 254 triangles, 5 flat materials, origin at the base; built by Claude through the MCP (tools/blender/build_archer_piece.py, B03), with Jiean's hand edit moving the bow +0.08 m in Y (B04-B05), exported headless with +Y up. The .import sidecar holds Godot's import settings (generate_lods=true, not examined by the check). Seen in Godot in B02, B08, B09.",
+      "beat_ids": [
+        "B02",
+        "B04",
+        "B05",
+        "B09"
+      ],
+      "files": [
+        "assets/models/archer_piece.glb",
+        "assets/models/archer_piece.glb.import"
+      ]
+    },
+    {
+      "id": "board-square-asset",
+      "explanation": "assets/models/board_square.glb: one tile of the five-lane board, 1.00 x 0.05 x 1.00 m, 60 triangles, slab #D8C7A0 and border #9A7F55 (revision A3-R1, chosen by Jiean, B10). Seen in Godot in B02, B08 and from above in B11.",
+      "beat_ids": [
+        "B02",
+        "B10",
+        "B11"
+      ],
+      "files": [
+        "assets/models/board_square.glb",
+        "assets/models/board_square.glb.import"
+      ]
+    },
+    {
+      "id": "goal-flag-asset",
+      "explanation": "assets/models/goal_flag.glb: marks the enemy back row, 0.45 x 1.20 x 0.30 m, 84 triangles, walnut base and pole, enemy-red cloth only 0.02 m thick, so it is edge-on from +/-X (Claude's report in the student's recording, B06; seen in the orbit, B08).",
+      "beat_ids": [
+        "B02",
+        "B06",
+        "B08"
+      ],
+      "files": [
+        "assets/models/goal_flag.glb",
+        "assets/models/goal_flag.glb.import"
+      ]
+    },
+    {
+      "id": "diorama-scene",
+      "explanation": "diorama/asset_diorama.tscn, written by hand by Claude: a 5 x 3 m floor at y = 0 in the table colour, one DirectionalLight3D with shadows, a WorldEnvironment, a Camera3D at (0, 1.1, 3), and the three .glb scenes instanced at x = -1.2, 0 and 1.1 with y = 0 (B07). project.godot sets the Compatibility renderer used for the capture. Shown running in B08-B09 and B11 (capture run-02).",
+      "beat_ids": [
+        "B07",
+        "B08",
+        "B09"
+      ],
+      "files": [
+        "diorama/asset_diorama.tscn",
+        "project.godot"
+      ]
+    },
+    {
+      "id": "headless-check",
+      "explanation": "tests/check_assets.gd measures each .glb alone (AABB, height axis, lowest y, node scale/rotation, triangles, albedo colours) and then the diorama (gap to the Floor mesh's top, camera frustum, overlap), writing a JSON report through tests/test_report.gd. Lines 171-182 (B12) hold the fix: wait one frame and refuse to measure outside the tree. Results: run 1 32/33 (faulty), run 2 38/38, film rerun 38/38 (B13). Headless uses a dummy renderer: nothing about looks is tested.",
+      "beat_ids": [
+        "B12",
+        "B13"
+      ],
+      "files": [
+        "tests/check_assets.gd",
+        "tests/test_report.gd"
+      ]
+    }
+  ],
+  "excerpts": [
+    {
+      "beat_id": "B07",
+      "path": "diorama/asset_diorama.tscn",
+      "start_line": 41,
+      "end_line": 47,
+      "text": "[node name=\"board_square\" parent=\".\" instance=ExtResource(\"1_board\")]\nposition = Vector3(-1.2, 0, 0)\n\n[node name=\"archer_piece\" parent=\".\" instance=ExtResource(\"2_archer\")]\n\n[node name=\"goal_flag\" parent=\".\" instance=ExtResource(\"3_flag\")]\nposition = Vector3(1.1, 0, 0)"
+    },
+    {
+      "beat_id": "B12",
+      "path": "tests/check_assets.gd",
+      "start_line": 171,
+      "end_line": 182,
+      "text": "\tvar scene: Node3D = packed.instantiate() as Node3D\n\troot.add_child(scene)\n\tawait process_frame\n\tif not rep.check(\"diorama: scene is inside the tree before measuring\", scene.is_inside_tree()):\n\t\treturn\n\n\tvar floor_node: MeshInstance3D = scene.get_node(\"Floor\") as MeshInstance3D\n\tvar floor_box: AABB = floor_node.global_transform * floor_node.get_aabb()\n\tvar floor_top: float = floor_box.end.y\n\tvar cam: Camera3D = scene.get_node(\"Camera3D\") as Camera3D\n\trep.check(\"diorama: camera has a real frustum (6 planes), so the view check can mean something\",\n\t\tcam.get_frustum().size() == 6, \"%d planes\" % cam.get_frustum().size())"
+    }
+  ],
+  "exclusions": [
+    {
+      "path": "assets/art/.gitkeep",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_defeat.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_defeat.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_defeat_enemy.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_defeat_enemy.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_draw.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_draw.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_draw_enemy.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_draw_enemy.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_hurt.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_hurt.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_hurt_enemy.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_hurt_enemy.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_idle.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_idle.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_idle_enemy.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_idle_enemy.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_win.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_win.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_win_enemy.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/archer_win_enemy.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/env_table.png",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/art/env_table.png.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/music/.gitkeep",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/music/mus_loop.ogg",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/music/mus_loop.ogg.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/sfx/.gitkeep",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/sfx/sfx_hit.ogg",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/sfx/sfx_hit.ogg.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/sfx/sfx_hop.ogg",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/sfx/sfx_hop.ogg.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/sfx/sfx_hurt.ogg",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/sfx/sfx_hurt.ogg.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/sfx/sfx_win.ogg",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "assets/sfx/sfx_win.ogg.import",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "default_bus_layout.tres",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "game/audio_director.gd",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "game/draw_layer.gd",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "game/main.gd",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "game/main.tscn",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "game/piece.gd",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "game/rules.gd",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "tests/analyze_variants.gd",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "tests/capture.gd",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "tests/fixtures/lose_route.json",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "tests/fixtures/win_route.json",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "tests/route_runner.gd",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "tests/test_audio_events.gd",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    },
+    {
+      "path": "tests/test_rules.gd",
+      "reason": "Assignment 2 slice file, byte-identical between film-source-v1 and e415255 (git diff is empty); explained in the Assignment 2 film. Not part of the Assignment 3 assets, scene or check."
+    }
+  ],
+  "code_result_pairs": [
+    {
+      "code_beat": "B07",
+      "result_beat": "B08",
+      "observation": "Capture run-02: the scene's own Camera3D shows the floor and the three models side by side (board left, archer centre, flag right), then one scripted orbit: all three upright on the floor; passing +X the flag cloth is a thin line; from behind it is in shadow.",
+      "media": {
+        "path": "media/B08.mp4",
+        "sha256": "2a9a38e0de2b9b4c235d95b74fddd1f748985aa017f612e0eab16785c3c01945"
+      }
+    },
+    {
+      "code_beat": "B12",
+      "result_beat": "B13",
+      "observation": "The recorded reports beside the brief: sizes, height axis Y, lowest y 0.0000, 254/60/84 triangles and every colour; run 1 32/33 (kept), run 2 38/38, the film's rerun 38/38; labelled headless, no rendering.",
+      "media": {
+        "path": "media/B13.mp4",
+        "sha256": "33f5a013c2cf01cc7f47f03caa04d31fe1040b213af82d51910be71f4b2f8e07"
+      }
+    }
+  ],
+  "external_excerpts": [
+    {
+      "beat_id": "B03",
+      "path": "tools/blender/build_archer_piece.py",
+      "revision": "e415255",
+      "sha256": "606a745a0cdd684143f17da91ff58475a194897bcce7f6ed22b97ebf4c25567a",
+      "lines": [
+        135,
+        140
+      ],
+      "text": {
+        "135": "ob = add_mesh_object(\"bow\", box(0.03, 0.06, 0.50), (0.165, 0.0, 0.40), flat_material(\"walnut\", \"5A3A22\"))",
+        "140": "ob = add_mesh_object(\"eye\", box(0.03, 0.03, 0.03), (0.105, 0.0, 0.60), flat_material(\"ink\", \"1B1410\"))"
+      },
+      "note": "Comment lines starting '# line' in the displayed code are our markers, not source.",
+      "result_beat": "B04",
+      "observation": "Student's recording 0:00-0:09.6: orbiting the finished archer, the bow (to z 0.65) stands in front of the eye (z 0.60) on the facing side.",
+      "media": {
+        "path": "media/B04.mp4",
+        "sha256": "32ef2559314715a44df8e84909b00d204998433ebe574d3e4fa1b9144d498276"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "path": "tools/blender/build_board_square.py",
+      "revision": "e415255",
+      "sha256": "b38b09a57a66488b4395f3a78e1832355ef142ab6b2053b8b700ee9c1d4a7463",
+      "lines": [
+        142,
+        143
+      ],
+      "text": {
+        "142": "mat = bpy.data.materials[\"linen_border\"]",
+        "143": "bsdf = set_flat_color(mat, \"9A7F55\")"
+      },
+      "note": "Comment lines starting '# line' in the displayed code are our markers, not source.",
+      "result_beat": "B11",
+      "observation": "Capture run-02 shot F: the board square from above with darker border strips; the slab renders very light under the lamp.",
+      "media": {
+        "path": "media/B11.mp4",
+        "sha256": "6b609670980fddc8b8bb8907ca3d9f16d8f99913fbff66c1576f266df881774c"
+      }
+    }
+  ]
+}

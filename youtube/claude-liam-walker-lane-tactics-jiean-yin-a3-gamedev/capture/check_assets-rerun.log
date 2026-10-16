@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  archer_piece: loads from res://assets/models/archer_piece.glb
+PASS  archer_piece: instance is inside the scene tree before measuring
+PASS  archer_piece: bounding box W x H x D matches brief within 0.01 m  (got (0.4000, 0.8000, 0.4000), brief (0.4000, 0.8000, 0.4000))
+PASS  archer_piece: stands along Y (height 0.80 m on Y)  (height axis Y)
+PASS  archer_piece: lowest point at y = 0 (origin at the base)  (min y 0.0000, max y 0.8000)
+PASS  archer_piece: every node has scale (1, 1, 1) and rotation 0  (archer_piece2 Node3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000); archer_piece MeshInstance3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000))
+PASS  archer_piece: triangles within budget 400  (254 triangles)
+PASS  archer_piece: every brief colour arrived as a material albedo (±2 of 255)  (found 5A3A22, 1F6F78, E2B887, 24323F, 1B1410, missing )
+PASS  board_square: loads from res://assets/models/board_square.glb
+PASS  board_square: instance is inside the scene tree before measuring
+PASS  board_square: bounding box W x H x D matches brief within 0.01 m  (got (1.0000, 0.0500, 1.0000), brief (1.0000, 0.0500, 1.0000))
+PASS  board_square: stands along Y (height 0.05 m on Y)  (height axis Y)
+PASS  board_square: lowest point at y = 0 (origin at the base)  (min y 0.0000, max y 0.0500)
+PASS  board_square: every node has scale (1, 1, 1) and rotation 0  (board_square2 Node3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000); board_square MeshInstance3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000))
+PASS  board_square: triangles within budget 100  (60 triangles)
+PASS  board_square: every brief colour arrived as a material albedo (±2 of 255)  (found D8C7A0, 9A7F55, missing )
+PASS  goal_flag: loads from res://assets/models/goal_flag.glb
+PASS  goal_flag: instance is inside the scene tree before measuring
+PASS  goal_flag: bounding box W x H x D matches brief within 0.01 m  (got (0.4500, 1.2000, 0.3000), brief (0.4500, 1.2000, 0.3000))
+PASS  goal_flag: stands along Y (height 1.20 m on Y)  (height axis Y)
+PASS  goal_flag: lowest point at y = 0 (origin at the base)  (min y 0.0000, max y 1.2000)
+PASS  goal_flag: every node has scale (1, 1, 1) and rotation 0  (goal_flag2 Node3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000); goal_flag MeshInstance3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000))
+PASS  goal_flag: triangles within budget 150  (84 triangles)
+PASS  goal_flag: every brief colour arrived as a material albedo (±2 of 255)  (found 5A3A22, B23A2E, missing )
+PASS  diorama: res://diorama/asset_diorama.tscn loads
+PASS  diorama: scene is inside the tree before measuring
+PASS  diorama: camera has a real frustum (6 planes), so the view check can mean something  (6 planes)
+PASS  diorama: exactly one light  (1 Light3D nodes)
+PASS  diorama: has archer_piece
+PASS  diorama: archer_piece sits on the floor (gap 0.0000 m)  (asset min y 0.0000, floor top 0.0000)
+PASS  diorama: archer_piece fully inside the camera view  (box (-0.2000, 0.0000, -0.2000) .. (0.2000, 0.8000, 0.2000))
+PASS  diorama: has board_square
+PASS  diorama: board_square sits on the floor (gap 0.0000 m)  (asset min y 0.0000, floor top 0.0000)
+PASS  diorama: board_square fully inside the camera view  (box (-1.7000, 0.0000, -0.5000) .. (-0.7000, 0.0500, 0.5000))
+PASS  diorama: has goal_flag
+PASS  diorama: goal_flag sits on the floor (gap 0.0000 m)  (asset min y 0.0000, floor top 0.0000)
+PASS  diorama: goal_flag fully inside the camera view  (box (0.9500, 0.0000, -0.1500) .. (1.4000, 1.2000, 0.1500))
+PASS  diorama: the three assets stand side by side without overlapping in X  ([(-1.7, -0.7), (-0.2, 0.2), (0.95, 1.4)])
+SUMMARY check_assets: 38/38 passed -> C:/dev/a3-capture/e415255/evidence/check_assets-1792118100.json

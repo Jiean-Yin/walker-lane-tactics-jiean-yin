@@ -1,0 +1,1 @@
+Actual source excerpt (build_board_square.py @ e415255, lines 142-143) · reconstructed code view

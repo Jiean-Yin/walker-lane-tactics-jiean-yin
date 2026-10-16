@@ -1,0 +1,46 @@
+{
+  "B00": {
+    "text": "Illustrative reconstruction of the Claude interface — not a transcript",
+    "box_4k": [
+      1138,
+      1860,
+      2701,
+      1950
+    ],
+    "unlabelled_sha256": "0df60a051090b24db028bb45374c148ab493f84a1bf91839f36a96b784e51415",
+    "labelled_sha256": "f2acf8610a402448358e374ace8e8c0995e9f6e2875a17c75606485ae8fc3d17"
+  },
+  "BHTF": {
+    "text": "Reconstructed interface · suggested prompt, not a past run",
+    "box_4k": [
+      1230,
+      1860,
+      2609,
+      1950
+    ],
+    "unlabelled_sha256": "0f6e46b31da2ebde88c0eebeed7a821e9e2cbb90b2027879462a63ea968c44c0",
+    "labelled_sha256": "fd08e832d5850cf56399d9a5471067665e8ae9c8c12a556ac2d647b117565d29"
+  },
+  "B03": {
+    "text": "Actual source excerpt (build_archer_piece.py @ e415255, lines 135, 140) · reconstructed code view",
+    "box_4k": [
+      1212,
+      1820,
+      3480,
+      1910
+    ],
+    "unlabelled_sha256": "9d87394cc840d7f087d7e92e16601e78493fdae73e5e879b8ba4ff2572c809b0",
+    "labelled_sha256": "a7032452be365ded587881b61305d5cb6cb215863195b0f236f91c58c873c5ce"
+  },
+  "B10": {
+    "text": "Actual source excerpt (build_board_square.py @ e415255, lines 142-143) · reconstructed code view",
+    "box_4k": [
+      1197,
+      1820,
+      3480,
+      1910
+    ],
+    "unlabelled_sha256": "618b922396132769a947fbe2dd7fcd2a46293a92bf89d5eda3320d02f2bff3b2",
+    "labelled_sha256": "990811fbeb14ca46f18a1c8c171683087f0b3e68c443c019ea172c50447aad39"
+  }
+}

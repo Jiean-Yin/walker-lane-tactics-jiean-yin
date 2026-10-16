@@ -1,0 +1,928 @@
+{
+  "metadata": {
+    "title": "Lane Tactics in 3D: A Piece, a Square, a Goal",
+    "slug": "claude-liam-walker-lane-tactics-jiean-yin-a3-gamedev",
+    "topic": "WALKER · GODOT GAMEDEV",
+    "kind": "godot-gamedev",
+    "skill": "godot-gamedev",
+    "modifier": "walker",
+    "brand": "claude-liam",
+    "audience": "Course reviewers and makers following Walker/Claude workflows",
+    "register": "Teardown",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "aspect_ratio": "16:9",
+    "fit": "crop",
+    "captions": false,
+    "channel": "@NikBearBrown",
+    "folderLabel": "@NikBearBrown",
+    "greeting": "Hello, Liam",
+    "greeting_note": "English-only, as in the Assignment 2 film ('Hello'); Liam never takes Wagwan.",
+    "persona": "Liam (in for Bear)",
+    "presenter": "Liam (in for Bear)",
+    "in_for_bear": true,
+    "title_status": "default title chosen by Claude for this build; the student may change it",
+    "game": {
+      "name": "walker-lane-tactics-jiean-yin",
+      "repository": "https://github.com/Jiean-Yin/walker-lane-tactics-jiean-yin",
+      "source_revision": "e415255 = e41525548f68b2752917ef4544024a1b2492510a (branch a3-blender-assets)",
+      "engine": "Godot 4.7.2.stable.official.ed1daf0bf",
+      "blender": "5.2.2 LTS"
+    },
+    "audio_policy_note": "Narration only. The student's footage is muted (its own audio track is not used); the diorama scene has no sound. The outro card carries only Liam's voice.",
+    "labels": {
+      "footage": "STUDENT'S SCREEN RECORDING",
+      "engine": "SCRIPTED CAMERA · REAL GODOT RENDER / asset_diorama.tscn @ e415255 · no audio in this scene",
+      "reconstruction": "Illustrative reconstruction of the Claude interface — not a transcript",
+      "editor": "Godot editor reconstruction (printed by GodotDevWorkbench)",
+      "headless": "HEADLESS CHECK OUTPUT · recorded JSON reports, no rendering"
+    },
+    "build": {
+      "at": "2026-10-15T23:25:33",
+      "cut": "master",
+      "filled": 18,
+      "of": 18,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "narration_text": "Hello — this is Liam, in for Bear. Jiean Yin's game is Lane Tactics: wooden pieces on a five-lane board, and you win by reaching the enemy's back row. This assignment adds three 3D assets, built in Blender by Claude through the Blender MCP. The prompt on screen is an illustrative reconstruction.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on",
+        "label": "Illustrative reconstruction of the Claude interface — not a transcript",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hello, Liam",
+            "topic": "WALKER · GODOT GAMEDEV",
+            "segment": "A Piece, a Square, a Goal",
+            "command": "Please use Walker to convert my game design document about Lane Tactics — carved wooden pieces on a five-lane linen board, win by standing a piece on the enemy's back row — into three low-poly 3D assets: the archer piece, a board square and the goal flag. Build them in Blender through the MCP, export them to Godot, and check them in a small tabletop scene.",
+            "runningText": "reading CHANGE-BRIEF.md…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "High",
+            "output": [
+              "archer_piece 254 tris · board_square 60 · goal_flag 84",
+              "Headless check 38/38 (first run 32/33, faulty, kept)",
+              "Source shown: commit e415255"
+            ],
+            "durationSeconds": 17.066666666666666
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-10-16T02:53:10.695510+00:00"
+          }
+        }
+      },
+      "role_note": "walker B00: ClaudeComposerAsk, prompt begins 'Please use Walker to convert my game design document about'; describes this game. Illustrative reconstruction, labelled. Output lines are real numbers from TEST-REPORT A3.3 / evidence reports, not a progress receipt.",
+      "audio_file": "mp3/beat-B00-timed.wav",
+      "actual_duration_s": 17.066666666666666,
+      "voice_duration_s": 17.045,
+      "lead_silence_s": 0.0,
+      "clip_frames": 512,
+      "duration_note": "voice 17.045s + lead 0.0s, padded with silence to 512 frames = 512/30 s",
+      "render_duration_s": 17.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "narration_text": "What was built: three low-poly assets, made in Blender, exported to Godot, and placed in one small diorama scene. The numbers check them. The running scene is where you see them.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on-correct",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Three 3D assets for Lane Tactics:\na piece, a square, a goal.\nBuilt in Blender through the MCP,\njudged in numbers.",
+            "triggerWords": "numbers",
+            "replacementWords": "the running scene",
+            "fontSize": 84,
+            "lineSpacing": 2.3,
+            "align": "center",
+            "seed": "lane-tactics-a3-0915",
+            "mistakeRate": 2,
+            "hesitateWithin": 0,
+            "hesitateBetween": 1,
+            "charMs": 8,
+            "ink": "#3D3929",
+            "accent": "#D97757",
+            "bg": "#FAF9F5",
+            "durationSeconds": 10.833333333333334
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-10-16T03:03:41.785154+00:00"
+          }
+        }
+      },
+      "role_note": "walker B01: hesitant-writer summary of what was built; correction 'numbers' -> 'the running scene' is the assignment's own point (judged in the running scene).",
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "Hesitant-writer BLUF bookend: centred serif lines typed on cream; mostly-cream frames are the mandated design."
+      },
+      "audio_file": "mp3/beat-B01-timed.wav",
+      "actual_duration_s": 14.233333333333333,
+      "voice_duration_s": 10.005,
+      "lead_silence_s": 0.8,
+      "clip_frames": 427,
+      "duration_note": "voice 10.005s + lead 0.8s, padded with silence to 427 frames = 427/30 s",
+      "tail_silence_s": 3.4,
+      "render_duration_s": 14.233333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "ASSETS",
+      "narration_text": "Here they are, in Jiean's own Godot screenshot. The archer piece is the unit. The board square is the tile the five-lane board is made of. The goal flag marks the back row you have to reach. The brief fixed one scale before any build: one square is one metre, and every origin sits at the base.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B02",
+        "label": "JIEAN'S OWN SCREENSHOT · Godot editor, not a reconstruction",
+        "typography_note": "Composite: the student's PNG at native size ratio, our cards (>= 44 px at 4K)."
+      },
+      "role_note": "Requirement 1: the game, the three assets and why each (CHANGE-BRIEF A3 'Why these three', 'Scale', asset table). Picture: C:/dev/a3-footage/'Check 3 asset in Godot.png' (student's own).",
+      "audio_file": "mp3/beat-B02-timed.wav",
+      "actual_duration_s": 16.366666666666667,
+      "voice_duration_s": 15.765,
+      "lead_silence_s": 0.0,
+      "clip_frames": 491,
+      "duration_note": "voice 15.765s + lead 0.0s, padded with silence to 491 frames = 491/30 s",
+      "render_duration_s": 16.366666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B02.mp4",
+        "filled_by": "media",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "CODE",
+      "narration_text": "Claude built each part with one MCP call. Line 135 is the bow: a thin box reaching sixty-five centimetres up, on the facing side. Line 140 is the eye: a small cube at sixty centimetres, on the same side. Each line is fine on its own.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "label": "Actual source excerpt (build_archer_piece.py @ e415255, lines 135 and 140) · reconstructed code view",
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "build_archer_piece.py",
+            "code": "# line 135 (step 5, the bow)\nob = add_mesh_object(\"bow\", box(0.03, 0.06, 0.50), (0.165, 0.0, 0.40), flat_material(\"walnut\", \"5A3A22\"))\n\n# line 140 (step 6, the eye)\nob = add_mesh_object(\"eye\", box(0.03, 0.03, 0.03), (0.105, 0.0, 0.60), flat_material(\"ink\", \"1B1410\"))",
+            "sparkLine": "Bow reaches z 0.65; eye at z 0.60; both on +X",
+            "language": "python",
+            "largeText": false,
+            "durationSeconds": 15.666666666666666
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-10-16T03:12:33.508350+00:00"
+          }
+        }
+      },
+      "role_note": "Code beat (execute_blender_code body Claude ran through the MCP). Lines 135 and 140 verbatim; the two comment lines are our markers. Result follows in B04.",
+      "audio_file": "mp3/beat-B03-timed.wav",
+      "actual_duration_s": 15.666666666666666,
+      "voice_duration_s": 15.659,
+      "lead_silence_s": 0.0,
+      "clip_frames": 470,
+      "duration_note": "voice 15.659s + lead 0.0s, padded with silence to 470 frames = 470/30 s",
+      "render_duration_s": 15.666666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B03.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "RESULT",
+      "narration_text": "Jiean's own screen recording, just after the build. Orbit to the facing side: the bow stands right in front of the eye. No number caught this. Looking did.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "archer",
+            "t0": 0.0,
+            "t1": 9.6
+          }
+        ],
+        "label": "STUDENT'S SCREEN RECORDING|a3-blender-archer-build-2026-10-15.mp4 · 0:00.0–0:09.6 · own audio muted",
+        "typography_note": "Raw student footage; Blender UI text is the recording's own.",
+        "evidence_media": "media/B04.mp4"
+      },
+      "role_note": "Result of B03. Student footage 0:00.0-0:09.6: Object Mode orbit of the finished archer; from the facing side the bow covers the eye (FRICTIONAL 18:20-18:23, TEST-REPORT A3.4 #1).",
+      "lead_silence_s": 0.2,
+      "audio_file": "mp3/beat-B04-timed.wav",
+      "actual_duration_s": 9.6,
+      "voice_duration_s": 8.555,
+      "clip_frames": 288,
+      "duration_note": "voice 8.555s + lead 0.2s, padded with silence to 288 frames = 288/30 s (clip length; no retiming)",
+      "render_duration_s": 9.6,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B04.mp4",
+        "filled_by": "media",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "HAND_EDIT",
+      "narration_text": "The fix was Jiean's, by hand, following Claude's steps. Edit Mode, with the bow selected. Then G, Y, and eight centimetres along Y. Back in Object Mode, the sidebar still reads forty by forty by eighty, and the file is saved.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "archer",
+            "t0": 9.6,
+            "t1": 12.6,
+            "inset": "mode"
+          },
+          {
+            "src": "archer",
+            "t0": 24.5,
+            "t1": 31.5,
+            "inset": "move"
+          },
+          {
+            "src": "archer",
+            "t0": 38.0,
+            "t1": 43.2,
+            "inset": "saved"
+          }
+        ],
+        "label": "STUDENT'S SCREEN RECORDING|a3-blender-archer-build-2026-10-15.mp4 · three excerpts, cuts marked · own audio muted",
+        "typography_note": "Raw student footage with a 3x zoom inset of the same frame's own UI text (marked 'zoom')."
+      },
+      "role_note": "Student's hand edit (FRICTIONAL ~18:30, TEST-REPORT A3.6 #1): 0:09.6-0:12.6 Tab into Edit Mode, bow selected; 0:24.5-0:31.5 the move constrained to global Y, typed 0.08, header 'D: [0.08] = 8 cm (0.0800 m) along global Y', confirmed ~0:31; 0:38.0-0:43.2 Object Mode, Dimensions 0.4 / 0.4 / 0.8 m, status 'Saved \"archer_piece.blend\"' (~0:40.5). Omitted: 0:12.6-0:24.5 (view changes and the start of the same move, free-drag before the Y constraint) and 0:31.5-0:38.0 (orbit in Edit Mode).",
+      "lead_silence_s": 0.3,
+      "audio_file": "mp3/beat-B05-timed.wav",
+      "actual_duration_s": 15.2,
+      "voice_duration_s": 13.227,
+      "clip_frames": 456,
+      "duration_note": "voice 13.227s + lead 0.3s, padded with silence to 456 frames = 456/30 s (clip length; no retiming)",
+      "render_duration_s": 15.2,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B05.mp4",
+        "filled_by": "media",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "FLAG_PROMPT",
+      "narration_text": "The goal flag was built the same way. Here Jiean types the prompt, Approve, and sends it. Ninety seconds later, Claude's reports appear: base, pole and flag, eighty-four triangles, and a warning that the flag nearly vanishes side-on. Blender itself is not on screen in this recording.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "flag",
+            "t0": 4.5,
+            "t1": 14.0,
+            "crop": "prompt"
+          },
+          {
+            "src": "flag",
+            "t0": 102.6,
+            "t1": 112.6,
+            "crop": "reports"
+          }
+        ],
+        "label": "STUDENT'S SCREEN RECORDING|a3-blender-flag-build.mp4 · Claude window, cropped · own audio muted",
+        "typography_note": "Student footage cropped to the conversation column (sidebar with account name and the side panel removed); the conversation text is the recording's own."
+      },
+      "role_note": "The prompt to Claude on screen and what it built: 0:04.5-0:14.0 the student types 'Approve' and sends it (~0:11.7; the earlier question 'Keep recording ... tell me briefly' is visible above); the window shows no change from 0:14 to ~1:42; 1:42.6-1:52.6 Claude's step reports (base disc 0.30 x 0.30 x 0.04 m 44 tris; pole; flag 0.28 x 0.02 x 0.20 m 12 tris; 0.45 x 0.30 x 1.20 m, 84 triangles; edge-on warning). Blender never appears in this clip.",
+      "lead_silence_s": 0.2,
+      "audio_file": "mp3/beat-B06-timed.wav",
+      "actual_duration_s": 19.5,
+      "voice_duration_s": 15.531,
+      "clip_frames": 585,
+      "duration_note": "voice 15.531s + lead 0.2s, padded with silence to 585 frames = 585/30 s (clip length; no retiming)",
+      "render_duration_s": 19.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B06.mp4",
+        "filled_by": "media",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "CODE",
+      "narration_text": "Claude wrote the diorama scene by hand: a floor, one lamp, a camera, and three instanced models. The board square at x minus one point two, the archer at the origin, the flag at one point one. None is lifted, so each base origin should stand it on the floor.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "asset_diorama.tscn: Three Models, One Floor",
+            "project": "Lane Tactics asset slice",
+            "path": "res://diorama/asset_diorama.tscn",
+            "source": "godot/diorama/asset_diorama.tscn · lines 41–47 · commit e415255",
+            "code": "[node name=\"board_square\" parent=\".\" instance=ExtResource(\"1_board\")]\nposition = Vector3(-1.2, 0, 0)\n\n[node name=\"archer_piece\" parent=\".\" instance=ExtResource(\"2_archer\")]\n\n[node name=\"goal_flag\" parent=\".\" instance=ExtResource(\"3_flag\")]\nposition = Vector3(1.1, 0, 0)",
+            "startLine": 41,
+            "codeFontSize": 30,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Floor (lines 7-13, 27-28)",
+                "value": "PlaneMesh 5 x 3 m at y = 0, table colour #6B4A2E"
+              },
+              {
+                "label": "Lamp (lines 30-33)",
+                "value": "one DirectionalLight3D, shadows on"
+              },
+              {
+                "label": "Camera3D (lines 35-39)",
+                "value": "(0, 1.1, 3), fov 50"
+              }
+            ],
+            "output": [
+              "Hand-written by Claude; not yet saved from the editor (A3.8)"
+            ],
+            "durationSeconds": 14.466666666666667,
+            "cues": [
+              {
+                "at": 5.24,
+                "line": 42,
+                "label": "line 42: board_square at x = -1.2"
+              },
+              {
+                "at": 7.65,
+                "line": 44,
+                "label": "line 44: archer_piece, no position line = (0, 0, 0)"
+              },
+              {
+                "at": 9.11,
+                "line": 47,
+                "label": "line 47: goal_flag at x = 1.1"
+              },
+              {
+                "at": 10.62,
+                "line": 47,
+                "label": "every y = 0: the base origin should stand each model on the floor"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": "2026-10-16T03:13:39.983116+00:00"
+          }
+        }
+      },
+      "role_note": "Code beat: asset_diorama.tscn lines 41-47 verbatim. Result follows in B08.",
+      "audio_file": "mp3/beat-B07-timed.wav",
+      "actual_duration_s": 14.466666666666667,
+      "voice_duration_s": 14.464,
+      "lead_silence_s": 0.0,
+      "clip_frames": 434,
+      "duration_note": "voice 14.464s + lead 0.0s, padded with silence to 434 frames = 434/30 s",
+      "render_duration_s": 14.466666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B07.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "RESULT",
+      "narration_text": "Here it is running. First, the scene's own camera, exactly as saved. Then a scripted camera on the real scene, in one slow orbit. All three stand upright on the floor. As we pass the flag's side, the red cloth thins to a line: the edge-on problem. From behind, the flag falls into shadow.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "orbit",
+            "a": 0,
+            "b": 120,
+            "label": "THE SCENE'S OWN CAMERA3D · REAL GODOT RENDER|asset_diorama.tscn @ e415255, camera as saved · no audio in this scene"
+          },
+          {
+            "src": "orbit",
+            "a": 120,
+            "b": 600
+          }
+        ],
+        "label": "SCRIPTED CAMERA · REAL GODOT RENDER|asset_diorama.tscn @ e415255 · no audio in this scene",
+        "typography_note": "Raw engine capture, 4K SubViewport; our label measured separately.",
+        "evidence_media": "media/B08.mp4"
+      },
+      "role_note": "Result of B07. Capture run-02 frames 0-120 (shot A, the scene's own Camera3D) and 120-600 (shot B, harness camera, one 360-degree orbit, radius 3.3 m, 0.85 m above the 0.35 m target).",
+      "lead_silence_s": 0.3,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render: the scene's floor and background run edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.035,
+              0.05,
+              0.56,
+              0.135
+            ]
+          }
+        ],
+        "contrast_reason": "Real Godot render of a dark-background scene; the essential text is our burned label (white/yellow on a dark green pill), tested locally. Scene colours are not text."
+      },
+      "audio_file": "mp3/beat-B08-timed.wav",
+      "actual_duration_s": 20.0,
+      "voice_duration_s": 15.488,
+      "clip_frames": 600,
+      "duration_note": "voice 15.488s + lead 0.3s, padded with silence to 600 frames = 600/30 s (clip length; no retiming)",
+      "render_duration_s": 20.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B08.mp4",
+        "filled_by": "media",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "RESULT",
+      "narration_text": "Down at floor level: no gap under any base, and nothing sinks into the table. Then the archer from its facing side, the profile the 2D game uses. After the hand edit, the eye shows beside the bow.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "orbit",
+            "a": 600,
+            "b": 1080
+          }
+        ],
+        "label": "SCRIPTED CAMERA · REAL GODOT RENDER|asset_diorama.tscn @ e415255 · no audio in this scene",
+        "typography_note": "Raw engine capture, 4K SubViewport; our label measured separately."
+      },
+      "role_note": "Capture run-02 frames 600-840 (shot C, camera 6 cm above the floor, tracking left to right) and 840-1080 (shot D, archer from +X round toward +Z, 0.95 m).",
+      "lead_silence_s": 0.3,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render: the scene's floor and background run edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.035,
+              0.05,
+              0.56,
+              0.135
+            ]
+          }
+        ],
+        "contrast_reason": "Real Godot render of a dark-background scene; the essential text is our burned label (white/yellow on a dark green pill), tested locally. Scene colours are not text."
+      },
+      "audio_file": "mp3/beat-B09-timed.wav",
+      "actual_duration_s": 16.0,
+      "voice_duration_s": 11.157,
+      "clip_frames": 480,
+      "duration_note": "voice 11.157s + lead 0.3s, padded with silence to 480 frames = 480/30 s (clip length; no retiming)",
+      "render_duration_s": 16.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B09.mp4",
+        "filled_by": "media",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "CODE",
+      "narration_text": "One brief revision shows here too. The original border colour was only 1.15 to 1 against the slab, so a grid read as one flat sheet. Claude compared four darker colours; Jiean chose 9A7F55, at 2.27 to 1. These two lines are the whole change.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "label": "Actual source excerpt (build_board_square.py @ e415255, lines 142-143) · reconstructed code view",
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "build_board_square.py",
+            "code": "# lines 142-143 (revision A3-R1, run after the first look)\nmat = bpy.data.materials[\"linen_border\"]\nbsdf = set_flat_color(mat, \"9A7F55\")",
+            "sparkLine": "Border #CDB98E → #9A7F55 · contrast 1.15 → 2.27 : 1",
+            "language": "python",
+            "largeText": true,
+            "durationSeconds": 16.833333333333332
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": "2026-10-16T03:14:53.139523+00:00"
+          }
+        }
+      },
+      "role_note": "Code beat: CHANGE-BRIEF A3-R1. Lines 142-143 verbatim; the comment line is our marker. Result in B11.",
+      "audio_file": "mp3/beat-B10-timed.wav",
+      "actual_duration_s": 16.833333333333332,
+      "voice_duration_s": 16.811,
+      "lead_silence_s": 0.0,
+      "clip_frames": 505,
+      "duration_note": "voice 16.811s + lead 0.0s, padded with silence to 505 frames = 505/30 s",
+      "render_duration_s": 16.833333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B10.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "RESULT",
+      "narration_text": "In Godot, the darker strips frame the square. Under this lamp, though, the slab reads almost white.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "orbit",
+            "a": 1320,
+            "b": 1500
+          }
+        ],
+        "label": "SCRIPTED CAMERA · REAL GODOT RENDER|asset_diorama.tscn @ e415255 · no audio in this scene",
+        "typography_note": "Raw engine capture, 4K SubViewport; our label measured separately.",
+        "evidence_media": "media/B11.mp4"
+      },
+      "role_note": "Result of B10. Capture run-02 frames 1320-1500 (shot F, board square from above). Observation of the rendered pixels; not a judgement of the colour choice (A3.5 is the student's).",
+      "lead_silence_s": 0.15,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.035,
+              0.05,
+              0.56,
+              0.135
+            ]
+          }
+        ],
+        "contrast_reason": "Real Godot render of a dark-background scene; the essential text is our burned label (white/yellow on a dark green pill), tested locally. Scene colours are not text."
+      },
+      "audio_file": "mp3/beat-B11-timed.wav",
+      "actual_duration_s": 6.0,
+      "voice_duration_s": 5.781,
+      "clip_frames": 180,
+      "duration_note": "voice 5.781s + lead 0.15s, padded with silence to 180 frames = 180/30 s (clip length; no retiming)",
+      "render_duration_s": 6.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B11.mp4",
+        "filled_by": "media",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "CODE",
+      "narration_text": "Then the numbers. The check loads each model, then the diorama, and measures. Line 173, await process frame, is the fix. The first version measured before the nodes were in the scene tree, so every position read as zero and the camera had no frustum. One impossible failure, all three assets at x zero, gave it away.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "check_assets.gd: Measure Only Inside the Tree",
+            "project": "Lane Tactics asset slice",
+            "path": "res://tests/check_assets.gd",
+            "source": "godot/tests/check_assets.gd · lines 171–182 · commit e415255",
+            "code": "\tvar scene: Node3D = packed.instantiate() as Node3D\n\troot.add_child(scene)\n\tawait process_frame\n\tif not rep.check(\"diorama: scene is inside the tree before measuring\", scene.is_inside_tree()):\n\t\treturn\n\n\tvar floor_node: MeshInstance3D = scene.get_node(\"Floor\") as MeshInstance3D\n\tvar floor_box: AABB = floor_node.global_transform * floor_node.get_aabb()\n\tvar floor_top: float = floor_box.end.y\n\tvar cam: Camera3D = scene.get_node(\"Camera3D\") as Camera3D\n\trep.check(\"diorama: camera has a real frustum (6 planes), so the view check can mean something\",\n\t\tcam.get_frustum().size() == 6, \"%d planes\" % cam.get_frustum().size())",
+            "startLine": 171,
+            "codeFontSize": 23,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Run 1 (…1792106172.json)",
+                "value": "32/33: measured in _initialize(), outside the tree; kept"
+              },
+              {
+                "label": "Run 2 (…1792106192.json)",
+                "value": "38/38 after the fix"
+              }
+            ],
+            "output": [
+              "Headless: dummy renderer, nothing is drawn · godot --headless --script res://tests/check_assets.gd"
+            ],
+            "durationSeconds": 18.066666666666666,
+            "cues": [
+              {
+                "at": 1.4,
+                "line": 171,
+                "label": "lines 171-172: instance the diorama, add it to the tree"
+              },
+              {
+                "at": 4.83,
+                "line": 173,
+                "label": "line 173: wait one frame, so the nodes are inside the tree"
+              },
+              {
+                "at": 8.25,
+                "line": 174,
+                "label": "line 174: refuse to measure outside the tree"
+              },
+              {
+                "at": 13.45,
+                "line": 181,
+                "label": "lines 181-182: the camera must have 6 frustum planes"
+              },
+              {
+                "at": 14.14,
+                "line": 181,
+                "label": "run 1: all three measured at x ~ 0 -> the overlap check failed"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B12.mp4",
+            "at": "2026-10-16T03:08:33.128054+00:00"
+          }
+        }
+      },
+      "role_note": "Code beat: check_assets.gd lines 171-182 verbatim. Result (the recorded numbers) in B13.",
+      "audio_file": "mp3/beat-B12-timed.wav",
+      "actual_duration_s": 18.066666666666666,
+      "voice_duration_s": 18.048,
+      "lead_silence_s": 0.0,
+      "clip_frames": 542,
+      "duration_note": "voice 18.048s + lead 0.0s, padded with silence to 542 frames = 542/30 s",
+      "render_duration_s": 18.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B12.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "RESULT",
+      "narration_text": "Headless numbers beside the brief. Size, height axis, scale, origin, triangles and colours all match: 254, 60 and 84 triangles. The faulty first run is kept, 32 of 33. The fixed run passes 38 of 38, and so did a rerun on this film's isolated copy. But headless Godot draws nothing. How the assets look stays a human check.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B13",
+        "label": "HEADLESS CHECK OUTPUT · recorded JSON reports, no rendering",
+        "typography_note": "Composite table of TEST-REPORT A3.3 and the three JSON reports (>= 44 px at 4K).",
+        "evidence_media": "media/B13.mp4"
+      },
+      "role_note": "Requirement 4: brief vs Blender vs Godot (TEST-REPORT A3.3), runs 1 and 2, and our rerun on the isolated copy (capture/check_assets-rerun.json).",
+      "audio_file": "mp3/beat-B13-timed.wav",
+      "actual_duration_s": 21.0,
+      "voice_duration_s": 20.181,
+      "lead_silence_s": 0.0,
+      "clip_frames": 630,
+      "duration_note": "voice 20.181s + lead 0.0s, padded with silence to 630 frames = 630/30 s",
+      "render_duration_s": 21.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B13.mp4",
+        "filled_by": "media",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "BCRD",
+      "act": "CREDITS",
+      "narration_text": "Who did what. Jiean chose the game, approved every plan, recorded the sessions, made the hand edit, and chose the border colour and the headless export route. Claude proposed the numbers, and wrote and ran the Blender code, the export, the scene and the check. Source shown: commit e, four one five, two five five.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py BCRD",
+        "label": "",
+        "typography_note": "Text card (>= 52 px at 4K)."
+      },
+      "role_note": "Requirement 5: human and AI contributions (FRICTIONAL A3 'Human / Claude / model' lines, CHANGE-BRIEF 'Who decided what'), source revision.",
+      "audio_file": "mp3/beat-BCRD-timed.wav",
+      "actual_duration_s": 16.866666666666667,
+      "voice_duration_s": 16.235,
+      "lead_silence_s": 0.0,
+      "clip_frames": 506,
+      "duration_note": "voice 16.235s + lead 0.0s, padded with silence to 506 frames = 506/30 s",
+      "render_duration_s": 16.866666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BCRD.mp4",
+        "filled_by": "media",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "VERDICT",
+      "narration_text": "Verdict. Checked: size, upright, scale, origin, budget and colours, headlessly, plus this scripted look at the running scene. Claude got three things wrong: the bow hid the eye, the first check proved less than it claimed, and the flag vanishes side-on, still unfixed. Uncertain: how they read at game distance, and why the linen looks so pale. Next step: Jiean's own look check in Godot.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "artifact-reveal",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Three Lane Tactics assets at e415255.",
+            "brandLabel": "@NikBearBrown",
+            "artifactLines": [
+              "Checked: size, upright, scale, origin, triangles, colours — headless 38/38; a scripted camera on the running scene.",
+              "Claude got wrong: the bow hid the eye · the first check measured outside the tree · the flag is edge-on from the side (not fixed).",
+              "Uncertain: reading at game distance; the linen renders pale under the lamp; one tester, Windows only.",
+              "Next step: Jiean's look check in Godot (TEST-REPORT A3.5), including behind and below."
+            ],
+            "durationSeconds": 19.666666666666668
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": "2026-10-16T02:59:21.712738+00:00"
+          }
+        }
+      },
+      "role_note": "Verdict: checked vs wrong vs uncertain vs next step; the look is the student's call.",
+      "audio_file": "mp3/beat-BVDT-timed.wav",
+      "actual_duration_s": 19.666666666666668,
+      "voice_duration_s": 19.648,
+      "lead_silence_s": 0.0,
+      "clip_frames": 590,
+      "duration_note": "voice 19.648s + lead 0.0s, padded with silence to 590 frames = 590/30 s",
+      "render_duration_s": 19.666666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BVDT.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "HANDOFF",
+      "narration_text": "Your turn. Paste this. Use Walker on my Lane Tactics goal flag: make the cloth six centimetres thick instead of two. Before running it, predict the triangle count, the Godot bounding box, and whether it still vanishes side-on. Then re-export, rerun the check, and orbit it in the running scene. The catch: the numbers may not move at all. Only looking will tell you. Liam, in for Bear.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on",
+        "label": "Reconstructed interface · suggested prompt, not a past run",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "WALKER · YOUR TURN",
+            "segment": "One Thickness, One Prediction",
+            "command": "Use Walker on my Lane Tactics goal flag: make the cloth 6 cm thick instead of 2. Before running it, predict the triangle count, the Godot bounding box, and whether it still vanishes side-on. Then re-export, rerun check_assets.gd, and orbit it in the running scene.",
+            "runningText": "paste this into Claude…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "High",
+            "durationSeconds": 19.133333333333333
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": "2026-10-16T03:00:44.080738+00:00"
+          }
+        }
+      },
+      "role_note": "Your Turn: one bounded change + prediction + test; Liam signs off.",
+      "audio_file": "mp3/beat-BHTF-timed.wav",
+      "actual_duration_s": 19.133333333333333,
+      "voice_duration_s": 19.115,
+      "lead_silence_s": 0.0,
+      "clip_frames": 574,
+      "duration_note": "voice 19.115s + lead 0.0s, padded with silence to 574 frames = 574/30 s",
+      "render_duration_s": 19.133333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BHTF.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-10-15T23:25:33"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "OUTRO",
+      "kind": "outro_voice",
+      "role_note": "OUTRO-LOCK: ClaudeTitleOutro, exact title, @NikBearBrown, slug-seeded mascot, no subline. Spoken, never scored; 1.0 s silent tail.",
+      "narration_text": "Lane Tactics in 3D: A Piece, a Square, a Goal. At Nik Bear Brown.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "tail_hold_s": 1.0,
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "mascot-title",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Lane Tactics in 3D: A Piece, a Square, a Goal.",
+            "slug": "claude-liam-walker-lane-tactics-jiean-yin-a3-gamedev",
+            "handle": "@NikBearBrown",
+            "subline": "",
+            "durationSeconds": 5.833333333333333
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": "2026-10-16T03:01:13.937028+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BOUT-timed.wav",
+      "actual_duration_s": 5.833333333333333,
+      "voice_duration_s": 4.821,
+      "lead_silence_s": 0.0,
+      "clip_frames": 175,
+      "duration_note": "voice 4.821s + lead 0.0s, padded with silence to 175 frames = 175/30 s",
+      "render_duration_s": 5.833333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BOUT.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-10-15T23:25:33"
+      }
+    }
+  ]
+}

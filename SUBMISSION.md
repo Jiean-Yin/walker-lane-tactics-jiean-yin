@@ -1,38 +1,27 @@
-# SUBMISSION — Assignment 2: Generate Art, Sound, and Music for Your Game
+# SUBMISSION — Assignment 3: Your First 3D Game Assets with Claude, the Blender MCP, and Blender
 
 | Field | Value |
 |---|---|
-| Assignment | Assignment 2 - Generate Art, Sound, and Music for Your Game |
+| Assignment | Assignment 3 - Your First 3D Game Assets with Claude, the Blender MCP, and Blender |
 | Student | Jiean Yin |
-| Project name | walker-lane-tactics-jiean-yin |
-| Game concept in one sentence | A turn-based tactics game where carved wooden pieces on a five-lane tabletop board receive secret, simultaneous orders, and you win by standing a piece on the enemy's back row. |
-| GitHub repository/folder URL | https://github.com/Jiean-Yin/walker-lane-tactics-jiean-yin |
-| Started from | An empty Godot 4.7.2 project (practices and document set carried over from my Assignment 1, which extended Nik Bear Brown's walker-jumpman) |
-| Submitted commit SHA | Given in the Canvas submission note: the `main` commit that contains this file's final version. A commit cannot contain its own SHA. |
-| Source revision shown in the film | tag `film-source-v1` = `fcf33eff6c501d32624532ca197257a646552991` (the `godot/` folder is identical to `12f7283`, the tested revision) |
-| Godot version and operating system | Godot 4.7.2.stable.official.ed1daf0bf (standard build, Compatibility renderer) · Windows 11 Home 10.0.26200 |
-| Generative models used | **Stable Diffusion XL base 1.0** (Stability AI), run locally on my laptop GPU, CreativeML Open RAIL++-M: character poses and the tabletop background. **MusicGen small** (Meta), run locally, weights CC-BY-NC 4.0: the music loop. **ElevenLabs Sound Effects**, free web plan, run by me, non-commercial use only (ElevenLabs Terms of Use §1(c)): the four sound effects. **rembg / U²-Net**, local, MIT / Apache-2.0: background removal. Tried and not used: Suno v6-mini/v6 preview and ElevenLabs Music (free plans could not download). |
-| Final film URL and filename | https://youtu.be/aWLQ2fvkly4 (YouTube title "Lane tactics game development, sound & art test"; film title card "Lane Tactics: From Sketch to Seed to Sound") · `claude-liam-walker-lane-tactics-jiean-yin-gamedev.mp4` |
-| Final film SHA-256 | `543020595fe6e95c9878e14e059c9936b9b1d49097edc8b491d6254b18236aba` |
-
-## Summary of my work
-
-- **Design before generation** (commit `92417a2`, Oct 9 22:46, before the first Suno attempt at 23:03): CONCEPT (core loop, 4 pillars, art and audio direction), STORYBOARD (9 panels, 3 views, 4 angles), CHARACTER-SHEET (archer turnaround and 12 poses, silhouette test, orientation, collision overlay, palette check, consistency rules), CHANGE-BRIEF (asset list, event-to-sound map, music behaviour, 7 predicted failures).
-- **Generated assets in the running slice:** the archer in 5 states (idle, draw, hurt, defeat, win) plus red enemy copies; the tabletop background; 4 sound effects on real events; a seamless 8-bar music loop with pause/defeat/win/retry behaviour; M/N mute music and effects separately. Every generation, kept or rejected, is in the asset log (SOURCES.md, assets/gen-log.jsonl, assets/edit-log.jsonl), with rejected thumbnails in assets/rejected/.
-- **Verification:** a fresh clone passes 51/51 rules and 70/70 sound-event checks (sounds equal events, held/rapid input adds nothing, a muted run ends identically). My own playtest with sound on and muted is in TEST-REPORT §6. Five inspect-and-revise cycles, including the one-enemy rule change found by exhaustive search (CHANGE-BRIEF R1) and the redrawn idle base disc.
-- **Explainer film:** Brutalist `godot-gamedev walker`; reel records in `youtube/claude-liam-walker-lane-tactics-jiean-yin-gamedev/`.
-
-## Known limitations
-
-- Muted play: the attack target is hard to see on an occupied square, and the enemy's movement is not explained (my playtest).
-- The slice has one enemy; the storyboard drew two.
-- Pose mismatches against the sheet (hurt has no squint; defeat has a dot eye and a navy bow; the arms cover the face in win); the idle base disc is redrawn by hand.
-- The ElevenLabs sounds cannot be reproduced exactly (no seed; the added game description was not recorded).
-- One human tester; Windows only.
+| Project name | walker-lane-tactics-jiean-yin (Lane Tactics) |
+| GitHub repository URL | https://github.com/Jiean-Yin/walker-lane-tactics-jiean-yin |
+| Git tag and submitted commit SHA | tag `a3`; the submitted commit SHA is given in the Canvas note (a commit cannot contain its own SHA) |
+| Game-source revision shown in the film | `e415255` (`godot/` there is identical to the submitted tag's `godot/`: checked with `git diff e415255 a3 -- godot`, empty) |
+| Godot version, Blender version, and operating system | Godot 4.7.2.stable.official.ed1daf0bf (standard build, Compatibility renderer) · Blender 5.2.2 LTS (glTF 2.0 add-on 5.2.40) · Windows 11 Home 10.0.26200 |
+| The three assets and what each is for | **`archer_piece`** (0.40 × 0.40 × 0.80 m, 254 tris): the game's unit, the carved wooden archer from my 2D slice. **`board_square`** (1.00 × 1.00 × 0.05 m, 60 tris): the tile the five-lane board is made of; 1 square = 1 m sets the game's scale. **`goal_flag`** (0.45 × 0.30 × 1.20 m, 84 tris): marks the enemy back row you must reach to win. Shown side by side in `godot/diorama/asset_diorama.tscn` (floor, one light, camera) |
+| MCP project and version, or "script route" | **MCP route for all three assets**: [ahujasid/mcp-for-blender](https://github.com/ahujasid/mcp-for-blender) **2.1.9** (PyPI), Blender add-on 1.8, run with `uvx` (uv 0.13.1) from Claude Code 2.1.295; telemetry off; every asset library and generator off. Export was done afterwards with headless Blender (`tools/blender/export_glb.py`), from the committed .blend files, by my choice |
+| My hand edit in Blender | In Blender's window, in Edit Mode, I selected only the archer's bow (L) and moved it +0.08 m along Y (G Y 0.08), so the eye shows in profile; the bow had hidden it. Checked afterwards: bow y 0.05…0.11, size, scale and 254 triangles unchanged (TEST-REPORT A3.6, cycle 1) |
+| Checks run (command and result) | `blender.exe -b --factory-startup --python-exit-code 1 --python tools/blender/export_glb.py -- <committed .blend copies> godot/assets/models` → exit 0, 3 GLB files. `Godot_v4.7.2-stable_win64_console.exe --headless --path godot --import` → exit 0, no error lines. `timeout 120 Godot_v4.7.2-stable_win64_console.exe --headless --path godot --script res://tests/check_assets.gd --fixed-fps 60` → **38/38** (`evidence/check_assets-1792106192.json`); the first run of that check was faulty and is kept (`evidence/check_assets-1792106172.json`, 32/33). Human look check: TEST-REPORT A3.5. Fresh-clone check of tag `a3`: TO FILL |
+| Final film URL and filename | https://youtu.be/Cb2F8_0mYhk (YouTube, @JieanYin; video title "3D Game Assets with Claude, the Blender MCP, and Blender"; film title card "Lane Tactics in 3D: A Piece, a Square, a Goal") · `claude-liam-walker-lane-tactics-jiean-yin-a3-gamedev.mp4` ("Lane Tactics in 3D: A Piece, a Square, a Goal", 4:41.5, 3840 × 2160, 30 fps; kept out of GitHub) |
+| Final film SHA-256 | `83d2489e2ee1f6e6c2d5ffc1df5387f086fba0c51a983904e08b93a2d4ad4240` |
+| Summary of my changes | A3 brief with sizes, origins, budgets and six predicted failures, committed before any build (`78b213f`). Blender MCP set up on Windows (the course's `claude mcp add -e …` line failed; fixed form logged). Three assets built through the MCP, one Claude call per part, each in its own .blend with its code in `tools/blender/`. My hand edit (bow). Brief revision A3-R1 (darker board border, my choice from four options). Headless export, Godot import, a 3D diorama scene and a headless check. TEST-REPORT, FRICTIONAL, BLENDER-NOTES, SOURCES and README updated. Explainer film |
+| Known limitations | The flag is edge-on and almost invisible from the side; the bow reads more like a staff. The headless check cannot see rendering; the visual evidence is my look check. Godot generates LODs on import, which the check does not look at. The diorama .tscn was written by hand. One computer (Windows), one tester. TO FILL (anything from your look check) |
+| Changed games since Assignment 2 | No |
 
 ## Verification before submitting
 
-- [ ] Fresh clone of the submitted commit runs and passes both test suites (TEST-REPORT §1 commands)
-- [ ] `git diff film-source-v1 <submitted-commit> -- godot/` is empty (the film shows the submitted game source)
-- [ ] The film file's SHA-256 matches the value above, and the link opens for a reviewer
-- [ ] Source ZIP made from the same commit, without `.godot/`, `assets/_raw/`, credentials, or MP4/MP3/WAV files
+- [ ] Fresh clone of tag `a3` into an empty folder: import, run `check_assets.gd` (38/38), open the diorama scene
+- [ ] `git diff e415255 a3 -- godot` is empty (the film shows the submitted game source)
+- [ ] The film's SHA-256 matches the value above, and the link opens for a reviewer (signed out)
+- [ ] Source ZIP made from the same commit, without `.godot/`, `.blend1`, credentials or MP4/MP3/WAV files
