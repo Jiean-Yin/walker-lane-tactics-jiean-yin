@@ -89,3 +89,42 @@ Prompts: the four prompts in [design/GENERATION-PROMPTS.md §2](design/GENERATIO
 **Claude Code contributed:** the design-doc drafts and design sketches (under Jiean's direction); all prompts for the local models; running SDXL and MusicGen locally and recording seeds; written assessments of each candidate against the character sheet (recommendations, which Jiean accepted or overrode); background removal, base-disc redraw, recolour, trims and the loop cut; the Godot slice code and tests (partly through a Claude Code sub-agent in the same session); this file.
 
 **The generative models produced:** every character pose image, the tabletop background (SDXL), the four sound effects (ElevenLabs), and the music (MusicGen). Code-drawn parts of the game (board squares, HUD, markers, arrow projectile, cards) are Claude's code, not generated art.
+
+---
+
+# Assignment 3 — 3D assets with Claude, the Blender MCP and Blender
+
+## Starting point
+
+This layer builds on the Assignment 2 repository as it was at `95c81b3` (`main`, 2026-10-13). The 2D slice is unchanged; Assignment 3 adds `blender/`, `tools/blender/`, `godot/assets/models/`, `godot/diorama/` and `godot/tests/check_assets.gd`.
+
+## Where the three assets came from
+
+**Built, not downloaded or generated.** Each asset is made only from Blender's basic shapes (cylinders, a UV sphere, a cone, cubes) with flat-colour materials. The geometry was built by Python that Claude Code wrote and ran in my open Blender through the MCP's `execute_blender_code` tool, after I approved each plan; every body it ran is kept in `tools/blender/build_<asset>.py`. One change was made by me by hand in Blender's window (the archer's bow, see FRICTIONAL.md).
+
+**Not used:** no downloaded model, no AI-generated mesh. The add-on's asset libraries (Poly Haven, Sketchfab, Poly Pizza) and generators (Hyper3D Rodin, Hunyuan3D, Tripo) stayed switched off, and `generate_3d`, `search_assets` and `import_asset` were never called (the `get_addon_status` result showing them off is in FRICTIONAL.md). Nothing paid was used.
+
+**Colours:** the hex codes are the project's own palette from [CHARACTER-SHEET.md](CHARACTER-SHEET.md) and [CONCEPT.md](CONCEPT.md) (Assignment 2), plus the board border `#9A7F55` chosen in revision A3-R1. No external colour or material library.
+
+## Tools (Assignment 3)
+
+| Tool | Version | Use |
+|---|---|---|
+| Blender | 5.2.2 LTS (hash d13f752e3b9c, built 2026-09-15), Windows; the course chapter used 5.1.2 | modelling (through the MCP and by hand), `.blend` sources, headless `.glb` export |
+| Blender glTF 2.0 exporter | 5.2.40 (bundled with Blender) | `.glb` export, +Y Up |
+| MCP for Blender ([ahujasid/mcp-for-blender](https://github.com/ahujasid/mcp-for-blender)) | server 2.1.9 from PyPI; Blender add-on 1.8 (`blender_mcp.py`, SHA-256 `eb0facf6…297fa5`) | lets Claude Code run Python in my Blender (`execute_blender_code`, `get_scene_info`, `get_addon_status`, `look`). Registered with `DISABLE_TELEMETRY=true`; socket on `127.0.0.1:9876` only; add-on telemetry consent off |
+| uv / uvx (Astral) | 0.13.1, official Windows installer | runs the MCP server; uv chose Python 3.14.3 for it |
+| Claude Code (Anthropic) | 2.1.295, bundled with the Claude desktop app; Claude Opus 5.5; Northeastern access | plans, Blender Python, export script, Godot scene and check, document drafts |
+| Godot Engine | 4.7.2.stable.official.ed1daf0bf (standard build, Compatibility renderer) | `.glb` import, the diorama scene, headless check |
+| Git Bash `timeout` | bundled with Git for Windows | stops a headless run that hangs (the course's macOS commands use Homebrew coreutils) |
+| Screen recording | Windows, run by me | footage of my Blender session for the film (kept out of git) |
+
+The film's tools (Brutalist `godot-gamedev` workflow and narration) are added here when the film is made.
+
+## Human and AI contributions (Assignment 3)
+
+**Jiean Yin:** chose to keep Lane Tactics; accepted Claude's seven proposed brief defaults (assets, 1 square = 1 m, sizes, origins, colours, budgets, predicted failures) before any build; approved each build plan; restarted Blender and enabled the add-on; made the hand edit in Blender (bow moved +0.08 m in Edit Mode) after asking Claude for step-by-step instructions; chose the board border colour B `#9A7F55` from four options; decided the export had to run headless from the committed `.blend` files without the MCP; recorded the Blender sessions; wrote BLENDER-NOTES.md, the human look check in TEST-REPORT and the judgment lines in FRICTIONAL.md.
+
+**Claude Code:** installed uv and registered the MCP server; read the add-on's code before it was enabled; proposed the brief's numbers and predicted failures; planned and ran every `execute_blender_code` call and checked each result; found its own mistake (the bow hiding the eye) with `look`; compared the border colours; wrote the export script, the diorama scene (as text) and the headless check, and fixed that check after its first run proved less than it claimed; drafted TEST-REPORT, the factual lines in FRICTIONAL.md, README and this file.
+
+**Generative models:** none produced any Assignment 3 asset.
