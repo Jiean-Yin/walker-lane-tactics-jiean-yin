@@ -166,13 +166,13 @@ timeout 120 /c/Godot/Godot_v4.7.2-stable_win64_console.exe --headless --path god
 
 | Check | Evidence | Result |
 |---|---|---|
-| **Interface notes** | [BLENDER-NOTES.md](BLENDER-NOTES.md), six parts in my own words, screenshot `evidence/blender/window-session.png` | TO FILL (Jiean) |
+| **Interface notes** | [BLENDER-NOTES.md](BLENDER-NOTES.md), six parts in my own words, screenshot `evidence/blender/window-session.png` | Done |
 | **Size** | table A3.3 | brief = Blender = Godot to 4 decimals for all three |
 | **Upright and scale** | `check_assets.gd`: height axis, node scale and rotation of every imported node | all three stand along Godot Y; every node scale (1, 1, 1), rotation 0 |
 | **Origin** | Blender mesh z min; Godot AABB min y alone and in the diorama against the Floor mesh's top | lowest point 0.0000 m everywhere; gap to the floor 0.0000 m for all three |
-| **Triangle count** | table A3.3; Blender's Scene Statistics (status bar) | Claude's counts within budget; Scene Statistics read by Jiean: TO FILL |
-| **Imports and appears** | `--import` exit 0, no error/warn/fail line; diorama loads, all corners in the camera's view | imports clean; on screen: TO FILL (Jiean, opening the scene) |
-| **HUMAN CHECK: look** | Jiean orbits the camera around each asset in Godot, including behind and below | TO FILL — see A3.5 |
+| **Triangle count** | table A3.3; Blender's Scene Statistics (status bar) | Claude's counts within budget; Scene Statistics read by Jiean: 254, 60, 84. All match Claude's data. |
+| **Imports and appears** | `--import` exit 0, no error/warn/fail line; diorama loads, all corners in the camera's view | imports clean; on screen: All three visible when I open the scene and press F6. |
+| **HUMAN CHECK: look** | Jiean orbits the camera around each asset in Godot, including behind and below | The unit need a more detailed face to be distinguished as an archer, and the flag may be replaced to something seemly more rewarding — see A3.5 |
 | **What Claude got wrong** | A3.4 | three things |
 
 Headless reports: [evidence/check_assets-1792106192.json](evidence/check_assets-1792106192.json) (**38/38**) and the earlier, faulty run [evidence/check_assets-1792106172.json](evidence/check_assets-1792106172.json) (32/33, kept on purpose; see A3.4).
@@ -187,7 +187,7 @@ Blender values are the object's `dimensions` (what the sidebar's **Dimensions** 
 | `board_square` | 1.00 × 1.00 × 0.05 | 1.00 × 1.00 × 0.05 | 1.0000 × 0.0500 × 1.0000 | 0.0000 / 0.0000 | 60 / 60 / 100 | `D8C7A0 9A7F55`, both (border per A3-R1) |
 | `goal_flag` | 0.45 × 0.30 × 1.20 | 0.45 × 0.30 × 1.20 | 0.4500 × 1.2000 × 0.3000 | 0.0000 / 0.0000 | 84 / 84 / 150 | `5A3A22 B23A2E`, both |
 
-Blender sidebar confirmed by eye for each file: TO FILL (Jiean). Scene Statistics triangles: archer TO FILL, board TO FILL, flag TO FILL.
+Blender sidebar confirmed by eye(Jiean) for each file: All matched. Scene Statistics triangles: archer 254, board 60, flag 84.
 
 **What these numbers show and do not show.** They show that each asset arrived at the size, orientation, scale and colours measured, that its origin is at its base, and that it sits on the diorama floor and inside the camera's view. They do **not** show that anything renders (headless Godot uses a dummy renderer), how the colours read under the lamp, whether the shapes read as an archer, a board square and a flag at game size, or whether faces are missing when seen from behind or below. Godot also generated LODs on import (`meshes/generate_lods=true`); the check does not look at them.
 
@@ -205,13 +205,13 @@ Open `res://diorama/asset_diorama.tscn` in the Godot editor and orbit each asset
 
 | Question | Archer piece | Board square | Goal flag |
 |---|---|---|---|
-| Reads as what it is at game size? | TO FILL | TO FILL | TO FILL |
-| Right way up, standing on the floor (not floating or sunk)? | TO FILL | TO FILL | TO FILL |
-| Missing faces or holes (behind, below)? | TO FILL | TO FILL | TO FILL |
-| Colours as intended under the lamp? | TO FILL | TO FILL | TO FILL |
-| Anything else | TO FILL | TO FILL | TO FILL |
+| Reads as what it is at game size? | Clear | Clear | Clear |
+| Right way up, standing on the floor (not floating or sunk)? | Clear | Clear | Clear |
+| Missing faces or holes (behind, below)? | One eye seems a bit unclear to tell a face | Clear | Clear |
+| Colours as intended under the lamp? | Clear | Clear | Flag itself can be unclear as the final goal |
 
-Another viewer: TO FILL (only if someone else actually looked; record what they said).
+
+Another viewer: The archer looked a bit weird without arrow. At this point it seems like the archer is holding a stick.
 
 ## A3.6 Inspect-and-revise cycles
 
@@ -225,10 +225,10 @@ Another viewer: TO FILL (only if someone else actually looked; record what they 
 
 | # | Prediction | Result |
 |---|---|---|
-| 1 | Asset arrives lying on its side | **Did not happen.** All three stand along Godot Y (check), with +Y Up on in the exporter. Human confirmation: TO FILL |
+| 1 | Asset arrives lying on its side | **Did not happen.** All three stand along Godot Y (check), with +Y Up on in the exporter. Human confirmation: All three stand upright |
 | 2 | Scale not applied / wrong size | **Did not happen.** Transforms applied in Blender (export script refuses otherwise); every Godot node scale 1; sizes match to 4 decimals |
 | 3 | Origin in the middle, so it floats or sinks | **Did not happen.** Lowest point 0.0000 in Blender and Godot; gap to the diorama floor 0.0000 m |
-| 4 | Claude builds more than asked, over budget | **Did not happen.** 254 / 60 / 84 triangles; 6 / 5 / 3 shapes as listed. Scene Statistics cross-check: TO FILL |
+| 4 | Claude builds more than asked, over budget | **Did not happen.** 254 / 60 / 84 triangles; 6 / 5 / 3 shapes as listed. Scene Statistics cross-check: All three matched. |
 | 5 | A colour does not survive the export | **Did not happen.** Every brief colour arrived as the exact albedo. (A different colour problem did happen: the border colour itself was a poor choice, A3-R1) |
 | 6 | The MCP fails part-way | **Happened, but not as a fault.** Two dropped connections during the first archer steps were caused by me closing and reopening Blender (FRICTIONAL). After that, every call succeeded |
 

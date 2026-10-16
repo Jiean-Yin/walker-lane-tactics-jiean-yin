@@ -2,7 +2,7 @@
 
 A dated log of the design as it happened: what I wanted the player to see or hear, what I asked for, what came back, and what I decided.
 
-**How this log is written:** Claude Code writes the factual lines (**Asked**, **Got**, **Human / Claude / model**) from the session record. The judgment lines (**Wanted**, **Decided**, **Still unresolved**) are mine. Where one is still open it says `TO FILL`, followed by a *hint* that Claude drafted as a prompt for my own thinking. Hints are replaced, not kept. Entries marked *retrospective* were written after the fact from [DESIGN-HISTORY.md](DESIGN-HISTORY.md).
+**How this log is written:** Claude Code writes the factual lines (**Asked**, **Got**, **Human / Claude / model**) from the session record. The judgment lines (**Wanted**, **Decided**, **Still unresolved**) are mine. Entries marked *retrospective* were written after the fact from [DESIGN-HISTORY.md](DESIGN-HISTORY.md).
 
 ---
 
@@ -129,7 +129,7 @@ Same format as above. Machine: Windows 11 Home 10.0.26200, Blender 5.2.2 LTS (th
 
 ## 2026-10-15 17:50–18:05 — Blender MCP setup, manual route, on Windows
 
-- **Wanted:** TO FILL *(hint: how long you expected setup to take, and whether you expected the macOS steps to work as written on Windows)*
+- **Wanted:** I expect a immediate setup, since I found the manuel states a perfect implementation in Windows System.
 - **Asked:** Claude Code (desktop app, Code tab) to install uv and register the MCP for Blender server with the course's manual steps, and to record what differed. I approved installing uv.
 - **Got:**
   1. **uv.** The course's `brew install uv` is macOS-only. Claude used the README's Windows installer, `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"` (the README's uv line has no `-ExecutionPolicy ByPass`; Claude added it). It installed **uv 0.13.1** to `C:\Users\Optim\.local\bin`. The installer put that folder on the user PATH itself (checked with `[Environment]::GetEnvironmentVariable("Path","User")`), so the README's separate PATH step was not needed.
@@ -139,13 +139,13 @@ Same format as above. Machine: Windows 11 Home 10.0.26200, Blender 5.2.2 LTS (th
   5. **Server version:** `mcp-for-blender` **2.1.9** (also the latest on PyPI today). uv chose Python 3.14.3; the README warns that very new Pythons can lack wheels, but the server started.
   6. **Add-on.** `uvx mcp-for-blender addon-paths` listed `…\Blender Foundation\Blender\5.2\scripts\addons (missing)`. `uvx mcp-for-blender install-addon` created it and wrote `blender_mcp.py` (add-on version 1.8, SHA-256 `eb0facf69781a30e69792532087d8d41c6a14fcd323353250abe7988ee297fa5`).
   7. **Claude read the add-on code before it was enabled:** the socket binds `localhost`, port 9876; all six service toggles (Poly Haven, Hyper3D, Hunyuan3D, Sketchfab, Tripo, Poly Pizza) default to off; the start button's label in this version is **Connect to Claude** (the course said the code labels it "Connect to MCP server"; that string appears once elsewhere in the file).
-- **Decided:** TO FILL
+- **Decided:** I accept the fixed command and the full uvx path. Want the apps exist even if outside this project.
 - **Human / Claude / model:** Claude ran every command and read the add-on code; I approved the install and registration. No generation service is enabled.
-- **Still unresolved:** whether a new Claude Code session sees the Blender tools and reaches Blender (not tried yet). TO FILL *(hint: anything about the unauthenticated socket that worries you)*
+- **Still unresolved:** whether a new Claude Code session sees the Blender tools and reaches Blender (not tried yet). I am worried that later projects can be hard to track what we had done before
 
 ## 2026-10-15 18:05 — Connection test from a new Claude Code session
 
-- **Wanted:** TO FILL *(hint: did you expect it to connect on the first try?)*
+- **Wanted:** Did not expect it to be a problem with everything else ready.
 - **Asked:** a new Claude Code session (forked from the setup session so it would load the new server) to check the link only, with no building.
 - **Got:**
   1. **The tools are there.** The new session listed nine `blender` tools: `execute_blender_code`, `look`, `get_scene_info`, `generate_3d`, `search_assets`, `import_asset`, `get_addon_status`, `disable_telemetry`, `record_trajectory_feedback`. These are the same nine names the course gives for 2.1.9, so the old session's missing tools came from it being started before the server was registered, not from a broken registration.
@@ -153,27 +153,27 @@ Same format as above. Machine: Windows 11 Home 10.0.26200, Blender 5.2.2 LTS (th
   3. Claude checked why: `blender.exe` was running (PID 26896), `netstat` showed nothing listening on port 9876, and the saved preferences (`userpref.blend`) did not mention `blender_mcp`. Blender had been opened for the window session *before* the add-on was installed, so the add-on was never loaded. Next: restart Blender, enable *Interface: MCP for Blender*, click **Connect to Claude**, try again.
   4. **Attempt 2, 18:16, after I restarted Blender and enabled the add-on: connected.** `get_addon_status` returned `up_to_date: true`, protocol 13 of 13, add-on 1.8, `blender_version: "5.2.2 LTS"`, libraries polyhaven/sketchfab/polypizza all `off`, generators tripo `off (Premium only)`, hunyuan3d `off`, hyper3d `off`, `telemetry_consent: false`. `get_scene_info` returned Blender's default scene: `Cube` at (0, 0, 0), scale 1, size 2.0 × 2.0 × 2.0, 6 faces; `Light` (point, 1000 W); `Camera`. `netstat` showed Blender listening on `127.0.0.1:9876` only (not on all interfaces).
   5. The status text calls the add-on "Interface: Blender MCP" and its button "Start MCP Server"; the Preferences entry and the panel say "MCP for Blender" and "Connect to Claude". Same add-on, three names.
-- **Decided:** TO FILL
-- **Human / Claude / model:** Claude ran the calls and the checks; I restarted Blender and enabled the add-on between attempt 1 and attempt 2. TO FILL *(hint: anything you noticed in the Preferences or the N panel)*
-- **Still unresolved:** TO FILL
+- **Decided:** After attempt 1 failed, I chose to restart Blender to give it a fresh start before either Claude or I touch it. Discussed with Claude first to decide who work on it first.
+- **Human / Claude / model:** Claude ran the calls and the checks; I restarted Blender and enabled the add-on between attempt 1 and attempt 2. Claude ran smoothly.
+- **Still unresolved:** I and Claude might not work on the same tool together since we may interrupt each other.
 
 ## 2026-10-15 18:17–18:20 — Archer build: Blender restarts twice during the first steps (predicted failure 6)
 
-- **Wanted:** TO FILL
-- **Asked:** after the brief commit (`78b213f`) I approved Claude's archer plan and started recording.
+- **Wanted:** A clean first build on video.
+- **Asked:** after the brief commit (`78b213f`) I approved Claude's archer plan.
 - **Got:**
   1. **Step 0** (delete the default objects, metric units, save `blender/archer_piece.blend`) succeeded: `objects: 0 | units: METRIC 1.0 METERS`, file saved.
   2. **Step 1, try 1** (`bpy.ops.mesh.primitive_cylinder_add`, 12 segments): `Error executing code: Connection to Blender lost: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。` ("An established connection was aborted by the software in your host machine"). `get_scene_info` then showed Blender's **default** scene again (Cube, Light, Camera), and `blender.exe` had a new process ID (32864 → 9344): Blender had closed and started again.
   3. Claude repeated step 0 in the new Blender (succeeded), then **step 1, try 2** built the disc with `bmesh.ops.create_cone` (data API, no operator), in case the operator had caused it. The call returned `Code executed successfully: base_disc tris: 44`, but the next `get_scene_info` returned `Error getting scene info: Not connected to Blender`, and `blender.exe` had a new process ID again (9344 → 14908).
   4. Claude found **no crash record**: no `*.crash.txt` in `%TEMP%` and no Application event mentioning Blender in the last 15 minutes.
   5. **Cause:** I told Claude "I closed and reopened Blender myself". So the drops were not an MCP or Blender fault; each restart started a new, unsaved default scene and cut the socket mid-call. The `bmesh` change in try 2 was therefore not needed, but it is kept (it works and needs no operator context).
-- **Decided:** TO FILL
-- **Human / Claude / model:** I closed and reopened Blender, because TO FILL. Claude diagnosed it from process IDs and the scene contents, and logged it.
-- **Still unresolved:** TO FILL
+- **Decided:** I knew a restart cuts the connection so I never close Blender during a build since then.
+- **Human / Claude / model:** I closed and reopened Blender, because I found changes without my operations which later found to be done by Claude. Claude diagnosed it from process IDs and the scene contents, and logged it.
+- **Still unresolved:** Can the MCP reconnect on its own, or does every restart need a manual Connect?
 
 ## 2026-10-15 18:20–18:23 — Archer piece built through the MCP
 
-- **Wanted:** TO FILL
+- **Wanted:** Simple hat, eyes, and bows that can make the model looks like an archer.
 - **Asked:** the approved plan: one `execute_blender_code` call per part, `get_scene_info` after each, then join, apply transforms and look. Every body is in [tools/blender/build_archer_piece.py](tools/blender/build_archer_piece.py); the source is `blender/archer_piece.blend`.
 - **Got:**
   - Each part landed where the plan said (scale 1, rotation 0 on every part): base disc 0.40 × 0.40 × 0.05 (44 tris), body 0.26 × 0.26 × 0.45 (44), head 0.22 (120), hood 0.25 × 0.25 × 0.16 (22), bow 0.03 × 0.06 × 0.50 (12), eye 0.03 (12). `get_scene_info` rounds to 2 decimals, so the disc's z 0.025 shows as 0.03.
@@ -181,48 +181,47 @@ Same format as above. Machine: Windows 11 Home 10.0.26200, Blender 5.2.2 LTS (th
   - After join + apply: one object `archer_piece`, location (0, 0, 0), rotation (0, 0, 0), scale (1, 1, 1), dimensions **0.40 × 0.40 × 0.80 m** (brief: 0.40 × 0.40 × 0.80), mesh z from 0.0000 to 0.8000, **254 triangles** (budget 400), 5 materials, 0 non-manifold edges, 0 loose vertices.
   - **What Claude got wrong (seen in `look`, not in the numbers):** from the facing (+X) side the bow (z 0.15–0.65) stands in front of the eye (z 0.60), so the eye cannot be seen in profile, which is the view the game uses. That was a mistake in Claude's plan. Also, a straight thin cube reads more like a staff than a bow.
   - Not checked yet: Blender's own Scene Statistics in the status bar (Claude counted triangles from the mesh), and how it looks in Godot.
-- **Decided:** TO FILL *(hint: why you fixed the eye this way rather than moving the eye or lowering the bow)*
+- **Decided:** Keep both eyes and bow clear to look from the side.
 - **Human / Claude / model:** plan and code by Claude; approval and recording by me. No generation service.
-- **Still unresolved:** TO FILL
+- **Still unresolved:** The bow looks like a stick. I just accept it for now.
 
 ## 2026-10-15 ~18:30 — My hand edit: the bow moved off the eye (inspect-and-revise cycle 1)
 
-- **Wanted:** TO FILL
+- **Wanted:** I need the eye visible from the side, which is the player's view.
 - **Asked:** I asked Claude for step-by-step instructions because I was not familiar with Blender yet. Claude suggested the edit (move only the bow 0.08 m along Y in Edit Mode, with Tab → L → G Y 0.08 → Enter → Tab, then check the sidebar and save).
 - **Got:** I made the edit myself in Blender's window with the mouse and keyboard and saved with Ctrl+S. Claude then checked it read-only through the MCP: the bow's 8 vertices moved from y −0.03…0.03 to **y 0.05…0.11** (x 0.15…0.18 and z 0.15…0.65 unchanged), so exactly +0.08 m. The object is still at location (0, 0, 0), rotation (0, 0, 0), scale (1, 1, 1), dimensions 0.40 × 0.40 × 0.80 m, 254 triangles, Object Mode, no unsaved changes. In the `look` side (+X) view the eye is now visible beside the bow.
-- **Decided:** TO FILL
-- **What it taught me about the interface:** TO FILL *(hint: Object Mode vs Edit Mode; that shortcuts go to the area under the mouse; why the sidebar's dimensions did not change)*
+- **Decided:** Moving the bow the right fix to make both of these two parts clear without overstrenth the height of the archer model.
 - **Human / Claude / model:** the edit in Blender was mine; the instructions and the check were Claude's. Not in `tools/blender/build_archer_piece.py` (that file holds only Claude's code); the result is in `blender/archer_piece.blend`.
-- **Still unresolved:** TO FILL
+- **Still unresolved:** It seems inconvenient to type G then Y to move along that axis.
 
 ## 2026-10-15 ~18:40 — Board square built through the MCP
 
-- **Wanted:** TO FILL
+- **Wanted:** A visible grid like a real game board
 - **Asked:** I approved Claude's plan (slab + 4 border strips, one call each, then join and apply) and recorded the build in a new clip. Code: [tools/blender/build_board_square.py](tools/blender/build_board_square.py); source `blender/board_square.blend`.
 - **Got:**
   - Every call succeeded on the first try; no connection drops this time. Each part had scale 1 and rotation 0: slab 0.92 × 0.92 × 0.04, front/back strips 1.00 × 0.04 × 0.05 at y ∓0.48, left/right strips 0.04 × 0.92 × 0.05 at x ∓0.48, 12 tris each.
   - After join + apply: one object `board_square`, location (0, 0, 0), rotation (0, 0, 0), scale (1, 1, 1), **1.00 × 1.00 × 0.05 m** (brief: 1.00 × 1.00 × 0.05), mesh x and y −0.5000…0.5000, z 0.0000…0.0500, **60 triangles** (budget 100), 2 materials.
   - **What `look` showed:** as Claude warned before building, the border colour `#CDB98E` is too close to the slab `#D8C7A0` (contrast ≈ 1.1 : 1). One square alone reads as a flat sheet with a hardly visible rim. In a temporary 3 × 3 tiled preview (never saved) the squares do separate, through 8 cm faint grooves where two borders meet, but the grid is weak. The viewport also makes both linens look greyer than the hex codes suggest (Blender's default viewport lighting, not checked further).
-- **Decided:** I chose to darken the border as a brief revision (A3-R1), after Claude compared four colours: **B `#9A7F55`**. Why: TO FILL
+- **Decided:** I chose to darken the border as a brief revision (A3-R1), after Claude compared four colours: **B `#9A7F55`**. Piece bases against the grid lines should be clear to view. Players should easily know the exact postion of the unit in the game.
 - **Then (inspect-and-revise cycle 2):** Claude changed only the `linen_border` material (linear base colour 0.3231, 0.2122, 0.0908) and saved; size, scale and the 60 triangles did not change. The same temporary 3 × 3 preview now shows a clearly readable grid with a visible board edge. The change is recorded as revision A3-R1 in CHANGE-BRIEF.md (the original colour stays in the table above it) and as the last block of the build script.
 - **Human / Claude / model:** plan, code and the contrast table by Claude; approval, recording and the colour choice by me. No generation service.
-- **Still unresolved:** TO FILL *(hint: does the darker grid still look like linen under Godot's light?)*
+- **Still unresolved:** Have not tested the viewing in a complete game board to diagonise myself.
 
 ## 2026-10-15 ~18:55 — Goal flag built through the MCP
 
-- **Wanted:** TO FILL
+- **Wanted:** A clear final goal from across the board, indicates the ending of the gameboard.
 - **Asked:** I approved Claude's plan (base disc, pole, flag; one call each, then join and apply). I asked whether I had to record while Claude worked; Claude said yes, with Blender and the Claude window on screen, from approval until the flag is done. Code: [tools/blender/build_goal_flag.py](tools/blender/build_goal_flag.py); source `blender/goal_flag.blend`.
 - **Got:**
   - All calls succeeded first time. Parts: base disc 0.30 × 0.30 × 0.04 (44 tris), pole 0.04 × 0.04 × 1.16 on the disc (28), flag 0.28 × 0.02 × 0.20 at x 0.02…0.30, z 0.98…1.18 (12); each with scale 1, rotation 0.
   - After join + apply: one object `goal_flag`, location (0, 0, 0), rotation (0, 0, 0), scale (1, 1, 1), **0.45 × 0.30 × 1.20 m** (brief: 0.45 × 0.30 × 1.20), mesh x −0.1500…0.3000 (off centre in X, as the brief says), z 0.0000…1.2000, **84 triangles** (budget 150), 2 materials, 0 non-manifold edges.
   - **What `look` showed:** it reads as a red flag on a pole from the front and three-quarter views. From exactly +X the flag is edge-on (2 cm thick) and nearly disappears, so it only reads when the camera looks roughly along Y. The 4 cm pole is visible at this framing; not yet judged at game distance.
-- **Decided:** TO FILL *(hint: is a flat box acceptable as a flag for now? how should the two flags face the camera in Godot?)*
+- **Decided:** A flat box acceptable as a flag for now. They may face towards the direction of the own side.
 - **Human / Claude / model:** plan and code by Claude; approval and recording by me. No generation service.
-- **Still unresolved:** TO FILL
+- **Still unresolved:** A more shinging objects like a crown may be more awarding when player successfully earn it.
 
 ## 2026-10-15 19:14–19:16 — Export (headless Blender), Godot import, diorama scene and the headless check
 
-- **Wanted:** TO FILL
+- **Wanted:** I want to explore and make subtle adjustments by not exporting through the MCP
 - **Asked:** I told Claude to export with headless Blender from the **committed** .blend files and **not** to use the MCP, because I was using Blender myself, and to save the export script in `tools/blender/`.
 - **Got:**
   1. **Export.** Claude extracted the three .blend files from commit `fbb0a90` with `git show` into a scratch folder (their SHA-256 matched the working copies) and ran `blender.exe -b --factory-startup --python-exit-code 1 --python tools/blender/export_glb.py -- <scratch> godot/assets/models` (Blender 5.2.2, glTF add-on 5.2.40; the script first checked the exporter's option names). The script refuses a file unless it holds one mesh with location 0, rotation 0, scale 1; it exports GLB with `export_yup=True` and checks the file starts with `glTF`. Exit 0; `archer_piece.glb` 17 764 bytes, `board_square.glb` 5 028, `goal_flag.glb` 5 828.
@@ -231,6 +230,6 @@ Same format as above. Machine: Windows 11 Home 10.0.26200, Blender 5.2.2 LTS (th
   4. **Check, run 1 — Claude's check was wrong.** `godot/tests/check_assets.gd` reported 32/33 with many engine errors (`Condition "!is_inside_tree()" is true` from `get_global_transform`, and `!is_inside_world()` from `get_frustum`). It measured inside `_initialize()`, before the nodes were in the scene tree, so every global transform was identity and the camera had no frustum. Several of the 32 passes therefore proved nothing: the diorama floor and camera-view checks passed for assets whose scene positions had been ignored. The one FAIL (assets overlapping in X: all three measured at x ≈ 0) is what exposed it. The report is kept: `evidence/check_assets-1792106172.json`.
   5. **Check, run 2, after Claude's fix** (wait one frame after `add_child`; every measurement first checks its node is in the tree; the camera check requires 6 frustum planes): **38/38 PASS, exit 0, no engine errors** — `evidence/check_assets-1792106192.json`. Godot numbers (W × H × D, Godot is Y-up): archer 0.40 × 0.80 × 0.40, board 1.00 × 0.05 × 1.00, flag 0.45 × 1.20 × 0.30, all match the brief to 4 decimals; each stands along Y; lowest point y = 0.0000; every node scale (1, 1, 1), rotation 0; triangles 254 / 60 / 84; albedo colours arrived exactly (archer `5A3A22 1F6F78 E2B887 24323F 1B1410`, board `D8C7A0 9A7F55`, flag `5A3A22 B23A2E`). In the diorama each asset's lowest point is 0.0000 m from the floor mesh's top (measured against the Floor, not against the asset itself), all corners are inside the camera's view, and the three do not overlap.
 - **What the check does not show:** that anything renders or looks right (headless uses a dummy renderer), how the colours read under the lamp, or whether the shapes read as what they are. Godot also generated LODs on import (`meshes/generate_lods=true`), which the check does not look at.
-- **Decided:** TO FILL
+- **Decided:** Diagnoise the game logic through direct human playing the game.
 - **Human / Claude / model:** the export-route decision (headless, from committed files, no MCP) was mine; the export script, scene, check and the fix were Claude's.
-- **Still unresolved:** TO FILL *(hint: what you see when you open the scene and walk the camera around, including from behind and below)*
+- **Still unresolved:** The built models are not compatiable if looking from some directions like above. If I were to add top viewing in the future, the model will require a rebuilt to add more details.
