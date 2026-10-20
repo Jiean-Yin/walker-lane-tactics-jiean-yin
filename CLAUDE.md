@@ -74,3 +74,9 @@ The rules were worked out in a Claude conversation on the user's other account, 
 - Sketches: `design/tools/draw_sketches.py` writes the SVGs; `bash design/tools/render_png.sh` renders the PNGs (headless Edge).
 - Game assets used by Godot live in `godot/assets/`; raw downloads go in `assets/_raw/` (ignored); rejected thumbnails go in `assets/rejected/`.
 - Frictional: judgment lines stay `TO FILL`, with a labeled hint draft for the user to replace.
+
+## Status update (Oct 19, 2026)
+
+- `GDD.md` is the Game Design Document. Its figures come from `design/tools/draw_gdd_sketches.py` and are written to `design/gdd/`.
+- RULES.md gained the campaign rules, all marked 2026-10-19 and confirmed by the user: goblin enemies, minimum damage, the shielder half-health rule, mountains, night levels (mist, patrols, alarm), Mend (player only) and the giant boss level. The giant's numbers and its shield are still to be settled. Decisions are logged in DESIGN-HISTORY.md section 8.
+- The story in GDD §6 is the user's outline, drafted by Claude and edited by the user.

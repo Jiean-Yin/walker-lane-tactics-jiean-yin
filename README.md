@@ -14,6 +14,10 @@
 | Claude Code | 2.1.295 (bundled with the Claude desktop app), Claude Opus 5.5 |
 | OS | Windows 11 Home 10.0.26200 |
 
+## Game Design Document
+
+[GDD.md](GDD.md) is the whole game in one document: concept, game flow, assets, characters, the story told episode by episode, gameplay (goal, mechanics, abilities, the four episodes, losing and restarting, player skills), graphics, sound and the technical description. It brings together the design docs below and adds the campaign: goblin enemies, mountains, night raids, the Mend ability and the giant boss. The rules for all of this are in [RULES.md](RULES.md), and how each one was decided is in [DESIGN-HISTORY.md](DESIGN-HISTORY.md) section 8. The figures come from `design/tools/draw_gdd_sketches.py` (rendered with `bash design/tools/render_png.sh design/gdd`).
+
 ## Assignment 3 — three 3D assets in a Godot diorama
 
 Lane Tactics is 2D, so this assignment adds a small **3D tabletop diorama** (`godot/diorama/asset_diorama.tscn`: a floor, one light, a camera) with three low-poly assets that I directed Claude to build in my running Blender through the MCP. Later assignments reuse this scene; it is not connected to the 2D game yet.

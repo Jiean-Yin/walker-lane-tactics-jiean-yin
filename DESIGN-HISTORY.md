@@ -1,6 +1,6 @@
 # Lane Tactics — design history
 
-How the game and its rules were decided, Sep 29 – Oct 9, 2026, in a conversation between the user and Claude. Each decision records who proposed it, which is useful raw material for the Frictional log. **User** = the user's own idea. **Claude → accepted** = Claude proposed it and the user accepted. **Changed by user** = the user overrode Claude's proposal.
+How the game and its rules were decided, Sep 29 – Oct 9, 2026, in a conversation between the user and Claude (section 8: Oct 19, with Claude Code in this repository). Each decision records who proposed it, which is useful raw material for the Frictional log. **User** = the user's own idea. **Claude → accepted** = Claude proposed it and the user accepted. **Changed by user** = the user overrode Claude's proposal.
 
 ## 1. Choosing a genre (Sep 29)
 
@@ -78,6 +78,42 @@ How the game and its rules were decided, Sep 29 – Oct 9, 2026, in a conversati
 - **Correction from the user (doc comment):** Claude had drawn the archer range as a star shape with 16 squares. The user corrected it: archers reach all 24 squares in the 5 × 5 area except their own square.
 - The numbers table holds Claude's first guesses for the paper test. None are agreed values.
 
+## 8. Campaign additions (Oct 19)
+
+Worked out while drafting GDD.md, in this repository. The rules are in RULES.md, marked 2026-10-19.
+
+| Topic | Decision | Source |
+| --- | --- | --- |
+| Story | Outline: a human commander holds back a goblin invasion that gets harder, fights them in the mountains, strikes back with a night raid, and faces an unstoppable giant as the goblins' last effort | User |
+| Story text | Briefings, level lines and closing lines for each episode in GDD.md §6, drafted from the outline | Claude, from the user's outline (for the user to edit) |
+| Enemy army | Monsters: goblin archers, wolf riders, and a shield unit | User |
+| Enemy rules | Same rules and numbers as the matching player type | Claude → accepted |
+| Enemy art | Carved and painted wooden monsters, like the player's pieces | Claude → accepted |
+| Enemy shield unit | A goblin holding a shield, so all three enemy types share one goblin look | Changed by user (the user's first idea and Claude's sketch had a shield giant) |
+| Environments as the challenge | Levels get harder through terrain and night, not only through bigger armies | User |
+| Mountains | Archers shoot further, riders get one more first-move step and a bigger charge, shielders take less damage, units see further | User |
+| Mountain details | Entering a mountain ends the move; the rider's extra step counts when it starts the turn there; +1 ring, +3 charge, −1 damage for shielders, +1 sight; mirror pairs | Claude → accepted |
+| Minimum damage | Every hit deals at least 1 damage, in any circumstance | User (after Claude flagged that an archer and shielder on a mountain would be immune to arrows) |
+| Night: mist | Civilization-style exploration: squares stay revealed once your units have been near them; mountains are always known; enemy ranges are shown on revealed squares | Changed by user (Claude proposed a sight radius around current units only, with torches on woken enemies) |
+| Night: enemies | Enemies sleep or patrol a fixed route until alarmed; patrol routes are shown with arrows | User |
+| Night: alarm trigger | A unit of yours inside an enemy's attack range after moves, or attacking it; a newly alarmed enemy attacks from the next turn; the AI sees the whole board | Claude → accepted |
+| Night: alarm spread | Each alarmed enemy alarms patrolling enemies within 2 squares and sleeping enemies within 1 square at the end of the turn | User (Claude proposed one radius for all) |
+| Boss | A giant, chosen over a Walking Fortress | Changed by user (Claude recommended the Fortress) |
+| Boss arrival | Arrives as an enemy reinforcement in a later turn, giving the player time to gather | User |
+| Boss design | Carries a shield and a goblin archer on its shoulder, which dies with the giant; the other details are left for later | User |
+| Giant: movement | 1 square per turn along its lane; it cannot be blocked and can only be killed | User |
+| Giant: push | Before moving, it hits every unit in the square in front and pushes it one square back; a unit with no room behind it is destroyed | User |
+| Giant: push details | Either side is pushed; the push happens at the start of step 4; a pushed unit's move is cancelled; pushed units enter in attack order; strike back applies | Claude → accepted |
+| Boss level: win and loss | Win only by eliminating every enemy; no turn limit; losing on the back row still applies | User (win condition); Claude → accepted (back-row loss kept, back-row win off) |
+| Shielder at half health | Once the shielder is at or below half health, its squaremate takes half arrow damage (at least 1) instead of 0 | Changed by user (Claude proposed the squaremate always takes 0) |
+| Night: questions 2–8 | The alarm reading, one-step spread, sight 2, danger zones only on revealed squares, the post-step patrol zone, no torches, a Mend spent on death | Claude → accepted |
+| Heal ability | One heal for a friendly unit, with limited uses or a one-turn delay | User |
+| Heal name | Mend, because "Reinforcement" already means the new soldiers each turn | Claude → accepted |
+| Heal limits | Both the delay and the limit: it lands after the next turn's combat; 2 uses per level; +3 HP | Claude → accepted |
+| Heal and the AI | Player only: the AI neither uses Mend nor reacts to it | Changed by user (Claude proposed the AI gets it too) |
+| Levels | Four episodes (Open Field, The Hills, Night Raid, The Giant); Mend from Episode 2 | Claude → accepted, built on the user's environment and boss ideas |
+| Presentation | The game stays 2D; the 3D diorama stays a later option | Claude → accepted |
+
 ## Open for the Frictional log
 
 These entries still need the user's own "Expected" and "Learned / still unsure" lines:
@@ -85,3 +121,6 @@ These entries still need the user's own "Expected" and "Learned / still unsure" 
 - Why the real-time idea was dropped for turn-based.
 - How the contested-square "shadow" rule came about.
 - The archer-range misunderstanding (star shape vs full 5 × 5).
+- The shield giant becoming a goblin shielder, for a consistent look (Oct 19).
+- Civilization-style mist instead of Claude's sight-radius-and-torches proposal (Oct 19).
+- Keeping Mend for the human player only (Oct 19).
