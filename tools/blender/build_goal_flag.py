@@ -7,7 +7,7 @@
 # Every call defined flat_material() and add_mesh_object() again, unchanged; they are written once below.
 #
 # Script route (no window), from the repository root:
-#   "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe" -b --factory-startup --python-exit-code 1 --python tools/blender/build_goal_flag.py
+#   <Blender exe> -b --factory-startup --python-exit-code 1 --python tools/blender/build_goal_flag.py
 
 # --- Step 0 - clean start for goal_flag: empty scene, metric units, save as a new .blend -------------------------
 import bpy, os
@@ -25,7 +25,7 @@ scene.unit_settings.scale_length = 1.0
 scene.unit_settings.length_unit = 'METERS'
 scene.cursor.location = (0.0, 0.0, 0.0)
 
-out_dir = r"C:\dev\walker-lane-tactics-jiean-yin\blender"
+out_dir = os.environ.get("LT_BLEND_DIR", os.path.join(os.getcwd(), "blender"))  # <repo>/blender (the MCP run wrote its absolute path here)
 os.makedirs(out_dir, exist_ok=True)
 path = os.path.join(out_dir, "goal_flag.blend")
 bpy.ops.wm.save_as_mainfile(filepath=path)

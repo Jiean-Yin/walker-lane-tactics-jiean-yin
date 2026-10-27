@@ -11,7 +11,7 @@
     "duration_s": "288/30",
     "sources": {
       "archer": {
-        "path": "C:\\dev\\a3-footage\\a3-blender-archer-build-2026-10-15.mp4",
+        "path": "<footage>\\a3-blender-archer-build-2026-10-15.mp4",
         "sha256": "4bee3340de3199935c8fea9a8506664f080f957bedb4a9fcec2c4fd63fad5bf6"
       }
     },
@@ -44,7 +44,7 @@
     "duration_s": "456/30",
     "sources": {
       "archer": {
-        "path": "C:\\dev\\a3-footage\\a3-blender-archer-build-2026-10-15.mp4",
+        "path": "<footage>\\a3-blender-archer-build-2026-10-15.mp4",
         "sha256": "4bee3340de3199935c8fea9a8506664f080f957bedb4a9fcec2c4fd63fad5bf6"
       }
     },
@@ -71,7 +71,7 @@
     "duration_s": "585/30",
     "sources": {
       "flag": {
-        "path": "C:\\dev\\a3-footage\\a3-blender-flag-build.mp4",
+        "path": "<footage>\\a3-blender-flag-build.mp4",
         "sha256": "06f12a7ddbde2bd69dd896fd899a4c3389ce5476434617174057cfa2388d1d06"
       }
     },
@@ -104,7 +104,7 @@
     "duration_s": "600/30",
     "sources": {
       "orbit": {
-        "path": "C:\\dev\\a3-capture\\run-02\\orbit-4k.mkv",
+        "path": "<capture-copy>\\run-02\\orbit-4k.mkv",
         "sha256": "f3e6a847d422e02d68aa8be6f99a5d234790c92ffdc92233f95b2aff21be97fa"
       }
     },
@@ -124,7 +124,7 @@
     "duration_s": "480/30",
     "sources": {
       "orbit": {
-        "path": "C:\\dev\\a3-capture\\run-02\\orbit-4k.mkv",
+        "path": "<capture-copy>\\run-02\\orbit-4k.mkv",
         "sha256": "f3e6a847d422e02d68aa8be6f99a5d234790c92ffdc92233f95b2aff21be97fa"
       }
     },
@@ -144,7 +144,7 @@
     "duration_s": "180/30",
     "sources": {
       "orbit": {
-        "path": "C:\\dev\\a3-capture\\run-02\\orbit-4k.mkv",
+        "path": "<capture-copy>\\run-02\\orbit-4k.mkv",
         "sha256": "f3e6a847d422e02d68aa8be6f99a5d234790c92ffdc92233f95b2aff21be97fa"
       }
     },

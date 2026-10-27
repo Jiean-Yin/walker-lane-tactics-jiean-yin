@@ -6,7 +6,7 @@
 # materials exported, no cameras, lights or animation. Any failed check raises, so Blender exits 1.
 #
 # Usage, from the repository root (Git Bash shown; <src_dir> defaults to blender/):
-#   "/c/Program Files/Blender Foundation/Blender 5.2/blender.exe" -b --factory-startup --python-exit-code 1 \
+#   <Blender exe> -b --factory-startup --python-exit-code 1 \
 #       --python tools/blender/export_glb.py -- [<src_dir>] [<out_dir>]
 # On 2026-10-15 <src_dir> was a scratch copy extracted with `git show <commit>:blender/<name>.blend`, so the
 # export came from the committed sources and not from files open in Blender at the time.

@@ -4,6 +4,7 @@ Usage (Brutalist venv python, reel folder): python tools/qc_master.py <film.mp4>
 Writes _qc/frame-sheet-*.png, _qc/last-frame.png and _qc/master-qc.json.
 """
 import json
+import os
 import re
 import subprocess
 import sys
@@ -50,7 +51,7 @@ def main():
     silences = [(float(a), float(b)) for a, b in zip(re.findall(r"silence_start: ([\d.]+)", sil),
                                                     re.findall(r"silence_end: ([\d.]+)", sil))]
     # frame sheets: 3 frames per beat (10 %, 50 %, 90 %)
-    f = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 22)
+    f = ImageFont.truetype(os.path.join(os.environ["WINDIR"], "Fonts", "arial.ttf"), 22)
     tiles = []
     for r in rows:
         for q in (0.1, 0.5, 0.9):

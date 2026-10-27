@@ -7,7 +7,7 @@ repetition (the recordings are variable-frame-rate screen captures), never sped 
 dropped (narration only). Writes media/<beat>.mp4, stills/<beat>.png (previews) and capture/clips.json.
 
 Usage (reel folder, Brutalist venv python): python tools/make_media.py [B04 B05 ...]
-Env: FOOTAGE (default C:/dev/a3-footage), CAPTURE (default C:/dev/a3-capture), BRUTALIST (default C:/dev/brutalist.art)
+Env (required): FOOTAGE (<footage>), CAPTURE (<capture-copy>), BRUTALIST (<brutalist>)
 """
 import hashlib
 import json
@@ -19,9 +19,9 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 REEL = Path(__file__).resolve().parents[1]
-FOOTAGE = Path(os.environ.get("FOOTAGE", "C:/dev/a3-footage"))
-CAPTURE = Path(os.environ.get("CAPTURE", "C:/dev/a3-capture"))
-FD = Path(os.environ.get("BRUTALIST", "C:/dev/brutalist.art")) / "runtime/fonts"
+FOOTAGE = Path(os.environ["FOOTAGE"])
+CAPTURE = Path(os.environ["CAPTURE"])
+FD = Path(os.environ["BRUTALIST"]) / "runtime/fonts"
 SERIF = str(FD / "EB_Garamond/static/EBGaramond-Medium.ttf")
 SANS = str(FD / "Inter/static/Inter_28pt-Regular.ttf")
 SANS_M = str(FD / "Inter/static/Inter_28pt-Medium.ttf")

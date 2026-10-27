@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Render every design-sketch SVG to a PNG of the same pixel size with headless Edge.
 # Usage (repo root): bash design/tools/render_png.sh
-EDGE="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+# Set EDGE to msedge.exe if Edge is not in its default install folder.
+EDGE="${EDGE:-$(cygpath -u "$(printenv 'ProgramFiles(x86)')")/Microsoft/Edge/Application/msedge.exe}"
 DIRS="${@:-design/character design/storyboard}"
 for f in $(for d in $DIRS; do ls $d/*.svg; done); do
   w=$(grep -o 'width="[0-9]*"' "$f" | head -1 | grep -o '[0-9]*')

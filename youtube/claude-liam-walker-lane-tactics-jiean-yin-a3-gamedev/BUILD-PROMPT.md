@@ -35,11 +35,12 @@ $G --headless --path <capture-copy>/capture-godot --import
 <Godot>/Godot_v4.7.2-stable_win64.exe --path <capture-copy>/capture-godot --write-movie <capture-copy>/run-02/orbit.avi \
   --fixed-fps 30 --script res://film/diorama_orbit_driver.gd -- full <capture-copy>/run-02 <ffmpeg.exe>
 python tools/join_check.py <capture-copy>/run-02
-# script, narration, media (reel folder)
+# script, narration, media (reel folder); the film tools read these and have no built-in paths
+export FOOTAGE=<footage> CAPTURE=<capture-copy> BRUTALIST=<brutalist>
 python tools/build_sheet.py                      # authoring record; later edits were made in place in beat_sheet.json
 python3 <brutalist>/runtime/scripts/generate_audio_kokoro.py $REEL
 python tools/pad_narration.py                    # lead/tail silence, frame-exact beat audio
-python tools/make_media.py                       # footage beats, engine beats, evidence stills (FOOTAGE/CAPTURE env)
+python tools/make_media.py                       # footage beats, engine beats, evidence stills (FOOTAGE, CAPTURE, BRUTALIST env)
 python tools/set_props.py                        # GodotDevWorkbench highlight cues bound to measured narration
 python3 <brutalist>/runtime/scripts/remotion_scenes.py $REEL --only <beat>   # each Remotion beat
 python tools/burn_labels.py                      # disclosure labels on reconstructed views

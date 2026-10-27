@@ -41,14 +41,14 @@ Scale: **1 board square = 1 m**, and 1 Blender unit = 1 Godot unit = 1 m, so not
 **Run the check and open the scene** (Windows, Git Bash; on macOS use your Godot path and Homebrew's `timeout`)
 
 ```bash
-timeout 300 /c/Godot/Godot_v4.7.2-stable_win64_console.exe --headless --path godot --import
-timeout 120 /c/Godot/Godot_v4.7.2-stable_win64_console.exe --headless --path godot --script res://tests/check_assets.gd --fixed-fps 60
-/c/Godot/Godot_v4.7.2-stable_win64.exe --path godot res://diorama/asset_diorama.tscn
+timeout 300 <Godot console exe> --headless --path godot --import
+timeout 120 <Godot console exe> --headless --path godot --script res://tests/check_assets.gd --fixed-fps 60
+<Godot exe> --path godot res://diorama/asset_diorama.tscn
 ```
 
 The check exits 0 when every assertion passes and writes `evidence/check_assets-<timestamp>.json` (last run: **38/38**, [evidence/check_assets-1792106192.json](evidence/check_assets-1792106192.json)). In the editor: **Import** `godot/project.godot`, open `res://diorama/asset_diorama.tscn`, press **F6** to see it through the camera. The 2D slice is still the project's main scene (F5).
 
-Re-export (only needed after changing a `.blend`): `"/c/Program Files/Blender Foundation/Blender 5.2/blender.exe" -b --factory-startup --python-exit-code 1 --python tools/blender/export_glb.py -- blender godot/assets/models`
+Re-export (only needed after changing a `.blend`): `<Blender exe> -b --factory-startup --python-exit-code 1 --python tools/blender/export_glb.py -- blender godot/assets/models`
 
 **What the check does not show:** that anything renders or looks right (headless Godot uses a dummy renderer), how the colours read under the lamp, or whether the shapes read as an archer, a square and a flag. That is the human look check in TEST-REPORT A3.5.
 

@@ -4,7 +4,7 @@ OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA G
 Movie Maker mode enabled, recording movie in 1280×720 @ 30 FPS...
 CAPTURE full: 1500 frames, failed=''
 --------------------------------------------------------------------------------
-Done recording movie at path: C:/dev/a3-capture/run-02/orbit.avi
+Done recording movie at path: <capture-copy>/run-02/orbit.avi
 1502 frames at 30 FPS (movie length: 00:00:50:02), recorded in 00:01:09 (72% of real-time speed).
 CPU render time: 0.20 seconds (average: 0.13 ms/frame)
 GPU render time: 0.13 seconds (average: 0.09 ms/frame)

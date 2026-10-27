@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 REEL = Path(__file__).resolve().parents[1]
 import os
-FONT = os.environ.get("BRUTALIST", "C:/dev/brutalist.art") + "/runtime/fonts/Inter/static/Inter_28pt-Medium.ttf"
+FONT = os.environ["BRUTALIST"] + "/runtime/fonts/Inter/static/Inter_28pt-Medium.ttf"
 LABELS = {
     "B00": ("Illustrative reconstruction of the Claude interface — not a transcript", "bottom-centre"),
     "BHTF": ("Reconstructed interface · suggested prompt, not a past run", "bottom-centre"),

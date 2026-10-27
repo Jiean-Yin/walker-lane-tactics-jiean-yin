@@ -25,7 +25,7 @@ Do not publish.
 export PYTHONUTF8=1 PYTHONIOENCODING=utf-8 PATH="<brutalist>/.venv/Scripts:$PATH"
 REEL=<repo>/youtube/claude-liam-walker-lane-tactics-jiean-yin-gamedev
 # isolated copy + tests
-git -C <repo> archive film-source-v1 godot | tar -x -C /c/dev/lt-capture
+git -C <repo> archive film-source-v1 godot | tar -x -C <capture-copy>
 G=<Godot>/Godot_v4.7.2-stable_win64_console.exe
 $G --headless --path film-source-v1-godot --import
 $G --headless --path film-source-v1-godot --script res://tests/test_rules.gd

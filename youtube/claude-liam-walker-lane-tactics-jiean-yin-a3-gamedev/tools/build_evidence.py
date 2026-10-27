@@ -5,7 +5,7 @@ checked file by file with git hash-object). Every authored file is hashed and ei
 this film (the Assignment 3 additions) or excluded with a reason (the unchanged Assignment 2 slice).
 Excerpts shown by GodotDevWorkbench beats are recorded as `excerpts`; the two Blender build-script excerpts (outside
 godot/, shown with ClaudeCodeBeat) are recorded and verified here as `external_excerpts` (the checker ignores them).
-Usage (reel folder): python tools/build_evidence.py [GAME_DIR] [TOOLS_DIR]
+Usage (reel folder): python tools/build_evidence.py <capture-copy>/e415255/godot <capture-copy>/e415255/tools/blender
 """
 import hashlib
 import json
@@ -13,8 +13,8 @@ import sys
 from pathlib import Path
 
 REEL = Path(__file__).resolve().parents[1]
-GAME = Path(sys.argv[1] if len(sys.argv) > 1 else "C:/dev/a3-capture/e415255/godot")
-TOOLS = Path(sys.argv[2] if len(sys.argv) > 2 else "C:/dev/a3-capture/e415255/tools/blender")
+GAME = Path(sys.argv[1])
+TOOLS = Path(sys.argv[2])
 
 COMPONENTS = {
     "archer-piece-asset": {

@@ -6,13 +6,14 @@
 - B07: shorter Camera3D note (was clipped at the panel's bottom).
 - B12: excerpt lines 171-182 at the minimum code size, two notes (lines past 176 were cut off).
 - evidence_media on the result beats B04, B08, B11, B13.
-Usage (reel folder): python tools/patch_sheet_r2.py
+Usage (reel folder): CAPTURE=<capture-copy> python tools/patch_sheet_r2.py
 """
 import json
+import os
 from pathlib import Path
 
 REEL = Path(__file__).resolve().parents[1]
-GAME = Path("C:/dev/a3-capture/e415255/godot")
+GAME = Path(os.environ["CAPTURE"]) / "e415255/godot"
 
 
 def main():

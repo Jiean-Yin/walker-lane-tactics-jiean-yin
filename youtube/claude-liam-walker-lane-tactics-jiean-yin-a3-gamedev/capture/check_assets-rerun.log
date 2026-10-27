@@ -38,4 +38,4 @@ PASS  diorama: has goal_flag
 PASS  diorama: goal_flag sits on the floor (gap 0.0000 m)  (asset min y 0.0000, floor top 0.0000)
 PASS  diorama: goal_flag fully inside the camera view  (box (0.9500, 0.0000, -0.1500) .. (1.4000, 1.2000, 0.1500))
 PASS  diorama: the three assets stand side by side without overlapping in X  ([(-1.7, -0.7), (-0.2, 0.2), (0.95, 1.4)])
-SUMMARY check_assets: 38/38 passed -> C:/dev/a3-capture/e415255/evidence/check_assets-1792118100.json
+SUMMARY check_assets: 38/38 passed -> <capture-copy>/e415255/evidence/check_assets-1792118100.json

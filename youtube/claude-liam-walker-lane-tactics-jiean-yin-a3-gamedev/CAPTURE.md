@@ -5,7 +5,7 @@ Two kinds of moving picture are in this film, and they are labelled differently 
 1. **The student's own screen recordings** (Blender and the Claude window), made by Jiean Yin on 2026-10-15. Used as excerpts with their real timecodes; nothing reconstructed.
 2. **A new engine capture** of the real diorama scene, made for this film with Godot Movie Maker on an isolated copy of commit `e415255`, with a scripted camera.
 
-## 1. Student footage (C:\dev\a3-footage, not in git)
+## 1. Student footage (<footage>, not in git)
 
 | File | SHA-256 | Format |
 |---|---|---|

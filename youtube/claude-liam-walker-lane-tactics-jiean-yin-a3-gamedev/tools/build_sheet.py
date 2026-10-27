@@ -2,9 +2,10 @@
 
 Sources: CHANGE-BRIEF.md / FRICTIONAL.md / TEST-REPORT.md (Assignment 3 sections), BLENDER-NOTES.md,
 tools/blender/*.py and godot/ at commit e415255, the student's footage in <footage>, capture run-02.
-Usage (reel folder): python tools/build_sheet.py
+Usage (reel folder): CAPTURE=<capture-copy> python tools/build_sheet.py
 """
 import json
+import os
 from pathlib import Path
 
 REEL = Path(__file__).resolve().parents[1]
@@ -84,7 +85,7 @@ def main():
          "label": "JIEAN'S OWN SCREENSHOT · Godot editor, not a reconstruction",
          "typography_note": "Composite: the student's PNG at native size ratio, our cards (>= 44 px at 4K)."},
         role_note="Requirement 1: the game, the three assets and why each (CHANGE-BRIEF A3 'Why these three', 'Scale', "
-                  "asset table). Picture: C:/dev/a3-footage/'Check 3 asset in Godot.png' (student's own)."))
+                  "asset table). Picture: <footage>/'Check 3 asset in Godot.png' (student's own)."))
     beats.append(V("B03", "CODE",
         "Claude built each part with one MCP call. Line 135 is the bow: a thin box reaching sixty-five centimetres "
         "up, on the facing side. Line 140 is the eye: a small cube at sixty centimetres, on the same side. Each "
@@ -262,7 +263,7 @@ def main():
                                "title": f"{TITLE}.", "slug": SLUG, "handle": "@NikBearBrown", "subline": ""}}}})
 
     # verbatim code for the GodotDevWorkbench beats, from the isolated copy of e415255
-    game = Path(r"C:/dev/a3-capture/e415255/godot")
+    game = Path(os.environ["CAPTURE"]) / "e415255/godot"
     for b in beats:
         p = (b["shot"].get("remotion") or {}).get("props") or {}
         if p.get("code", "") is None:

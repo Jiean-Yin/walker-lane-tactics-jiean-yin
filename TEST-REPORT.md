@@ -153,13 +153,13 @@ No assertion was removed or loosened. One label was corrected: the check named "
 
 ```bash
 # export, headless Blender, from the committed .blend files (no MCP)
-"/c/Program Files/Blender Foundation/Blender 5.2/blender.exe" -b --factory-startup --python-exit-code 1 \
+<Blender exe> -b --factory-startup --python-exit-code 1 \
     --python tools/blender/export_glb.py -- <dir with the .blend files> godot/assets/models
 # import, then the check (timeout comes with Git Bash; the course's macOS version uses Homebrew coreutils)
-timeout 300 /c/Godot/Godot_v4.7.2-stable_win64_console.exe --headless --path godot --import
-timeout 120 /c/Godot/Godot_v4.7.2-stable_win64_console.exe --headless --path godot --script res://tests/check_assets.gd --fixed-fps 60
+timeout 300 <Godot console exe> --headless --path godot --import
+timeout 120 <Godot console exe> --headless --path godot --script res://tests/check_assets.gd --fixed-fps 60
 # open the scene (window)
-/c/Godot/Godot_v4.7.2-stable_win64.exe --path godot res://diorama/asset_diorama.tscn
+<Godot exe> --path godot res://diorama/asset_diorama.tscn
 ```
 
 ## A3.2 Results against the course's checks
