@@ -27,3 +27,6 @@ credentials/
 *.pfx
 
 # Git cannot ignore by size: inspect staged files before committing (>25 MB).
+
+# Wrapper logs (cited copies are kept in evidence/)
+logs/
