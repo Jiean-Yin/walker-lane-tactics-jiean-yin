@@ -15,6 +15,8 @@ const ART_DIR: String = "res://assets/art/"
 const STATES: Array[String] = ["idle", "draw", "hurt", "defeat", "win", "hop", "recover"]
 const OPTIONAL_FALLBACK: Dictionary = {"hop": "idle", "recover": "idle"}
 const ENEMY_TINT: Color = Color(1.0, 0.55, 0.5)
+## A5 "exposed" tint (CHANGE-BRIEF §2). Each piece's sprite owns its own ShaderMaterial (R6).
+const ExposedTintShader: Shader = preload("res://shaders/exposed_tint.gdshader")
 
 const COL_INK: Color = Color("#1B1410")
 const COL_BIRCH: Color = Color("#E2B887")
@@ -51,8 +53,23 @@ func setup(id: String, team_name: String, start_facing: int, start_cell: Vector2
 	if _sprite == null:
 		_sprite = Sprite2D.new()
 		_sprite.centered = true
+		var mat: ShaderMaterial = ShaderMaterial.new() # a new one per sprite, never shared (R6)
+		mat.shader = ExposedTintShader
+		mat.set_shader_parameter("exposed_amount", 0.0)
+		_sprite.material = mat
 		add_child(_sprite)
 	set_state("idle")
+
+
+## Set only by the exposed driver (game/exposed_driver.gd), and only on the player archer.
+func set_exposed_amount(v: float) -> void:
+	var mat: ShaderMaterial = tint_material()
+	if mat != null:
+		mat.set_shader_parameter("exposed_amount", v)
+
+
+func tint_material() -> ShaderMaterial:
+	return _sprite.material as ShaderMaterial if _sprite != null else null
 
 
 func set_facing(f: int) -> void:
