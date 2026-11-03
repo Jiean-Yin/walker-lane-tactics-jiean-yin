@@ -1,4 +1,171 @@
-# TEST-REPORT — Lane Tactics asset slice
+# TEST-REPORT — Lane Tactics
+
+Newest assignment first. Assignment 5 below; the Assignment 2 and 3 reports follow unchanged.
+
+# Assignment 5 — shaders, materials and the Godot shading language
+
+| | |
+|---|---|
+| Source revision tested | branch `a5-shaders`; the final revision is the commit tagged `a5` (re-verified from a fresh clone, §A5.12) |
+| Engine | Godot 4.7.2.stable.official.ed1daf0bf, standard build |
+| Renderer | **Compatibility** (OpenGL 3.3), `godot/project.godot:25` |
+| OS | Windows 11 Home 10.0.26200 |
+| Testers | Jiean Yin (human checks, marked HUMAN); headless suites and windowed probes run by Claude Code and by `claude -p` agent sessions (named per row) |
+| Date | 2026-11-02 |
+
+All suites run through `scripts/run-test.sh <test> <fps>` (Godot from `$GODOT`; `timeout 120`; fails on `SHADER ERROR` or `SCRIPT ERROR`).
+
+## A5.1 Baseline, before and after
+
+| Suite | fps | Before (`eb1ff2a`, `evidence/a5/baseline/`) | After (`5d275b1`, `evidence/a5/step2/`) |
+|---|---|---|---|
+| test_rules | 60 | 51/51 | 51/51 |
+| test_audio_events | 60 | 70/70 | 70/70 |
+| check_assets | 60 | 38/38 | 38/38 (also 38/38 with the linen tiles in the diorama, `98e1003`) |
+
+Known non-failing lines, the same before and after: `test_rules` prints the expected `Rules.resolve_attacks called in phase 'move'`; `test_audio_events` ends with `N resources still in use at exit`.
+
+## A5.2 Shaders parse
+
+| Check | Result | Evidence |
+|---|---|---|
+| `exposed_tint.gdshader` uniform list | exactly `exposed_amount` (float, `hint_range` 0–1) and `exposed_color` (vec4); defaults and `source_color` read from the source text | `test_exposed_tint` 46/46 at 30, 60, 144 |
+| `linen_square` and `hint_experiment` uniform lists, sampler hints from source | as `CHANGE-BRIEF.md` §4 | `test_materials` 148/148 |
+| `SHADER ERROR` lines in every passing run | none | logs in `evidence/a5/step2/`, `evidence/a5/step3/` |
+| Mutation 1 (Jiean): delete one `;` | **exit 1**, `SHADER ERROR: Expected a ';'.`, uniform list `[]`, 42/46 | `evidence/a5/mutations/mutation-1-*` |
+| Mutation 2 (Jiean): rename `exposed_amount` → `exposed_amt` in the shader only | **exit 1**, no `SHADER ERROR`, uniform list shows `exposed_amt`, 42/46. The 529-frame value check still **passed**: `set_shader_parameter` with the old name raised no error and read back its own value | `evidence/a5/mutations/mutation-2-*` |
+| Mutation 3 (Jiean): delete `source_color` from `albedo_tex` | TO FILL (Claude, after the run) | `evidence/a5/mutations/mutation-3-*` |
+
+## A5.3 Driver (`godot/game/exposed_driver.gd`), sampled every frame through real key presses
+
+`test_exposed_tint.gd` (agent-written, `44b2acb`; rerun by Claude, `5d275b1`) samples the uniform from a node at `process_priority` 1000 after real key presses (`root.push_input`).
+
+| fps | First value of a rise (5 × dt) | Last value | Rise 0 → 1, game time | Fall 1 → 0, game time | Frames sampled |
+|---|---|---|---|---|---|
+| 30 | 0.1667 | 1.0 / 0.0 | 0.2333 s (7 frames) | 0.2333 s (7 frames) | 326 |
+| 60 | 0.0833 | 1.0 / 0.0 | 0.2000 s (12 frames) | 0.2000 s (12 frames) | 529 |
+| 144 | 0.0347 | 1.0 / 0.0 | 0.2014 s (29 frames) | 0.2014 s (29 frames) | 1122 |
+
+R2's tolerance is one frame period. At 30 fps, six steps of 5/30 add up to 0.99999… in floating point, so `move_toward` needs a seventh frame: exactly one frame period over 0.20 s, at the edge of the tolerance. Recorded here rather than changing the driver.
+
+Also checked in the same runs:
+- **Retrigger (R3):** the state flipped 8–9 times mid-fade; the value never dropped to 0 and turned around from its current value.
+- **Pause (R4):** the value holds still for 30+ frames.
+- **Time scale (R4):** `Engine.time_scale = 0.5` doubles the frames and keeps 0.20 s of game time. `Engine.time_scale` does scale `delta` under `--fixed-fps`: 0.0167 / 0.0083 / 0.0035 at 30 / 60 / 144.
+- **Ending mid-fade (R5):** a fade from v ends after v × 0.20 s.
+- **Separate materials (R6):** the enemy's value is 0.0 in every frame, the two materials are always different objects, and after R the new sprite has a new material.
+
+## A5.4 Controlled values (HUMAN CHECK)
+
+In-engine captures with the course's `capture()` (`godot/debug/capture_exposed.tscn`, F9 pressed by Jiean in a windowed run).
+
+TO FILL: the table from `evidence/a5/captures/exposed_pixels.md`, one sentence on the 2.0 capture, and one on the OS-screenshot comparison.
+
+> **Hint (Claude):** paste the table the tool writes; the predictions are already beside the measurements. Claude's scripted dry run of the same tool (deleted, not evidence) matched 0.0 and 0.5 exactly, was within 1 step at 1.0 (P1 green 100 vs 101, the 100.5 rounding), and showed (224, 27, 34) at 2.0. You might write: "At 2.0 the head is (…), the value I predicted if not clamped, so `hint_range` does not clamp a value set from code." For the OS screenshot, say which one you trust and why (the capture reads the engine's own frame at viewport resolution, without the display colour profile or scaling).
+
+## A5.5 In play (HUMAN CHECK): Jiean's playtest
+
+TO FILL
+
+> **Hint (Claude):** two or three sentences in your own words: how many times you triggered the state; whether red read as "danger"; whether quick taps flickered; whether the red fade-out after R looked acceptable; whether the enemy ever turned red; whether anything outside the boundary (movement, timing, sounds) changed.
+
+## A5.6 Hint experiment
+
+| Band (file value) | Quad A `source_color`: predicted / measured | Quad B no hint: predicted / measured |
+|---|---|---|
+| 64 | 64 / **64** | 137 / **64** |
+| 128 | 128 / **128** | 188 / **128** |
+| 192 | 192 / **192** | 225 / **192** |
+
+Measured by Claude in windowed runs (`evidence/a5/step3/hint_experiment_measurement.md`, capture `hint_experiment_capture.png`). Wiring checks:
+- the two quads hold different material objects;
+- swapping the switches at run time changes nothing;
+- the audit's finding 1 control (`hint_control.gd`): each quad with its own texture object, still 64 / 128 / 192;
+- a constant `ALBEDO = vec3(0.5)` shows 128.
+
+Why the measurement differs from the prediction (Jiean): TO FILL
+
+> **Hint (Claude):** your predictions assumed Forward+ / Mobile (`CHANGE-BRIEF.md` §3, "Renderer"). The two measured facts: 0.5 written to `ALBEDO` shows as 128 (no encode on the way out), and the `source_color` quad shows the file values (no decode on the way in). One honest way to write it: "On Compatibility, this unshaded path neither decodes the texture nor encodes the output, so both quads show the file's numbers; the decode and encode I predicted belong to the Forward+/Mobile pipeline. I have not found the line in Godot's source that does this." Check the Compatibility notes in the Godot docs before you claim a reason.
+
+## A5.7 Interface sweep (HUMAN CHECK)
+
+| Uniform (`linen_square`) | Min | Default | Max | Breaks the look? |
+|---|---|---|---|---|
+| `tint` | TO FILL | white | TO FILL | TO FILL |
+| `uv_scale` | 0.5: TO FILL | 3.65: TO FILL | 8.0: TO FILL | TO FILL |
+| `roughness_scale` | 0.0: TO FILL | 1.0 (also the max): TO FILL | — | TO FILL |
+| `normal_strength` | 0.0: TO FILL | 1.0: TO FILL | 2.0: TO FILL | TO FILL |
+
+> **Hint (Claude):** a few words per cell, from what you saw in the editor (for example "0.5: threads become huge", "0.0: shiny highlight from the lamp", "2.0: deep threads, harsh shade"). "Breaks the look" means a value where it no longer reads as cloth.
+
+## A5.8 One shader, two materials (HUMAN CHECK)
+
+Capture of both tiles under the diorama lamp: `evidence/a5/step3/diorama_linen_tiles.png` (windowed, Claude).
+
+- Shader edit (one line), both tiles change: TO FILL
+- Material edit (`linen_dark` only), only the dark tile changes: TO FILL
+
+> **Hint (Claude):** name the line you changed and what both tiles did (for example "multiplied ALBEDO by 0.5 at `linen_square.gdshader:18`; both tiles darkened; undone"), then the value you changed in one material and what each tile did.
+
+## A5.9 Material wiring
+
+| Check | Result | Evidence |
+|---|---|---|
+| `test_materials` (agent-written, `02c36e4`) | 148/148 | `evidence/test_materials-1793676213.json` |
+| From an empty cache (fresh clone, `--import`, then the test) | 148/148, no `SHADER ERROR` | `evidence/a5/step3/fresh_cache.md` |
+| `source_color` mutation | see A5.2, mutation 3 | |
+
+## A5.10 Texture data
+
+| Normal map | `curl_ratio(directx=false)` | `curl_ratio(directx=true)` |
+|---|---|---|
+| `hessian_380_nor_gl_1k.png` (bound) | 0.6813 | 1.3187 |
+| `hessian_380_nor_dx_1k.png` (calibration only) | 1.3167 | 0.6833 |
+
+Calibrated on the Poly Haven GL/DX pair (`evidence/a5/step3/normal_map_calibration.log`). The direction is correct, so no sign flip. The gap is narrower than the course's "about 0 / about 2": the 16-bit sources are decoded as 8-bit (`Image.load_from_file` gives RGB8), and the course notes that quantization pulls ratios toward 1. Threshold from this pair: the right convention is below 1.0, the wrong one above. The audit noted that the two numbers for one file always add up to 2, so the DX file mirrors the GL file and adds no independent evidence.
+
+## A5.11 Import settings
+
+All five textures are set explicitly (`890b01f`):
+- Lossless on all five;
+- `compress/normal_map` 1 only on the normal maps;
+- mipmaps on, except for `nor_dx` and `hint_greys.png`;
+- `detect_3d/compress_to=0`, so a 3D material cannot switch them to VRAM compression.
+
+Measured after import (`evidence/a5/step3/review_probe.log`): RGB8 / L8, none compressed. The editor rewrote no import setting (git status after the editor sessions). The fresh-clone import rewrote 24 `.import` files only in their line endings (`core.autocrlf`).
+
+## A5.12 Fresh-clone verification of the tag
+
+TO FILL (Claude, after tagging): the clone, `--import`, every suite at its pinned frame rates, counts against this report, `SHADER ERROR` count.
+
+## A5.13 Inspect-and-revise cycles
+
+1. **Hint experiment:** predicted 137 / 188 / 225 for Quad B; measured 64 / 128 / 192. Steps that followed:
+   - checked the wiring (switch swap);
+   - the audit raised a shared-texture explanation;
+   - control with separate textures: still 64 / 128 / 192;
+   - a constant-0.5 probe showed no encode.
+
+   Recorded, not explained away.
+2. **Audit review:** the agent's "about 12–17 MB" was an estimate; the measured total is 9,786,707 bytes (the roughness map is L8). Corrected in a separate commit (`222d690`).
+3. **CLAUDE.md review:** the agent's draft cited `project.godot:9`; the line was 8 (15 after the editor re-save). Fixed in `f9b14ec` and `5c9e742`.
+4. **Driver test:** the agent's first fps estimate used the first frame's delta (not 1/fps under `--fixed-fps`). That named reports `24fps` / `120fps` and produced a false FAIL. It switched to frames 31–40 and asserts they are equal. The superseded reports were deleted.
+
+## A5.14 What no headless run can show
+
+The dummy renderer never runs `fragment()`, so a headless run cannot show:
+- the colours on screen;
+- whether `source_color` decodes on this renderer, or whether drawing clamps 2.0;
+- edges and alpha;
+- the normal map's lighting direction;
+- mipmap and filter choice, and shadows;
+- whether the tint reads as danger.
+
+These are the windowed and HUMAN rows above.
+
+---
+
+# Assignment 2 — the 2D asset slice
 
 | | |
 |---|---|
