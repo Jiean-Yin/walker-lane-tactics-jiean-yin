@@ -1,173 +1,177 @@
-# CHANGE-BRIEF — Lane Tactics asset slice
+# CHANGE-BRIEF — Assignment 5: shaders, materials and the Godot shading language
 
-*Version 1, 2026-10-09, before any asset was generated. Results and changes are added as dated revisions at the bottom; predictions are not edited after the fact.*
+*Version 1, 2026-10-31, committed before either shader exists and before the first agent prompt. Results and corrections go in dated revisions at the bottom; this version is not edited after the fact. The Assignment 2 and 3 briefs are kept at tag `a3` (`git show a3:CHANGE-BRIEF.md`).*
 
-## What the slice is
+**Who wrote what:** Jiean chose the state, the object, the textures and every design value below. Claude Code drafted the wording, filled in the project facts (file and line references) and proposed the defaults Jiean accepted. **The colour line, every predicted value and the answers marked "Jiean" are Jiean's own.**
 
-One small Godot 4.7.2 scene that proves the art, sound and music work together. It is **not** the full game. It uses a subset of [RULES.md](RULES.md):
+## 1. The state
 
-| Kept from RULES.md | Simplified for the slice |
+| | |
 |---|---|
-| 5 lanes × 8 columns, player on the left | 1 player archer vs 2 enemy archers, no reinforcements, no pool |
-| Simultaneous move planning, 1 square in 8 directions or stay | Enemy AI: if the player is in range, stay and shoot it; otherwise step 1 column toward the player's back row in its own lane |
-| Archer: HP 4, damage 3, range = the 24 squares of the 5 × 5 around it, cannot target its own square, targets must hold an enemy, never strikes back | No riders or shielders, so no strike back, charge or arrow protection. Enemies stay in their lanes, so at most two pieces ever try to enter one square: a shared square is possible (and an archer cannot shoot its own square), but contested squares cannot occur. |
-| Attack order alternates one unit at a time; the side that goes first switches every turn (player first on turn 1) | — |
-| A unit killed before its turn does not attack | — |
-| Win check at the end of the turn: a piece in the enemy back row; elimination; ties go to the player | Turn limit 20 kept but not expected to matter |
+| Name | **exposed** |
+| What it communicates | While you plan your move, your archer turns red when the square you are about to step to lies inside the enemy archer's reach (the 24 squares of the 5 × 5 around it). |
+| Why the player needs it | Who shoots first alternates every turn, so stepping into reach is a real decision. The A2 playtest found that a new player could not tell why the enemy stops and shoots (README, known limitations). The tint shows the danger before you commit, and matches the GDD's red danger zones. |
+| Where it is held | `godot/game/main.gd`: `state` (`main.gd:76`, value `State.PLAN_MOVE`) and `planned_offset` (`main.gd:86`); the units' cells in `rules.units` (`godot/game/rules.gd:29`). |
+| Exact condition | `state == State.PLAN_MOVE` **and** the enemy archer is alive **and** `Rules.in_range(player_cell + planned_offset, enemy_cell)` (`rules.gd:121`). |
+| Begins | on the first frame the condition is true: when PLAN_MOVE begins with the standing square already in reach, or when an arrow key moves the planning marker into reach. |
+| Ends | on the first frame it is false: the marker moves out of reach, the move is confirmed (Enter or Space → `PLAY_MOVES`), R (retry), or the game ends. |
 
-The rules live in one plain-data script (`godot/game/rules.gd`: board, units, orders → list of events), deterministic and tested headlessly, so it can grow into the real engine later.
+The driver only **reads** these values. It never writes game state.
 
-### Controls (keyboard)
+## 2. Effect specification
 
-| Key | Action |
+### The shader
+
+- Path: `godot/shaders/exposed_tint.gdshader`
+- `shader_type canvas_item;` — no `render_mode` (default blending).
+- No sampler uniforms of its own. The archer's sprite texture arrives in `COLOR` (texture × modulate).
+- On a `ShaderMaterial` on the player archer's `Sprite2D` (`godot/game/piece.gd:35`, created in `setup()` at `piece.gd:51-54`).
+
+| Uniform | Type | Hint | Default | Set by |
+|---|---|---|---|---|
+| `exposed_amount` | `float` | `hint_range(0.0, 1.0)` | `0.0` | the driver, every frame, from the state |
+| `exposed_color` | `vec4` | `source_color` | `vec4(0.878, 0.271, 0.227, 1.0)` (`#E0453A`, the game's target red, `main.gd:47`) | the material; not changed by game code |
+
+### The colour line (inside `fragment()`)
+
+```glsl
+COLOR.rgb = mix(COLOR.rgb, exposed_color.rgb, exposed_amount * 0.7);
+```
+
+(Jiean)
+
+### Observable rules
+
+| # | Rule |
 |---|---|
-| Enter | start; confirm the order; play again |
-| Arrow keys / WASD | move the order marker to a neighbouring square (move phase) or cycle the valid targets (attack phase) |
-| Space | stay (move phase) or hold fire (attack phase) |
-| R | retry from turn 1 |
-| P / Esc | pause and unpause |
-| M | mute and unmute music |
-| N | mute and unmute sound effects |
-| F3 | show the footprint slots (debug, display only) |
+| R1 | `exposed_amount` is `0.0` when the state is false and has settled; `1.0` when the state is true and has settled. |
+| R2 | When the state begins, the value rises linearly from where it is to `1.0` at **5.0 per second of game time** (0 → 1 in **0.20 s**). When the state ends, it falls linearly to `0.0` at the same rate (1 → 0 in 0.20 s). Tolerance: **one frame period** (1/30 s, 1/60 s, 1/144 s). The same game time at 30, 60 and 144 fps. |
+| R3 | **Retrigger:** if the state begins again while the value is still falling, the value turns around and rises **from its current value**: no restart from 0, no jump. If it ends while still rising, it turns around and falls from its current value. (Neither "restart" nor "ignore".) |
+| R4 | **Time:** game time = `delta × main.time_scale` (the clock the pieces already use, `main.gd:162-171`), so it is **scaled** time: `Engine.time_scale = 0.5` doubles the real-time duration. While the game is paused (P/Esc, `main.paused`, `main.gd:297`) the value **holds still**. The game never uses `get_tree().paused` (`main.gd:6`); if the tree were paused, the driver would stop too and the value would hold. |
+| R5 | **State ends mid-transition:** from value `v`, it reaches `0.0` after `v × 0.20 s`. |
+| R6 | **Several instances:** every piece's `Sprite2D` gets its **own** `ShaderMaterial` instance, never a shared one. Only the player archer's value is driven; the enemy archer's stays `0.0`. After R (retry) or play again, the pieces are rebuilt (`main.gd:329`), and the new sprites get new materials. |
+| R7 | `TIME` is not used. |
 
-## Asset list
+### Boundaries
 
-Generated (**G**), generated then edited (**G+E**), or code-drawn by Claude (**C**, allowed in the game but not counted as generated).
+Unchanged: collision, movement, input (no new key in the game), the state machine and every timing in `main.gd`, the rules engine, existing tests and their expectations, the other piece, the board, HUD and sounds, and every A2/A3 asset file. Presentation code may read game state; it never writes it.
 
-| ID | What | Kind | Panels |
-|---|---|---|---|
-| CHAR-REF | Archer reference image, side view; every pose derives from it | G | — (sheet check) |
-| CHAR-IDLE | Archer idle | G+E (background removal, scale) | 1, 2, 3, 7 |
-| CHAR-DRAW | Archer drawing the bow (core action) | G+E | 4 |
-| CHAR-HURT | Archer hurt, leaning back | G+E | 5 |
-| CHAR-DEFEAT | Archer toppled | G+E | 6 |
-| CHAR-WIN | Archer celebrating | G+E | 8, 9 |
-| CHAR-HOP, CHAR-RECOVER | optional extra states | G+E | 3, 7 |
-| ENEMY-* | each CHAR image recoloured teal → red | G+E (recolour) | 1–8 |
-| ENV-TABLE | warm-lit wooden tabletop background around the board | G+E | 1, 2, 6, 7 |
-| ENV-LINEN | linen board-square texture (tiled under the code-drawn grid) | G+E (optional) | 2–7 |
-| PROP-ARROW | the flying arrow | C (G if time) | 4 |
-| UI-* | HUD, markers, cards, text | C | all |
-| SFX-HOP | wooden piece landing on a board | G+E (trim) | 3 |
-| SFX-HIT | arrow striking a wooden piece (success) | G+E | 4 |
-| SFX-HURT | the player's piece is struck, a duller crack (failure) | G+E | 5, 6 |
-| SFX-WIN | short bright wooden or plucked flourish (completion) | G+E | 8 |
-| MUS-LOOP | calm acoustic loop, cut at a bar boundary | G+E (loop cut) | 1–7 |
+### Evidence split
 
-## Event-to-sound map
-
-All sounds are triggered by `AudioDirector` from **events the rules engine has already produced**. The engine returns a list of events for each turn; playback walks that list once; each event plays at most one sound. Sound never feeds back into game state, and the engine runs identically with no audio node at all.
-
-| Sound | Exact trigger (event) | Double-trigger guard |
+| Rule | Checked by | How |
 |---|---|---|
-| SFX-HOP | `moved` event: a piece's square changed during move playback. One per piece that moved. | Playback staggers landings by 0.12 s so simultaneous hops stay distinct; a piece that stays emits no event; key repeats (`is_echo()`) are ignored, and input is ignored during playback. |
-| SFX-HIT | `damaged` event where the target is an **enemy** and the attacker is the player's archer (the arrow lands). | One `damaged` event per attack, even if more pieces share the square (one sound, numbers on each). |
-| SFX-HURT | `damaged` event where the target is the **player's** archer. | Same as above. |
-| SFX-WIN | the state machine enters `WON` (from the win check). | Only on the transition into `WON`; re-entering the results screen or holding Enter does not re-fire it. |
+| Shader parses; uniform names and types | headless | `get_shader_uniform_list()`; defaults read from the shader source text |
+| R1, R2, R5 | headless | uniform sampled every frame from a high `process_priority` node, through real key presses, at 30, 60 and 144 fps: first value, last value, game-time duration |
+| R3 | headless | arrow keys tapped back and forth faster than 0.20 s: no frame drops to 0 while the state holds |
+| R4 | headless | pause pressed mid-fade: value constant; `Engine.time_scale` 0.5: duration doubles in real time, same in game time |
+| R6 | headless | the two sprites' materials are different objects; the enemy's value stays 0; after R the new sprite has a material |
+| The colour on screen | **eyes** | in-engine captures at the controlled values (section 3), compared with the predictions |
+| It reads as "danger" in play | **eyes** | my own playtest: the state triggered by normal play several times |
 
-## Music behaviour
+## 3. Controlled inputs and predicted values
 
-| Situation | MUS-LOOP |
-|---|---|
-| Title and play | loops continuously (OGG loop flag; cut at a bar boundary) |
-| Pause | ducks by 12 dB; returns to full on unpause |
-| Defeat | fades out over 0.5 s; silent on the defeat card |
-| Win | stops at once; SFX-WIN plays alone; silent on the results card |
-| Retry / play again | restarts from the beginning |
-| M | mutes and unmutes the Music bus only; N does the same for the SFX bus |
+- Uniform values: **0.0, 0.5, 1.0**, plus **2.0** set from code for the `hint_range` question.
+- Lighting: none; `canvas_item` output is unlit. HDR 2D is off (`project.godot` has no `rendering/viewport/hdr_2d`), so blending happens on the stored sRGB values.
+- Pixels: in flat-colour regions of `archer_idle.png` (measured by Claude headlessly, 2026-10-31). The sprite is drawn at 0.248 scale, so each screen pixel averages a few texels. The 0.0 capture checks these starting values first.
 
-## Predicted failure cases and how I will check them
+| Pixel | Where (texel → about screen, player at the start square, turn 1) | Value at 0.0 (sprite) | at 0.5 | at 1.0 |
+|---|---|---|---|---|
+| P1 head (birch) | (84, 84) → (192, 581) | (224, 174, 117) | (224, 137, 96) | (224, 101, 76) |
+| P2 base disc (walnut) | (124, 296) → (202, 634) | (90, 58, 34) | (137, 62, 42) | (184, 66, 51) |
 
-1. **Generated poses drift from the reference** (head size, height or base disc change; an outline missing).
-   *Check:* scale every accepted image to 1× and overlay it on the turnaround's height bar and base disc; compare it with consistency rules 1–7; record the decision in the asset log.
-2. **The piece disappears against the generated background** (birch head vs linen is only 1.1 : 1).
-   *Check:* an in-engine screenshot at 1× in colour and in greyscale with every state on the board; if it fails, darken or desaturate ENV-TABLE or the squares rather than change the piece.
-3. **A sound fires twice for one event** (for example two pieces landing at once, a held Enter, or SFX-WIN on re-entry).
-   *Check:* an automated test plays a scripted turn sequence (including rapid repeats and held input) with a counting audio sink and asserts sounds == events for each type.
-4. **The music loop clicks or gaps at the seam.**
-   *Check:* listen to at least 3 repetitions in the running game; an automated check compares the waveform at the loop end against the start (no jump larger than a small threshold).
-5. **The slice is unreadable when muted** (a hit or win carried only by sound).
-   *Check:* a muted human playtest: every sound event also has a visual (hop motion, pose change, "-3", HP pips, result card).
-6. **Background removal leaves halos, or the model draws a fake checkerboard.**
-   *Check:* prompt for a solid flat background; inspect the edges on both the light board and the dark table at 1×.
-7. **The recolour also shifts wood and skin tones.**
-   *Check:* recolour only the teal hue range, and compare the enemy beside the player at 1×.
+Contrast of P1 against the light board square `#D8C7A0` at 0.0 and at 1.0: 0.474 and 0.257 (Jiean).
+Contrast Ratio rises from 1.20:1 to around 2.05:1, so the tint make the head more against the square.
 
-## Revisions
+### Hint experiment
 
-### R1 — 2026-10-12: one enemy instead of two (evidence: exhaustive search, not play)
+A 3 × 1 PNG with greys 64, 128, 192, on two unshaded quads, Linear tonemap, exposure 1.0. Predicted displayed 8-bit values (Jiean, by hand, with `encode(x)`):
 
-- **Observation:** with the setup above (1 player archer vs 2 marching enemy archers, HP 4, damage 3), the scripted search over every player order for 20 turns found **no win except the "ties go to the player" rule**: 52 of 45,834 order sequences win, all on a turn-7 tie where both sides reach the other's back row. The naive plan (walk forward in lane 5 and shoot) also wins on that tie. A slice that can only be won through a tie rule does not show the storyboard's win, and it gives no real decision.
-- **Variants tried** (`godot/tests/analyze_variants.gd`; table in `evidence/analyze_variants-1791859618.json`): HP 6 or enemy damage 2 change nothing (two hits still kill); HP 7 lets the naive plan win; a guarding second enemy lets waiting until turn 20 win on a 1-vs-1 tie (about 90 % of sequences); two guards let the naive plan win outright. Counting only units with a target in the attack order makes the slice unwinnable.
-- **Change (accepted by Jiean):** the slice uses **one marching enemy archer in lane 4** (HP 4, damage 3). Of 259,043 order sequences, 16,577 win (6.4 %), almost all by elimination, the earliest on turn 5. Both naive plans lose. Every win needs one timing decision: take the first exchange on a turn when the enemy strikes first, then finish it on the next turn, when you strike first (pillar 2, *Plans collide*).
-- **Rule clarified in RULES.md:** a unit with no valid target keeps its place in the attack order and skips its attack (Jiean accepted this reading).
-- **Effect on the design:** storyboard panels 1, 2, 6 and 7 show two enemies; the slice shows one. TEST-REPORT lists this difference. The two-enemy setup is kept as a config option (`TWO_ENEMY_UNITS`) for later.
-- **Still to check by playing:** whether a one-enemy duel is fun, not only winnable.
+| Band (file value) | Quad A: `source_color` | Quad B: no hint |
+|---|---|---|
+| 64 | 64 | 137 |
+| 128 | 128 | 188 |
+| 192 | 192 | 225 |
 
-### R2 — 2026-10-12: generation tools changed (no free access to the planned web tools)
+Which quad shows the file's values unchanged, and why: Quad A. GPU decodes sRGB to linear and then back to sRGB while to the screen, so the computation
+canceled as they are exact contrast.(Jiean).
 
-- **Observation:** the planned tools were not usable for free: Adobe Firefly (art) was not available to Jiean, and Suno and ElevenLabs Music produced takes that the free plans would not let Jiean download.
-- **Change:** art from **Stable Diffusion XL base 1.0 run locally**; music from **MusicGen small run locally**; sound effects stayed with **ElevenLabs** (run by Jiean). Local models record a seed for every output, so these assets are more reproducible than the web tools would have been.
-- **Pose method:** each pose is generated image-to-image from the character sheet's pose sketch (strength 0.80), with the same prompt and settings as the accepted reference. IP-Adapter (conditioning on the reference image itself) was considered but not used, to avoid another 3 GB download tonight.
-- The asset IDs, event-to-sound map and music behaviour above are unchanged. Results: TEST-REPORT.md.
+**Renderer:** this project uses **Compatibility** (`godot/project.godot:24`). The assignment's predictions assume Forward+ or Mobile, so these values are measured before any explanation is written.
 
----
+## 4. Material plan
 
-# Assignment 3 — three 3D assets (Blender with Claude through the MCP)
+**Object:** two new flat tiles in the A3 diorama (`godot/diorama/asset_diorama.tscn`), `LinenSquareLight` and `LinenSquareDark`, each a `MeshInstance3D` with a 1 m × 1 m `PlaneMesh` (one board square), lying just above the floor, in view of the existing camera.
 
-*Version 1, 2026-10-15 18:20, committed before any asset was built. Results and corrections go in dated revisions at the bottom of this section; these predictions are not edited after the fact.*
+**Why not the A3 `board_square.glb`:** it has no UV coordinates (checked headlessly on 2026-10-31: both surfaces have no `ARRAY_TEX_UV`), so a texture cannot be placed on it. The source model must not change. Putting a material behind the importer would also change what `check_assets.gd` measures (`check_assets.gd:132-152`), and an importer material is shared by every instance, so it cannot give two looks.
 
-**Who decided what:** Claude Code proposed every number below as a numbered default, from CHARACTER-SHEET.md (proportions, palette) and CONCEPT.md (pieces, linen board, back row). Jiean accepted all seven defaults without changes. At commit time the Learn-the-window session was under way and BLENDER-NOTES.md was not written yet.
+**Lighting to judge under:** the diorama's own lamp (one `DirectionalLight3D`, shadows on) and its ambient light (`asset_diorama.tscn:15-33`), with the camera unchanged. Compatibility has no SSAO or SSR, so nothing has to be switched off. The diorama keeps exactly one light (`check_assets.gd:187`).
 
-**Why these three:** Lane Tactics is 2D today, so these assets live in a small Godot 3D "tabletop diorama" scene (floor, one light, a camera) that later assignments reuse. They are the three things that scene needs: a piece, the square it stands on, and the goal it walks toward.
+### Textures (Poly Haven **Hessian 380**, CC0; credits in `godot/assets/textures/hessian_380/ATTRIBUTION.md`)
 
-## Scale
+| File | Role | What the numbers mean | Sampled as | `compress/mode` | `compress/normal_map` | `mipmaps/generate` |
+|---|---|---|---|---|---|---|
+| `hessian_380_diff_1k.jpg` | colour | sRGB colour | colour (`source_color`) | 0 Lossless | 2 Disable | true |
+| `hessian_380_rough_1k.png` | data | roughness 0 glossy … 1 rough, linear | data (no `source_color`) | 0 Lossless | 2 Disable | true |
+| `hessian_380_nor_gl_1k.png` | data | tangent-space normal, OpenGL green-up; 0.5 = no tilt | data (`hint_normal`) | 0 Lossless | 1 Enable | true |
+| `hessian_380_nor_dx_1k.png` | calibration only, never bound | as above, DirectX green-down | — | 0 Lossless | 1 Enable | false |
+| `hint_greys.png` (3 × 1, written by a committed script) | hint experiment | greys 64, 128, 192 | both | 0 Lossless | 2 Disable | false |
 
-**1 board square = 1.00 m.** In Blender 1 unit = 1 m and Godot's 3D unit is also 1 m, so nothing is converted. The 2D slice puts two pieces in one square (left and right footprint slots, each half a square), so a piece's base must fit in half a square: at most 0.50 m wide.
+**Normal map convention:** `_nor_gl`, because Godot expects OpenGL.
 
-Blender is Z-up; Godot is Y-up. The glTF exporter's **+Y Up** option (on by default) converts this. Blender's "height" (Z) should arrive as Godot's Y.
+**Authors and roles, licence and date checked** (used as-is by the audit): Hessian 380, https://polyhaven.com/a/hessian_380; colormass (photography), Rico Cilliers (processing); CC0 (https://polyhaven.com/license); checked 2026-10-31.
 
-## The assets
+### Shader and uniforms
 
-| | A. Archer piece | B. Linen board square | C. Back-row goal flag |
+- Shader: `godot/shaders/linen_square.gdshader`, `shader_type spatial;`, default (lit) render mode.
+- Hint-experiment shader: `godot/shaders/hint_experiment.gdshader`, `render_mode unshaded`.
+
+| Uniform | Type | Hint | Range | Default | Group | What should change on screen across the range |
+|---|---|---|---|---|---|---|
+| `albedo_tex` | `sampler2D` | `source_color, filter_linear_mipmap, repeat_enable` | — | diff | surface | — |
+| `tint` | `vec4` | `source_color` | colour | white | surface | white = the cloth as photographed; darker = darker cloth |
+| `uv_scale` | `float` | `hint_range(0.5, 8.0, 0.05)` | 0.5–8 | 3.65 (1 m ÷ 0.274 m) | surface | weave size: small values give huge threads, large values a fine weave |
+| `roughness_tex` | `sampler2D` | `filter_linear_mipmap, repeat_enable` | — | rough | relief | — |
+| `roughness_scale` | `float` | `hint_range(0.0, 1.0)` | 0–1 | 1.0 | relief | 0: glossy, a sharp lamp highlight; 1: matte cloth |
+| `normal_tex` | `sampler2D` | `hint_normal, filter_linear_mipmap, repeat_enable` | — | nor_gl | relief | — |
+| `normal_strength` | `float` | `hint_range(0.0, 2.0)` | 0–2 | 1.0 | relief | 0: flat (threads only painted); 2: deep threads with strong light and shade |
+
+Groups use `group_uniforms surface;` and `group_uniforms relief;`.
+
+### The two materials
+
+| Material | `tint` | `normal_strength` | Everything else |
 |---|---|---|---|
-| **Name / file** | `archer_piece` | `board_square` | `goal_flag` |
-| **What it is in the game** | The unit: the carved wooden archer from the 2D slice, in player teal | The tile the 5-lane board is made of | Marks the back row you must reach to win |
-| **Where it appears** | Standing on a board square, up to two per square | Tiled 5 lanes × N rows to make the board | One at each end of the enemy's back row, just outside lanes 1 and 5 |
-| **Size W × D × H (m)** | **0.40 × 0.40 × 0.80** | **1.00 × 1.00 × 0.05** | **0.45 × 0.30 × 1.20** |
-| **Size justified by** | Base 0.40 m fits a half-square slot (0.50 m) with a margin. Height 0.80 m = 2 × base, close to the sheet's ~3.5 heads with a 0.22 m head | Exactly one square. 5 cm thick, so it reads as a game board and not a floor | Taller than the piece (1.20 m vs 0.80 m), so it can be seen over the pieces in the back row. Base 0.30 m stays inside the gap beside the board |
-| **Origin** | Centre of the underside, at Blender's world origin (0, 0, 0) | Centre of the underside, at the world origin | Centre of the underside of the base disc (the pole stands on it; the flag sticks out toward +X, so the box is off centre in X) |
-| **Why that origin** | Godot places a node at its origin, so a piece placed at a square's centre at y = 0 stands on the board, not half inside it | Tiles sit on the table at y = 0 and pieces stand on top at y = 0.05 | Stands on the table at y = 0 |
-| **Basic shapes (≤ 6)** | 6: base disc (cylinder), body (cylinder), head (sphere), hood (cone), bow (thin cube, on the +X facing side), eye (small cube, on the +X side of the head) | 5: slab (cube) + 4 border strips (cubes) | 3: base disc (cylinder), pole (cylinder), flag (thin cube) |
-| **Look: what makes it recognisable** | Ball head under a dark hood, straight cylinder body, wide disc base, a bow on the facing side: a chess-like toy piece | A flat light square with a slightly darker edge, so a grid of them shows the squares | A thin pole with a red flag on top |
-| **Flat colours** | Body teal `#1F6F78`; hood `#24323F`; head birch `#E2B887`; base and bow walnut `#5A3A22`; eye ink `#1B1410` | Slab linen `#D8C7A0`; border linen `#CDB98E` | Base and pole walnut `#5A3A22`; flag enemy red `#B23A2E` |
-| **Triangle budget** | **400** | **100** | **150** |
-| **Why that budget** | Cylinders at 12 segments (≈ 44 tris each), sphere at 12 × 6 (≈ 120), cone at 12 (≈ 22), two cubes (24): about 254. 400 leaves room if a curve looks too faceted. A default UV sphere (32 × 16, ≈ 960 tris) alone would break the course limit of 500 | 5 cubes × 12 = 60 | Base disc 12 segments (≈ 44), pole 8 segments (≈ 28), flag cube 12: about 84 |
+| `godot/materials/linen_light.tres` | white `#FFFFFF` | 1.0 | defaults |
+| `godot/materials/linen_dark.tres` | stitch brown `#9A7F55` (the A3 board border, CHANGE-BRIEF A3-R1 at tag `a3`) | 1.5 | defaults |
 
-Materials: one flat Principled BSDF per colour, base colour set on the shader node (not only the viewport colour), no textures.
+**Why:** the 2D board alternates light and dark squares (`main.gd:41-42`). Two materials from one shader give the 3D board the same checkerboard. The dark square has deeper threads, so that it reads as worn cloth and not only as a darker colour.
 
-Each asset is built in its own Blender file (`blender/<name>.blend`) around the world origin, with the code Claude runs saved in `tools/blender/build_<name>.py`, and exported to `godot/assets/models/<name>.glb`.
+## 5. Predicted failure cases
 
-## Predicted failure cases and how I will check them
+1. **The tint restarts from 0 on a retrigger** (flicker). *Check:* the driver test taps the arrow keys faster than 0.20 s and asserts that the value never drops while the state holds (R3).
+2. **The enemy is tinted too, because the material is shared.** *Check:* the test asserts that the two sprites' materials are different objects and that the enemy's value stays 0.0 (R6).
+3. **The duration depends on the frame rate** (counting frames instead of time). *Check:* the same test at 30, 60 and 144 fps; game-time duration 0.20 s within one frame period (R2).
+4. **The tint keeps fading while paused, or ignores time scale.** *Check:* pause mid-fade, then `Engine.time_scale` 0.5 (R4).
+5. **After R (retry) the new sprite has no material.** *Check:* press R, then assert the material and the value (R6).
+6. **A data texture sampled with `source_color`, or the colour texture without it.** *Check:* the material test reads each sampler's hints from the shader source; mutation: removing `source_color` must fail it.
+7. **The DirectX normal map bound instead of the OpenGL one.** *Check:* the material test asserts the bound texture path; the curl ratio (about 0 for `_nor_gl`, about 2 for `_nor_dx` under the GL convention).
+8. **A renamed uniform silently stops the effect** (`set_shader_parameter` with an unknown name raises no error). *Check:* the uniform-list assertion; mutation: rename it in the shader only.
 
-1. **An asset arrives lying on its side in Godot** (Z-up vs Y-up, or a rotation that was not applied).
-   *Check:* the headless Godot script prints each asset's bounding box; the largest-height axis must be **Y**, and the Y size must match H above. Also look at it in the 3D scene.
-2. **Scale is not applied, so the node scale is not 1 or the size is wrong** (for example by a factor of 2 if Claude scales the default 2 m cube, or by 10 or 100 from a unit mix-up).
-   *Check:* Blender's sidebar (N) shows scale 1, 1, 1 and dimensions = brief; the headless script prints node scale (1, 1, 1) and a bounding box within ±0.01 m of the brief.
-3. **The origin is in the middle, so the asset floats or sinks.**
-   *Check:* the headless script prints the bounding box's lowest Y, which must be 0.00 (±0.005 m); in the scene, each asset placed at y = 0 must sit on the floor, seen from the side at floor level.
-4. **Claude builds more than asked** (default segment counts, extra bevels or extra shapes) **and breaks the budget.**
-   *Check:* Blender's Scene Statistics (status bar) per file: triangles ≤ budget, and the object count ≤ the shapes listed above.
-5. **A colour does not survive the export** (only the viewport colour is set, or materials are merged).
-   *Check:* the headless script prints each mesh surface's material albedo; compare with the hex codes above. Look at the assets under the scene's light.
-6. **The MCP fails part-way** (socket drops, or Blender stops responding during a call).
-   *Check:* every call's result is read; get_scene_info after each step; any error is copied word for word into FRICTIONAL.md.
+## 6. Answers (Q1–Q4 and Q6 drafted by Claude as hints, reviewed and adopted by Jiean; Q5 and Q7 completed by Jiean)
+
+1. Which renderer does project.godot name, and what does it rule out? godot/project.godot:24 sets renderer/rendering_method="gl_compatibility", the Compatibility renderer (OpenGL 3.3 / WebGL 2). It rules out decals and compute shaders (they need Forward+ or Mobile), and VoxelGI, SDFGI and SSIL (Forward+ only). We keep it because the final project may export to the web, which needs Compatibility. Neither A5 shader needs any of the excluded features.
+
+2. What colour arrives in your fragment function before you change it, and what would the tempting alternative give you? In a canvas_item shader, COLOR arrives as the sprite's texture colour at this pixel, already multiplied by the node's modulate / self_modulate (and any vertex colour). For the player archer modulate is white, so it equals the texture; for an enemy drawn with the red fallback tint (piece.gd:182) it would include that tint. The tempting alternative is to sample the texture again yourself (question 3).
+
+3. For canvas_item: what would texture(TEXTURE, UV) give you instead of COLOR? It gives the raw texel from the sprite image only, without modulate. It would silently drop any tint or fade the game applies through modulate, and it reads the texture a second time for nothing.
+
+4. For spatial: what does ALBEDO hold if you never write it, and what does COLOR hold? ALBEDO starts as white, vec3(1.0), so a spatial shader that never writes it draws a white surface under the light. In fragment(), COLOR is the colour passed on from vertex(): the mesh's vertex colour, white when the mesh has none (a PlaneMesh has none). It is not the texture.
+
+5. How long would a frame-counting version of your effect last at 30, 60 and 144 fps? Suppose someone wrote "add 1/12 per frame", tuned for 0.20 s at 60 fps (12 frames). Then the fade always takes 12 frames, so it lasts 12 ÷ fps seconds: 30 fps → 0.40 s, 60 fps → 0.20 s, 144 fps → about 0.083 s. That is why R2 measures in game time (delta), not frames.
+
+6. Which resource holds your uniform's default, which holds its current value, and what happens if two objects share the material? The default is written in the shader (the = 0.0 on the uniform line in the .gdshader). The current value lives in the ShaderMaterial (set_shader_parameter stores it there; the material file stores any value that differs from the default). If two sprites share one material, setting the value on it changes both: one archer's danger would tint the other. That is failure case 2, and why R6 gives each sprite its own material.
+
+7. Does hint_range clamp a value your driver sets from code? (prediction) My prediction: it does not clamp. hint_range is only a hint for drawing the Inspector slider; set_shader_parameter("exposed_amount", 2.0) from a script goes through the material, not the Inspector. If it really is not clamped, your line at t = 2.0 uses the factor 0.7 × 2 = 1.4, and mix goes past the red: for P1, G = 174 + (69 − 174) × 1.4 = 174 − 147 = 27, B = 117 + (58 − 117) × 1.4 = 117 − 82.6 = 34.4 → 34, giving (224, 27, 34), a deeper and more saturated red than the target. This is a prediction; the test that sets 2.0 will confirm it.
 
 ## Revisions
 
-### A3-R1 — 2026-10-15: board_square border darkened, #CDB98E → #9A7F55 (evidence: `look`, before export)
-
-- **Observation:** built exactly as above, the border `#CDB98E` against the slab `#D8C7A0` has a contrast ratio of only **1.15 : 1**. In Blender's `look` (material shading) one square read as a flat sheet, and a temporary 3 × 3 tiled preview showed only faint grooves between squares. Prediction 5 was about colours lost in export; this is a different colour problem: the colour survived, but it was the wrong choice.
-- **Options compared by Claude** (contrast vs slab / vs table `#6B4A2E` / vs walnut base `#5A3A22`): `#B39B6E` 1.61 / 2.96 / 3.80; **`#9A7F55` 2.27 / 2.10 / 2.69**; `#85693F` 3.08 / 1.55 / 1.98; walnut 6.11 / 1.28 / 1.00.
-- **Change (chosen by Jiean):** border **`#9A7F55`** ("stitch brown"), the only option that keeps all three ratios above ~2: squares separate, the board edge still shows against the table, and piece bases stay distinct from the grid lines. Re-checked with the same tiled preview: the grid now reads clearly.
-- **Unchanged:** size 1.00 × 1.00 × 0.05 m, origin, 60 triangles, the slab colour.
+*(none yet)*
