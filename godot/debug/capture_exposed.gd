@@ -1,9 +1,10 @@
 extends Node
 ## A5 controlled-value captures for the "exposed" tint (CHANGE-BRIEF §3, "Use It").
-## A debug scene, not part of the game: it runs the real main.tscn in a real window, and F9 captures the
-## player archer at exposed_amount 0.0, 0.5, 1.0 and 2.0 with the course's capture() function.
+## A debug scene, not part of the game: it runs the real main.tscn in a real window, and C captures the
+## player archer at exposed_amount 0.0, 0.5, 1.0 and 2.0 with the course's capture() function. (C, not F9: run from
+## the editor, F9 is caught by the editor and pauses the project.)
 ## Run (needs a window, not headless):  "$GODOT" --path godot res://debug/capture_exposed.tscn
-## then press Enter on the title card, wait for turn 1, press F9. The window closes when it is done.
+## then press Enter on the title card, wait for turn 1, press C. The window closes when it is done.
 ## Writes evidence/a5/captures/exposed_<value>.png and exposed_pixels.md (P1, P2 beside the predictions).
 
 const MainScene: PackedScene = preload("res://game/main.tscn")
@@ -26,7 +27,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	var key: InputEventKey = event as InputEventKey
-	if key == null or not key.pressed or key.echo or key.physical_keycode != KEY_F9 or _busy:
+	if key == null or not key.pressed or key.echo or key.physical_keycode != KEY_C or _busy:
 		return
 	get_viewport().set_input_as_handled()
 	_run()
@@ -63,10 +64,10 @@ func _run() -> void:
 		var path: String = dir.path_join(file)
 		await capture(driver, mat, &"exposed_amount", v, path)
 		var img: Image = Image.load_from_file(path)
-		for name: String in POINTS:
-			var p: Vector2i = POINTS[name]
+		for point_name: String in POINTS:
+			var p: Vector2i = POINTS[point_name]
 			var c: Color = img.get_pixel(p.x, p.y)
-			lines.append("| %s %s | %s | %s | (%d, %d, %d) | %s |" % [name, p, str(v), PREDICTED[name][v], c.r8, c.g8, c.b8, _diff(PREDICTED[name][v], c)])
+			lines.append("| %s %s | %s | %s | (%d, %d, %d) | %s |" % [point_name, p, str(v), PREDICTED[point_name][v], c.r8, c.g8, c.b8, _diff(PREDICTED[point_name][v], c)])
 	var stored: Variant = mat.get_shader_parameter("exposed_amount")
 	lines.append("")
 	lines.append("After the 2.0 capture the material reads back %s; the driver resumed afterwards." % str(stored))

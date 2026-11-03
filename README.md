@@ -37,7 +37,7 @@ Set `GODOT` to the Godot 4.7.2 console executable, then from the repository root
 "$GODOT" --path godot                                        # the game (main.tscn)
 "$GODOT" --path godot res://diorama/asset_diorama.tscn       # the A3 diorama with the two linen tiles
 "$GODOT" --path godot res://hint/hint_experiment.tscn        # the hint experiment
-"$GODOT" --path godot res://debug/capture_exposed.tscn       # debug: Enter, then F9 captures the tint at 0, 0.5, 1, 2
+"$GODOT" --path godot res://debug/capture_exposed.tscn       # debug: Enter, then C captures the tint at 0, 0.5, 1, 2
 ```
 
 Tests (pinned frame rates, through the course wrapper):
@@ -52,7 +52,7 @@ Tests (pinned frame rates, through the course wrapper):
 ./scripts/run-test.sh test_materials.gd 60
 ```
 
-**Controls** are unchanged from Assignment 2 (below). No key was added to the game. F9 exists only in the debug capture scene.
+**Controls** are unchanged from Assignment 2 (below). No key was added to the game. C (capture) exists only in the debug capture scene.
 
 ### Known limitations (Assignment 5)
 

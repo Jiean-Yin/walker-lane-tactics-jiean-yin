@@ -57,7 +57,7 @@ Also checked in the same runs:
 
 ## A5.4 Controlled values (HUMAN CHECK)
 
-In-engine captures with the course's `capture()` (`godot/debug/capture_exposed.tscn`, F9 pressed by Jiean in a windowed run).
+In-engine captures with the course's `capture()` (`godot/debug/capture_exposed.tscn`, C pressed by Jiean in a windowed run).
 
 TO FILL: the table from `evidence/a5/captures/exposed_pixels.md`, one sentence on the 2.0 capture, and one on the OS-screenshot comparison.
 
