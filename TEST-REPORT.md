@@ -108,25 +108,23 @@ Why the measurement differs from the prediction (Jiean): TO FILL
 
 > **Hint (Claude):** your predictions assumed Forward+ / Mobile (`CHANGE-BRIEF.md` §3, "Renderer"). The two measured facts: 0.5 written to `ALBEDO` shows as 128 (no encode on the way out), and the `source_color` quad shows the file values (no decode on the way in). One honest way to write it: "On Compatibility, this unshaded path neither decodes the texture nor encodes the output, so both quads show the file's numbers; the decode and encode I predicted belong to the Forward+/Mobile pipeline. I have not found the line in Godot's source that does this." Check the Compatibility notes in the Godot docs before you claim a reason.
 
-## A5.7 Interface sweep (HUMAN CHECK)
+## A5.7 Interface sweep (HUMAN CHECK): Jiean, in the editor on `LinenSquareLight`, not saved
 
 | Uniform (`linen_square`) | Min | Default | Max | Breaks the look? |
 |---|---|---|---|---|
-| `tint` | TO FILL | white | TO FILL | TO FILL |
-| `uv_scale` | 0.5: TO FILL | 3.65: TO FILL | 8.0: TO FILL | TO FILL |
-| `roughness_scale` | 0.0: TO FILL | 1.0 (also the max): TO FILL | — | TO FILL |
-| `normal_strength` | 0.0: TO FILL | 1.0: TO FILL | 2.0: TO FILL | TO FILL |
+| `uv_scale` | lowest setting: "looks huge like rope" | 3.65: the cloth as planned | 8.0: "very fine instead" | no |
+| `roughness_scale` | 0.0: "shiny like plastic" | 1.0 (also the max): matte cloth | — | "may break the look" at 0.0 |
+| `normal_strength` | 0.0: "flat, painted" | 1.0 | 2.0: "deeper threads, still cloth" | no |
+| `tint` | dark: "darker cloth, fine" | white | — | no |
 
-> **Hint (Claude):** a few words per cell, from what you saw in the editor (for example "0.5: threads become huge", "0.0: shiny highlight from the lamp", "2.0: deep threads, harsh shade"). "Breaks the look" means a value where it no longer reads as cloth.
+Jiean's note read "uv_scale at 0.0"; the slider's minimum is 0.5 (`linen_square.gdshader:6`), so the lowest setting was 0.5 at most.
 
-## A5.8 One shader, two materials (HUMAN CHECK)
+## A5.8 One shader, two materials (HUMAN CHECK): Jiean
 
 Capture of both tiles under the diorama lamp: `evidence/a5/step3/diorama_linen_tiles.png` (windowed, Claude).
 
-- Shader edit (one line), both tiles change: TO FILL
-- Material edit (`linen_dark` only), only the dark tile changes: TO FILL
-
-> **Hint (Claude):** name the line you changed and what both tiles did (for example "multiplied ALBEDO by 0.5 at `linen_square.gdshader:18`; both tiles darkened; undone"), then the value you changed in one material and what each tile did.
+- **Shader edit:** "Shader line 18 ×0.5: both tiles darkened, undone." (`linen_square.gdshader:18`; the file was checked afterwards: its git blob matches the commit.)
+- **Material edit:** "linen_dark normal_strength 0: only the dark tile went flat, the light tile unchanged, not saved."
 
 ## A5.9 Material wiring
 
