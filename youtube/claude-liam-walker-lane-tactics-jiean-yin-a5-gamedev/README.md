@@ -2,7 +2,7 @@
 
 Assignment 5 explainer film for the Lane Tactics shaders: the **exposed** tint driven by game state, the linen material on two diorama tiles, the hint experiment, the generated shader and the tests. Built with Brutalist `godot-gamedev walker` (checkout `6a8380a`). Game source shown: **tag `a5` (`ef5d38b`)**, filmed on an isolated copy. Script drafted by Claude from Jiean's documents and **approved by Jiean on 2026-11-03**.
 
-**Final master:** `exports/landscape/claude-liam-walker-lane-tactics-jiean-yin-a5-gamedev.mp4`: 3840×2160, 30 fps, 7:26.2, SHA-256 `f366ee660bac6ce6b2064d2b083bdb7e607876234761fd0047c5998b50453ebd`; checks and QC in [_qc/MASTER-QC.md](_qc/MASTER-QC.md). Not published; the link is added by Jiean after upload.
+**Final master:** `exports/landscape/claude-liam-walker-lane-tactics-jiean-yin-a5-gamedev.mp4`: 3840×2160, 30 fps, 7:26.2, SHA-256 `f366ee660bac6ce6b2064d2b083bdb7e607876234761fd0047c5998b50453ebd`; checks and QC in [_qc/MASTER-QC.md](_qc/MASTER-QC.md). Uploaded by Jiean (unlisted): https://youtu.be/laSppfs6n9A
 
 | File | What it is |
 |---|---|

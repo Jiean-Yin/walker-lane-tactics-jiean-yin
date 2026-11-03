@@ -65,7 +65,12 @@ Tests (pinned frame rates, through the course wrapper):
 
 ### Film (Assignment 5)
 
-To be added after the source submission: the Brutalist godot-gamedev explainer (walker modifier). Its link, filename and SHA-256 will be posted in the Canvas comment and added here.
+**[Lane Tactics: A Danger Tint and a Linen Board](https://youtu.be/laSppfs6n9A)** (YouTube, unlisted), the Brutalist godot-gamedev explainer (walker modifier), made after the source submission.
+
+- File: `claude-liam-walker-lane-tactics-jiean-yin-a5-gamedev.mp4`, 3840 × 2160, 30 fps, 7:26
+- SHA-256: `f366ee660bac6ce6b2064d2b083bdb7e607876234761fd0047c5998b50453ebd`
+- Game source shown: tag `a5` (`ef5d38b`)
+- Film records: [youtube/claude-liam-walker-lane-tactics-jiean-yin-a5-gamedev/](youtube/claude-liam-walker-lane-tactics-jiean-yin-a5-gamedev/)
 
 ## Assignment 3 — three 3D assets in a Godot diorama
 
