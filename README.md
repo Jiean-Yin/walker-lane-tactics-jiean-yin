@@ -1,8 +1,8 @@
 # walker-lane-tactics-jiean-yin
 
-**Lane Tactics · Jiean Yin · current layer: Assignment 3 — Your First 3D Game Assets with Claude, the Blender MCP, and Blender**
+**Lane Tactics · Jiean Yin · current layer: Assignment 5 — Shaders, Materials, and the Godot Shading Language** (earlier layers below)
 
-*Lane Tactics* (working title): a turn-based, simultaneous-orders tactics game. Carved wooden pieces fight on a five-lane tabletop board, and you win by standing a piece on the enemy's back row. This is the one game I build all semester: each assignment adds a layer to this repository and is submitted as a git tag (`a3` for Assignment 3).
+*Lane Tactics* (working title): a turn-based, simultaneous-orders tactics game. Carved wooden pieces fight on a five-lane tabletop board, and you win by standing a piece on the enemy's back row. This is the one game I build all semester: each assignment adds a layer to this repository and is submitted as a git tag (`a3` for Assignment 3, `a5` for Assignment 5).
 
 **Started from:** an empty Godot 4.7.2 project (no code from walker-jumpman or my Assignment 1). The test-and-evidence practice and document set come from Assignment 1, which extended Nik Bear Brown's [walker-jumpman](https://github.com/nikbearbrown/walker-jumpman). See [SOURCES.md](SOURCES.md).
 
@@ -17,6 +17,54 @@
 ## Game Design Document
 
 [GDD.md](GDD.md) is the whole game in one document: concept, game flow, assets, characters, the story told episode by episode, gameplay (goal, mechanics, abilities, the four episodes, losing and restarting, player skills), graphics, sound and the technical description. It brings together the design docs below and adds the campaign: goblin enemies, mountains, night raids, the Mend ability and the giant boss. The rules for all of this are in [RULES.md](RULES.md), and how each one was decided is in [DESIGN-HISTORY.md](DESIGN-HISTORY.md) section 8. The figures come from `design/tools/draw_gdd_sketches.py` (rendered with `bash design/tools/render_png.sh design/gdd`).
+
+## Assignment 5 — shaders, materials and the Godot shading language
+
+**What this layer adds** (contract: [CHANGE-BRIEF.md](CHANGE-BRIEF.md); results: [TEST-REPORT.md](TEST-REPORT.md), section "Assignment 5"):
+
+- **A shader driven by game state.** While you plan a move, your archer turns red when the square you are about to step to lies inside the enemy archer's reach (the state **exposed**). The hand-written shader is `godot/shaders/exposed_tint.gdshader` (`canvas_item`). Every piece's sprite gets its own `ShaderMaterial` (`godot/game/piece.gd`), and `godot/game/exposed_driver.gd` (a node in `main.tscn`) fades the value in and out over 0.20 s of game time. It only reads game state.
+- **A textured shader and two materials.** `godot/shaders/linen_square.gdshader` (`spatial`) with the Poly Haven **Hessian 380** cloth (CC0; colour, roughness and OpenGL normal map, credits in `godot/assets/textures/hessian_380/ATTRIBUTION.md`). The materials `godot/materials/linen_light.tres` and `linen_dark.tres` sit on two new 1 m tiles in the A3 diorama (`godot/diorama/asset_diorama.tscn`). Audited in [godot/MATERIALS.md](godot/MATERIALS.md).
+- **The hint experiment.** `godot/hint/hint_experiment.tscn` shows a 3 × 1 grey image (written by `godot/tools/write_hint_greys.gd`) on two unshaded quads, with and without `source_color`.
+- **Reading the language.** `godot/shaders/standard_generated.gdshader` (a StandardMaterial3D converted in the editor; not used by the game) and [LANGUAGE-NOTES.md](LANGUAGE-NOTES.md).
+- **Agent sessions.** `CLAUDE.md` (agent draft plus review), the driver and its test, and the material audit were written by `claude -p` sessions. Their prompts are in `prompts/a5/`, and their redacted transcripts in `evidence/a5/sessions/`. The three shaders are hand-written by Jiean; no agent edited `godot/shaders/`.
+
+### Run it
+
+Set `GODOT` to the Godot 4.7.2 console executable, then from the repository root:
+
+```bash
+"$GODOT" --headless --path godot --import
+"$GODOT" --path godot                                        # the game (main.tscn)
+"$GODOT" --path godot res://diorama/asset_diorama.tscn       # the A3 diorama with the two linen tiles
+"$GODOT" --path godot res://hint/hint_experiment.tscn        # the hint experiment
+"$GODOT" --path godot res://debug/capture_exposed.tscn       # debug: Enter, then F9 captures the tint at 0, 0.5, 1, 2
+```
+
+Tests (pinned frame rates, through the course wrapper):
+
+```bash
+./scripts/run-test.sh test_rules.gd 60
+./scripts/run-test.sh test_audio_events.gd 60
+./scripts/run-test.sh check_assets.gd 60
+./scripts/run-test.sh test_exposed_tint.gd 30
+./scripts/run-test.sh test_exposed_tint.gd 60
+./scripts/run-test.sh test_exposed_tint.gd 144
+./scripts/run-test.sh test_materials.gd 60
+```
+
+**Controls** are unchanged from Assignment 2 (below). No key was added to the game. F9 exists only in the debug capture scene.
+
+### Known limitations (Assignment 5)
+
+- **Renderer:** the project uses Compatibility (kept for a later web export). On this renderer the hint experiment shows the file's values on both quads, so `source_color` makes no visible difference in this unshaded scene (TEST-REPORT A5.6).
+- **Curl check:** the normal-map check separates the right convention from the wrong one (0.68 against 1.32), but with a smaller gap than the course's "about 0 / about 2". The sources are 16-bit and decode as 8-bit.
+- **Fade at 30 fps:** at 30 fps a full fade takes 7 frames (0.233 s) instead of 6. Floating-point rounding leaves the value just short of 1.0 after six steps. This is within R2's one-frame tolerance.
+- **Unused texture:** the DirectX normal map is kept only to calibrate the curl check. It is imported but never bound.
+- **Long path names:** the repository has film-QC file names under `youtube/` long enough to break a clone into a deeply nested Windows folder. Clone into a short path.
+
+### Film (Assignment 5)
+
+To be added after the source submission: the Brutalist godot-gamedev explainer (walker modifier). Its link, filename and SHA-256 will be posted in the Canvas comment and added here.
 
 ## Assignment 3 — three 3D assets in a Godot diorama
 
