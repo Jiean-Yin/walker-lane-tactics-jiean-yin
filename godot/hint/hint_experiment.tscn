@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Material" path="res://materials/hint_srgb.tres" id="1_srgb"]
+[ext_resource type="Material" path="res://materials/hint_raw.tres" id="2_raw"]
+
+[sub_resource type="QuadMesh" id="band_quad"]
+size = Vector2(1.5, 0.5)
+
+[sub_resource type="Environment" id="env"]
+background_mode = 1
+background_color = Color(0, 0, 0, 1)
+tonemap_mode = 0
+tonemap_exposure = 1.0
+glow_enabled = false
+fog_enabled = false
+adjustment_enabled = false
+
+[node name="HintExperiment" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("env")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(0, 0, 2)
+projection = 1
+size = 1.6
+current = true
+
+[node name="QuadA_source_color" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.35, 0)
+mesh = SubResource("band_quad")
+surface_material_override/0 = ExtResource("1_srgb")
+
+[node name="QuadB_no_hint" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.35, 0)
+mesh = SubResource("band_quad")
+surface_material_override/0 = ExtResource("2_raw")

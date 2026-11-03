@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="PackedScene" uid="uid://clippqxw4cihy" path="res://assets/models/board_square.glb" id="1_board"]
 [ext_resource type="PackedScene" uid="uid://detu7fott4uwr" path="res://assets/models/archer_piece.glb" id="2_archer"]
 [ext_resource type="PackedScene" uid="uid://d03kkhrl3jjrm" path="res://assets/models/goal_flag.glb" id="3_flag"]
+[ext_resource type="Material" path="res://materials/linen_light.tres" id="4_linen_light"]
+[ext_resource type="Material" path="res://materials/linen_dark.tres" id="5_linen_dark"]
 
 [sub_resource type="StandardMaterial3D" id="table_mat"]
 albedo_color = Color(0.4196, 0.2902, 0.1804, 1)
@@ -11,6 +13,9 @@ roughness = 0.9
 [sub_resource type="PlaneMesh" id="floor_mesh"]
 material = SubResource("table_mat")
 size = Vector2(5, 3)
+
+[sub_resource type="PlaneMesh" id="linen_square_mesh"]
+size = Vector2(1, 1)
 
 [sub_resource type="Environment" id="env"]
 background_mode = 1
@@ -45,3 +50,13 @@ position = Vector3(-1.2, 0, 0)
 
 [node name="goal_flag" parent="." instance=ExtResource("3_flag")]
 position = Vector3(1.1, 0, 0)
+
+[node name="LinenSquareLight" type="MeshInstance3D" parent="."]
+position = Vector3(-0.55, 0.002, 1)
+mesh = SubResource("linen_square_mesh")
+surface_material_override/0 = ExtResource("4_linen_light")
+
+[node name="LinenSquareDark" type="MeshInstance3D" parent="."]
+position = Vector3(0.55, 0.002, 1)
+mesh = SubResource("linen_square_mesh")
+surface_material_override/0 = ExtResource("5_linen_dark")

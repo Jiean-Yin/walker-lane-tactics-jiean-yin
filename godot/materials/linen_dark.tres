@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+
+[ext_resource type="Shader" uid="uid://c4cdqj1j8r4j2" path="res://shaders/linen_square.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" uid="uid://dwjilkeo0441f" path="res://assets/textures/hessian_380/hessian_380_diff_1k.jpg" id="2_diff"]
+[ext_resource type="Texture2D" uid="uid://2qy3hqq7n7q8" path="res://assets/textures/hessian_380/hessian_380_rough_1k.png" id="3_rough"]
+[ext_resource type="Texture2D" uid="uid://clxo0n0in20ys" path="res://assets/textures/hessian_380/hessian_380_nor_gl_1k.png" id="4_nor_gl"]
+
+[resource]
+resource_name = "linen_dark"
+render_priority = 0
+shader = ExtResource("1_shader")
+shader_parameter/albedo_tex = ExtResource("2_diff")
+shader_parameter/tint = Color(0.603922, 0.498039, 0.333333, 1)
+shader_parameter/roughness_tex = ExtResource("3_rough")
+shader_parameter/normal_tex = ExtResource("4_nor_gl")
+shader_parameter/normal_strength = 1.5
