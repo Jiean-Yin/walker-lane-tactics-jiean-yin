@@ -1,0 +1,15 @@
+diff --git a/godot/shaders/exposed_tint.gdshader b/godot/shaders/exposed_tint.gdshader
+index a732d8b..29fd75a 100644
+--- a/godot/shaders/exposed_tint.gdshader
++++ b/godot/shaders/exposed_tint.gdshader
+@@ -1,8 +1,8 @@
+ shader_type canvas_item;
+ 
+-uniform float exposed_amount : hint_range(0.0, 1.0) = 0.0;
++uniform float exposed_amt : hint_range(0.0, 1.0) = 0.0;
+ uniform vec4 exposed_color : source_color = vec4(0.878, 0.271, 0.227, 1.0);
+ 
+ void fragment() {
+-	COLOR.rgb = mix(COLOR.rgb, exposed_color.rgb, exposed_amount * 0.7);
++	COLOR.rgb = mix(COLOR.rgb, exposed_color.rgb, exposed_amt * 0.7);
+ }
