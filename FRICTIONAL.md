@@ -238,106 +238,81 @@ Same format as above. Machine: Windows 11 Home 10.0.26200, Blender 5.2.2 LTS (th
 
 # Assignment 5 — shaders, materials and the Godot shading language
 
-Same format. Claude Code wrote the factual lines from the session record; the judgment lines are Jiean's. Each `TO FILL` has a labelled hint draft beside it. Replace each one in your own words, then delete the hint.
+Same format. Claude Code wrote the factual lines from the session record; the judgment lines (Wanted, Decided, Still unresolved) are Jiean's own words.
 
 ## 2026-10-31 — Which state the shader shows: "targeted" dropped for "exposed"
-
-- **Wanted:** TO FILL
-  > *Hint (Claude):* what you wanted the player to see while planning a move, and why (for example: the A2 playtest found new players could not tell why the enemy stops and shoots, so you wanted the danger visible before committing to a move).
+- **Wanted:** While I'm planning a move, I want to see right away if the square I'm about to step to is inside the enemy archer's reach. The A2 playtest showed a new player couldn't tell why the enemy stops and shoots, so I want the danger visible before I commit to the move.
 - **Asked:** Claude to compare candidate states for a shader driven by game state, and to check that each could begin, end and retrigger in the current slice.
-- **Got:** "targeted" (the target square during attack planning) cannot retrigger with only one enemy, because there is only one target square. "exposed" (the planned square lies inside the enemy archer's 5 × 5 reach) toggles every time an arrow key moves the marker in or out of reach, so all of R1–R5 can be tested through real input. The condition and file references are in `CHANGE-BRIEF.md` §1.
-- **Decided:** TO FILL
-  > *Hint (Claude):* which state you chose and the reason in one line (for example: "exposed", because it can retrigger and it matches the GDD's red danger zones).
+- **Got:** "targeted" (the target square during attack planning) cannot retrigger with only one enemy, because there is only one target square. "exposed" (the planned square lies inside the enemy archer's 5 × 5 reach) toggles every time an arrow key moves the marker in or out of reach, so all of R1–R5 can be tested through real input. The condition and file references are in CHANGE-BRIEF.md §1.
+- **Decided:** I chose "exposed", because it can retrigger, so I can actually test the fade, and it matches the red danger zones already in the GDD.
 - **Next:** the brief's effect specification (R1–R7) and the colour line.
 - **Human / Claude / model:** the choice was Jiean's; the comparison and the retrigger analysis were Claude's. No generative model.
-- **Still unresolved:** TO FILL
-  > *Hint (Claude):* for example, whether a red archer is enough once there are several enemies and unit types, or whether the GDD's red squares should come back.
+- **Still unresolved:** A red archer might not be enough once there are several enemies and unit types. I may need the GDD's red squares to come back for those cases.
 
 ## 2026-10-31 — The textured object: two new tiles instead of the A3 board square
-
-- **Wanted:** TO FILL
-  > *Hint (Claude):* what you wanted the 3D board to look like (for example: a cloth game board like the 2D slice's checkerboard, with light and dark squares).
-- **Asked:** Claude to check whether the A3 `board_square.glb` could carry a texture, and to find a CC0 cloth texture with a real normal map.
-- **Got:** a headless probe showed that `board_square.glb` has no UV coordinates on either surface, so no texture can be placed on it. An importer material would also be shared by every instance and would change what `check_assets.gd` measures. Claude proposed two 1 m PlaneMesh tiles in the diorama, and Poly Haven Hessian 380 (CC0, OpenGL and DirectX normal maps, about 274 mm per tile). Downloaded with approval on 2026-10-31.
-- **Decided:** TO FILL
-  > *Hint (Claude):* that you chose two tiles with Hessian 380 and kept the A3 model untouched, and why (two materials from one shader give the light and dark squares).
+- **Wanted:** I want the 3D board to look like a cloth game board, with the same light and dark checkerboard as the 2D slice.
+- **Asked:** Claude to check whether the A3 board_square.glb could carry a texture, and to find a CC0 cloth texture with a real normal map.
+- **Got:** a headless probe showed that board_square.glb has no UV coordinates on either surface, so no texture can be placed on it. An importer material would also be shared by every instance and would change what check_assets.gd measures. Claude proposed two 1 m PlaneMesh tiles in the diorama, and Poly Haven Hessian 380 (CC0, OpenGL and DirectX normal maps, about 274 mm per tile). Downloaded with approval on 2026-10-31.
+- **Decided:** I chose two tiles with Hessian 380 and kept the A3 model untouched. Two materials from one shader give me the light and dark squares without touching the original model.
 - **Next:** import settings, the two materials, the curl check.
 - **Human / Claude / model:** the texture and the two-tile plan were Jiean's decisions on Claude's proposal; the probe, download and attribution were Claude's.
-- **Still unresolved:** TO FILL
-  > *Hint (Claude):* for example, whether a later board model should get UVs so it can carry the cloth.
+- **Still unresolved:** Whether a later board model should get UVs so the cloth can go directly on it instead of on separate tiles.
 
 ## 2026-11-02 — The colour line
-
-- **Wanted:** TO FILL
-  > *Hint (Claude):* what the tint should do to the archer (for example: clearly red, but still showing the face and bow).
+- **Wanted:** The tint should make the archer clearly red, but I still want to see the face and the bow, not just a flat red silhouette.
 - **Asked:** for hints on the colour line (the course asks for it to be hand-written).
 - **Got:** three shapes, as a labelled hint: blend fully to red, blend with a cap of 0.6, or add red.
-- **Decided:** TO FILL
-  > *Hint (Claude):* the line you wrote (`mix` toward the red with `exposed_amount * 0.7`) and why 0.7 rather than 0.6 or 1.0.
+- **Decided:** I wrote COLOR.rgb = mix(COLOR.rgb, exposed_color.rgb, exposed_amount * 0.7);. I chose 0.7 rather than 0.6 because 0.6 felt too weak when the state is fully on, and 1.0 erases the face and the bow. 0.7 is red enough to read as danger while the details still show.
 - **Next:** hand-computed predictions for P1 and P2. Claude checked the arithmetic: the colour line and the table were correct; the first contrast numbers were off (1.20 and 2.05, not 1.31 and 2.25), and Jiean corrected them.
 - **Human / Claude / model:** the line and the 0.7 cap are Jiean's; the shape is one of Claude's three options.
-- **Still unresolved:** TO FILL
-  > *Hint (Claude):* for example, whether 70 % red is readable for colour-blind players.
+- **Still unresolved:** I don't know yet whether 70 % red is readable for colour-blind players. That needs a test.
 
 ## 2026-11-02 — Agent sessions: CLAUDE.md, the driver plan, the audit
-
-- **Wanted:** TO FILL
-  > *Hint (Claude):* what you wanted from handing these parts to `claude -p` agents (for example: to see what an agent gets wrong when it has only the brief and the files).
-- **Asked:** three scoped `claude -p` runs with the course prompts (`prompts/a5/`):
-  1. the CLAUDE.md draft;
-  2. the driver and test: planning first with read-only tools, then an implementation prompt with Jiean's answers to the agent's eight questions:
-     - fade out on retry;
-     - a node in `main.tscn`;
-     - any living enemy;
-     - 0.0 on new materials;
-     - `time_scale` 1;
-     - check `Engine.time_scale`;
-     - no self-mutations;
-     - no documents;
-  3. the material audit.
+- **Wanted:** I wanted to see what an agent gets wrong when it has only the brief and the files, and to use those runs as a check on my own reading of the brief.
+- **Asked:** three scoped claude -p runs with the course prompts (prompts/a5/):
+  - the CLAUDE.md draft;
+  - the driver and test: planning first with read-only tools, then an implementation prompt with Jiean's answers to the agent's eight questions:
+  - fade out on retry;
+  - a node in main.tscn;
+  - any living enemy;
+  - 0.0 on new materials;
+  - time_scale 1;
+  - check Engine.time_scale;
+  - no self-mutations;
+  - no documents;
+  - the material audit.
 - **Got:**
-  - **CLAUDE.md:** 74 lines, with one wrong line reference (`project.godot:9`, really 8).
-  - **The driver and test:** 46 checks passing at 30, 60 and 144 fps. On the way, the agent's first fps estimate misnamed two reports (`24fps`, `120fps`); the agent corrected this itself.
-  - **The audit:** 148 checks.
-    - Its one unmeasured figure (12–17 MB) proved wrong when measured (9.79 MB).
-    - Its finding 1 (a shared texture could explain the hint result) was tested with a control and ruled out.
-  - **Scope:** no agent session changed `godot/shaders/`. Every run had some commands refused by the tool allowlist.
-- **Decided:** TO FILL
-  > *Hint (Claude):* which agent output you accepted, and what you made sure was checked before trusting it (for example: approving the plan only after reading which rule each assertion covers).
+  - CLAUDE.md: 74 lines, with one wrong line reference (project.godot:9, really 8).
+  - The driver and test: 46 checks passing at 30, 60 and 144 fps. On the way, the agent's first fps estimate misnamed two reports (24fps, 120fps); the agent corrected this itself.
+  - The audit: 148 checks.
+  - Its one unmeasured figure (12–17 MB) proved wrong when measured (9.79 MB).
+  - Its finding 1 (a shared texture could explain the hint result) was tested with a control and ruled out.
+  - Scope: no agent session changed godot/shaders/. Every run had some commands refused by the tool allowlist.
+- **Decided:** I accepted the driver, the test and the audit, but only after reading which rule each assertion covers. I checked the mapping myself, so a passing count alone wasn't enough.
 - **Next:** the mutations, the review commits, the fresh-cache run.
-- **Human / Claude / model:** Jiean approved the plan and the implementation prompt, which Claude drafted. The agents (Claude Opus 5.5 via `claude -p`) wrote the drafts. Claude Code ran and reviewed them.
-- **Still unresolved:** TO FILL
-  > *Hint (Claude):* for example, the 30 fps fade taking 7 frames (0.233 s), which sits exactly on R2's tolerance.
+- **Human / Claude / model:** Jiean approved the plan and the implementation prompt, which Claude drafted. The agents (Claude Opus 5.5 via claude -p) wrote the drafts. Claude Code ran and reviewed them.
+- **Still unresolved:** The 30 fps fade takes 7 frames (0.233 s), which sits exactly on R2's tolerance. It passes, but it is on the edge.
 
 ## 2026-11-02 — The hint experiment did not match the prediction
-
-- **Wanted:** TO FILL
-  > *Hint (Claude):* what you expected to learn from the experiment (that `source_color` changes the numbers the shader receives).
+- **Wanted:** I wanted to see whether source_color changes the numbers the shader receives, using a clean two-quad test.
 - **Asked:** Claude to build the hint scene and measure both quads in a windowed run.
 - **Got:**
-  - **Predicted:** Quad B 137 / 188 / 225.
-  - **Measured:** both quads 64 / 128 / 192.
-  - **Checks:**
-    - the wiring checked out (different materials, switches swapped);
-    - a control with separate textures gave the same result;
-    - a constant 0.5 written to `ALBEDO` shows as 128.
-
-    On this Compatibility path there is neither the decode nor the encode the prediction assumed.
-- **Decided:** TO FILL
-  > *Hint (Claude):* that you kept the prediction as written and recorded the measurement, and how you explain it in TEST-REPORT A5.6.
+  - Predicted: Quad B 137 / 188 / 225.
+  - Measured: both quads 64 / 128 / 192.
+  - Checks:
+  - the wiring checked out (different materials, switches swapped);
+  - a control with separate textures gave the same result;
+  - a constant 0.5 written to ALBEDO shows as 128.
+  - On this Compatibility path there is neither the decode nor the encode the prediction assumed.
+- **Decided:** I kept the prediction as written and recorded the measurement next to it. In TEST-REPORT A5.6 I explain that the prediction assumed Forward+/Mobile, and that on Compatibility the hint did not change the numbers the shader saw.
 - **Next:** LANGUAGE-NOTES question 4 cites this.
 - **Human / Claude / model:** the predictions are Jiean's; the scene, the measurements and the control are Claude's.
-- **Still unresolved:** TO FILL
-  > *Hint (Claude):* for example, why Compatibility behaves this way, and whether a later web export will show the same.
+- **Still unresolved:** I don't yet know why Compatibility behaves this way, or whether a later web export will show the same thing.
 
 ## 2026-11-02 — Hints and authorship of the brief's answers
-
-- **Wanted:** TO FILL
-  > *Hint (Claude):* what you wanted the hints for (to learn faster, as the course intends AI use).
-- **Asked:** that every `TO FILL` get a labelled hint draft (now a standing rule in `AGENTS.md`).
+- **Wanted:** I wanted the hints so I could learn faster, as the course intends AI use.
+- **Asked:** that every TO FILL get a labelled hint draft (now a standing rule in AGENTS.md).
 - **Got:** Claude found that the first filled answers 1–4 and 6 were its hint text almost word for word, and asked for either an honest label or a rewrite. Jiean rewrote them; they are committed as the brief's Revision 1. LANGUAGE-NOTES gets pointers only, because the course says the agent does not write those answers.
-- **Decided:** TO FILL
-  > *Hint (Claude):* how you want to use hints from now on (for example: read the hint, close it, then write).
+- **Decided:** From now on I read the hint, close it, then write the answer myself, so the final words are mine.
 - **Human / Claude / model:** the rewrite is Jiean's; the check and the authorship note were Claude's.
-- **Still unresolved:** TO FILL
-  > *Hint (Claude):* for example, where the line is between learning from a hint and copying it.
+- **Still unresolved:** Where the line is between learning from a hint and copying it. I'm still working that out.

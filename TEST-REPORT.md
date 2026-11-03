@@ -78,9 +78,7 @@ Every difference is within one step. At 1.0 the hand calculation gives 100.5 for
 
 **OS screenshot against the engine capture** (`os_screenshot.png`, taken by Jiean during the frozen editor run, at value 0.0): the game area sits at offset (8, 99) under the window's title bar and toolbar. At that offset P1 and P2 read exactly the same as `exposed_0.0.png`: (224, 174, 117) and (90, 58, 34). `os_compare.gd`, `os_compare.log`.
 
-Jiean's sentence on the 2.0 capture and on which capture to trust: TO FILL
-
-> **Hint (Claude):** for example: "At 2.0 the head is (224, 27, 34), exactly the value I predicted if not clamped, so `hint_range` does not clamp a value set from code; it only shapes the Inspector slider. On this display the OS screenshot gave the same numbers, but I trust the engine capture, because it reads the engine's own frame at viewport size; a screenshot can pass through the display's colour profile and scaling and includes the window's toolbar."
+Jiean's sentence on the 2.0 capture and on which capture to trust: At 2.0 the head is (224, 27, 34), and on this display the OS screenshot gave the same numbers, but I trust the engine capture, because it reads the engine's own frame at viewport size
 
 ## A5.5 In play (HUMAN CHECK): Jiean's playtest
 
@@ -104,9 +102,7 @@ Measured by Claude in windowed runs (`evidence/a5/step3/hint_experiment_measurem
 - the audit's finding 1 control (`hint_control.gd`): each quad with its own texture object, still 64 / 128 / 192;
 - a constant `ALBEDO = vec3(0.5)` shows 128.
 
-Why the measurement differs from the prediction (Jiean): TO FILL
-
-> **Hint (Claude):** your predictions assumed Forward+ / Mobile (`CHANGE-BRIEF.md` §3, "Renderer"). The two measured facts: 0.5 written to `ALBEDO` shows as 128 (no encode on the way out), and the `source_color` quad shows the file values (no decode on the way in). One honest way to write it: "On Compatibility, this unshaded path neither decodes the texture nor encodes the output, so both quads show the file's numbers; the decode and encode I predicted belong to the Forward+/Mobile pipeline. I have not found the line in Godot's source that does this." Check the Compatibility notes in the Godot docs before you claim a reason.
+Why the measurement differs from the prediction (Jiean): On Compatibility, this unshaded path neither decodes the texture nor encodes the output, so both quads show the file's numbers; the decode and encode I predicted belong to the Forward+/Mobile pipeline. I have not found the line in Godot's source that does this.
 
 ## A5.7 Interface sweep (HUMAN CHECK): Jiean, in the editor on `LinenSquareLight`, not saved
 
@@ -407,7 +403,6 @@ Open `res://diorama/asset_diorama.tscn` in the Godot editor and orbit each asset
 | Right way up, standing on the floor (not floating or sunk)? | Clear | Clear | Clear |
 | Missing faces or holes (behind, below)? | One eye seems a bit unclear to tell a face | Clear | Clear |
 | Colours as intended under the lamp? | Clear | Clear | Flag itself can be unclear as the final goal |
-
 
 Another viewer: The archer looked a bit weird without arrow. At this point it seems like the archer is holding a stick.
 

@@ -15,23 +15,7 @@ The Assignment 3 submission file is kept as [SUBMISSION-A3.md](SUBMISSION-A3.md)
 | Texture sources and licences | Poly Haven **Hessian 380** (https://polyhaven.com/a/hessian_380), CC0, colormass (photography) and Rico Cilliers (processing), checked 2026-10-31; credits and checksums in `godot/assets/textures/hessian_380/ATTRIBUTION.md`. `hint_greys.png` written by `godot/tools/write_hint_greys.gd`. No generative model |
 | Final film URL and filename | added after the source submission, as a Canvas comment (allowed by the course) |
 | Final film SHA-256 | added with the film link |
-| Summary of my work | TO FILL |
-| Known limitations | TO FILL |
+| Summary of my work | I manually compare the state, object and texture to choose. Hand- write three shaders and compute the predictions. |
+| Known limitations | The hint experiment shows no difference on Compatibility and the unused DirectX map is still imported |
 | Changed games since Assignment 2 (yes/no; if yes, FRICTIONAL.md entry) | No: still Lane Tactics |
 
-> **Hint (Claude), Summary of my work:** three or four sentences in your own words. The facts to choose from:
-> - you chose the state, the object and the texture;
-> - you hand-wrote the three shaders and the colour line, and computed the predictions;
-> - you approved the agent's plan and ran the three mutations;
-> - you did the captures, the interface sweep and the playtest;
-> - you wrote LANGUAGE-NOTES and the judgment lines.
->
-> Name what the agents and Claude Code did too (agent drafts of CLAUDE.md, the driver and test, and the audit; Claude's reviews, materials, scenes and probes).
->
-> **Hint (Claude), Known limitations:** pick from README's Assignment 5 list:
-> - the hint experiment shows no difference on Compatibility;
-> - the curl-check gap is narrow (0.68 / 1.32);
-> - a fade at 30 fps takes 7 frames;
-> - the unused DirectX map is still imported;
-> - long file names break deep Windows clones;
-> - the film is not yet made.
