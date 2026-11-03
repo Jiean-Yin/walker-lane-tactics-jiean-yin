@@ -34,7 +34,7 @@ Known non-failing lines, the same before and after: `test_rules` prints the expe
 | `SHADER ERROR` lines in every passing run | none | logs in `evidence/a5/step2/`, `evidence/a5/step3/` |
 | Mutation 1 (Jiean): delete one `;` | **exit 1**, `SHADER ERROR: Expected a ';'.`, uniform list `[]`, 42/46 | `evidence/a5/mutations/mutation-1-*` |
 | Mutation 2 (Jiean): rename `exposed_amount` → `exposed_amt` in the shader only | **exit 1**, no `SHADER ERROR`, uniform list shows `exposed_amt`, 42/46. The 529-frame value check still **passed**: `set_shader_parameter` with the old name raised no error and read back its own value | `evidence/a5/mutations/mutation-2-*` |
-| Mutation 3 (Jiean): delete `source_color` from `albedo_tex` | TO FILL (Claude, after the run) | `evidence/a5/mutations/mutation-3-*` |
+| Mutation 3 (Jiean): delete `source_color` from `albedo_tex` (`linen_square.gdshader:4`) | **exit 1**, no `SHADER ERROR` (the shader stays valid), 146/148: the two source-text checks on `albedo_tex`'s hints fail. Restored (git blob matches), 148/148 | `evidence/a5/mutations/mutation-3-*` |
 
 ## A5.3 Driver (`godot/game/exposed_driver.gd`), sampled every frame through real key presses
 

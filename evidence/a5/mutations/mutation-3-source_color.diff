@@ -1,0 +1,13 @@
+diff --git a/godot/shaders/linen_square.gdshader b/godot/shaders/linen_square.gdshader
+index b3cf8dd..ef93156 100644
+--- a/godot/shaders/linen_square.gdshader
++++ b/godot/shaders/linen_square.gdshader
+@@ -1,7 +1,7 @@
+ shader_type spatial;
+ 
+ group_uniforms surface;
+-uniform sampler2D albedo_tex : source_color, filter_linear_mipmap, repeat_enable;
++uniform sampler2D albedo_tex : filter_linear_mipmap, repeat_enable;
+ uniform vec4 tint : source_color = vec4(1.0);
+ uniform float uv_scale : hint_range(0.5, 8.0, 0.05) = 3.65;
+ 
