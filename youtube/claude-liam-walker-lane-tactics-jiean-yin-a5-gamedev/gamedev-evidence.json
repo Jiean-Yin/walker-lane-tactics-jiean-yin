@@ -1,0 +1,774 @@
+{
+  "schema_version": 1,
+  "teaching_contract": "code-then-result-v1",
+  "game": {
+    "name": "walker-lane-tactics-jiean-yin",
+    "project": "godot/project.godot",
+    "source_revision": "tag a5 = ef5d38bc6d5f2fbdda62a4f4001791405dee0071",
+    "game_dir": "isolated git-archive copy of a5:godot (core.autocrlf=false)",
+    "note": "All 88 authored files (and the .uid files) are byte-identical to the a5 blobs."
+  },
+  "files": [
+    {
+      "path": "MATERIALS.md",
+      "sha256": "f671c7060d0b95b3f9ede197793ca222875d6d6372d4facd579fc64492a62fc5",
+      "role": "document",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "assets/textures/hessian_380/ATTRIBUTION.md",
+      "sha256": "e5ad1257860458c0b441808afd271c17072d756cb6c80ef501e20d0f90d0437f",
+      "role": "document",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_diff_1k.jpg",
+      "sha256": "5727302df3a9c845e6320ff186ac13fc7d0f1ffcd6fda71667e808e09379fe6f",
+      "role": "image",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_diff_1k.jpg.import",
+      "sha256": "cb3ed15b5ca8a74e020fbe1e95d4f9184d115d855d39d017eb416d6cf55b6d5b",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_nor_dx_1k.png",
+      "sha256": "0ed7d737bcdc6b7c33df01eba168a35963e9b4a16316a19b28d918fd853d0e53",
+      "role": "image",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_nor_dx_1k.png.import",
+      "sha256": "97af6b0d7d89f3933994148c527ea25ec6a4d72a223fea9e3ad91563ee1ea9dd",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_nor_gl_1k.png",
+      "sha256": "c7d36fe0e0beeebcbbb6b8a55e62b73cef56c890e683bb295fcf9e3495aaf3a3",
+      "role": "image",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_nor_gl_1k.png.import",
+      "sha256": "8855e2d9d17e4038cac7efb4bcc5085f40b540be55d45be6698277a6a3e85452",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_rough_1k.png",
+      "sha256": "33908953756e87f9cd9d5a632dc3fecce7f410b4a983f04825e003325de6920e",
+      "role": "image",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_rough_1k.png.import",
+      "sha256": "3fc7ebaa2383ad2f62a69811b8beb4ac9fc1cb0d3c8f34a0368ef74ab8644ad5",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "assets/textures/hint_experiment/hint_greys.png",
+      "sha256": "deb9df2a9689dd2297f2d37a3fa2759104f49dbb2eb3e33c00e1fa6292060ca6",
+      "role": "image",
+      "component_ids": [
+        "hint-experiment"
+      ]
+    },
+    {
+      "path": "assets/textures/hint_experiment/hint_greys.png.import",
+      "sha256": "259978760a3b8980f4053bd83f2d8b064a16b224e1d4dc477be79b9c9de4d74f",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "hint-experiment"
+      ]
+    },
+    {
+      "path": "debug/capture_exposed.gd",
+      "sha256": "4762bba42b704385a081e7d6bb1f6e8efed44a96f3d06585aeef1702f929b094",
+      "role": "GDScript source",
+      "component_ids": [
+        "capture-tool"
+      ]
+    },
+    {
+      "path": "debug/capture_exposed.tscn",
+      "sha256": "4eab42b38736bfed5c6c2d29c2fcde33d51dc0e68ef593448ad46f5e58896de4",
+      "role": "saved scene",
+      "component_ids": [
+        "capture-tool"
+      ]
+    },
+    {
+      "path": "diorama/asset_diorama.tscn",
+      "sha256": "1a8162871799babbfafb199083d14f771a28ad61d2022f50e490e2f2c9b949de",
+      "role": "saved scene",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "game/exposed_driver.gd",
+      "sha256": "f562ac43fa3234d357470bb86cb767d7d61a7f1c1641029cfeb5eaf63e3067fc",
+      "role": "GDScript source",
+      "component_ids": [
+        "exposed-driver"
+      ]
+    },
+    {
+      "path": "game/main.gd",
+      "sha256": "66a03dc441865aa5e40df6c8893b5ae47e2ead0a94acf02d3809a004a0db3351",
+      "role": "GDScript source",
+      "component_ids": [
+        "exposed-driver"
+      ]
+    },
+    {
+      "path": "game/main.tscn",
+      "sha256": "45789ee5906e132745a173eb574759f9277aa59ed9bc60894760fc5ed12ba5d7",
+      "role": "saved scene",
+      "component_ids": [
+        "exposed-driver"
+      ]
+    },
+    {
+      "path": "game/piece.gd",
+      "sha256": "c5115f8e3d8f095ca2a896a29f4a0fbfc1ea36ddc06a8b65a2e12ce1953fbaee",
+      "role": "GDScript source",
+      "component_ids": [
+        "exposed-driver"
+      ]
+    },
+    {
+      "path": "game/rules.gd",
+      "sha256": "8ab73234d9a19ee752bddb1c358c1ececd2c78adda509419968f2efe7c28e3d8",
+      "role": "GDScript source",
+      "component_ids": [
+        "exposed-driver"
+      ]
+    },
+    {
+      "path": "hint/hint_experiment.tscn",
+      "sha256": "0267e32076d28f5eef0737288f88c4faa985321edf028bf855191d9d28eae94c",
+      "role": "saved scene",
+      "component_ids": [
+        "hint-experiment"
+      ]
+    },
+    {
+      "path": "materials/hint_raw.tres",
+      "sha256": "819ea091547507786626ebd79dad321048ca842babcd6094493da51cda54d833",
+      "role": "resource (material)",
+      "component_ids": [
+        "hint-experiment"
+      ]
+    },
+    {
+      "path": "materials/hint_srgb.tres",
+      "sha256": "e264a24890090437c47edb2ede0d1872511462673cb1862ab0682630479050de",
+      "role": "resource (material)",
+      "component_ids": [
+        "hint-experiment"
+      ]
+    },
+    {
+      "path": "materials/linen_dark.tres",
+      "sha256": "a13a3b0c4626c8be9661235a031d53760de17542b0b87d48a4b535fb46c92a1f",
+      "role": "resource (material)",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "materials/linen_light.tres",
+      "sha256": "4fb22bb40843118b0b78a261135ef8fcbcc32df5a048af8a3364596def16b57e",
+      "role": "resource (material)",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "project.godot",
+      "sha256": "80383d20d46b8aaa3663127b27ee5593aeeceb66f40a17968888372c860b9c92",
+      "role": "project configuration",
+      "component_ids": [
+        "project"
+      ]
+    },
+    {
+      "path": "shaders/exposed_tint.gdshader",
+      "sha256": "21b0868e49a0e16b4300c44c650abe73fcce040acbde4386d2b1f14b77f6f8c2",
+      "role": "Godot shader",
+      "component_ids": [
+        "exposed-tint-shader"
+      ]
+    },
+    {
+      "path": "shaders/hint_experiment.gdshader",
+      "sha256": "e292e0370d14d73a567f7e13cb584a549bc91b3399050ca1fc90d4de26341e65",
+      "role": "Godot shader",
+      "component_ids": [
+        "hint-experiment"
+      ]
+    },
+    {
+      "path": "shaders/linen_square.gdshader",
+      "sha256": "47cca285b153eaa468ec291e5aa128eb0ab03e53cf7022b773074f22ed3d59b1",
+      "role": "Godot shader",
+      "component_ids": [
+        "linen-materials"
+      ]
+    },
+    {
+      "path": "shaders/standard_generated.gdshader",
+      "sha256": "ca1c191c44fb614ae64a258fce3efbc13b77fdc82f480e98ac4582e30805650d",
+      "role": "Godot shader",
+      "component_ids": [
+        "generated-shader"
+      ]
+    },
+    {
+      "path": "tests/check_assets.gd",
+      "sha256": "a31e5ec402bb70b1eabd3950ac6910a558fd9258bec752d7af5446260422fe32",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/normal_map_check.gd",
+      "sha256": "e892f4c15b8267c714290241eb2e6d7d713aee8ad79e4d64cc44ef947a340638",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/test_audio_events.gd",
+      "sha256": "057b650474d237658e72b4ff5234533a116c6acb6ff10f5944de991f815b63e3",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/test_exposed_tint.gd",
+      "sha256": "36a08f667db3f860a35eee163df5f8e6c6db178bea1b96ceca614e1244a45d9c",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/test_materials.gd",
+      "sha256": "b6d4d127e13c06213faceaa8ca4640812d364ee3598d763ad7343440a0aacdce",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/test_report.gd",
+      "sha256": "9f0ceb144e7209743f4a279ea620394a0dfb1ef99f55d9a85dc3c72c09963971",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tests/test_rules.gd",
+      "sha256": "8563d55bc8f8596478e7641dac1ab59dcf49131d6ddbd9b33994133666ba0cbe",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tools/calibrate_normal_map_check.gd",
+      "sha256": "5d6ecb088d118eaadf144981f25fc14c0ae1e363ddbc3892448742aa2de7e8e6",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests"
+      ]
+    },
+    {
+      "path": "tools/write_hint_greys.gd",
+      "sha256": "eefb8b6fefc67dae00e8ebabb6947ef0e97207377204eea4f4f2c36c979e13c9",
+      "role": "GDScript source",
+      "component_ids": [
+        "hint-experiment"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "exposed-tint-shader",
+      "explanation": "shaders/exposed_tint.gdshader, hand-written by Jiean: canvas_item, exposed_amount (hint_range 0-1, default 0.0) and exposed_color (source_color, #E0453A); line 7 mixes the sprite's COLOR.rgb toward the red by exposed_amount * 0.7, alpha untouched (B03). Seen in play (B04, B06) and at controlled values 0 / 0.5 / 1 / 2 in Jiean's captures (B07).",
+      "beat_ids": [
+        "B03",
+        "B04",
+        "B06",
+        "B07"
+      ],
+      "files": [
+        "shaders/exposed_tint.gdshader"
+      ]
+    },
+    {
+      "id": "exposed-driver",
+      "explanation": "game/exposed_driver.gd (a node in game/main.tscn, process_priority 10) reads main.gd's state, planned_offset, paused and time_scale and rules.gd's cells and reach (in_range, Chebyshev 1-2); move_toward at 5 per second of game time, holding while paused (B05). game/piece.gd gives every sprite its own ShaderMaterial (lines 56-59) and set_exposed_amount(). Result: the capture's taps, pause, confirm and turn 4 (B06); the per-frame log has the enemy at 0.0 throughout.",
+      "beat_ids": [
+        "B05",
+        "B06",
+        "B04"
+      ],
+      "files": [
+        "game/exposed_driver.gd",
+        "game/piece.gd",
+        "game/main.tscn",
+        "game/main.gd",
+        "game/rules.gd"
+      ]
+    },
+    {
+      "id": "linen-materials",
+      "explanation": "shaders/linen_square.gdshader (Jiean): spatial; albedo_tex with source_color, roughness_tex as data, normal_tex with hint_normal, uv_scale, roughness_scale, normal_strength (B10). Two ShaderMaterials, materials/linen_light.tres (tint white, normal_strength 1.0) and linen_dark.tres (#9A7F55, 1.5), on two PlaneMesh tiles in diorama/asset_diorama.tscn (B08). The Hessian 380 textures and their .import files (Lossless, normal-map flag only on the normal maps, detect_3d off), credited in ATTRIBUTION.md. Results: one material vs one shader (B09), the interface sweep (B11).",
+      "beat_ids": [
+        "B08",
+        "B09",
+        "B10",
+        "B11"
+      ],
+      "files": [
+        "shaders/linen_square.gdshader",
+        "materials/linen_light.tres",
+        "materials/linen_dark.tres",
+        "diorama/asset_diorama.tscn",
+        "assets/textures/hessian_380/ATTRIBUTION.md",
+        "assets/textures/hessian_380/hessian_380_diff_1k.jpg",
+        "assets/textures/hessian_380/hessian_380_diff_1k.jpg.import",
+        "assets/textures/hessian_380/hessian_380_rough_1k.png",
+        "assets/textures/hessian_380/hessian_380_rough_1k.png.import",
+        "assets/textures/hessian_380/hessian_380_nor_gl_1k.png",
+        "assets/textures/hessian_380/hessian_380_nor_gl_1k.png.import",
+        "assets/textures/hessian_380/hessian_380_nor_dx_1k.png",
+        "assets/textures/hessian_380/hessian_380_nor_dx_1k.png.import"
+      ]
+    },
+    {
+      "id": "hint-experiment",
+      "explanation": "shaders/hint_experiment.gdshader (Jiean): unshaded; grey_srgb (source_color, filter_nearest), grey_raw (filter_nearest), use_srgb picks which writes ALBEDO (B12). hint/hint_experiment.tscn (Linear tonemap, exposure 1.0) with materials/hint_srgb.tres and hint_raw.tres, both binding assets/textures/hint_experiment/hint_greys.png (64/128/192, written by tools/write_hint_greys.gd). Result: both quads 64/128/192 on Compatibility (B13).",
+      "beat_ids": [
+        "B12",
+        "B13"
+      ],
+      "files": [
+        "shaders/hint_experiment.gdshader",
+        "hint/hint_experiment.tscn",
+        "materials/hint_srgb.tres",
+        "materials/hint_raw.tres",
+        "assets/textures/hint_experiment/hint_greys.png",
+        "assets/textures/hint_experiment/hint_greys.png.import",
+        "tools/write_hint_greys.gd"
+      ]
+    },
+    {
+      "id": "generated-shader",
+      "explanation": "shaders/standard_generated.gdshader: the editor's conversion of a StandardMaterial3D with albedo, normal and roughness textures, saved by Jiean, unused by the game. Lines 7 and 19 beside linen_square.gdshader:4 and :11 (B14): source_color in both; hint_roughness_normal vs hint_normal.",
+      "beat_ids": [
+        "B14"
+      ],
+      "files": [
+        "shaders/standard_generated.gdshader"
+      ]
+    },
+    {
+      "id": "tests",
+      "explanation": "tests/test_exposed_tint.gd (agent): uniform list via get_shader_uniform_list(), defaults and source_color from the source text, real key presses, every frame checked (B15); tests/test_materials.gd (agent audit) with godot/MATERIALS.md; tests/normal_map_check.gd (course code) calibrated by tools/calibrate_normal_map_check.gd (B10's curl ratios); test_report.gd writes the JSON reports. The earlier suites (test_rules, test_audio_events, check_assets) give their baseline counts (B16). Results and the three mutations: B16.",
+      "beat_ids": [
+        "B15",
+        "B16",
+        "B10"
+      ],
+      "files": [
+        "tests/test_exposed_tint.gd",
+        "tests/test_materials.gd",
+        "tests/normal_map_check.gd",
+        "tests/test_report.gd",
+        "tools/calibrate_normal_map_check.gd",
+        "MATERIALS.md",
+        "tests/test_rules.gd",
+        "tests/test_audio_events.gd",
+        "tests/check_assets.gd"
+      ]
+    },
+    {
+      "id": "capture-tool",
+      "explanation": "debug/capture_exposed.tscn and .gd: a debug scene (not the game) that runs main.tscn in a real window; key C calls the course's capture() at exposed_amount 0, 0.5, 1, 2 and writes P1/P2 beside the predictions. Jiean's captures from it are B07.",
+      "beat_ids": [
+        "B07"
+      ],
+      "files": [
+        "debug/capture_exposed.gd",
+        "debug/capture_exposed.tscn"
+      ]
+    },
+    {
+      "id": "project",
+      "explanation": "project.godot: main scene res://game/main.tscn and the Compatibility renderer (line 25) that decides the hint experiment's result (B02, B13).",
+      "beat_ids": [
+        "B02",
+        "B13"
+      ],
+      "files": [
+        "project.godot"
+      ]
+    }
+  ],
+  "excerpts": [
+    {
+      "beat_id": "B03",
+      "path": "shaders/exposed_tint.gdshader",
+      "start_line": 1,
+      "end_line": 8,
+      "text": "shader_type canvas_item;\n\nuniform float exposed_amount : hint_range(0.0, 1.0) = 0.0;\nuniform vec4 exposed_color : source_color = vec4(0.878, 0.271, 0.227, 1.0);\n\nvoid fragment() {\n\tCOLOR.rgb = mix(COLOR.rgb, exposed_color.rgb, exposed_amount * 0.7);\n}"
+    },
+    {
+      "beat_id": "B05",
+      "path": "game/exposed_driver.gd",
+      "start_line": 29,
+      "end_line": 37,
+      "text": "func _process(delta: float) -> void:\n\tif _main == null:\n\t\treturn\n\tif not _main.paused:\n\t\tvar target: float = 1.0 if is_exposed() else 0.0\n\t\tamount = move_toward(amount, target, RATE * delta * _main.time_scale)\n\tvar p: Variant = _main.pieces.get(MainScript.PLAYER_ID)\n\tif p != null:\n\t\tp.set_exposed_amount(amount)"
+    },
+    {
+      "beat_id": "B08",
+      "path": "materials/linen_dark.tres",
+      "start_line": 8,
+      "end_line": 16,
+      "text": "[resource]\nresource_name = \"linen_dark\"\nrender_priority = 0\nshader = ExtResource(\"1_shader\")\nshader_parameter/albedo_tex = ExtResource(\"2_diff\")\nshader_parameter/tint = Color(0.603922, 0.498039, 0.333333, 1)\nshader_parameter/roughness_tex = ExtResource(\"3_rough\")\nshader_parameter/normal_tex = ExtResource(\"4_nor_gl\")\nshader_parameter/normal_strength = 1.5"
+    },
+    {
+      "beat_id": "B10",
+      "path": "shaders/linen_square.gdshader",
+      "start_line": 3,
+      "end_line": 12,
+      "text": "group_uniforms surface;\nuniform sampler2D albedo_tex : source_color, filter_linear_mipmap, repeat_enable;\nuniform vec4 tint : source_color = vec4(1.0);\nuniform float uv_scale : hint_range(0.5, 8.0, 0.05) = 3.65;\n\ngroup_uniforms relief;\nuniform sampler2D roughness_tex : filter_linear_mipmap, repeat_enable;\nuniform float roughness_scale : hint_range(0.0, 1.0) = 1.0;\nuniform sampler2D normal_tex : hint_normal, filter_linear_mipmap, repeat_enable;\nuniform float normal_strength : hint_range(0.0, 2.0) = 1.0;"
+    },
+    {
+      "beat_id": "B12",
+      "path": "shaders/hint_experiment.gdshader",
+      "start_line": 1,
+      "end_line": 14,
+      "text": "shader_type spatial;\nrender_mode unshaded;\n\nuniform sampler2D grey_srgb : source_color, filter_nearest;\nuniform sampler2D grey_raw : filter_nearest;\nuniform bool use_srgb = true;\n\nvoid fragment() {\n\tif (use_srgb) {\n\t\tALBEDO = texture(grey_srgb, UV).rgb;\n\t} else {\n\t\tALBEDO = texture(grey_raw, UV).rgb;\n\t}\n}"
+    },
+    {
+      "beat_id": "B15",
+      "path": "tests/test_exposed_tint.gd",
+      "start_line": 167,
+      "end_line": 177,
+      "text": "\tvar uniforms: Dictionary = {}\n\tfor u: Dictionary in shader.get_shader_uniform_list():\n\t\tuniforms[String(u[\"name\"])] = u\n\trep.check(\"uniform list is exactly [exposed_amount, exposed_color] (case 8)\",\n\t\tuniforms.size() == 2 and uniforms.has(\"exposed_amount\") and uniforms.has(\"exposed_color\"), uniforms.keys())\n\tvar a: Dictionary = uniforms.get(\"exposed_amount\", {})\n\trep.check(\"exposed_amount: type float (3), hint_range (1) 0.0..1.0\",\n\t\tint(a.get(\"type\", -1)) == TYPE_FLOAT and int(a.get(\"hint\", -1)) == PROPERTY_HINT_RANGE\n\t\tand String(a.get(\"hint_string\", \"\")).begins_with(\"0.0,1.0\"), [a.get(\"type\"), a.get(\"hint\"), a.get(\"hint_string\")])\n\tvar c: Dictionary = uniforms.get(\"exposed_color\", {})\n\trep.check(\"exposed_color: type vec4 (20)\", int(c.get(\"type\", -1)) == TYPE_COLOR, c.get(\"type\"))"
+    }
+  ],
+  "exclusions": [
+    {
+      "path": "assets/art/.gitkeep",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_defeat.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_defeat.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_defeat_enemy.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_defeat_enemy.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_draw.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_draw.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_draw_enemy.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_draw_enemy.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_hurt.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_hurt.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_hurt_enemy.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_hurt_enemy.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_idle.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_idle.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_idle_enemy.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_idle_enemy.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_win.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_win.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_win_enemy.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/archer_win_enemy.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/env_table.png",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/art/env_table.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/models/archer_piece.glb",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/models/archer_piece.glb.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/models/board_square.glb",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/models/board_square.glb.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/models/goal_flag.glb",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/models/goal_flag.glb.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/music/.gitkeep",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/music/mus_loop.ogg",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/music/mus_loop.ogg.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/sfx/.gitkeep",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/sfx/sfx_hit.ogg",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/sfx/sfx_hit.ogg.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/sfx/sfx_hop.ogg",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/sfx/sfx_hop.ogg.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/sfx/sfx_hurt.ogg",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/sfx/sfx_hurt.ogg.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/sfx/sfx_win.ogg",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "assets/sfx/sfx_win.ogg.import",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "default_bus_layout.tres",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "game/audio_director.gd",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "game/draw_layer.gd",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "tests/analyze_variants.gd",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "tests/capture.gd",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "tests/fixtures/lose_route.json",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "tests/fixtures/win_route.json",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    },
+    {
+      "path": "tests/route_runner.gd",
+      "reason": "Earlier-assignment file (A2 2D slice or A3 diorama assets), unchanged by Assignment 5 except where listed above; explained in the A2 and A3 films. The tint shader recolours the A2 archer sprites at run time without changing these files."
+    }
+  ],
+  "code_result_pairs": [
+    {
+      "code_beat": "B03",
+      "result_beat": "B04",
+      "observation": "Capture run-02 (tint), frames 46-455: two turns out of reach with the value at 0; on turn 3 Right plans (3,4), in the enemy's reach, and the archer turns red within 6 frames; Left drains it in 6 frames.",
+      "media": {
+        "path": "media/B04.mp4",
+        "sha256": "71109c495cc243140b1a7825b798fdc9d9c4f9be0f73b2027bc96cee469a7042"
+      }
+    },
+    {
+      "code_beat": "B05",
+      "result_beat": "B06",
+      "observation": "Capture run-02 (tint), frames 455-997: taps every 0.1 s turn around from the current value; P mid-fade holds it (PAUSED overlay); Enter confirms and it fades during PLAY_MOVES; turn 4 starts in reach and it rises at once. Per-frame log: enemy 0.0 in every frame.",
+      "media": {
+        "path": "media/B06.mp4",
+        "sha256": "ae114961950822e56068455ffda62e1d669cfd0b92a95677ba0ca0a5b94066c7"
+      }
+    },
+    {
+      "code_beat": "B08",
+      "result_beat": "B09",
+      "observation": "Capture run-02 (diorama): the scene's own camera, then the harness camera; linen_dark normal_strength 1.5 -> 0 changes only the dark tile; the shared shader's ALBEDO x 0.5 (in memory) darkens both.",
+      "media": {
+        "path": "media/B09.mp4",
+        "sha256": "d3c2596d7deafed99593384b7273cbd8a7332b598022ce9b92ccad9e340a199e"
+      }
+    },
+    {
+      "code_beat": "B10",
+      "result_beat": "B11",
+      "observation": "Capture run-02 (diorama), frames 225-930: light tile uv_scale 0.5 coarse / 8 fine; normal_strength 0 flat / 2 deep; roughness_scale 0 from the lamp's mirror angle: about 1.5 % darker, no highlight (measured).",
+      "media": {
+        "path": "media/B11.mp4",
+        "sha256": "c274cd40aa935a6969fefce2bcbcde414aa09dedcc819e3de0c0467a8ed509e7"
+      }
+    },
+    {
+      "code_beat": "B12",
+      "result_beat": "B13",
+      "observation": "Capture run-02 (hint) frame 60: both quads 64 / 128 / 192, read from the 4K frame, beside Jiean's prediction (A 64/128/192, B 137/188/225).",
+      "media": {
+        "path": "media/B13.mp4",
+        "sha256": "6a2c82edc702854ce9848eb298cb86a8bd5eda19a5542e1cfad1517197686ead"
+      }
+    },
+    {
+      "code_beat": "B15",
+      "result_beat": "B16",
+      "observation": "Recorded reports: 46/46 at 30, 60, 144 fps; 148/148; earlier suites 51/70/38; three mutations exit 1 (evidence/a5/mutations); the film's rerun on the a5 copy (capture/film-rerun.json).",
+      "media": {
+        "path": "media/B16.mp4",
+        "sha256": "6d093dd7d5fc03a56d8f23eca0dc682cf51df78ea13ccaceb994f4a9d324ba1f"
+      }
+    }
+  ],
+  "still_quotes": [
+    {
+      "beat_id": "B14",
+      "path": "shaders/standard_generated.gdshader",
+      "line": 7,
+      "text": "uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;"
+    },
+    {
+      "beat_id": "B14",
+      "path": "shaders/standard_generated.gdshader",
+      "line": 19,
+      "text": "uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;"
+    },
+    {
+      "beat_id": "B14",
+      "path": "shaders/linen_square.gdshader",
+      "line": 4,
+      "text": "uniform sampler2D albedo_tex : source_color, filter_linear_mipmap, repeat_enable;"
+    },
+    {
+      "beat_id": "B14",
+      "path": "shaders/linen_square.gdshader",
+      "line": 11,
+      "text": "uniform sampler2D normal_tex : hint_normal, filter_linear_mipmap, repeat_enable;"
+    }
+  ]
+}

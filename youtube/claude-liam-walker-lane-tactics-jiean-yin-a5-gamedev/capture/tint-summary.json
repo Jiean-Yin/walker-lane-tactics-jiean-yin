@@ -1,0 +1,81 @@
+{
+	"failed": "",
+	"fps": 30,
+	"frames": 997,
+	"master": "tint-4k.mkv (FFV1 lossless, bgr0)",
+	"mode": "tint",
+	"notes": [
+		"OK: main.tscn has the ExposedDriver node",
+		"OK: p1 value 0 before turn 3",
+		"OK: p1 value 1 after the rise"
+	],
+	"shots": [
+		{
+			"frames": [
+				1,
+				46
+			],
+			"seconds": "45/30",
+			"shot": "T0_title",
+			"what": "title card"
+		},
+		{
+			"frames": [
+				46,
+				200
+			],
+			"seconds": "154/30",
+			"shot": "T1_turns_1_2",
+			"what": "turns 1-2: step right twice, out of reach; value stays 0"
+		},
+		{
+			"frames": [
+				200,
+				365
+			],
+			"seconds": "165/30",
+			"shot": "T2_fade_in",
+			"what": "turn 3: Right plans a square in reach; tint rises 0 -> 1 in 0.20 s"
+		},
+		{
+			"frames": [
+				365,
+				464
+			],
+			"seconds": "99/30",
+			"shot": "T3_fade_out",
+			"what": "Left: out of reach; tint falls 1 -> 0 in 0.20 s"
+		},
+		{
+			"frames": [
+				464,
+				599
+			],
+			"seconds": "135/30",
+			"shot": "T4_retrigger",
+			"what": "fast taps every 0.1 s: the value turns around from where it is, never jumps"
+		},
+		{
+			"frames": [
+				599,
+				692
+			],
+			"seconds": "93/30",
+			"shot": "T5_pause",
+			"what": "Left, then P mid-fade: the value holds while paused, then finishes the fall"
+		},
+		{
+			"frames": [
+				692,
+				997
+			],
+			"seconds": "305/30",
+			"shot": "T6_confirm_and_turn4",
+			"what": "Enter confirms: the tint fades while the move plays; turn 4 starts in reach, so it rises again"
+		}
+	],
+	"subviewport": [
+		3840,
+		2160
+	]
+}

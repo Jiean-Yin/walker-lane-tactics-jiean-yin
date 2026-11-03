@@ -1,0 +1,65 @@
+{
+  "revision": "tag a5 (ef5d38b), isolated git-archive copy, files checked against the blobs",
+  "date": "2026-11-03",
+  "runner": "scripts/run-test.sh (Godot from $GODOT)",
+  "import_exit": 0,
+  "runs": [
+    {
+      "test": "test_rules.gd",
+      "fps": 60,
+      "exit": 0,
+      "passed": 51,
+      "total": 51,
+      "shader_error_lines": 0
+    },
+    {
+      "test": "test_audio_events.gd",
+      "fps": 60,
+      "exit": 0,
+      "passed": 70,
+      "total": 70,
+      "shader_error_lines": 0
+    },
+    {
+      "test": "check_assets.gd",
+      "fps": 60,
+      "exit": 0,
+      "passed": 38,
+      "total": 38,
+      "shader_error_lines": 0
+    },
+    {
+      "test": "test_exposed_tint.gd",
+      "fps": 30,
+      "exit": 0,
+      "passed": 46,
+      "total": 46,
+      "shader_error_lines": 0
+    },
+    {
+      "test": "test_exposed_tint.gd",
+      "fps": 60,
+      "exit": 0,
+      "passed": 46,
+      "total": 46,
+      "shader_error_lines": 0
+    },
+    {
+      "test": "test_exposed_tint.gd",
+      "fps": 144,
+      "exit": 0,
+      "passed": 46,
+      "total": 46,
+      "shader_error_lines": 0
+    },
+    {
+      "test": "test_materials.gd",
+      "fps": 60,
+      "exit": 0,
+      "passed": 148,
+      "total": 148,
+      "shader_error_lines": 0
+    }
+  ],
+  "summary": "test_rules@60 51/51 \u00b7 test_audio_events@60 70/70 \u00b7 check_assets@60 38/38 \u00b7 test_exposed_tint@30 46/46 \u00b7 test_exposed_tint@60 46/46 \u00b7 test_exposed_tint@144 46/46 \u00b7 test_materials@60 148/148"
+}

@@ -1,0 +1,156 @@
+{
+  "B02": {
+    "still": true,
+    "n_frames": 593,
+    "path": "media/B02.mp4",
+    "sha256": "bf74d34b019d96a942198239e882f86864d62263c92cec2fbf73b600f7f85c04",
+    "preview": "stills/B02.png"
+  },
+  "B04": {
+    "segments": [
+      {
+        "src": "tint",
+        "a": 46,
+        "b": 455
+      }
+    ],
+    "n_frames": 409,
+    "duration_s": "409/30",
+    "sources": {
+      "tint": {
+        "file": "<capture-copy>/run-02/tint-4k.mkv",
+        "sha256": "f999be18977b1c99cb576e0433d745fa3379b1d84e0a218ada0f3439535ac52d"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a5, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B04.mp4",
+    "sha256": "71109c495cc243140b1a7825b798fdc9d9c4f9be0f73b2027bc96cee469a7042"
+  },
+  "B06": {
+    "segments": [
+      {
+        "src": "tint",
+        "a": 455,
+        "b": 997
+      }
+    ],
+    "n_frames": 542,
+    "duration_s": "542/30",
+    "sources": {
+      "tint": {
+        "file": "<capture-copy>/run-02/tint-4k.mkv",
+        "sha256": "f999be18977b1c99cb576e0433d745fa3379b1d84e0a218ada0f3439535ac52d"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a5, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B06.mp4",
+    "sha256": "ae114961950822e56068455ffda62e1d669cfd0b92a95677ba0ca0a5b94066c7"
+  },
+  "B07": {
+    "still": true,
+    "n_frames": 870,
+    "path": "media/B07.mp4",
+    "sha256": "e4ba9df935cfd293068bf2bde6a233b0529cca0e9eb13dbecd8ab0bb24a81fd4",
+    "preview": "stills/B07.png"
+  },
+  "B09": {
+    "segments": [
+      {
+        "src": "diorama",
+        "a": 0,
+        "b": 135,
+        "label": "THE SCENE'S OWN CAMERA3D · REAL GODOT RENDER|asset_diorama.tscn @ tag a5, camera as saved"
+      },
+      {
+        "src": "diorama",
+        "a": 135,
+        "b": 225,
+        "label": "HARNESS CAMERA · REAL GODOT RENDER|both materials at their saved values"
+      },
+      {
+        "src": "diorama",
+        "a": 930,
+        "b": 1110,
+        "label": "SCRIPTED · REAL GODOT RENDER|linen_dark normal_strength 1.5 → 0 → 1.5, in memory · no file saved"
+      },
+      {
+        "src": "diorama",
+        "a": 1110,
+        "b": 1245,
+        "label": "SCRIPTED · REAL GODOT RENDER|shader code ALBEDO × 0.5 in memory · the .gdshader file is untouched"
+      }
+    ],
+    "n_frames": 540,
+    "duration_s": "540/30",
+    "sources": {
+      "diorama": {
+        "file": "<capture-copy>/run-02/diorama-4k.mkv",
+        "sha256": "59ee2fc388bd0cf329f16a4d2871fd3b614372e302560758e991625ebacdf0dd"
+      }
+    },
+    "label": "SCRIPTED · REAL GODOT RENDER / asset_diorama.tscn @ tag a5 · uniforms changed in memory, no file saved",
+    "path": "media/B09.mp4",
+    "sha256": "d3c2596d7deafed99593384b7273cbd8a7332b598022ce9b92ccad9e340a199e"
+  },
+  "B11": {
+    "segments": [
+      {
+        "src": "diorama",
+        "a": 225,
+        "b": 510,
+        "label": "SCRIPTED SWEEP · REAL GODOT RENDER|light tile uv_scale 3.65 → 0.5 → 8.0 → 3.65, in memory"
+      },
+      {
+        "src": "diorama",
+        "a": 510,
+        "b": 705,
+        "label": "SCRIPTED SWEEP · REAL GODOT RENDER|light tile normal_strength 1 → 0 → 2 → 1, in memory"
+      },
+      {
+        "src": "diorama",
+        "a": 705,
+        "b": 930,
+        "label": "SCRIPTED SWEEP · REAL GODOT RENDER|light tile roughness_scale 1 → 0 → 1, from the lamp's mirror angle"
+      }
+    ],
+    "n_frames": 705,
+    "duration_s": "705/30",
+    "sources": {
+      "diorama": {
+        "file": "<capture-copy>/run-02/diorama-4k.mkv",
+        "sha256": "59ee2fc388bd0cf329f16a4d2871fd3b614372e302560758e991625ebacdf0dd"
+      }
+    },
+    "label": "SCRIPTED · REAL GODOT RENDER / asset_diorama.tscn @ tag a5 · uniforms changed in memory, no file saved",
+    "path": "media/B11.mp4",
+    "sha256": "c274cd40aa935a6969fefce2bcbcde414aa09dedcc819e3de0c0467a8ed509e7"
+  },
+  "B13": {
+    "still": true,
+    "n_frames": 616,
+    "path": "media/B13.mp4",
+    "sha256": "6a2c82edc702854ce9848eb298cb86a8bd5eda19a5542e1cfad1517197686ead",
+    "preview": "stills/B13.png"
+  },
+  "B14": {
+    "still": true,
+    "n_frames": 994,
+    "path": "media/B14.mp4",
+    "sha256": "8c376da3e132c45bf92e1576c665566f73e0f429be1f132f9c1a7487511acbcf",
+    "preview": "stills/B14.png"
+  },
+  "B16": {
+    "still": true,
+    "n_frames": 957,
+    "path": "media/B16.mp4",
+    "sha256": "6d093dd7d5fc03a56d8f23eca0dc682cf51df78ea13ccaceb994f4a9d324ba1f",
+    "preview": "stills/B16.png"
+  },
+  "BCRD": {
+    "still": true,
+    "n_frames": 887,
+    "path": "media/BCRD.mp4",
+    "sha256": "e9045386e5704a12a7f9d40a0135d62ae095ac458efa80f7d895ed7917140ef4",
+    "preview": "stills/BCRD.png"
+  }
+}

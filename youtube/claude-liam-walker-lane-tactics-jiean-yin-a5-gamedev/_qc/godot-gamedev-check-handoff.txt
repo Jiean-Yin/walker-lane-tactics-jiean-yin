@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "source_files": 39,
+  "exclusions": 49,
+  "components": 8,
+  "exact_excerpts": 6,
+  "teaching_contract": "code-then-result-v1",
+  "code_result_pairs": 6,
+  "scope": "Hashes, inventory, source lines and associations; not semantic/visual approval."
+}

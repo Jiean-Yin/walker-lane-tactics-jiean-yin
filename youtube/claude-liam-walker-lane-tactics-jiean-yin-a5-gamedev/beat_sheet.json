@@ -1,0 +1,1233 @@
+{
+  "metadata": {
+    "title": "Lane Tactics: A Danger Tint and a Linen Board",
+    "slug": "claude-liam-walker-lane-tactics-jiean-yin-a5-gamedev",
+    "topic": "WALKER · GODOT GAMEDEV",
+    "kind": "godot-gamedev",
+    "skill": "godot-gamedev",
+    "modifier": "walker",
+    "brand": "claude-liam",
+    "audience": "Course reviewers and makers following Walker/Claude workflows",
+    "register": "Teardown",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "aspect_ratio": "16:9",
+    "fit": "crop",
+    "captions": false,
+    "channel": "@NikBearBrown",
+    "folderLabel": "@NikBearBrown",
+    "greeting": "Hello, Liam",
+    "persona": "Liam (in for Bear)",
+    "presenter": "Liam (in for Bear)",
+    "in_for_bear": true,
+    "script_status": "approved by Jiean on 2026-11-03 (SCRIPT-DRAFT.md), unchanged",
+    "pronunciation_note": "Narration spells Jiean as 'Jay-Ann' for the voice only (Jiean: 'like Jack and Ann, Jay-An'); Kokoro read plain 'Jiean' as 'Jee-un'. Screen text keeps 'Jiean'.",
+    "teaching_contract": "code-then-result-v1",
+    "game": {
+      "name": "walker-lane-tactics-jiean-yin",
+      "repository": "https://github.com/Jiean-Yin/walker-lane-tactics-jiean-yin",
+      "source_revision": "tag a5 = ef5d38bc6d5f2fbdda62a4f4001791405dee0071",
+      "engine": "Godot 4.7.2.stable.official.ed1daf0bf",
+      "renderer": "Compatibility"
+    },
+    "audio_policy_note": "Narration only. Engine captures carry no audio track in the film; the outro card carries only Liam's voice.",
+    "labels": {
+      "engine": "SCRIPTED · REAL GODOT RENDER",
+      "student": "JIEAN'S CAPTURES",
+      "reconstruction": "Illustrative reconstruction of the Claude interface — not a transcript",
+      "editor": "Godot editor reconstruction (printed by GodotDevWorkbench)",
+      "headless": "HEADLESS CHECK OUTPUT · recorded reports, no rendering"
+    },
+    "build": {
+      "at": "2026-11-03T01:24:07",
+      "cut": "master",
+      "filled": 21,
+      "of": 21,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "narration_text": "Hello, this is Liam, in for Bear. Jay-Ann Yin's game is Lane Tactics: archers on a five-lane board, where you win by reaching the enemy's back row. This assignment adds shaders: a red warning on the archer, and a cloth surface for the 3D board. The prompt on screen is an illustrative reconstruction.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on",
+        "label": "Illustrative reconstruction of the Claude interface — not a transcript",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hello, Liam",
+            "topic": "WALKER · GODOT GAMEDEV",
+            "segment": "A Danger Tint and a Linen Board",
+            "command": "Please use Walker to convert my game design document about Lane Tactics — archers on a five-lane board, simultaneous orders, win by reaching the enemy's back row — into two shaders: a red tint that warns when my planned square is inside the enemy archer's reach, and a linen cloth material for the 3D board squares. Test both, and show me what a headless run cannot.",
+            "runningText": "reading CHANGE-BRIEF.md…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "High",
+            "output": [
+              "test_exposed_tint 46/46 at 30, 60 and 144 fps",
+              "test_materials 148/148 · 3 mutations exit 1",
+              "Source shown: tag a5 (ef5d38b)"
+            ],
+            "durationSeconds": 16.733333333333334
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-11-03T05:48:03.536568+00:00"
+          }
+        }
+      },
+      "role_note": "walker B00: ClaudeComposerAsk; prompt begins 'Please use Walker to convert my game design document about'; illustrative reconstruction, labelled. Result lines are recorded numbers (TEST-REPORT A5.2, A5.12).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B00-timed.wav",
+      "actual_duration_s": 16.733333333333334,
+      "voice_duration_s": 16.725,
+      "lead_silence_s": 0.0,
+      "clip_frames": 502,
+      "duration_note": "voice 16.725s + lead 0.0s, padded with silence to 502 frames = 502/30 s",
+      "render_duration_s": 16.733333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "narration_text": "What was built: two shaders, written by hand by Jay-Ann, one driven by the game's state and one by textures. The tests check the wiring. Whether they work is judged in the pixels.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on-correct",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Two shaders for Lane Tactics:\na warning and a weave.\nWritten by hand,\njudged by the tests.",
+            "triggerWords": "tests",
+            "replacementWords": "pixels",
+            "fontSize": 84,
+            "lineSpacing": 2.3,
+            "align": "center",
+            "seed": "lane-tactics-a5-1103",
+            "mistakeRate": 2,
+            "hesitateWithin": 0,
+            "hesitateBetween": 1,
+            "charMs": 8,
+            "ink": "#3D3929",
+            "accent": "#D97757",
+            "bg": "#FAF9F5",
+            "durationSeconds": 11.1
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-11-03T05:48:52.988296+00:00"
+          }
+        }
+      },
+      "role_note": "walker B01: hesitant-writer summary; correction 'tests' -> 'pixels' is the assignment's point.",
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "Hesitant-writer BLUF bookend: centred serif lines typed on cream."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B01-timed.wav",
+      "actual_duration_s": 11.1,
+      "voice_duration_s": 10.283,
+      "lead_silence_s": 0.8,
+      "clip_frames": 333,
+      "duration_note": "voice 10.283s + lead 0.8s, padded with silence to 333 frames = 333/30 s",
+      "render_duration_s": 11.1,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "SETUP",
+      "narration_text": "The assignment asks for one shader driven by game state, one textured shader with two materials, and four answers: what a shader does, how a material differs from a shader, why a texture is information, and what Godot's shading language is. Each answer points at a line of code. One fact shapes everything: this project runs on Godot's Compatibility renderer.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B02",
+        "label": ""
+      },
+      "role_note": "Setup: the state, the object, the four questions, the renderer (CHANGE-BRIEF §1, §4; project.godot:25).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B02-timed.wav",
+      "actual_duration_s": 19.766666666666666,
+      "voice_duration_s": 19.136,
+      "lead_silence_s": 0.0,
+      "clip_frames": 593,
+      "duration_note": "voice 19.136s + lead 0.0s, padded with silence to 593 frames = 593/30 s",
+      "render_duration_s": 19.766666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B02.mp4",
+        "filled_by": "media",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "CODE",
+      "narration_text": "Question one: what does a shader do? It runs on the graphics card, once for every pixel the sprite covers. This one is Jay-Ann's, written by hand. Line three: exposed amount, a number from zero to one. Line seven is the colour line. It mixes the sprite's own colour toward the game's red by that amount, capped at seventy percent, so the face and the bow still show. Only red, green and blue change; transparency is untouched.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "exposed_tint.gdshader: the colour line",
+            "project": "Lane Tactics",
+            "path": "res://shaders/exposed_tint.gdshader",
+            "source": "godot/shaders/exposed_tint.gdshader · lines 1–8 · tag a5",
+            "code": "shader_type canvas_item;\n\nuniform float exposed_amount : hint_range(0.0, 1.0) = 0.0;\nuniform vec4 exposed_color : source_color = vec4(0.878, 0.271, 0.227, 1.0);\n\nvoid fragment() {\n\tCOLOR.rgb = mix(COLOR.rgb, exposed_color.rgb, exposed_amount * 0.7);\n}",
+            "startLine": 1,
+            "codeFontSize": 28,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Written by",
+                "value": "Jiean, by hand (80fc669)"
+              },
+              {
+                "label": "exposed_color",
+                "value": "#E0453A (main.gd:47)"
+              },
+              {
+                "label": "Runs",
+                "value": "once per sprite pixel"
+              }
+            ],
+            "output": [
+              "No agent session changed godot/shaders/"
+            ],
+            "durationSeconds": 21.5,
+            "cues": [
+              {
+                "at": 7.21,
+                "line": 3,
+                "label": "line 3: exposed_amount, 0.0 to 1.0, set by the driver"
+              },
+              {
+                "at": 9.99,
+                "line": 7,
+                "label": "line 7: Jiean's colour line"
+              },
+              {
+                "at": 15.13,
+                "line": 7,
+                "label": "× 0.7: at full strength 70 % red, face and bow still show"
+              },
+              {
+                "at": 18.31,
+                "line": 7,
+                "label": "COLOR.rgb only: alpha untouched"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-11-03T06:03:51.605074+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "shaders/exposed_tint.gdshader",
+        "start_line": 1,
+        "end_line": 8
+      },
+      "role_note": "Q1 what a shader does; code beat, result B04.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B03-timed.wav",
+      "actual_duration_s": 21.5,
+      "voice_duration_s": 21.483,
+      "lead_silence_s": 0.0,
+      "clip_frames": 645,
+      "duration_note": "voice 21.483s + lead 0.0s, padded with silence to 645 frames = 645/30 s",
+      "render_duration_s": 21.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B03.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "RESULT",
+      "narration_text": "Here it is in the real game, keys pressed by a script. Two turns out of reach: no tint. Turn three: Right plans a square inside the enemy archer's reach, and the archer turns red in a fifth of a second. Left steps back out, and the red drains away.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "tint",
+            "a": 46,
+            "b": 455
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a5, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B04.mp4"
+      },
+      "role_note": "Result of B03: capture tint, shots T1-T3 (turns 1-2, fade in, fade out).",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.4919,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill). The region is the pill's exact extent, shared by every segment's label in this beat (measured from _work/<beat>-<i>-label.png). Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B04-timed.wav",
+      "actual_duration_s": 13.633333333333333,
+      "lead_silence_s": 0.3,
+      "voice_duration_s": 13.269,
+      "clip_frames": 409,
+      "duration_note": "voice 13.269s + lead 0.3s, padded with silence to 409 frames = 409/30 s (clip length; no retiming)",
+      "render_duration_s": 13.633333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B04.mp4",
+        "filled_by": "media",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "CODE",
+      "narration_text": "The shader doesn't know the game. The driver tells it. Every frame it asks one question: is the planned square in reach? Line thirty-four moves the amount toward one or zero, at five per second of game time, starting from wherever it is now. That is why a quick tap turns around mid-fade instead of restarting, and why pause holds it still. Line thirty-seven hands the number to the player's own material. Every sprite gets a new material of its own, so the enemy never shares the red.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "exposed_driver.gd: game state to uniform",
+            "project": "Lane Tactics",
+            "path": "res://game/exposed_driver.gd",
+            "source": "godot/game/exposed_driver.gd · lines 29–37 · tag a5",
+            "code": "func _process(delta: float) -> void:\n\tif _main == null:\n\t\treturn\n\tif not _main.paused:\n\t\tvar target: float = 1.0 if is_exposed() else 0.0\n\t\tamount = move_toward(amount, target, RATE * delta * _main.time_scale)\n\tvar p: Variant = _main.pieces.get(MainScript.PLAYER_ID)\n\tif p != null:\n\t\tp.set_exposed_amount(amount)",
+            "startLine": 29,
+            "codeFontSize": 28,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "RATE",
+                "value": "5.0 per s of game time"
+              },
+              {
+                "label": "Own material",
+                "value": "piece.gd:56-59"
+              },
+              {
+                "label": "Written by",
+                "value": "claude -p agent (44b2acb)"
+              }
+            ],
+            "output": [
+              "Reads main's state; never writes it"
+            ],
+            "durationSeconds": 26.666666666666668,
+            "cues": [
+              {
+                "at": 4.69,
+                "line": 33,
+                "label": "line 33: target 1.0 if exposed, else 0.0"
+              },
+              {
+                "at": 6.45,
+                "line": 34,
+                "label": "line 34: move_toward at 5 per second of game time"
+              },
+              {
+                "at": 17.1,
+                "line": 32,
+                "label": "line 32: nothing moves while main.paused"
+              },
+              {
+                "at": 18.53,
+                "line": 37,
+                "label": "line 37: only the player's own material"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": "2026-11-03T06:05:44.149064+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "game/exposed_driver.gd",
+        "start_line": 29,
+        "end_line": 37
+      },
+      "role_note": "Driver; code beat, result B06.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B05-timed.wav",
+      "actual_duration_s": 26.666666666666668,
+      "voice_duration_s": 26.639,
+      "lead_silence_s": 0.0,
+      "clip_frames": 800,
+      "duration_note": "voice 26.639s + lead 0.0s, padded with silence to 800 frames = 800/30 s",
+      "render_duration_s": 26.666666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B05.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "RESULT",
+      "narration_text": "Fast taps, every tenth of a second: the value turns around from where it is, and never jumps. Pause in the middle of a fade, and it holds. Enter confirms the move, and the red fades while the move plays. Turn four starts already in reach, so it rises again on the first frame. The enemy's tint stays at zero in every frame of this capture.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "tint",
+            "a": 455,
+            "b": 997
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a5, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B06.mp4"
+      },
+      "role_note": "Result of B05: capture tint, shots T4-T6 (retrigger, pause, confirm, turn 4).",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.4867,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill). The region is the pill's exact extent, shared by every segment's label in this beat (measured from _work/<beat>-<i>-label.png). Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B06-timed.wav",
+      "actual_duration_s": 18.066666666666666,
+      "lead_silence_s": 0.3,
+      "voice_duration_s": 17.664,
+      "clip_frames": 542,
+      "duration_note": "voice 17.664s + lead 0.3s, padded with silence to 542 frames = 542/30 s (clip length; no retiming)",
+      "render_duration_s": 18.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B06.mp4",
+        "filled_by": "media",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "EVIDENCE",
+      "narration_text": "Before looking, Jay-Ann worked the colours out by hand. Then the engine's own frame was captured at four values. At zero and one half, the head and the base match the predictions exactly. At one, within one step: the hand sum gave one hundred point five. At two, set from code, the head reads two twenty-four, twenty-seven, thirty-four: exactly the unclamped prediction. Hint range draws the Inspector's slider. It does not clamp a value set from code. And a Windows screenshot of the same moment gave the same numbers.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B07",
+        "label": "JIEAN'S CAPTURES · capture() in a real window, key C · not a reconstruction"
+      },
+      "role_note": "Controlled values: evidence/a5/captures/exposed_*.png, exposed_pixels.md, os_compare.log (TEST-REPORT A5.4).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B07-timed.wav",
+      "actual_duration_s": 29.0,
+      "voice_duration_s": 28.986,
+      "lead_silence_s": 0.0,
+      "clip_frames": 870,
+      "duration_note": "voice 28.986s + lead 0.0s, padded with silence to 870 frames = 870/30 s",
+      "render_duration_s": 29.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B07.mp4",
+        "filled_by": "media",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "CODE",
+      "narration_text": "Question two: how is a material different from a shader? The shader is the program. A material is one set of values for it. Both linen materials point at the same shader, on line eleven. They differ in two lines: the tint on line thirteen, white for light and stitch-brown for dark, and normal strength on line sixteen: one for light, one and a half for dark.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "linen_dark.tres: one set of values",
+            "project": "Lane Tactics",
+            "path": "res://materials/linen_dark.tres",
+            "source": "godot/materials/linen_dark.tres · lines 8–16 · tag a5",
+            "code": "[resource]\nresource_name = \"linen_dark\"\nrender_priority = 0\nshader = ExtResource(\"1_shader\")\nshader_parameter/albedo_tex = ExtResource(\"2_diff\")\nshader_parameter/tint = Color(0.603922, 0.498039, 0.333333, 1)\nshader_parameter/roughness_tex = ExtResource(\"3_rough\")\nshader_parameter/normal_tex = ExtResource(\"4_nor_gl\")\nshader_parameter/normal_strength = 1.5",
+            "startLine": 8,
+            "codeFontSize": 30,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "linen_light.tres:13",
+                "value": "tint white"
+              },
+              {
+                "label": "linen_light.tres:16",
+                "value": "normal_strength 1.0"
+              },
+              {
+                "label": "Both, line 11",
+                "value": "linen_square.gdshader"
+              }
+            ],
+            "output": [
+              "Made by Claude Code (98e1003); audited by an agent (MATERIALS.md)"
+            ],
+            "durationSeconds": 18.266666666666666,
+            "cues": [
+              {
+                "at": 8.49,
+                "line": 11,
+                "label": "line 11: the shared shader"
+              },
+              {
+                "at": 10.62,
+                "line": 13,
+                "label": "line 13: tint #9A7F55 (linen_light: white)"
+              },
+              {
+                "at": 14.38,
+                "line": 16,
+                "label": "line 16: normal_strength 1.5 (linen_light: 1.0)"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-11-03T05:52:04.035138+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "materials/linen_dark.tres",
+        "start_line": 8,
+        "end_line": 16
+      },
+      "role_note": "Q2 material vs shader; code beat, result B09.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B08-timed.wav",
+      "actual_duration_s": 18.266666666666666,
+      "voice_duration_s": 18.24,
+      "lead_silence_s": 0.0,
+      "clip_frames": 548,
+      "duration_note": "voice 18.240s + lead 0.0s, padded with silence to 548 frames = 548/30 s",
+      "render_duration_s": 18.266666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B08.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "RESULT",
+      "narration_text": "Both tiles, under the diorama's single lamp. Turn the dark material's normal strength down to zero, and only the dark tile goes flat. Change one line of the shared shader, in memory, and both tiles darken together. One program, two sets of values. Jay-Ann made the same two edits by hand in the editor, and saw the same thing.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "diorama",
+            "a": 0,
+            "b": 135,
+            "label": "THE SCENE'S OWN CAMERA3D · REAL GODOT RENDER|asset_diorama.tscn @ tag a5, camera as saved"
+          },
+          {
+            "src": "diorama",
+            "a": 135,
+            "b": 225,
+            "label": "HARNESS CAMERA · REAL GODOT RENDER|both materials at their saved values"
+          },
+          {
+            "src": "diorama",
+            "a": 930,
+            "b": 1110,
+            "label": "SCRIPTED · REAL GODOT RENDER|linen_dark normal_strength 1.5 → 0 → 1.5, in memory · no file saved"
+          },
+          {
+            "src": "diorama",
+            "a": 1110,
+            "b": 1245,
+            "label": "SCRIPTED · REAL GODOT RENDER|shader code ALBEDO × 0.5 in memory · the .gdshader file is untouched"
+          }
+        ],
+        "label": "SCRIPTED · REAL GODOT RENDER|asset_diorama.tscn @ tag a5 · uniforms changed in memory, no file saved",
+        "evidence_media": "media/B09.mp4"
+      },
+      "role_note": "Result of B08: capture diorama, shots D0 (scene camera), D1, D5 (one material), D6 (one shader).",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.0391,
+              0.0509,
+              0.3695,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill). The region is the pill's exact extent, shared by every segment's label in this beat (measured from _work/<beat>-<i>-label.png). Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B09-timed.wav",
+      "actual_duration_s": 18.0,
+      "lead_silence_s": 0.3,
+      "voice_duration_s": 17.451,
+      "clip_frames": 540,
+      "duration_note": "voice 17.451s + lead 0.3s, padded with silence to 540 frames = 540/30 s (clip length; no retiming)",
+      "render_duration_s": 18.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B09.mp4",
+        "filled_by": "media",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "CODE",
+      "narration_text": "Question three: why is a texture information? Because the same kind of pixels can mean different things. Line four reads the cloth photograph as colour, with source colour. Line nine reads roughness as plain data, with no colour hint. Line eleven reads the normal map as directions, with hint normal: each pixel is a tilt, not a shade. The import settings agree: lossless everywhere, and the normal-map flag only on the normal maps. And a curl check on the normal map tells the right green convention from the wrong one, by zero point six eight against one point three two.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "linen_square.gdshader: what each texture means",
+            "project": "Lane Tactics",
+            "path": "res://shaders/linen_square.gdshader",
+            "source": "godot/shaders/linen_square.gdshader · lines 3–12 · tag a5",
+            "code": "group_uniforms surface;\nuniform sampler2D albedo_tex : source_color, filter_linear_mipmap, repeat_enable;\nuniform vec4 tint : source_color = vec4(1.0);\nuniform float uv_scale : hint_range(0.5, 8.0, 0.05) = 3.65;\n\ngroup_uniforms relief;\nuniform sampler2D roughness_tex : filter_linear_mipmap, repeat_enable;\nuniform float roughness_scale : hint_range(0.0, 1.0) = 1.0;\nuniform sampler2D normal_tex : hint_normal, filter_linear_mipmap, repeat_enable;\nuniform float normal_strength : hint_range(0.0, 2.0) = 1.0;",
+            "startLine": 3,
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Import, all",
+                "value": "Lossless · detect_3d off"
+              },
+              {
+                "label": "normal_map flag",
+                "value": "only the two normal maps"
+              },
+              {
+                "label": "curl, nor_gl",
+                "value": "0.68 GL · 1.32 DX"
+              }
+            ],
+            "output": [
+              "Hessian 380, Poly Haven, CC0"
+            ],
+            "durationSeconds": 31.466666666666665,
+            "cues": [
+              {
+                "at": 5.56,
+                "line": 4,
+                "label": "line 4: albedo_tex with source_color = colour"
+              },
+              {
+                "at": 9.29,
+                "line": 9,
+                "label": "line 9: roughness_tex, no colour hint = data"
+              },
+              {
+                "at": 12.69,
+                "line": 11,
+                "label": "line 11: normal_tex with hint_normal = directions"
+              },
+              {
+                "at": 18.24,
+                "line": 11,
+                "label": "import: lossless; normal_map flag only on the normal maps"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": "2026-11-03T06:07:55.152556+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "shaders/linen_square.gdshader",
+        "start_line": 3,
+        "end_line": 12
+      },
+      "role_note": "Q3 texture as information; code beat, result B11.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B10-timed.wav",
+      "actual_duration_s": 31.466666666666665,
+      "voice_duration_s": 31.439,
+      "lead_silence_s": 0.0,
+      "clip_frames": 944,
+      "duration_note": "voice 31.439s + lead 0.0s, padded with silence to 944 frames = 944/30 s",
+      "render_duration_s": 31.466666666666665,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B10.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "RESULT",
+      "narration_text": "The interface sweep, on the light tile. U V scale down from three point six five to one half: threads like rope. Up to eight: a fine weave. Normal strength to zero: the threads flatten into paint. To two: deeper threads, still cloth. Roughness to zero, seen from the lamp's mirror angle: in this capture the tile gets slightly darker, and no highlight appears. In the editor, Jay-Ann saw it turn shiny, like plastic. The two disagree, and that stays open.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "diorama",
+            "a": 225,
+            "b": 510,
+            "label": "SCRIPTED SWEEP · REAL GODOT RENDER|light tile uv_scale 3.65 → 0.5 → 8.0 → 3.65, in memory"
+          },
+          {
+            "src": "diorama",
+            "a": 510,
+            "b": 705,
+            "label": "SCRIPTED SWEEP · REAL GODOT RENDER|light tile normal_strength 1 → 0 → 2 → 1, in memory"
+          },
+          {
+            "src": "diorama",
+            "a": 705,
+            "b": 930,
+            "label": "SCRIPTED SWEEP · REAL GODOT RENDER|light tile roughness_scale 1 → 0 → 1, from the lamp's mirror angle"
+          }
+        ],
+        "label": "SCRIPTED · REAL GODOT RENDER|asset_diorama.tscn @ tag a5 · uniforms changed in memory, no file saved",
+        "evidence_media": "media/B11.mp4"
+      },
+      "role_note": "Result of B10: capture diorama, shots D2 (uv_scale), D3 (normal_strength), D4 (roughness).",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.0391,
+              0.0509,
+              0.4417,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill). The region is the pill's exact extent, shared by every segment's label in this beat (measured from _work/<beat>-<i>-label.png). Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B11-timed.wav",
+      "actual_duration_s": 23.5,
+      "lead_silence_s": 0.3,
+      "voice_duration_s": 22.699,
+      "clip_frames": 705,
+      "duration_note": "voice 22.699s + lead 0.3s, padded with silence to 705 frames = 705/30 s (clip length; no retiming)",
+      "render_duration_s": 23.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B11.mp4",
+        "filled_by": "media",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "CODE",
+      "narration_text": "The hint experiment asks whether source colour changes the numbers a shader receives. One file, three greys: sixty-four, one twenty-eight, one ninety-two. Line four samples it with source colour, line five without, and line six picks which one writes albedo. Unshaded, linear tonemap, exposure one. Jay-Ann predicted that the hinted quad would show the file's own values, and the plain one would come out lighter: one thirty-seven, one eighty-eight, two twenty-five.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "hint_experiment.gdshader: one file, two hints",
+            "project": "Lane Tactics",
+            "path": "res://shaders/hint_experiment.gdshader",
+            "source": "godot/shaders/hint_experiment.gdshader · lines 1–14 · tag a5",
+            "code": "shader_type spatial;\nrender_mode unshaded;\n\nuniform sampler2D grey_srgb : source_color, filter_nearest;\nuniform sampler2D grey_raw : filter_nearest;\nuniform bool use_srgb = true;\n\nvoid fragment() {\n\tif (use_srgb) {\n\t\tALBEDO = texture(grey_srgb, UV).rgb;\n\t} else {\n\t\tALBEDO = texture(grey_raw, UV).rgb;\n\t}\n}",
+            "startLine": 1,
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "hint_greys.png",
+                "value": "3 × 1: 64, 128, 192"
+              },
+              {
+                "label": "Scene",
+                "value": "Linear tonemap, exposure 1"
+              },
+              {
+                "label": "Jiean predicted",
+                "value": "B 137 / 188 / 225"
+              }
+            ],
+            "output": [
+              "Written by Jiean, by hand (fb8d2bf)"
+            ],
+            "durationSeconds": 23.433333333333334,
+            "cues": [
+              {
+                "at": 7.58,
+                "line": 4,
+                "label": "line 4: grey_srgb with source_color"
+              },
+              {
+                "at": 9.64,
+                "line": 5,
+                "label": "line 5: grey_raw, no hint"
+              },
+              {
+                "at": 10.8,
+                "line": 6,
+                "label": "line 6: use_srgb picks which writes ALBEDO"
+              },
+              {
+                "at": 15.22,
+                "line": 10,
+                "label": "prediction: A 64/128/192 · B 137/188/225"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B12.mp4",
+            "at": "2026-11-03T06:09:34.642077+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "shaders/hint_experiment.gdshader",
+        "start_line": 1,
+        "end_line": 14
+      },
+      "role_note": "Hint experiment; code beat, result B13.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B12-timed.wav",
+      "actual_duration_s": 23.433333333333334,
+      "voice_duration_s": 23.403,
+      "lead_silence_s": 0.0,
+      "clip_frames": 703,
+      "duration_note": "voice 23.403s + lead 0.0s, padded with silence to 703 frames = 703/30 s",
+      "render_duration_s": 23.433333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B12.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "RESULT",
+      "narration_text": "Measured on this renderer: both quads show sixty-four, one twenty-eight, one ninety-two. It isn't a wiring slip. Swapping the switches changes nothing, separate textures change nothing, and a plain one half written to albedo shows as one twenty-eight. On Compatibility, in this scene, neither the decode nor the encode happened. The prediction assumed Forward Plus. It's recorded, not explained away.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B13",
+        "label": "REAL GODOT RENDER · hint_experiment.tscn @ tag a5 · 4K frame, bands read from it",
+        "evidence_media": "media/B13.mp4"
+      },
+      "role_note": "Result of B12: capture hint frame + evidence/a5/step3/hint_experiment_measurement.md, hint_control.log.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B13-timed.wav",
+      "actual_duration_s": 20.533333333333335,
+      "voice_duration_s": 19.904,
+      "lead_silence_s": 0.0,
+      "clip_frames": 616,
+      "duration_note": "voice 19.904s + lead 0.0s, padded with silence to 616 frames = 616/30 s",
+      "render_duration_s": 20.533333333333335,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B13.mp4",
+        "filled_by": "media",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "LANGUAGE",
+      "narration_text": "Question four: what is Godot's shading language? A small language, close to G L S L, where Godot writes the boring parts. There's no main function and no version line: shader type picks the pipeline and its built-ins, like albedo and normal map. And it has hints that G L S L doesn't. Here is the editor's own conversion of a standard material, beside Jay-Ann's. Its line seven samples albedo with source colour, just like Jay-Ann's line four. Its line nineteen reads the normal map with hint roughness normal, where Jay-Ann's line eleven uses hint normal. The same idea, with a different hint.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B14",
+        "label": "ACTUAL SOURCE LINES · standard_generated.gdshader (editor conversion) beside linen_square.gdshader"
+      },
+      "role_note": "Q4 the Godot shading language; two generated lines beside their equivalents (verbatim).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B14-timed.wav",
+      "actual_duration_s": 33.13333333333333,
+      "voice_duration_s": 33.125,
+      "lead_silence_s": 0.0,
+      "clip_frames": 994,
+      "duration_note": "voice 33.125s + lead 0.0s, padded with silence to 994 frames = 994/30 s",
+      "render_duration_s": 33.13333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B14.mp4",
+        "filled_by": "media",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "CODE",
+      "narration_text": "Now the tests. The agent-written test asks the engine for the shader's uniform list, and checks the names and types. A headless engine won't report defaults or source colour, so the test reads those from the shader's own text. Then it presses real keys and checks every frame against the rule.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "test_exposed_tint.gd: the name contract",
+            "project": "Lane Tactics",
+            "path": "res://tests/test_exposed_tint.gd",
+            "source": "godot/tests/test_exposed_tint.gd · lines 167–177 · tag a5",
+            "code": "\tvar uniforms: Dictionary = {}\n\tfor u: Dictionary in shader.get_shader_uniform_list():\n\t\tuniforms[String(u[\"name\"])] = u\n\trep.check(\"uniform list is exactly [exposed_amount, exposed_color] (case 8)\",\n\t\tuniforms.size() == 2 and uniforms.has(\"exposed_amount\") and uniforms.has(\"exposed_color\"), uniforms.keys())\n\tvar a: Dictionary = uniforms.get(\"exposed_amount\", {})\n\trep.check(\"exposed_amount: type float (3), hint_range (1) 0.0..1.0\",\n\t\tint(a.get(\"type\", -1)) == TYPE_FLOAT and int(a.get(\"hint\", -1)) == PROPERTY_HINT_RANGE\n\t\tand String(a.get(\"hint_string\", \"\")).begins_with(\"0.0,1.0\"), [a.get(\"type\"), a.get(\"hint\"), a.get(\"hint_string\")])\n\tvar c: Dictionary = uniforms.get(\"exposed_color\", {})\n\trep.check(\"exposed_color: type vec4 (20)\", int(c.get(\"type\", -1)) == TYPE_COLOR, c.get(\"type\"))",
+            "startLine": 167,
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Defaults",
+                "value": "read from the source text"
+              },
+              {
+                "label": "Every frame",
+                "value": "checked against the rule"
+              },
+              {
+                "label": "Written by",
+                "value": "claude -p agent"
+              }
+            ],
+            "output": [
+              "Runs through scripts/run-test.sh at 30, 60 and 144 fps"
+            ],
+            "durationSeconds": 15.5,
+            "cues": [
+              {
+                "at": 3.55,
+                "line": 168,
+                "label": "line 168: get_shader_uniform_list()"
+              },
+              {
+                "at": 4.5,
+                "line": 170,
+                "label": "lines 170-177: names exactly, then types and hint_range"
+              },
+              {
+                "at": 6.94,
+                "line": 177,
+                "label": "line 177: the list gives the type only, no defaults, no source_color"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B15.mp4",
+            "at": "2026-11-03T06:10:43.007284+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "tests/test_exposed_tint.gd",
+        "start_line": 167,
+        "end_line": 177
+      },
+      "role_note": "Tests; code beat, result B16.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B15-timed.wav",
+      "actual_duration_s": 15.5,
+      "voice_duration_s": 15.488,
+      "lead_silence_s": 0.0,
+      "clip_frames": 465,
+      "duration_note": "voice 15.488s + lead 0.0s, padded with silence to 465 frames = 465/30 s",
+      "render_duration_s": 15.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B15.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "RESULT",
+      "narration_text": "Forty-six of forty-six, at thirty, sixty and a hundred and forty-four frames per second; a hundred and forty-eight of a hundred and forty-eight for the materials; and the earlier suites unchanged. Then Jay-Ann broke the shaders on purpose. Delete a semicolon: shader error, exit one. Rename the uniform: exit one, and the frame-by-frame value check still passed, because setting a name the shader doesn't have raises no error. Only the uniform list caught it. Delete source colour: exit one. What no headless run can show: any pixel at all. That is what the captures are for.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B16",
+        "label": "HEADLESS CHECK OUTPUT · recorded reports, no rendering",
+        "evidence_media": "media/B16.mp4"
+      },
+      "role_note": "Result of B15: TEST-REPORT A5.1, A5.2, A5.12; evidence/a5/mutations/; this film's rerun on the a5 copy.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B16-timed.wav",
+      "actual_duration_s": 31.9,
+      "voice_duration_s": 31.098,
+      "lead_silence_s": 0.0,
+      "clip_frames": 957,
+      "duration_note": "voice 31.098s + lead 0.0s, padded with silence to 957 frames = 957/30 s",
+      "render_duration_s": 31.9,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B16.mp4",
+        "filled_by": "media",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "BCRD",
+      "act": "CREDITS",
+      "narration_text": "Who did what. Jay-Ann chose the state, the object and the cloth, wrote the three shaders and the colour line by hand, computed every prediction, ran the three mutations, took the captures, and played it. Claude agents wrote the driver, the tests and the material audit; Claude Code reviewed them and built the materials and scenes. Caught on the way: a wrong line number, two misnamed frame-rate reports, and an audit figure nobody had measured. The cloth is Hessian 380 from Poly Haven, public domain. Source shown: tag a5.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py BCRD",
+        "label": ""
+      },
+      "role_note": "Human and AI contributions (SOURCES.md A5), agent mistakes caught (TEST-REPORT A5.13), texture source.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BCRD-timed.wav",
+      "actual_duration_s": 29.566666666666666,
+      "voice_duration_s": 28.943,
+      "lead_silence_s": 0.0,
+      "clip_frames": 887,
+      "duration_note": "voice 28.943s + lead 0.0s, padded with silence to 887 frames = 887/30 s",
+      "render_duration_s": 29.566666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BCRD.mp4",
+        "filled_by": "media",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "VERDICT",
+      "narration_text": "Verdict. Checked: the tint follows its rules at three frame rates, the captures match the hand predictions within one step, and hint range doesn't clamp. Wrong: the hint experiment's prediction, on this renderer. Uncertain: why Compatibility behaves that way, the missing roughness highlight, and a thirty-frame fade that sits exactly on its tolerance. Next step: run the hint experiment on Forward Plus, in a copy, to see which half belongs to the renderer.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "artifact-reveal",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Two Lane Tactics shaders at tag a5.",
+            "brandLabel": "@NikBearBrown",
+            "artifactLines": [
+              "Checked: the tint's rules at 30, 60 and 144 fps · captures within one step of the hand predictions · hint_range does not clamp code.",
+              "Wrong: the hint-experiment prediction on Compatibility (both quads 64 / 128 / 192).",
+              "Uncertain: why Compatibility does this · no roughness highlight in the capture · the 30 fps fade sits on its one-frame tolerance.",
+              "Next step: run the hint experiment on Forward+ in a copy."
+            ],
+            "durationSeconds": 22.5
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": "2026-11-03T05:58:35.015951+00:00"
+          }
+        }
+      },
+      "role_note": "Verdict: checked vs wrong vs uncertain vs next step.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BVDT-timed.wav",
+      "actual_duration_s": 22.5,
+      "voice_duration_s": 22.485,
+      "lead_silence_s": 0.0,
+      "clip_frames": 675,
+      "duration_note": "voice 22.485s + lead 0.0s, padded with silence to 675 frames = 675/30 s",
+      "render_duration_s": 22.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BVDT.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "HANDOFF",
+      "narration_text": "Your turn. Open your own shader, change one number, and predict before you look. Here's a prompt to start with: change the cap from seventy to fifty percent, work out the head pixel by hand, then capture it and compare. If the numbers miss by more than a step, that isn't a failure. That's a finding. I'm Liam, in for Bear.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on",
+        "label": "Reconstructed interface — suggested prompt, not a past run",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "WALKER · YOUR TURN",
+            "segment": "One Number, One Prediction",
+            "command": "Change the cap in my colour line from 0.7 to 0.5. Before you change anything, help me predict the head pixel at exposed_amount 1.0 by hand, then I'll capture it with C and we compare.",
+            "runningText": "paste this into Claude…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "High",
+            "durationSeconds": 16.266666666666666
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": "2026-11-03T05:59:39.512760+00:00"
+          }
+        }
+      },
+      "role_note": "Your Turn: one bounded change + prediction + capture; Liam signs off.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BHTF-timed.wav",
+      "actual_duration_s": 16.266666666666666,
+      "voice_duration_s": 16.256,
+      "lead_silence_s": 0.0,
+      "clip_frames": 488,
+      "duration_note": "voice 16.256s + lead 0.0s, padded with silence to 488 frames = 488/30 s",
+      "render_duration_s": 16.266666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BHTF.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-11-03T01:24:07"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "OUTRO",
+      "kind": "outro_voice",
+      "role_note": "OUTRO-LOCK: ClaudeTitleOutro, exact title, @NikBearBrown, slug-seeded mascot, no subline. Spoken, never scored; 1.0 s silent tail.",
+      "narration_text": "Lane Tactics: A Danger Tint and a Linen Board. At Nik Bear Brown.",
+      "tail_hold_s": 1.0,
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "mascot-title",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Lane Tactics: A Danger Tint and a Linen Board.",
+            "slug": "claude-liam-walker-lane-tactics-jiean-yin-a5-gamedev",
+            "handle": "@NikBearBrown",
+            "subline": "",
+            "durationSeconds": 5.633333333333334
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": "2026-11-03T06:00:07.182255+00:00"
+          }
+        }
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BOUT-timed.wav",
+      "actual_duration_s": 5.633333333333334,
+      "voice_duration_s": 4.629,
+      "lead_silence_s": 0.0,
+      "clip_frames": 169,
+      "duration_note": "voice 4.629s + lead 0.0s, padded with silence to 169 frames = 169/30 s",
+      "render_duration_s": 5.633333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BOUT.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-11-03T01:24:07"
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+	"failed": "",
+	"fps": 30,
+	"frames": 1245,
+	"master": "diorama-4k.mkv (FFV1 lossless, bgr0)",
+	"mode": "diorama",
+	"notes": [
+		"OK: light tile uses linen_light.tres",
+		"OK: dark tile uses linen_dark.tres",
+		"OK: both materials share one Shader object",
+		"OK: the ALBEDO line was found in the shader code"
+	],
+	"shots": [
+		{
+			"frames": [
+				0,
+				135
+			],
+			"seconds": "135/30",
+			"shot": "D0_scene_camera",
+			"what": "the diorama through its own camera, as saved: two linen tiles in front of the A3 models"
+		},
+		{
+			"frames": [
+				135,
+				225
+			],
+			"seconds": "90/30",
+			"shot": "D1_close_default",
+			"what": "harness camera over the tiles; both materials at their saved values"
+		},
+		{
+			"frames": [
+				225,
+				510
+			],
+			"seconds": "285/30",
+			"shot": "D2_uv_scale",
+			"what": "light tile uv_scale 3.65 -> 0.5 -> 8.0 -> 3.65 (in memory only)"
+		},
+		{
+			"frames": [
+				510,
+				705
+			],
+			"seconds": "195/30",
+			"shot": "D3_normal_strength",
+			"what": "light tile normal_strength 1 -> 0 -> 2 -> 1 (in memory only)"
+		},
+		{
+			"frames": [
+				705,
+				930
+			],
+			"seconds": "225/30",
+			"shot": "D4_roughness",
+			"what": "light tile roughness_scale 1 -> 0 -> 1, seen from the lamp's mirror side (in memory only)"
+		},
+		{
+			"frames": [
+				930,
+				1110
+			],
+			"seconds": "180/30",
+			"shot": "D5_one_material",
+			"what": "linen_dark normal_strength 1.5 -> 0 -> 1.5: only the dark tile changes (in memory only)"
+		},
+		{
+			"frames": [
+				1110,
+				1245
+			],
+			"seconds": "135/30",
+			"shot": "D6_one_shader",
+			"what": "shader code ALBEDO x 0.5 in memory: both tiles darken; then restored"
+		}
+	],
+	"subviewport": [
+		3840,
+		2160
+	]
+}

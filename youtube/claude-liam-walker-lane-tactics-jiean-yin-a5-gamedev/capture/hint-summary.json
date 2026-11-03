@@ -1,0 +1,25 @@
+{
+	"failed": "",
+	"fps": 30,
+	"frames": 120,
+	"master": "hint-4k.mkv (FFV1 lossless, bgr0)",
+	"mode": "hint",
+	"notes": [
+		"bands at 4K: { \"A_top\": [64, 128, 192], \"B_bottom\": [64, 128, 192] }"
+	],
+	"shots": [
+		{
+			"frames": [
+				0,
+				120
+			],
+			"seconds": "120/30",
+			"shot": "H0_two_quads",
+			"what": "hint_experiment.tscn through its own orthographic camera"
+		}
+	],
+	"subviewport": [
+		3840,
+		2160
+	]
+}

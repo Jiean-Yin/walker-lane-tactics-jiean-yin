@@ -1,0 +1,7 @@
+{
+  "B00": "Hello, this is Liam in For Bear. Jay Anion's game is Lane Tactics, archers on a five-lane board where you win by reaching the enemy's back row. This assignment adds shaders, a red warning on the archer, and a cloth surface for the 3D board. The prompt on screen is an illustrative reconstruction.",
+  "B01": "What was built two shaders written by hand by JN, one driven by the game state and one by textures. The tests check the wiring, whether they work is judged in the pixels.",
+  "B03": "Question one, what does a shader do? It runs on the graphics card once for every pixel the sprite covers. This one is Jay Ann's written by Hand. Line three exposed amount a number from zero to one. Line seven is the color line. It mixes the sprite's own color toward the game's red by that amount, capped at 70% so the face and the bow still show. Early red, green and blue change, transparency is untouched.",
+  "BCRD": "Who did what, J. Anne chose the state, the object and the cloth, wrote the three shaders and the color line by hand, computed every prediction, ran the three mutations, took the captures and played it. Claude agents wrote the driver, the tests and the material audit. Claude Code reviewed them and built the materials and scenes. Caught on the way, a wrong line number, two misnamed frame rate reports and an audit figure nobody had measured. The cloth is Hessian 380 from Polly Haven, public domain, source shown, tag A5.",
+  "BOUT": "Lane tactics a danger tint and a linen board at Nick Bear Brown."
+}
