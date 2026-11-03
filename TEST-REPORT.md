@@ -59,9 +59,28 @@ Also checked in the same runs:
 
 In-engine captures with the course's `capture()` (`godot/debug/capture_exposed.tscn`, C pressed by Jiean in a windowed run).
 
-TO FILL: the table from `evidence/a5/captures/exposed_pixels.md`, one sentence on the 2.0 capture, and one on the OS-screenshot comparison.
+Run by Jiean at 22:57 (Enter, then C, in a window opened outside the editor; 1280 × 720, PLAN_MOVE, turn 1). From `evidence/a5/captures/exposed_pixels.md`; images `exposed_0.0.png` … `exposed_2.0.png`:
 
-> **Hint (Claude):** paste the table the tool writes; the predictions are already beside the measurements. Claude's scripted dry run of the same tool (deleted, not evidence) matched 0.0 and 0.5 exactly, was within 1 step at 1.0 (P1 green 100 vs 101, the 100.5 rounding), and showed (224, 27, 34) at 2.0. You might write: "At 2.0 the head is (…), the value I predicted if not clamped, so `hint_range` does not clamp a value set from code." For the OS screenshot, say which one you trust and why (the capture reads the engine's own frame at viewport resolution, without the display colour profile or scaling).
+| Point | Value | Predicted | Measured | Difference |
+|---|---|---|---|---|
+| P1 head (192, 581) | 0.0 | (224, 174, 117) | (224, 174, 117) | 0 |
+| P2 base disc (202, 634) | 0.0 | (90, 58, 34) | (90, 58, 34) | 0 |
+| P1 head | 0.5 | (224, 137, 96) | (224, 137, 96) | 0 |
+| P2 base disc | 0.5 | (137, 62, 42) | (137, 62, 42) | 0 |
+| P1 head | 1.0 | (224, 101, 76) | (224, 100, 75) | (0, −1, −1) |
+| P2 base disc | 1.0 | (184, 66, 51) | (184, 66, 50) | (0, 0, −1) |
+| P1 head | 2.0 | (224, 27, 34) if not clamped | (224, 27, 34) | 0 |
+| P2 base disc | 2.0 | — | (255, 73, 67) | red clipped at 255 |
+
+Every difference is within one step. At 1.0 the hand calculation gives 100.5 for P1 green, and the GPU result is 100. After the 2.0 capture the material reads back 2.0.
+
+**The first attempt froze:** the run started from the editor stopped at F9, with music and animation paused and no error. The editor takes F9 itself. The key was changed to C (`66dfc4a`), and the run was repeated outside the editor.
+
+**OS screenshot against the engine capture** (`os_screenshot.png`, taken by Jiean during the frozen editor run, at value 0.0): the game area sits at offset (8, 99) under the window's title bar and toolbar. At that offset P1 and P2 read exactly the same as `exposed_0.0.png`: (224, 174, 117) and (90, 58, 34). `os_compare.gd`, `os_compare.log`.
+
+Jiean's sentence on the 2.0 capture and on which capture to trust: TO FILL
+
+> **Hint (Claude):** for example: "At 2.0 the head is (224, 27, 34), exactly the value I predicted if not clamped, so `hint_range` does not clamp a value set from code; it only shapes the Inspector slider. On this display the OS screenshot gave the same numbers, but I trust the engine capture, because it reads the engine's own frame at viewport size; a screenshot can pass through the display's colour profile and scaling and includes the window's toolbar."
 
 ## A5.5 In play (HUMAN CHECK): Jiean's playtest
 
