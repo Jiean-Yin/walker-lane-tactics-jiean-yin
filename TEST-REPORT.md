@@ -84,9 +84,13 @@ Jiean's sentence on the 2.0 capture and on which capture to trust: TO FILL
 
 ## A5.5 In play (HUMAN CHECK): Jiean's playtest
 
-TO FILL
+**Jiean (2026-11-02), about the enemy:** "I don't quite understand how enemy's logic works. The enemy seems to pause moving and even pause attacking for one turn after taking damage, which gives the player a choice to step back or win without thinking. If that was coded as intended, that was a mistake. It can keep moving forward at that condition, while the player's archer move above or below earlier to avoid the turn enemy attacks first." To be fixed later.
 
-> **Hint (Claude):** two or three sentences in your own words: how many times you triggered the state; whether red read as "danger"; whether quick taps flickered; whether the red fade-out after R looked acceptable; whether the enemy ever turned red; whether anything outside the boundary (movement, timing, sounds) changed.
+**Claude's check of the code** (no change made): there is no "pause after damage" rule in `RULES.md` or `godot/game/rules.gd`. The enemy AI (`rules.gd:210-224`) decides at the **start** of the turn: if it sees the player in reach it stays; otherwise it marches one square left. Moves are simultaneous, so when the player steps out of reach in the same turn, the enemy neither moves nor has a target, and it skips its attack (`RULES.md:68`). This matches what Jiean saw; the link with taking damage is a coincidence of position. This is outside Assignment 5's boundary (game logic must not change), so it is recorded as a follow-up, not fixed.
+
+**About the tint in play:** TO FILL
+
+> **Hint (Claude):** one or two sentences: did red show whenever your planned square was in the enemy's reach; did fast taps flicker; did the fade after R look acceptable; did the enemy ever turn red?
 
 ## A5.6 Hint experiment
 

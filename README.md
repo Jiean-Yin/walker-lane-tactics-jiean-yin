@@ -60,6 +60,7 @@ Tests (pinned frame rates, through the course wrapper):
 - **Curl check:** the normal-map check separates the right convention from the wrong one (0.68 against 1.32), but with a smaller gap than the course's "about 0 / about 2". The sources are 16-bit and decode as 8-bit.
 - **Fade at 30 fps:** at 30 fps a full fade takes 7 frames (0.233 s) instead of 6. Floating-point rounding leaves the value just short of 1.0 after six steps. This is within R2's one-frame tolerance.
 - **Unused texture:** the DirectX normal map is kept only to calibrate the curl check. It is imported but never bound.
+- **Enemy AI (found in the A5 playtest, to fix later):** the enemy decides at the start of a turn and stays put while it sees your archer in reach. If you step out of reach in the same turn, it neither moves nor shoots, which reads as a pause and lets the player step back for free (TEST-REPORT A5.5).
 - **Long path names:** the repository has film-QC file names under `youtube/` long enough to break a clone into a deeply nested Windows folder. Clone into a short path.
 
 ### Film (Assignment 5)
