@@ -88,9 +88,7 @@ Jiean's sentence on the 2.0 capture and on which capture to trust: TO FILL
 
 **Claude's check of the code** (no change made): there is no "pause after damage" rule in `RULES.md` or `godot/game/rules.gd`. The enemy AI (`rules.gd:210-224`) decides at the **start** of the turn: if it sees the player in reach it stays; otherwise it marches one square left. Moves are simultaneous, so when the player steps out of reach in the same turn, the enemy neither moves nor has a target, and it skips its attack (`RULES.md:68`). This matches what Jiean saw; the link with taking damage is a coincidence of position. This is outside Assignment 5's boundary (game logic must not change), so it is recorded as a follow-up, not fixed.
 
-**About the tint in play:** TO FILL
-
-> **Hint (Claude):** one or two sentences: did red show whenever your planned square was in the enemy's reach; did fast taps flicker; did the fade after R look acceptable; did the enemy ever turn red?
+**About the tint in play (Jiean):** "The red show clearly that can tell if a unit will be attacked. I do not see enemy turn red at any time. Other parts look okay."
 
 ## A5.6 Hint experiment
 
