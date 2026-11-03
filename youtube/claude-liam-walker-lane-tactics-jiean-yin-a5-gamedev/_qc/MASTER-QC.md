@@ -34,6 +34,6 @@
   - B15 shows line 177 but not the end of its wrapped continuation.
   - All excerpts are verbatim, and the checker verifies the full text.
 
-## Not done by Claude
+## Human check
 
-Nobody has watched and listened to the whole export in real time. **Jiean must watch the final export** (pronunciation of the name, sync of words to footage, pacing) before posting the link.
+**Jiean watched and listened to the whole export (2026-11-03): "All clear."** No changes requested; the master above is final (SHA-256 unchanged).

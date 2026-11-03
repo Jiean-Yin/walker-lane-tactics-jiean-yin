@@ -316,3 +316,26 @@ Same format. Claude Code wrote the factual lines from the session record; the ju
 - **Decided:** From now on I read the hint, close it, then write the answer myself, so the final words are mine.
 - **Human / Claude / model:** the rewrite is Jiean's; the check and the authorship note were Claude's.
 - **Still unresolved:** Where the line is between learning from a hint and copying it. I'm still working that out.
+
+## 2026-11-03 — The film, made after the source submission
+
+- **Wanted:** TO FILL
+  > *Hint (Claude):* what you wanted the film to show a reviewer (for example: that each shader line has a visible result, and that the hint experiment is reported honestly, even though it went against my prediction).
+- **Asked:** Claude to make the course's Brutalist `godot-gamedev walker` film after tag `a5` was submitted, using the defaults it proposed:
+  - title "Lane Tactics: A Danger Tint and a Linen Board";
+  - scripted engine captures on an isolated copy of `a5`, labelled;
+  - a script drafted from my documents, for my approval before any audio;
+  - Your Turn "change the cap 0.7 → 0.5";
+  - film records committed locally, not pushed until the next assignment.
+- **Got:**
+  - **Script:** a 21-beat script, which I approved unchanged. Kokoro read my name as "Jee-un", so the voice spelling became "Jay-Ann" (/dʒeɪ-æn/) at my request.
+  - **Footage:** real Godot renders under Movie Maker. One capture run was redone: the first was too far away to see the weave, and its roughness angle was guessed.
+  - **Roughness:** measured from the lamp's mirror angle, roughness 0 made the tile about 1.5 % darker with no highlight. That disagrees with my editor check ("shiny like plastic"), and the film says so.
+  - **Rendering:** two code-size passes, because lines wrapped or were cut off. The frame gate refused the first cut, because Claude had copied A3's label regions to the wrong places; after the fix it passed with 0 problems.
+  - **The master:** 3840×2160, 7:26.2, SHA-256 `f366ee660bac6ce6b2064d2b083bdb7e607876234761fd0047c5998b50453ebd`. Records in `youtube/claude-liam-walker-lane-tactics-jiean-yin-a5-gamedev/`.
+- **Decided:** TO FILL
+  > *Hint (Claude):* that you watched the whole export and approved it ("All clear"), and where you uploaded it and why (for example unlisted YouTube, so reviewers can open it without it being public).
+- **Next:** upload; post the link, filename and SHA-256 in Canvas; add the link to README and SUBMISSION in the next assignment's push.
+- **Human / Claude / model:** the approval, the pronunciation and the final watch were mine. The script draft, captures, tools, checks and QC were Claude Code's. The narration voice is Kokoro-82M (`am_onyx`, local). No other generative model was used.
+- **Still unresolved:** TO FILL
+  > *Hint (Claude):* for example, why roughness 0 looked shiny in the editor but not in the capture, and whether the hint experiment comes out differently on Forward+.
