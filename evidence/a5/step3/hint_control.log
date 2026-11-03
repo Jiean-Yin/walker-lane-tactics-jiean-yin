@@ -1,0 +1,2 @@
+separate texture objects: true (ids RID(403726925845) / RID(408021893142))
+control: quad A (source_color, own texture) [64, 128, 192]  quad B (no hint, own texture) [64, 128, 192]

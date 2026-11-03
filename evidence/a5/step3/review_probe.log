@@ -1,0 +1,9 @@
+Environment.BG_COLOR=1 AMBIENT_SOURCE_COLOR=2 TONE_MAPPER_LINEAR=0
+Camera3D.PROJECTION_ORTHOGONAL=1 Image.FORMAT_RGB8=4 FORMAT_L8=0 FORMAT_RGBA8=5
+TYPE_BOOL=1 TYPE_FLOAT=3 TYPE_COLOR=20 TYPE_OBJECT=24 PROPERTY_HINT_RANGE=1 PROPERTY_HINT_RESOURCE_TYPE=17
+hessian_380_diff_1k.jpg: imported format 4 (), mipmaps true, compressed false, data bytes 4194303
+hessian_380_rough_1k.png: imported format 0 (), mipmaps true, compressed false, data bytes 1398101
+hessian_380_nor_gl_1k.png: imported format 4 (), mipmaps true, compressed false, data bytes 4194303
+hessian_380_nor_dx_1k.png: imported format 4 (), mipmaps false, compressed false, data bytes 3145728
+hint_greys.png: imported format 4 (), mipmaps false, compressed false, data bytes 9
+three bound linen textures, data bytes total: 9786707

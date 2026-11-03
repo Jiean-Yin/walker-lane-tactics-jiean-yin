@@ -129,9 +129,10 @@ Each finding is a report, not a fix. The two shaders are Jiean's hand-written fi
    There is no `godot/export_presets.cfg` yet. An "export all resources" preset would include it. *Possible action
    later:* an exclude filter when the export preset is created.
 5. **Lossless 1K textures are large on the GPU.** All three bound linen textures are `compress/mode=0` with mipmaps
-   (`.import:18`, `:26`), and `detect_3d/compress_to=0` (`:40`), so Godot will not suggest VRAM compression. That is
-   roughly 4–5.6 MB per texture uncompressed with mipmaps (1024² × 3–4 bytes × 4/3), about 12–17 MB for the three.
-   This follows the brief (§4) and is fine for a two-tile diorama. It is a trade-off to revisit if the 3D board grows
+   (`.import:18`, `:26`), and `detect_3d/compress_to=0` (`:40`), so Godot will not suggest VRAM compression.
+   *Measured in review* (`get_image()` on the imported textures, `evidence/a5/step3/review_probe.log`): diff and
+   nor_gl import as RGB8 with mipmaps, 4,194,303 bytes each; rough as L8 with mipmaps, 1,398,101 bytes; 9,786,707
+   bytes for the three. This follows the brief (§4) and is fine for a two-tile diorama. It is a trade-off to revisit if the 3D board grows
    or goes to the web.
 6. **Values equal to the defaults are stored anyway.** `linen_light.tres` stores `tint` white and
    `normal_strength = 1.0` (`:13`, `:16`), both equal to the shader defaults (`linen_square.gdshader:5`, `:12`).
@@ -168,6 +169,22 @@ The dummy renderer draws nothing, so the following are windowed or by-eye checks
 - which mip levels and filter the GPU picks, and the shadow on the tiles;
 - that the two tiles are in the camera's view (`check_assets.gd` checks this for the A3 models only);
 - that the dark tile "reads as worn cloth" (§4, Why).
+
+## Review (Claude, 2026-11-02, after the unedited audit commit)
+
+- **Enums looked up** in Godot 4.7.2 itself (`evidence/a5/step3/review_probe.log`): `Environment.BG_COLOR` = 1,
+  `AMBIENT_SOURCE_COLOR` = 2, `TONE_MAPPER_LINEAR` = 0, `Camera3D.PROJECTION_ORTHOGONAL` = 1, `Image.FORMAT_RGB8` = 4,
+  `FORMAT_L8` = 0, `TYPE_BOOL` = 1, `TYPE_FLOAT` = 3, `TYPE_COLOR` = 20, `TYPE_OBJECT` = 24, `PROPERTY_HINT_RANGE` = 1,
+  `PROPERTY_HINT_RESOURCE_TYPE` = 17. Every integer in this file matches.
+- **Formats checked with `get_image().get_format()`**: diff 4 (RGB8), rough 0 (L8), nor_gl 4 (RGB8), nor_dx 4 (RGB8),
+  hint_greys 4 (RGB8); none compressed. So the imported normal map is 8-bit RGB: the 16-bit sources do not keep 16 bits
+  after import (this answers part of the §5 item on `.ctex` formats).
+- **Finding 5 corrected:** the agent's "about 12–17 MB" was an estimate that assumed 3–4 bytes per pixel for every
+  texture; the roughness map is one byte per pixel. Replaced with the measured sizes.
+- **Finding 1, control run** (`evidence/a5/step3/hint_control.gd`, windowed): each quad given its own, separately
+  loaded texture object (two different RIDs), bound only to the sampler it reads. Both quads still show
+  64 / 128 / 192. So the shared texture is not the cause: on this Compatibility path, with this scene, the
+  `source_color` hint changes nothing visible. Finding 1 is closed; finding 2 stays as a harmless redundancy.
 
 ## 6. Attribution
 
