@@ -157,7 +157,19 @@ Measured after import (`evidence/a5/step3/review_probe.log`): RGB8 / L8, none co
 
 ## A5.12 Fresh-clone verification of the tag
 
-TO FILL (Claude, after tagging): the clone, `--import`, every suite at its pinned frame rates, counts against this report, `SHADER ERROR` count.
+Fresh `git clone` of `a5-shaders` at **`27399cc`** into an empty folder (2026-11-02 23:11), then `--import` (exit 0) and every suite through `scripts/run-test.sh`:
+
+| Suite | fps | Result | `SHADER ERROR` lines |
+|---|---|---|---|
+| test_rules | 60 | 51/51, exit 0 | 0 |
+| test_audio_events | 60 | 70/70, exit 0 | 0 |
+| check_assets | 60 | 38/38, exit 0 | 0 |
+| test_exposed_tint | 30 | 46/46, exit 0 | 0 |
+| test_exposed_tint | 60 | 46/46, exit 0 | 0 |
+| test_exposed_tint | 144 | 46/46, exit 0 | 0 |
+| test_materials | 60 | 148/148, exit 0 | 0 |
+
+Every count matches this report. Commits after `27399cc` change documents only: `git diff --stat 27399cc a5 -- godot scripts` is empty (checked when tagging; see the tag's commit message).
 
 ## A5.13 Inspect-and-revise cycles
 
