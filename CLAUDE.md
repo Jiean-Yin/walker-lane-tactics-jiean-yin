@@ -4,7 +4,7 @@
 
 Every fact below has a file reference. Line numbers are from commit `5a32988`.
 
-- **Engine:** Godot 4.7 (`godot/project.godot:9`, `config/features` "4.7"); the exact build, 4.7.2 standard (not .NET), is recorded in `README.md` (tool table) and `AGENTS.md`.
+- **Engine:** Godot 4.7 (`godot/project.godot:8`, `config/features` "4.7"); the exact build, 4.7.2 standard (not .NET), is recorded in `README.md` (tool table) and `AGENTS.md`.
 - **Renderer:** Compatibility, `renderer/rendering_method="gl_compatibility"` (`godot/project.godot:24`, mobile also Compatibility at `:25`). HDR 2D is not set in `project.godot`. Default 2D texture filter is set to 1 (`project.godot:23`).
 - **Main scene:** `res://game/main.tscn` (`godot/project.godot:7`): a `Node2D` running `godot/game/main.gd` plus an `AudioDirector` node (`godot/game/main.tscn:6-10`). Viewport 1280 × 720, stretch `canvas_items` (`project.godot:15-18`).
 - **3D scene:** `godot/diorama/asset_diorama.tscn`, not connected to the 2D game (`README.md`, A3 section).
@@ -45,6 +45,15 @@ The wrapper (`scripts/run-test.sh`) takes `<test-file.gd> <fps>`, runs `${GODOT:
 Baseline counts and the two known non-failing `ERROR` lines are in commit `eb1ff2a` and `evidence/a5/baseline/`. Each suite also writes `evidence/<name>-<unix time>.json` (`godot/tests/test_report.gd:2`, `:34`). Before the first run, and after adding textures or shaders, import once (not a test, so not through the wrapper; `README.md` A3 section): `"$GODOT" --headless --path godot --import`. Clean saved logs with `scripts/redact-paths.sh` before committing them.
 
 Not wrapper suites: `godot/tests/capture.gd` needs a real renderer (`capture.gd:2-3`), and `analyze_variants.gd` is analysis (`analyze_variants.gd:2`). `route_runner.gd` and `test_report.gd` are helpers.
+
+## Headless facts (added in review; measured 2026-11-02 with a throwaway probe under `--headless`)
+
+- The dummy renderer still parses shader code. `Shader.get_shader_uniform_list()` gives each uniform's name and type (`float` = 3, `vec4` = 20); `hint_range(0.0, 1.0)` shows as hint 1 with `hint_string` `"0.0,1.0,0.001…"`.
+- A syntax error (a missing `;`) prints `SHADER ERROR: Expected a ';'.` and `ERROR: Shader compilation failed.`, and the uniform list comes back empty, so `scripts/run-test.sh` fails the run.
+- `source_color` is **not** visible in the uniform list (hint 0 on a `vec4` either way), and `RenderingServer.shader_get_parameter_default()` returns `null`. Hints and defaults must be read from the `.gdshader` source text.
+- `set_shader_parameter("exposed_amount", 2.0)` is stored as 2.0 (`get_shader_parameter` returns 2.0). Whether drawing clamps it is checked by eye, not here. An unknown uniform name is not reported (`CHANGE-BRIEF.md` §5 case 8), so assert names from the uniform list.
+- `--fixed-fps N` makes every frame's `delta` exactly `1/N`; game time is `delta * time_scale` and stops while `paused` (`main.gd:162-171`).
+- Existing tests press real keys with `root.push_input()` (`test_audio_events.gd:34`, `:42`).
 
 # Current change
 
