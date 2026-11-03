@@ -1,10 +1,10 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cpst02juu8kwh"]
 
-[ext_resource type="Script" path="res://game/main.gd" id="1_main"]
-[ext_resource type="Script" path="res://game/audio_director.gd" id="2_audio"]
+[ext_resource type="Script" uid="uid://r0rfkynwcqc0" path="res://game/main.gd" id="1_main"]
+[ext_resource type="Script" uid="uid://y4ef6blnx5g7" path="res://game/audio_director.gd" id="2_audio"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=667676238]
 script = ExtResource("1_main")
 
-[node name="AudioDirector" type="Node" parent="."]
+[node name="AudioDirector" type="Node" parent="." unique_id=525793585]
 script = ExtResource("2_audio")

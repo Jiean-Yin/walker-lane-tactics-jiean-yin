@@ -2,11 +2,11 @@
 
 # Project context
 
-Every fact below has a file reference. Line numbers are from commit `5a32988`.
+Every fact below has a file reference. Line numbers are from commit `5a32988`, except `project.godot`, which the Godot editor re-saved afterwards (the commit after the Step 1 review).
 
-- **Engine:** Godot 4.7 (`godot/project.godot:8`, `config/features` "4.7"); the exact build, 4.7.2 standard (not .NET), is recorded in `README.md` (tool table) and `AGENTS.md`.
-- **Renderer:** Compatibility, `renderer/rendering_method="gl_compatibility"` (`godot/project.godot:24`, mobile also Compatibility at `:25`). HDR 2D is not set in `project.godot`. Default 2D texture filter is set to 1 (`project.godot:23`).
-- **Main scene:** `res://game/main.tscn` (`godot/project.godot:7`): a `Node2D` running `godot/game/main.gd` plus an `AudioDirector` node (`godot/game/main.tscn:6-10`). Viewport 1280 × 720, stretch `canvas_items` (`project.godot:15-18`).
+- **Engine:** Godot 4.7 (`godot/project.godot:15`, `config/features` "4.7"); the exact build, 4.7.2 standard (not .NET), is recorded in `README.md` (tool table) and `AGENTS.md`.
+- **Renderer:** Compatibility, `renderer/rendering_method="gl_compatibility"` (`godot/project.godot:25`, mobile also Compatibility at `:26`). HDR 2D is not set in `project.godot`. The default 2D texture filter is not listed either, so it is Godot's default, Linear.
+- **Main scene:** `res://game/main.tscn` (`godot/project.godot:14`): a `Node2D` running `godot/game/main.gd` plus an `AudioDirector` node (`godot/game/main.tscn:6-10`). Viewport 1280 × 720, stretch `canvas_items`, aspect at its default `keep` (`project.godot:19-21`).
 - **3D scene:** `godot/diorama/asset_diorama.tscn`, not connected to the 2D game (`README.md`, A3 section).
 
 ## The object the `exposed` tint shades (2D)
