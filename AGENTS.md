@@ -26,6 +26,7 @@ A course project (CSYE 7270, Fall 2026) that is also the user's one game for the
 - Ask when something is ambiguous, rather than assuming.
 - Number your questions and attach a proposed default to each, so the user can answer briefly ("all fine except 3").
 - **Frictional log** (`FRICTIONAL.md`), in the format used since Assignment 2: **Wanted**, **Asked**, **Got**, **Decided**, **Next**, **Human / Claude / model**, **Still unresolved**. The AI may write the factual lines (**Asked**, **Got**, **Human / Claude / model**) from the session record. The judgment lines (**Wanted**, **Decided**, **Still unresolved**) are the user's own words: leave them as `TO FILL` and never write them yourself.
+- **Every `TO FILL`, in any document, gets a labelled hint draft beside it** (for example `> *Hint (Claude):* …`): what could be written there, so the user can learn from it and rewrite it in their own words. For values the course says must be computed by hand, the hint gives the method and the set-up, not the final numbers.
 - **Hand-written files:** files in `godot/shaders/` are written by the user and are never edited by an agent. Other assignments may name more; their `CLAUDE.md` says so.
 - **No personal information in anything committed:** no absolute paths from this computer, no Windows username, no email address. Write paths relative to the repository or as placeholders (`<repo>`, `<Godot>`). Scripts take tool paths from environment variables (for example `GODOT`).
 
