@@ -1,6 +1,32 @@
 # TEST-REPORT — Lane Tactics
 
-Newest assignment first. Assignment 5 below; the Assignment 2 and 3 reports follow unchanged.
+Newest assignment first. Assignment 6 below; the Assignment 5, 2 and 3 reports follow unchanged.
+
+# Assignment 6 — particle effects
+
+| | |
+|---|---|
+| Source revision tested | branch `a6-particles`; the final revision is the commit tagged `a6` |
+| Engine | Godot 4.7.2.stable.official.ed1daf0bf, standard build |
+| Renderer | **Compatibility** (OpenGL 3.3), `godot/project.godot:25` |
+| GPU | NVIDIA GeForce RTX 3070 Ti Laptop GPU (Godot's start-up line) |
+| OS | Windows 11 Home 10.0.26200 |
+| Testers | Jiean Yin (human checks, marked HUMAN); headless suites run by Claude Code and by `claude -p` agent sessions (named per row) |
+| Date | 2026-11-08 |
+
+All suites run through `scripts/run-test.sh <test> <fps|realtime> [timeout]` (the A6 wrapper, `8ca92c2`; Godot from `$GODOT`; fails on `SHADER ERROR` or `SCRIPT ERROR`).
+
+## A6.1 Baseline, before and after
+
+| Suite | fps | Before (`5bcaf78`, `evidence/a6/baseline/`) | After |
+|---|---|---|---|
+| test_rules | 60 | 51/51 | — |
+| test_audio_events | 60 | 70/70 | — |
+| check_assets | 60 | 38/38 | — |
+| test_exposed_tint | 30 / 60 / 144 | 46/46 each | — |
+| test_materials | 60 | 148/148 | — |
+
+Known non-failing lines, the same as in A5: `test_rules` prints the expected `Rules.resolve_attacks called in phase 'move'`; `test_audio_events` and `test_exposed_tint` end with `N resources still in use at exit`.
 
 # Assignment 5 — shaders, materials and the Godot shading language
 
