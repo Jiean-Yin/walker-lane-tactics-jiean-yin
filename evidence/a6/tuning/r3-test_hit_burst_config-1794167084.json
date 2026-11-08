@@ -1,0 +1,546 @@
+{
+	"all_passed": true,
+	"checks": [
+		{
+			"check": "scene text is readable",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "no Godot 3 / editor-only names in the scene text (failure 2)",
+			"detail": "[]",
+			"pass": true
+		},
+		{
+			"check": "scene loads: res://effects/hit_burst.tscn",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "root is a Node2D named HitBurst",
+			"detail": "[\"Node2D\", &\"HitBurst\"]",
+			"pass": true
+		},
+		{
+			"check": "root z_index is 2 (above Pieces z 1, below HUD z 3)",
+			"detail": "2",
+			"pass": true
+		},
+		{
+			"check": "children are exactly Flash, Splinters, Dust, each a CPUParticles2D",
+			"detail": "[\"Flash:CPUParticles2D\", \"Splinters:CPUParticles2D\", \"Dust:CPUParticles2D\"]",
+			"pass": true
+		},
+		{
+			"check": "Flash exists as CPUParticles2D",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Flash.emitting == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Flash.amount == 1",
+			"detail": "1",
+			"pass": true
+		},
+		{
+			"check": "Flash.lifetime == 1.08",
+			"detail": "1.08",
+			"pass": true
+		},
+		{
+			"check": "Flash.one_shot == true",
+			"detail": "true",
+			"pass": true
+		},
+		{
+			"check": "Flash.explosiveness == 1.0",
+			"detail": "1.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.lifetime_randomness == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.local_coords == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Flash.emission_shape == 0",
+			"detail": "0",
+			"pass": true
+		},
+		{
+			"check": "Flash.direction == (0.0, -1.0)",
+			"detail": "(0.0, -1.0)",
+			"pass": true
+		},
+		{
+			"check": "Flash.spread == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.gravity == (0.0, 0.0)",
+			"detail": "(0.0, 0.0)",
+			"pass": true
+		},
+		{
+			"check": "Flash.initial_velocity_min == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.initial_velocity_max == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.angle_min == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.angle_max == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.angular_velocity_min == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.angular_velocity_max == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.damping_min == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.damping_max == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.scale_amount_min == 3.0",
+			"detail": "3.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.scale_amount_max == 3.0",
+			"detail": "3.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.particle_flag_align_y == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Flash.preprocess == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Flash.use_fixed_seed == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Flash.scale_amount_curve is a Curve",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Flash.scale_amount_curve 1.0 -> 1.6 (2 points)",
+			"detail": "points 2, sample(0) 1.0000, sample(1) 1.6000, max_value 2.00",
+			"pass": true
+		},
+		{
+			"check": "Flash.color_ramp is a Gradient",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Flash.color_ramp [\"0.00 #E0453A a0.90\", \"1.00 #E0453A a0.00\"]",
+			"detail": "[\"0.00 e0453a a0.90\", \"1.00 e0453a a0.00\"]",
+			"pass": true
+		},
+		{
+			"check": "Flash.texture is a GradientTexture2D, not null (failure 9)",
+			"detail": "GradientTexture2D",
+			"pass": true
+		},
+		{
+			"check": "Flash.texture has a Gradient",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Flash.texture: soft dot 32 x 32, radial, white -> transparent",
+			"detail": "32x32 fill 1, 2 points, alpha first 1.00 last 0.00, white true",
+			"pass": true
+		},
+		{
+			"check": "Flash.material is CanvasItemMaterial, blend_mode Mix (0), not additive (failure 6)",
+			"detail": "CanvasItemMaterial blend 0",
+			"pass": true
+		},
+		{
+			"check": "Splinters exists as CPUParticles2D",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Splinters.emitting == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Splinters.amount == 14",
+			"detail": "14",
+			"pass": true
+		},
+		{
+			"check": "Splinters.lifetime == 0.45",
+			"detail": "0.45",
+			"pass": true
+		},
+		{
+			"check": "Splinters.one_shot == true",
+			"detail": "true",
+			"pass": true
+		},
+		{
+			"check": "Splinters.explosiveness == 1.0",
+			"detail": "1.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.lifetime_randomness == 0.3",
+			"detail": "0.3",
+			"pass": true
+		},
+		{
+			"check": "Splinters.local_coords == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Splinters.emission_shape == 0",
+			"detail": "0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.direction == (0.0, -1.0)",
+			"detail": "(0.0, -1.0)",
+			"pass": true
+		},
+		{
+			"check": "Splinters.spread == 75.0",
+			"detail": "75.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.gravity == (0.0, 900.0)",
+			"detail": "(0.0, 900.0)",
+			"pass": true
+		},
+		{
+			"check": "Splinters.initial_velocity_min == 140.0",
+			"detail": "140.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.initial_velocity_max == 260.0",
+			"detail": "260.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.angle_min == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.angle_max == 360.0",
+			"detail": "360.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.angular_velocity_min == -720.0",
+			"detail": "-720.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.angular_velocity_max == 720.0",
+			"detail": "720.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.damping_min == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.damping_max == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.scale_amount_min == 0.8",
+			"detail": "0.80000001192093",
+			"pass": true
+		},
+		{
+			"check": "Splinters.scale_amount_max == 1.2",
+			"detail": "1.20000004768372",
+			"pass": true
+		},
+		{
+			"check": "Splinters.particle_flag_align_y == true",
+			"detail": "true",
+			"pass": true
+		},
+		{
+			"check": "Splinters.preprocess == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Splinters.use_fixed_seed == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Splinters.scale_amount_curve is a Curve",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Splinters.scale_amount_curve 1.0 -> 0.6 (2 points)",
+			"detail": "points 2, sample(0) 1.0000, sample(1) 0.6000, max_value 2.00",
+			"pass": true
+		},
+		{
+			"check": "Splinters.color_ramp is a Gradient",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Splinters.color_ramp [\"0.00 #E0453A a1.00\", \"0.20 #3A2616 a1.00\", \"0.70 #3A2616 a1.00\", \"1.00 #3A2616 a0.00\"]",
+			"detail": "[\"0.00 e0453a a1.00\", \"0.20 3a2616 a1.00\", \"0.70 3a2616 a1.00\", \"1.00 3a2616 a0.00\"]",
+			"pass": true
+		},
+		{
+			"check": "Splinters.texture is a GradientTexture2D, not null (failure 9)",
+			"detail": "GradientTexture2D",
+			"pass": true
+		},
+		{
+			"check": "Splinters.texture has a Gradient",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Splinters.texture: sliver 4 x 16, white, transparent at both ends",
+			"detail": "4x16 fill 0, 4 points, alpha first 0.00 last 0.00, white true",
+			"pass": true
+		},
+		{
+			"check": "Splinters.material is CanvasItemMaterial, blend_mode Mix (0), not additive (failure 6)",
+			"detail": "CanvasItemMaterial blend 0",
+			"pass": true
+		},
+		{
+			"check": "Dust exists as CPUParticles2D",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Dust.emitting == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Dust.amount == 8",
+			"detail": "8",
+			"pass": true
+		},
+		{
+			"check": "Dust.lifetime == 1.2",
+			"detail": "1.2",
+			"pass": true
+		},
+		{
+			"check": "Dust.one_shot == true",
+			"detail": "true",
+			"pass": true
+		},
+		{
+			"check": "Dust.explosiveness == 0.9",
+			"detail": "0.89999997615814",
+			"pass": true
+		},
+		{
+			"check": "Dust.lifetime_randomness == 0.3",
+			"detail": "0.3",
+			"pass": true
+		},
+		{
+			"check": "Dust.local_coords == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Dust.emission_shape == 1",
+			"detail": "1",
+			"pass": true
+		},
+		{
+			"check": "Dust.emission_sphere_radius == 10.0",
+			"detail": "10.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.direction == (0.0, -1.0)",
+			"detail": "(0.0, -1.0)",
+			"pass": true
+		},
+		{
+			"check": "Dust.spread == 180.0",
+			"detail": "180.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.gravity == (0.0, -30.0)",
+			"detail": "(0.0, -30.0)",
+			"pass": true
+		},
+		{
+			"check": "Dust.initial_velocity_min == 10.0",
+			"detail": "10.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.initial_velocity_max == 35.0",
+			"detail": "35.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.angle_min == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.angle_max == 360.0",
+			"detail": "360.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.angular_velocity_min == -30.0",
+			"detail": "-30.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.angular_velocity_max == 30.0",
+			"detail": "30.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.damping_min == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.damping_max == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.scale_amount_min == 1.0",
+			"detail": "1.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.scale_amount_max == 1.4",
+			"detail": "1.39999997615814",
+			"pass": true
+		},
+		{
+			"check": "Dust.particle_flag_align_y == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Dust.preprocess == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Dust.use_fixed_seed == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Dust.scale_amount_curve is a Curve",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Dust.scale_amount_curve 0.6 -> 1.6 (2 points)",
+			"detail": "points 2, sample(0) 0.6000, sample(1) 1.6000, max_value 2.00",
+			"pass": true
+		},
+		{
+			"check": "Dust.color_ramp is a Gradient",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Dust.color_ramp [\"0.00 #7A5A3A a0.55\", \"1.00 #7A5A3A a0.00\"]",
+			"detail": "[\"0.00 7a5a3a a0.55\", \"1.00 7a5a3a a0.00\"]",
+			"pass": true
+		},
+		{
+			"check": "Dust.texture is a GradientTexture2D, not null (failure 9)",
+			"detail": "GradientTexture2D",
+			"pass": true
+		},
+		{
+			"check": "Dust.texture has a Gradient",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Dust.texture: soft dot 32 x 32, radial, white -> transparent",
+			"detail": "32x32 fill 1, 2 points, alpha first 1.00 last 0.00, white true",
+			"pass": true
+		},
+		{
+			"check": "Dust.material is CanvasItemMaterial, blend_mode Mix (0), not additive (failure 6)",
+			"detail": "CanvasItemMaterial blend 0",
+			"pass": true
+		},
+		{
+			"check": "peak count: 23 particles per burst, 46 with 2 bursts alive (A3)",
+			"detail": "23",
+			"pass": true
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"passed": 107,
+	"report": "test_hit_burst_config",
+	"scene": "res://effects/hit_burst.tscn",
+	"total": 107,
+	"unix_time": 1794167084
+}
