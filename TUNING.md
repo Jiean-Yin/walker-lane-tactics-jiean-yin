@@ -51,7 +51,14 @@ Claude's prediction for r1 (written before the edit). The flash alpha falls line
 - **Splinters and Dust** are pixel-identical to r0 in every frame (same fixed seeds, separate emitters).
 
 Not fixed by this change: the flash is still `#E0453A` on the red enemy, so it stays weak there (frames 42–44).
-Claude's comparison of r1 with its prediction: TO FILL (after the recapture)
+Claude's comparison of r1 with its prediction (from `captures/hit_burst/r1/sheet_player_2x.png` next to r0's):
+- **frame 10:** matches; identical to r0.
+- **frame 12:** **does not match.** I predicted "still clearly red". Only a faint orange-red glow shows around the edges of the dark splinter cluster. In r0 there was none, so the change is real but small.
+- **frame 15:** **partly matches.** A faint pink halo on both sides of the torso, weaker than the "about half strength" I predicted.
+- **frame 20:** no red visible. I predicted a faint pink haze; close enough.
+- **frames 30 and 50, and all splinters and dust:** match; pixel-for-pixel the same shapes as r0.
+- **Why it is weaker than predicted:** `Flash` is the first child of `HitBurst`, so `Splinters` (opaque dark brown) and `Dust` are drawn **on top** of it. From frame 11 the splinter cluster covers the centre of the soft dot, where its alpha is highest, and the dust greys what is left. My prediction used the flash's own alpha and ignored what is drawn over it.
+- **Possible next steps if you want the flash to read:** move `Flash` after `Dust` in the scene, so it draws on top; or make it larger or lighter. Each is one change, to judge separately.
 My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
 > *Hint (Claude):* say whether the flash now registers as a hit without staring, whether 0.36 s now feels too long next to the splinters, and how it looks on the enemy.
 Strips: captures/hit_burst/r0/, captures/hit_burst/r1/
