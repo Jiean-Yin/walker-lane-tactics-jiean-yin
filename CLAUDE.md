@@ -44,6 +44,14 @@ Usage `scripts/run-test.sh <test-file.gd> <fps|realtime> [timeout-seconds]` (`sc
 
 Existing commands: `README.md:46-52`. Baseline counts: commit `5bcaf78` and `evidence/a6/baseline/`. Each suite writes `evidence/<name>-<unix time>.json` via `godot/tests/test_report.gd` (`:2`). Tests press real keys with `root.push_input()` (`test_audio_events.gd:34`, `:42`; `test_exposed_tint.gd:52`) and sample after everything else from a node with `process_priority` 1000 (`test_exposed_tint.gd:5-7`). Planned A6 files (`CHANGE-BRIEF.md` §4): `test_hit_burst_config.gd`, `test_arrow_trail_config.gd`, `test_hit_burst_state.gd`, `test_arrow_trail_state.gd`, `cost_effects.gd`; none exists yet. Clean logs with `scripts/redact-paths.sh` before committing.
 
+## Headless facts (confirmed in review, 2026-11-08, throwaway probes under `--headless --fixed-fps 60`)
+
+- A headless run uses a dummy renderer: it draws no particles and runs no GPU particle process. Node state (emitting, one_shot, amount_ratio, visibility, instance counts) is observable; the look is not.
+- A GPU effect's headless CPU price is near zero by construction. Measured: mean frame 0.002 ms empty, 0.002 ms with 20 000 `GPUParticles2D` particles, 1.717 ms with 20 000 `CPUParticles2D` particles.
+- Frame strips come from a windowed Movie Maker run, which I start.
+- Headless details: a one-shot `CPUParticles2D` simulates and emits `finished` after its lifetime (frame 31 for 0.5 s at 60 fps). A one-shot `GPUParticles2D` turns `emitting` false after about its lifetime but never emits `finished`, and `capture_rect()` returns an empty rectangle. A continuous `GPUParticles2D` keeps `emitting` true, and hiding it does not change `emitting`.
+- From A5, still true: the dummy renderer parses shader code; `--fixed-fps N` makes every `delta` exactly `1/N`; game time is `delta * time_scale` and stops while `paused` (`main.gd:162-171`); tests press real keys with `root.push_input()`.
+
 # Current change
 
 @CHANGE-BRIEF.md
@@ -57,9 +65,9 @@ Existing commands: `README.md:46-52`. Baseline counts: commit `5bcaf78` and `evi
 
 - Use Godot 4.7.2 class and property names only. The names in the brief's tables were listed from `ClassDB` on 2026-11-08 (`CHANGE-BRIEF.md:7`, §0).
 - Godot 3 names never to write: `ParticlesMaterial` (now `ParticleProcessMaterial`; it does not exist, §0), `Particles2D` (now `GPUParticles2D`), `GradientTexture` (now `GradientTexture1D`), unsuffixed `initial_velocity`, `scale_amount`, `damping`, `angular_velocity`, `angle` (now `_min` / `_max` pairs), `flag_align_y` / `flag_disable_z` (now `particle_flag_align_y` / `particle_flag_disable_z`).
-- Trap (measured, §0): `ParticleProcessMaterial` still has editor-only `initial_velocity` and `scale` (not stored). Writing them in a `.tscn` raises no error and leaves the defaults (`CHANGE-BRIEF.md` §6 failure 2).
-- Type differences from memory, **not re-checked in this step; confirm with `ClassDB` before relying on them:** `CPUParticles2D.direction` / `gravity` are `Vector2`, `ParticleProcessMaterial` ones `Vector3`; `CPUParticles2D.color_ramp` is a `Gradient` and `scale_amount_curve` a `Curve`, while `ParticleProcessMaterial.color_ramp` is a texture (`GradientTexture1D`) and `scale_curve` a `CurveTexture`; `CanvasItemMaterial.BLEND_MODE_MIX` = 0.
-- Not checked in this version and not named in the brief: the `finished` signal and `restart()` on both particle nodes. If code needs them, list them from `ClassDB` first.
+- Trap (measured, §0): `ParticleProcessMaterial` still has editor-only `initial_velocity`, `scale`, `damping`, `angle` and `angular_velocity` (Vector2 range pairs, not stored). What loading one of them from a `.tscn` does has **not** been measured; mutation 1 will show it (`CHANGE-BRIEF.md` §6 failure 2). `CPUParticles2D` has none of them.
+- Types (listed from `ClassDB` in review, 2026-11-08): `CPUParticles2D.direction` / `gravity` are `Vector2`, `ParticleProcessMaterial` ones `Vector3`; `CPUParticles2D.color_ramp` is a `Gradient` and `scale_amount_curve` a `Curve`; `ParticleProcessMaterial.color_ramp` is a `GradientTexture1D` and `scale_curve` a `CurveTexture`; `CanvasItemMaterial.BLEND_MODE_MIX` = 0.
+- Both particle nodes have `restart()` and a `finished` signal (`ClassDB`, review). Headless, `finished` fires only on `CPUParticles2D` (see "Headless facts"), so freeing a GPU effect must use its own game-time timer.
 
 # Out of scope
 
@@ -77,6 +85,6 @@ Existing commands: `README.md:46-52`. Baseline counts: commit `5bcaf78` and `evi
 3. Same-frame order: the impact cue runs in `_run_cues()` before `_tick_fx()` drops the arrow (`main.gd:168`, `:171`), so the arrow may leave `_arrows` on the impact frame or the one after. Not measured.
 4. How a spawner sees an event in time: no signal exists, so it must poll `played_events` / `_arrows` each frame after `main._process` (as `ExposedDriver` does with priority 10). Not tested for effects.
 5. The fps or mode for each new A6 test, and whether `cost_effects.gd` uses `realtime`, are not stated in the brief or the wrapper. The brief only fixes 60 fps for the state tests (§4).
-6. `CPUParticles2D` / `GPUParticles2D` behaviour with `speed_scale` 0, after `emitting = false`, and while hidden or with the tree paused was not run in this step; rules A5, B4, B5 are predictions until the state tests run.
-7. The type and signal notes in "Godot 4 names" marked "from memory" were not listed from `ClassDB` here.
-8. Nothing was run in this step; the 4.7.2 build is taken from `README.md` and the baseline log.
+6. `CPUParticles2D` / `GPUParticles2D` behaviour with `speed_scale` 0 and with the tree paused was not run; rules A5 and B4 are predictions until the state tests run. (Hiding keeps `emitting` unchanged: measured in review.)
+7. *(Resolved in review: the types and signals are now listed from `ClassDB`, see "Godot 4 names".)*
+8. The agent ran nothing in Step 1; the review confirmed the 4.7.2 build in every probe's start-up line.
