@@ -11,9 +11,8 @@ Effect B strip frames: 10, 13, 16, 21, 26, 31, 42 (arrow launched at 10, lands a
 
 ## Effect A: first look (strip r0, before any revision)
 
-What I saw (running game, 1280 × 720): TO FILL (Jiean)
+What I saw (running game, 1280 × 720): I can see a clear hitten effect that looks like being hitten by a rock, accompanied by spreading dust that are clearly visible and vanish in a short time that can be captured by eyes.
 
-> *Hint (Claude):* write it in visual terms, before reading Claude's strip analysis: is the flash visible on the first frame, how far the splinters fly compared with the 80 px archer, whether the dust reads over the light square and over the dark table, and whether it is gone before the next hit.
 
 ## Effect B: first look (strip r0, before any revision)
 
