@@ -1,0 +1,270 @@
+{
+	"all_passed": true,
+	"checks": [
+		{
+			"check": "frames 31-40 all have delta 1/60 (a steady fixed step to measure with)",
+			"detail": "0.01666666666667",
+			"pass": true
+		},
+		{
+			"check": "shader loads: res://shaders/exposed_tint.gdshader",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "uniform list is exactly [exposed_amount, exposed_color] (case 8)",
+			"detail": "[\"exposed_amount\", \"exposed_color\"]",
+			"pass": true
+		},
+		{
+			"check": "exposed_amount: type float (3), hint_range (1) 0.0..1.0",
+			"detail": "[3, 1, \"0.0,1.0,0.0010000000475\"]",
+			"pass": true
+		},
+		{
+			"check": "exposed_color: type vec4 (20)",
+			"detail": "20",
+			"pass": true
+		},
+		{
+			"check": "source: shader_type canvas_item; and no render_mode",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "source: no sampler uniform of its own",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "source: TIME is not used (R7)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "source: exposed_amount : hint_range(0.0, 1.0) = 0.0",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "source: exposed_color : source_color = vec4(0.878, 0.271, 0.227, 1.0)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "source: the colour line is Jiean's",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "set 2.0 from code is stored as 2.0 (hint_range does not clamp storage; drawing: by eye)",
+			"detail": "2.0",
+			"pass": true
+		},
+		{
+			"check": "main.tscn has the ExposedDriver node, process_priority 10 < sampler 1000",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "main.time_scale == 1 and Engine.time_scale == 1 at the start",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "turn 1 PLAN_MOVE: p1 at (0,4), e1 at (7,3)",
+			"detail": "[\"PLAN_MOVE\", (0, 4), (7, 3)]",
+			"pass": true
+		},
+		{
+			"check": "each sprite's material uses exposed_tint.gdshader, starts at 0.0, and they differ (R6)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "turn 2 PLAN_MOVE: p1 at (1, 4), e1 at (6, 3)",
+			"detail": "[(1, 4), (6, 3)]",
+			"pass": true
+		},
+		{
+			"check": "turn 3 PLAN_MOVE: p1 at (2, 4), e1 at (5, 3)",
+			"detail": "[(2, 4), (5, 3)]",
+			"pass": true
+		},
+		{
+			"check": "turns 1-2 and turn 3 before any key: every sample is 0.0 (R1)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "turn 3 standing square (2,4) is out of reach of (5,3)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "same player material through turns 1-3 (pose changes keep it)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Right plans (3,4) and it is in reach (state begins)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "rise: the first frame already moves by 5 x dt (begins on the first frame)",
+			"detail": "0.08333333333333",
+			"pass": true
+		},
+		{
+			"check": "rise 0 -> 1 takes 0.20 s of game time (R2)",
+			"detail": "0.2000 s game time in 12 frames, expected 0.2000 s +- 0.0167",
+			"pass": true
+		},
+		{
+			"check": "holds at 1.0 while the state holds (R1)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "fall 1 -> 0 takes 0.20 s of game time (R2)",
+			"detail": "0.2000 s game time in 12 frames, expected 0.2000 s +- 0.0167",
+			"pass": true
+		},
+		{
+			"check": "ends mid-rise at v = 0.667: reaches 0 after v x 0.20 s (R5)",
+			"detail": "0.1500 s game time in 9 frames, expected 0.1333 s +- 0.0167",
+			"pass": true
+		},
+		{
+			"check": "retrigger: the state flipped 9 times mid-transition (the test reached R3's case)",
+			"detail": "9",
+			"pass": true
+		},
+		{
+			"check": "retrigger: no frame at 0 while the state holds (R3, case 1)",
+			"detail": "[]",
+			"pass": true
+		},
+		{
+			"check": "retrigger: never falls while true, never rises while false; turns around from its current value (R3)",
+			"detail": "[]",
+			"pass": true
+		},
+		{
+			"check": "paused mid-rise at 0.417: value constant for 30+ frames (R4, case 4)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "with a pause inside, the rise still takes 0.20 s of unpaused game time (R4)",
+			"detail": "0.2000 s game time in 43 frames, expected 0.2000 s +- 0.0167",
+			"pass": true
+		},
+		{
+			"check": "Engine.time_scale 0.5: rise still 0.20 s of game time (R4)",
+			"detail": "0.2083 s game time in 25 frames, expected 0.2000 s +- 0.0083",
+			"pass": true
+		},
+		{
+			"check": "Engine.time_scale 0.5: twice the frames, about 0.40 s real time (R4)",
+			"detail": "25 frames (0.4167 s real) vs 12 at scale 1",
+			"pass": true
+		},
+		{
+			"check": "before Enter: at 1.0, planning (3,4)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Enter (confirm) ends it: falls 1 -> 0 in 0.20 s during PLAY_MOVES",
+			"detail": "0.2000 s game time in 12 frames, expected 0.2000 s +- 0.0167",
+			"pass": true
+		},
+		{
+			"check": "turn 4 PLAN_MOVE: p1 at (3,4) alive, e1 at (4,3)",
+			"detail": "[\"PLAN_MOVE\", 4, (3, 4), (4, 3)]",
+			"pass": true
+		},
+		{
+			"check": "turn 4 begins already in reach: rises from the first PLAN_MOVE frame (Begins)",
+			"detail": "0.08333333333333",
+			"pass": true
+		},
+		{
+			"check": "same player material until the retry",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "R: turn 1, p1 back at (0,4), e1 at (7,3)",
+			"detail": "[(0, 4), (7, 3)]",
+			"pass": true
+		},
+		{
+			"check": "R: the new sprite has a new material with the shader, not the old one or the enemy's (R6, case 5)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "R while at 1.0: the new sprite fades 1 -> 0 in 0.20 s (no jump)",
+			"detail": "0.2000 s game time in 12 frames, expected 0.2000 s +- 0.0167",
+			"pass": true
+		},
+		{
+			"check": "after R: the new sprite's value is driven (0.0) and the enemy's stays 0.0",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "every frame (529): value = move_toward(previous, state ? 1 : 0, 5 x game dt) (R1, R2, R3, R4, R5)",
+			"detail": "[]",
+			"pass": true
+		},
+		{
+			"check": "every frame: enemy exposed_amount == 0.0 (R6, case 2)",
+			"detail": "[]",
+			"pass": true
+		},
+		{
+			"check": "every frame: player and enemy have a material each, never the same one (R6, case 2)",
+			"detail": "0 bad frames",
+			"pass": true
+		}
+	],
+	"delta_with_engine_time_scale_0_5": 0.00833333333333333,
+	"engine": "4.7.2-stable (official)",
+	"engine_time_scale_scales_delta_under_fixed_fps": true,
+	"fall": {
+		"end": 223,
+		"frame": 0.0166666666666667,
+		"frames": 12,
+		"ok": true,
+		"t": 0.2
+	},
+	"first_deltas": [
+		0.016667,
+		0.016667,
+		0.016667,
+		0.016667,
+		0.016667,
+		0.016667,
+		0.016667,
+		0.016667,
+		0.016667,
+		0.016667
+	],
+	"fps": 60,
+	"frames_sampled": 529,
+	"passed": 46,
+	"report": "test_exposed_tint_60fps",
+	"rise": {
+		"end": 201,
+		"frame": 0.0166666666666667,
+		"frames": 12,
+		"ok": true,
+		"t": 0.2
+	},
+	"total": 46,
+	"unix_time": 1794163956
+}
