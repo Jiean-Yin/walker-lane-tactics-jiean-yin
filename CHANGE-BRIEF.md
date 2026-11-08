@@ -1,177 +1,293 @@
-# CHANGE-BRIEF — Assignment 5: shaders, materials and the Godot shading language
+# CHANGE-BRIEF — Assignment 6: particle effects
 
-*Version 1, 2026-10-31, committed before either shader exists and before the first agent prompt. Results and corrections go in dated revisions at the bottom; this version is not edited after the fact. The Assignment 2 and 3 briefs are kept at tag `a3` (`git show a3:CHANGE-BRIEF.md`).*
+*Version 1, 2026-11-08. Committed before any effect exists and before the first agent prompt. Results and corrections go in dated revisions at the bottom; this version is not edited afterwards. The Assignment 5 brief is kept at tag `a5` (`git show a5:CHANGE-BRIEF.md`).*
 
-**Who wrote what:** Jiean chose the state, the object, the textures and every design value below. Claude Code drafted the wording, filled in the project facts (file and line references) and proposed the defaults Jiean accepted. **The colour line, every predicted value and the answers marked "Jiean" are Jiean's own.**
+**Who wrote what:** Jiean chose both effects, their jobs and the retrigger rule. Claude Code drafted the wording, filled in the project facts (file and line references), measured the engine facts marked "measured", and proposed the setting values. Jiean reviewed and accepted the values. **Every prediction, the price budget and the six answers are Jiean's own.**
 
-## 1. The state
+**Engine:** Godot **4.7.2** standard (`README.md`), Compatibility renderer (`godot/project.godot:25`). The game is 2D: 1280 × 720 viewport, no camera (`main.gd:18`). Every class and property name below is a Godot 4.7.2 name. They were listed from `ClassDB` in a throwaway probe on 2026-11-08.
+
+## 0. Engine facts measured before writing (throwaway probes, 2026-11-08, outside the repository)
+
+| Fact | How it was measured |
+|---|---|
+| `CPUParticles2D` has **no** `amount_ratio`; `GPUParticles2D` has it, along with `use_fixed_seed` and `seed` | `ClassDB.class_get_property_list` |
+| **The Compatibility renderer does not support particle trails.** A `GPUParticles2D` with `trail_enabled = true` drew **nothing**, and Godot printed `WARNING: The Compatibility renderer does not support particle trails.` | windowed Movie Maker render, 30 frames |
+| `GPUParticles2D` draws on Compatibility (a moving world-space emitter left a dotted line, one dot per frame at 30 fps) | same render |
+| The viewport reports GPU time on Compatibility: 0.094 ms with 20 000 particles, 0.018 ms after hiding them (NVIDIA GeForce RTX 3070 Ti Laptop GPU, OpenGL 3.3) | `RenderingServer.viewport_get_measured_render_time_gpu` |
+| Defaults: `CPUParticles2D` and `GPUParticles2D` both start with `emitting = true`; `GPUParticles2D.fixed_fps` = 30, `interpolate` = true, `visibility_rect` = (−100, −100, 200, 200) | `ClassDB` probe |
+| `ParticlesMaterial` (Godot 3) does not exist. `ParticleProcessMaterial` still has editor-only properties named `initial_velocity` and `scale` (Vector2, usage EDITOR + INTERNAL, not stored). `CPUParticles2D` has neither | `ClassDB` probe |
+
+## 1. Effect A — hit burst
+
+### The job
 
 | | |
 |---|---|
-| Name | **exposed** |
-| What it communicates | While you plan your move, your archer turns red when the square you are about to step to lies inside the enemy archer's reach (the 24 squares of the 5 × 5 around it). |
-| Why the player needs it | Who shoots first alternates every turn, so stepping into reach is a real decision. The A2 playtest found that a new player could not tell why the enemy stops and shoots (README, known limitations). The tint shows the danger before you commit, and matches the GDD's red danger zones. |
-| Where it is held | `godot/game/main.gd`: `state` (`main.gd:76`, value `State.PLAN_MOVE`) and `planned_offset` (`main.gd:86`); the units' cells in `rules.units` (`godot/game/rules.gd:29`). |
-| Exact condition | `state == State.PLAN_MOVE` **and** the enemy archer is alive **and** `Rules.in_range(player_cell + planned_offset, enemy_cell)` (`rules.gd:121`). |
-| Begins | on the first frame the condition is true: when PLAN_MOVE begins with the standing square already in reach, or when an arrow key moves the planning marker into reach. |
-| Ends | on the first frame it is false: the marker moves out of reach, the move is confirmed (Enter or Space → `PLAY_MOVES`), R (retry), or the game ends. |
+| What it tells the player | **An arrow hit an archer, and which one.** Today a hit shows the hurt pose, a red "−3" and fewer HP pips (`main.gd:505-511`). Two hits in one turn come 1.05 s apart, and a new player can miss which archer took which. The burst marks the moment and the place of each hit. |
+| Event, script and variable | A `"damaged"` event played by `main._cue_impact()` (`godot/game/main.gd:498-513`, match arm `:505`). Each played event is appended to `main.played_events` (`main.gd:502`). The hit archer is `main.pieces[ev["unit"]]` (`main.gd:503`). A killing hit is also a `"damaged"` event (hp_after 0), followed by `"killed"` (`:512-513`). |
+| Where | The hit archer's body: its node position (centre of the base disc, `piece.gd:4`) + (0, −40). The archer is 80 px tall on screen (`piece.gd:9`). |
+| How often | Each archer has 4 HP and an arrow deals 3 (`rules.gd:12-13`), so a hit goes 4 → 1 and the next one kills. In a turn where both archers shoot, the two impacts land **1.05 s apart**: 0.2 + 0.35 + 0.25 + 0.25 s (`main.gd:29-33`, `:474`). |
 
-The driver only **reads** these values. It never writes game state.
+### The intent block
 
-## 2. Effect specification
+- **Timing phases:**
+  1. **Impact** (0 – 0.1 s): a red flash over the archer's torso, strongest on the first frame and gone by about frame +4 at 30 fps.
+  2. **Outward** (0 – 0.45 s): wood splinters spray up and out, reach about one archer height, then fall under gravity.
+  3. **Dissipation** (0.1 – 1.2 s): a brown dust puff swells and thins, and is gone by 1.2 s. That is just after the return shot of the same turn lands (1.05 s), so in a two-hit turn the first puff and the second flash overlap briefly.
+- **Contrast against the named background:**
+  - **Lightest:** the board's light square `#D8C7A0` (`main.gd:41`) under the linen overlay.
+  - **Darkest:** the dark wood table `env_table.png` (`main.gd:619`) just outside the board edge. The player's start square (column 0, lane 5) touches the table on two sides.
+  - **Value, not hue:** splinters and dust are darker than the board (dark wood `#3A2616`, dust `#7A5A3A`). The flash is the game's target red `#E0453A` (`main.gd:47`), a mid value that also reads on the dark table.
+  - **No additive blend:** adding light to a pale board pushes it towards white and loses the contrast.
+- **Scale against the character** (archer 80 px tall at 1280 × 720):
+  - the flash is about 40 px across (half an archer) and grows to about 64 px;
+  - splinters land within about 80 px of the hit point;
+  - the dust grows to about 60 px;
+  - the whole burst stays inside about one board square (128 × 96, `main.gd:19`).
+- **Change over life:**
+  - flash: scale 1.0 → 1.6 while alpha 0.9 → 0;
+  - splinters: colour red → dark wood in the first fifth, alpha fades in the last third, scale 1.0 → 0.6;
+  - dust: scale 0.6 → 1.6 while alpha 0.55 → 0.
+- **Variation:** splinter speed 140–260 px/s, direction ±75° around straight up, random angle and spin, scale 0.8–1.2; dust angle, spin and scale random. No hue variation: the colours stay on the game's palette. No fixed seed in the effect scene, so repeated hits differ.
+- **Emitters** (three under one root):
+  - `Flash` (1 particle): the moment of the hit;
+  - `Splinters` (14): the force and direction of the hit;
+  - `Dust` (8): the after-image that fades.
 
-### The shader
+### The settings
 
-- Path: `godot/shaders/exposed_tint.gdshader`
-- `shader_type canvas_item;` — no `render_mode` (default blending).
-- No sampler uniforms of its own. The archer's sprite texture arrives in `COLOR` (texture × modulate).
-- On a `ShaderMaterial` on the player archer's `Sprite2D` (`godot/game/piece.gd:35`, created in `setup()` at `piece.gd:51-54`).
+**Node type:** `CPUParticles2D` for all three emitters.
+- **Why CPU:** a burst of 23 particles needs no GPU-only feature. Its settings live on the node, so the configuration test reads them directly. And its process step runs on the CPU, so its headless price is a real number that can be compared with a budget. That gives a contrast with Effect B (section 2), whose headless price is near zero.
+- **Missing on this node** (answer 1): `amount_ratio`, turbulence, attractors, collision, sub-emitters and trails.
 
-| Uniform | Type | Hint | Default | Set by |
-|---|---|---|---|---|
-| `exposed_amount` | `float` | `hint_range(0.0, 1.0)` | `0.0` | the driver, every frame, from the state |
-| `exposed_color` | `vec4` | `source_color` | `vec4(0.878, 0.271, 0.227, 1.0)` (`#E0453A`, the game's target red, `main.gd:47`) | the material; not changed by game code |
+**Scene:** `godot/effects/hit_burst.tscn`, root `Node2D` named `HitBurst`, children `Flash`, `Splinters`, `Dust`.
 
-### The colour line (inside `fragment()`)
+| Setting | `Flash` | `Splinters` | `Dust` |
+|---|---|---|---|
+| `emitting` saved in the scene | `false` | `false` | `false` |
+| `amount` | 1 | 14 | 8 |
+| `lifetime` (s) | 0.12 | 0.45 | 1.2 |
+| `one_shot` | `true` | `true` | `true` |
+| `explosiveness` | 1.0 | 1.0 | 0.9 |
+| `lifetime_randomness` | 0.0 | 0.3 | 0.3 |
+| `local_coords` | `false` | `false` | `false` |
+| `emission_shape` | point (0) | point (0) | sphere (1), `emission_sphere_radius` 10 |
+| `direction` | (0, −1) | (0, −1) | (0, −1) |
+| `spread` (°) | 0 | 75 | 180 |
+| `gravity` (px/s²) | (0, 0) | (0, 900) | (0, −30) |
+| `initial_velocity_min` / `_max` (px/s) | 0 / 0 | 140 / 260 | 10 / 35 |
+| `angle_min` / `_max` (°) | 0 / 0 | 0 / 360 | 0 / 360 |
+| `angular_velocity_min` / `_max` (°/s) | 0 / 0 | −720 / 720 | −30 / 30 |
+| `damping_min` / `_max` | 0 / 0 | 0 / 0 | 0 / 0 |
+| `scale_amount_min` / `_max` | 1.25 / 1.25 | 0.8 / 1.2 | 1.0 / 1.4 |
+| `scale_amount_curve` | 1.0 → 1.6 | 1.0 → 0.6 | 0.6 → 1.6 |
+| `color_ramp` | `#E0453A` α 0.9 → `#E0453A` α 0 | 0.0 `#E0453A` α 1; 0.2 `#3A2616` α 1; 0.7 `#3A2616` α 1; 1.0 `#3A2616` α 0 | 0.0 `#7A5A3A` α 0.55; 1.0 `#7A5A3A` α 0 |
+| `particle_flag_align_y` | `false` | `true` (each splinter points along its velocity) | `false` |
+| `texture` | soft dot: `GradientTexture2D` 32 × 32, radial, white → transparent | sliver: `GradientTexture2D` 4 × 16, white, transparent at both ends | soft dot (as `Flash`) |
+| `material` | `CanvasItemMaterial`, `blend_mode` Mix (0) | same | same |
 
-```glsl
-COLOR.rgb = mix(COLOR.rgb, exposed_color.rgb, exposed_amount * 0.7);
-```
-
-(Jiean)
+- **Root:** `z_index` 2, above the pieces (`main.gd:122`, z 1) and below the HUD (`main.gd:125`, z 3).
+- **`local_coords` off, and why:** the particles stay where the hit happened even if the root were moved. The root sits on an effects layer that never moves, so this matters only if someone parents the burst to the archer.
+- **Not applicable:** `visibility_rect` (CPU node) and `preprocess` (the burst must never be running when a scene loads).
+- **Peak count:** 23 particles per burst, and at most 2 bursts alive at once (rule A3), so **46**.
 
 ### Observable rules
 
 | # | Rule |
 |---|---|
-| R1 | `exposed_amount` is `0.0` when the state is false and has settled; `1.0` when the state is true and has settled. |
-| R2 | When the state begins, the value rises linearly from where it is to `1.0` at **5.0 per second of game time** (0 → 1 in **0.20 s**). When the state ends, it falls linearly to `0.0` at the same rate (1 → 0 in 0.20 s). Tolerance: **one frame period** (1/30 s, 1/60 s, 1/144 s). The same game time at 30, 60 and 144 fps. |
-| R3 | **Retrigger:** if the state begins again while the value is still falling, the value turns around and rises **from its current value**: no restart from 0, no jump. If it ends while still rising, it turns around and falls from its current value. (Neither "restart" nor "ignore".) |
-| R4 | **Time:** game time = `delta × main.time_scale` (the clock the pieces already use, `main.gd:162-171`), so it is **scaled** time: `Engine.time_scale = 0.5` doubles the real-time duration. While the game is paused (P/Esc, `main.paused`, `main.gd:297`) the value **holds still**. The game never uses `get_tree().paused` (`main.gd:6`); if the tree were paused, the driver would stop too and the value would hold. |
-| R5 | **State ends mid-transition:** from value `v`, it reaches `0.0` after `v × 0.20 s`. |
-| R6 | **Several instances:** every piece's `Sprite2D` gets its **own** `ShaderMaterial` instance, never a shared one. Only the player archer's value is driven; the enemy archer's stays `0.0`. After R (retry) or play again, the pieces are rebuilt (`main.gd:329`), and the new sprites get new materials. |
-| R7 | `TIME` is not used. |
+| A1 | One burst per `"damaged"` event, on the frame `_cue_impact` plays it, at the hit archer's position + (0, −40). This includes the killing hit. |
+| A2 | Never otherwise: not when a scene loads, not on `"attack_cancelled"` ("no target", `main.gd:522-527`), not on an arrow that hits nobody, not on R. |
+| A3 | **Retrigger: overlap.** Each event creates a new `HitBurst` instance; earlier bursts keep playing. The most bursts alive at once in this slice is **2** (two hits in one turn, 1.05 s apart, burst life 1.2 s). |
+| A4 | **Freed parent:** a burst is not a child of the archer, so it doesn't die with it. A killing hit doesn't free the archer anyway: it plays its defeat pose (`main.gd:512-513`). Archers are freed only on R or play again (`main.gd:336-340`), and R also clears every live burst, as it clears arrows (`main.gd:319`). |
+| A5 | **Game time:** a burst runs on the game clock. Its `speed_scale` follows `main.time_scale` (`main.gd:73`), and it is 0 while the game is paused with P/Esc (`main.paused`, `main.gd:77`, `:297-299`), so the burst freezes with the pieces. If the tree were paused, its processing stops and it holds still (the game never pauses the tree, `main.gd:6`). |
+| A6 | Each burst instance frees itself once its longest emitter has finished (`Dust`, 1.2 s of game time). |
 
-### Boundaries
+## 2. Effect B — arrow trail
 
-Unchanged: collision, movement, input (no new key in the game), the state machine and every timing in `main.gd`, the rules engine, existing tests and their expectations, the other piece, the board, HUD and sounds, and every A2/A3 asset file. Presentation code may read game state; it never writes it.
+### The job
 
-### Evidence split
+| | |
+|---|---|
+| Which job | **A trail.** |
+| What it tells the player | **Who shot whom, and along which path.** The arrow is a small 30 px shape in flight for only 0.35 s (`main.gd:30`, `:716-727`). The trail stays on screen for a moment after it lands, so the shot can be followed back to the archer who fired it. That answers the A2 playtest problem ("could not tell why the enemy stops and shoots") and leads straight into Effect A at the impact. |
+| Condition, script and variable | **An arrow is in flight:** `main._arrows` is not empty (`godot/game/main.gd:102`). An entry is added by `_cue_arrow()` (`main.gd:490-495`), and removed in `_tick_fx()` when its `t` reaches `ARROW_TIME` (`main.gd:203-205`), within one frame of the impact cue (`main.gd:472`). The arrow tip's position each frame is `from.lerp(to, s) + (0, −ARROW_ARC · 4 · s · (1 − s))` with `s = t / ARROW_TIME` (`main.gd:718-721`). |
+| Feature Effect A doesn't use | **Turbulence** (`ParticleProcessMaterial.turbulence_enabled`), a GPU-only feature: `CPUParticles2D` has no turbulence. Also **damping**, which Effect A leaves at 0. **Not used: Godot's own `trail_enabled`,** because Compatibility doesn't draw particle trails (section 0). The trail is made by world-space emission from a moving emitter. |
+
+### The intent block
+
+- **Timing phases:**
+  1. **Launch** (first frame of the arrow): the streak starts at the bow.
+  2. **Flight** (0 – 0.35 s): a dark streak follows the arrow tip and draws its arc on the board. The streak is never longer than about 1.5 squares, because each streak particle lives 0.3 s.
+  3. **Landing and after** (0.35 – 1.05 s): emission stops at the impact. The streak shrinks away within 0.3 s, and a few dust wisps drift and curl (turbulence) for up to 0.7 s, then nothing is left. That is before the next arrow of the turn is fired.
+- **Contrast against the named background:**
+  - Arrows fly over the board: the light square `#D8C7A0` is the lightest, the dark square `#CDB98E` (`main.gd:42`) the darkest. Arrows don't fly over the table.
+  - The streak is a warm grey-brown `#6E5A44`: darker than both squares, but lighter than the arrow's walnut shaft `#5A3A22` and ink head `#1B1410` (`main.gd:725-726`), so the arrow itself still reads at the front of its trail.
+  - The wisps are a paler `#9A8466` at low alpha, a mid value between the streak and the board.
+- **Scale against the character:**
+  - streak particles about 10 px, shrinking to 2 px;
+  - wisps 16–26 px, growing to about 35 px;
+  - the whole trail spans at most the shot's length, up to 2 squares (≈ 256 px, `Rules.in_range`, `rules.gd:121`), plus the arc (40 px, `main.gd:31`).
+- **Change over life:**
+  - streak: scale 1.0 → 0.2, alpha 0.8 → 0, so the tail tapers;
+  - wisps: scale 0.6 → 1.4, alpha 0.45 → 0, so they spread out and fade.
+- **Variation:** streak particles get a small random velocity (0–8 px/s), so the line isn't ruler-straight. Each wisp has its own direction (spread 180°), speed 10–25 px/s and turbulence influence 0.1–0.2.
+- **Emitters** (two under one root that follows the arrow tip):
+  - `Streak` (48): the arrow's path;
+  - `Wisps` (12, turbulent): the dust stirred up behind it.
+
+### The settings
+
+**Node type:** `GPUParticles2D` for both emitters.
+- **Why GPU:** turbulence exists only on the GPU node.
+- **Missing on this node:** with this renderer, it lacks trails (`trail_enabled` draws nothing on Compatibility, measured) and collision with the 2D signed-distance field (not used).
+
+**Scene:** `godot/effects/arrow_trail.tscn`, root `Node2D` named `ArrowTrail`, children `Streak` and `Wisps`.
+
+| Setting | `Streak` | `Wisps` |
+|---|---|---|
+| `emitting` saved in the scene | `false` | `false` |
+| `amount` | 48 | 12 |
+| `lifetime` (s) | 0.30 | 0.70 |
+| `one_shot` | `false` | `false` |
+| `explosiveness` | 0.0 | 0.0 |
+| `preprocess` (s) | 0.0 | 0.0 |
+| `local_coords` | **`false`** | **`false`** |
+| `fixed_fps` | 30 (default) | 30 (default) |
+| `interpolate` | `true` (default) | `true` (default) |
+| `trail_enabled` | `false` | `false` |
+| `visibility_rect` | (−320, −200, 640, 400), **set and checked** | same |
+| `texture` | soft dot (as in Effect A) | soft dot |
+| `material` | `CanvasItemMaterial`, `blend_mode` Mix (0) | same |
+| `process_material` | `ParticleProcessMaterial` | `ParticleProcessMaterial` (its own) |
+| `particle_flag_disable_z` | `true` | `true` |
+| `emission_shape` | point (0) | sphere (1), `emission_sphere_radius` 4 |
+| `direction` | (0, −1, 0) | (0, −1, 0) |
+| `spread` (°) | 180 | 180 |
+| `gravity` | (0, 0, 0) | (0, −20, 0) |
+| `initial_velocity_min` / `_max` (px/s) | 0 / 8 | 10 / 25 |
+| `damping_min` / `_max` | 10 / 10 | 15 / 20 |
+| `scale_min` / `_max` | 0.30 / 0.35 | 0.5 / 0.8 |
+| `scale_curve` | 1.0 → 0.2 | 0.6 → 1.4 |
+| `color_ramp` | `#6E5A44` α 0.8 → α 0 | `#9A8466` α 0.45 → α 0 |
+| `turbulence_enabled` | `false` | **`true`** |
+| `turbulence_influence_min` / `_max` | — | 0.1 / 0.2 |
+| `turbulence_noise_strength`, `_noise_scale` | — | defaults (1.0, 9.0) |
+
+- **`local_coords` off, and why:** emitted particles must stay where the arrow was. With it on, the whole trail would move with the arrow tip and show as a blob at the arrow, not a line behind it.
+- **`visibility_rect`:** in the emitter's own coordinates. The trail lies behind the moving tip, up to one shot length (≈ 260 px with the arc) plus the wisps' drift, so the rectangle covers ±320 px by ±200 px. It is set, not generated (generation needs the editor and a running emitter).
+- **`preprocess`:** 0. A trail must start empty at the bow, and no arrow exists when a scene loads.
+- **Peak count:** 60 particles per trail. Arrows never fly at the same time in this slice (1.05 s apart, 0.35 s flight), but a fading trail can still be alive when the next arrow starts, so allow **2 trails, 120 particles**.
+
+### Observable rules
+
+| # | Rule |
+|---|---|
+| B1 | **Starts** on the frame an arrow appears in `main._arrows` (`_cue_arrow`, `main.gd:490-495`): a new `ArrowTrail` at the arrow's start point, emitting. |
+| B2 | **Follows** the arrow tip every frame (the formula at `main.gd:718-721`). **Stops** emitting on the frame the arrow leaves `main._arrows` (`main.gd:205`). Its particles then die within 0.7 s of game time, and the node is freed. |
+| B3 | **Never otherwise:** not when a scene loads, not on `"attack_cancelled"` (no arrow is drawn), not after R (R clears arrows, `main.gd:319`, and every trail with them). |
+| B4 | **Paused:** with the game paused (P/Esc, `main.paused`), the trail's `speed_scale` is 0, so it freezes with the frozen arrow and resumes on unpause. With the tree paused, `GPUParticles2D` stops processing and holds still; the game never pauses the tree (`main.gd:6`), so the test does it. |
+| B5 | **Hidden:** while `visible` is false, nothing is drawn. Hiding doesn't change `emitting`, and no code reacts to visibility. Whether the GPU keeps simulating while hidden is not observable headlessly; Jiean's prediction is in answer 5. |
+| B6 | **Game time:** `speed_scale` follows `main.time_scale`, as Effect A does. |
+
+## 3. Boundaries
+
+Unchanged:
+- collision, movement and input (one exception: the debug key **V**, which toggles vsync for the GPU price; the assignment requires it, and F9 is caught by the editor, found in A5);
+- the state machine and every timing constant in `main.gd`;
+- the rules engine (`godot/game/rules.gd`);
+- every existing test and its expected counts (`test_rules` 51, `test_audio_events` 70, `check_assets` 38, `test_exposed_tint` 46 at 30/60/144, `test_materials` 148);
+- the Assignment 5 shaders in `godot/shaders/` (hand-written, never edited by an agent);
+- the board, the HUD, the archer sprites and their tint, the sounds and music, and every A2/A3/A5 asset file.
+
+Effect settings live in the scene files in `godot/effects/`, not in code. The trigger code may **read** `main.played_events`, `main._arrows`, `main.pieces`, `main.time_scale`, `main.paused` and `main.state`. It never writes game state.
+
+**Textures:** no sourced or generated image files. Both soft-dot and sliver textures are `GradientTexture2D` resources defined inside the scene files, so the code that makes them is committed, and `SOURCES.md` records this.
+
+## 4. Evidence split
 
 | Rule | Checked by | How |
 |---|---|---|
-| Shader parses; uniform names and types | headless | `get_shader_uniform_list()`; defaults read from the shader source text |
-| R1, R2, R5 | headless | uniform sampled every frame from a high `process_priority` node, through real key presses, at 30, 60 and 144 fps: first value, last value, game-time duration |
-| R3 | headless | arrow keys tapped back and forth faster than 0.20 s: no frame drops to 0 while the state holds |
-| R4 | headless | pause pressed mid-fade: value constant; `Engine.time_scale` 0.5: duration doubles in real time, same in game time |
-| R6 | headless | the two sprites' materials are different objects; the enemy's value stays 0; after R the new sprite has a material |
-| The colour on screen | **eyes** | in-engine captures at the controlled values (section 3), compared with the predictions |
-| It reads as "danger" in play | **eyes** | my own playtest: the state triggered by normal play several times |
+| Every setting in sections 1 and 2, the turbulence feature, `trail_enabled` off, `emitting` saved as false | headless | `test_hit_burst_config.gd` and `test_arrow_trail_config.gd` load each scene and read every value back, with this brief's values as the expected values |
+| A1, A2, A3 (two hits inside one lifetime), A4, A5, A6 | headless | `test_hit_burst_state.gd`: real key presses through `root.push_input()` at 60 fps play a turn where both archers hit. It counts live bursts per frame and checks each one's position against the hit archer. Zero bursts before the first hit and after R; pause holds `speed_scale` at 0 |
+| B1–B4, B6 | headless | `test_arrow_trail_state.gd`: the same kind of turn. The trail exists while `main._arrows` is non-empty, follows the tip within 1 px, stops emitting when the arrow lands and is freed after 0.7 s. Pause, tree pause, and `visible` toggled with `emitting` unchanged |
+| The look: flash, splinters, dust, streak, wisps; contrast; scale; timing phases | frame strip (fixture) + **eyes** | Movie Maker strips from the preview scenes (section 5); Jiean's verdict in the running game at 1280 × 720 |
+| B5's look while hidden, the edge of the screen, scene load | **eyes** | Jiean in the running game |
+| It reads as "hit" / "who shot whom" in play | **eyes** | Jiean's playtest, including two-hit turns |
+| Price | headless + Visual Profiler | `cost_effects.gd` (with an empty-scene control); Visual Profiler GPU time on the RTX 3070 Ti Laptop GPU |
 
-## 3. Controlled inputs and predicted values
+## 5. Frame strips
 
-- Uniform values: **0.0, 0.5, 1.0**, plus **2.0** set from code for the `hint_range` question.
-- Lighting: none; `canvas_item` output is unlit. HDR 2D is off (`project.godot` has no `rendering/viewport/hdr_2d`), so blending happens on the stored sRGB values.
-- Pixels: in flat-colour regions of `archer_idle.png` (measured by Claude headlessly, 2026-10-31). The sprite is drawn at 0.248 scale, so each screen pixel averages a few texels. The 0.0 capture checks these starting values first.
+**Background (both previews):** the real board drawn by `main.tscn` after the game has started (PLAN_MOVE, turn 1), with both archers at their start squares: player at column 0, lane 5; enemy at column 7, lane 4 (`rules.gd:52-55`). In the preview scene only, the effect instance has `use_fixed_seed = true` and a stated `seed`. These are **fixture captures**.
 
-| Pixel | Where (texel → about screen, player at the start square, turn 1) | Value at 0.0 (sprite) | at 0.5 | at 1.0 |
-|---|---|---|---|---|
-| P1 head (birch) | (84, 84) → (192, 581) | (224, 174, 117) | (224, 137, 96) | (224, 101, 76) |
-| P2 base disc (walnut) | (124, 296) → (202, 634) | (90, 58, 34) | (137, 62, 42) | (184, 66, 51) |
+**Effect A** (`godot/previews/hit_burst_preview.tscn`):
+- **Trigger:** frame 10, on the player archer. The player's start square touches the table, so the strip shows the burst over both the lightest and the darkest background.
+- **Retrigger export:** when on, a second burst on the enemy archer at frame **42** (1.05 s × 30 fps ≈ 31.5 frames after frame 10).
+- **Frames to read (30 fps):** 10, 12, 15, 20, 30, 50; with the retrigger on, also 42, 44 and 47.
 
-Contrast of P1 against the light board square `#D8C7A0` at 0.0 and at 1.0: 0.474 and 0.257 (Jiean).
-Contrast Ratio rises from 1.20:1 to around 2.05:1, so the tint make the head more against the square.
+What each should show: 
+Frame 10 (trigger, +0 s): the first burst opens with a small cluster of sparks at the hit square; splinters have not appeared yet.
 
-### Hint experiment
+Frame 12 (+0.07 s): the spark cluster spreads slightly; the first splinter particles begin to appear.
 
-A 3 × 1 PNG with greys 64, 128, 192, on two unshaded quads, Linear tonemap, exposure 1.0. Predicted displayed 8-bit values (Jiean, by hand, with `encode(x)`):
+Frame 15 (+0.17 s): sparks and splinters are both visible; the sparks are starting to fade at the edges.
 
-| Band (file value) | Quad A: `source_color` | Quad B: no hint |
+Frame 20 (+0.33 s): the splinter fan is widest here; the spark cluster is dimmer and thinner.
+
+Frame 30 (+0.67 s): the second burst has started, so two clusters overlap; the first burst's splinters are near the end of their life.
+
+Frame 50 (+1.33 s): both bursts are near full; the first burst's sparks are gone and only its splinters remain.
+
+Retrigger, frames 42 / 44 / 47: what is left of burst 1, and the start of burst 2 on the enemy archer.
+
+**Effect B** (`godot/previews/arrow_trail_preview.tscn`):
+- **Trigger:** an arrow drawn the way `main.gd:716-727` draws it flies from the player archer to column 2, lane 4. That is a real two-square shot (`rules.gd:121`), using the arc formula of `main.gd:718-721`.
+- **Condition:** starts at frame 10 (launch) and ends at frame **21** (landing: 0.35 s × 30 fps = 10.5 frames).
+- **Frames to read:** 10 (start), 13, 16 (steady, mid-flight), 21 (landing, condition ends), 26, 31, 42 (after: +0.7 s, everything gone).
+
+What each should show: A continuous line that can show the path of the arrow clearly. Earlier part of line gets faded earlier, and the hit effect will happen when the middle of the line disapper. 
+
+**Capture command** (Jiean runs it; the folder name per revision is `r<N>`):
+
+```bash
+mkdir -p captures/hit_burst/r0
+"$GODOT" --path godot res://previews/hit_burst_preview.tscn --write-movie "$PWD/captures/hit_burst/r0/frame.png" --fixed-fps 30 --quit-after 60
+```
+
+Godot 4.7.2 names frames `frame00000010.png` (8 digits, measured). Only the strip frames are committed.
+
+## 6. Predicted failures
+
+| # | Failure | Check that catches it |
 |---|---|---|
-| 64 | 64 | 137 |
-| 128 | 128 | 188 |
-| 192 | 192 | 225 |
+| 1 | **Dropped retrigger:** one burst node re-fired with `emitting = true` while still emitting does nothing, so the second hit of a turn has no burst. | State test: two hits 1.05 s apart, two live bursts at once (A3). |
+| 2 | **Godot 3 names** (`initial_velocity` for `initial_velocity_min`, `scale_amount` for `scale_amount_min`) load silently and leave defaults: splinters that don't fly. | Configuration test; mutation 1. |
+| 3 | **Saved `emitting = true`** (the engine default, measured): a burst plays when a scene loads, and a trail appears without an arrow. | Configuration test reads `emitting` = false; state test counts zero before the first event. |
+| 4 | **Trail with `local_coords` on:** the "trail" moves with the arrow and is never a line. | Configuration test; strip frames 13 and 16. |
+| 5 | **`trail_enabled` on Compatibility:** the whole emitter draws nothing (measured). | Configuration test asserts `trail_enabled` = false; strip. |
+| 6 | **Additive blend over the pale board:** the burst washes out to white. | Configuration test asserts Mix; strip frame 10 over the light square. |
+| 7 | **Effects ignore the game's own pause:** particles keep moving while P holds the board still. | State tests: `speed_scale` 0 while `main.paused`. |
+| 8 | **Dotted trail:** at 700–900 px/s and one emission per particle step at `fixed_fps` 30, the streak breaks into dots. | Strip frames 13 and 16; Jiean's eyes in play (the real game runs above 30 fps, the particles still step at 30). |
+| 9 | **Null texture:** each particle draws as a grey square. | Configuration test asserts every `texture` is non-null. |
 
-Which quad shows the file's values unchanged, and why: Quad A. GPU decodes sRGB to linear and then back to sRGB while to the screen, so the computation
-canceled as they are exact contrast.(Jiean).
+## 7. Price predictions and budget (Jiean)
 
-**Renderer:** this project uses **Compatibility** (`godot/project.godot:24`). The assignment's predictions assume Forward+ or Mobile, so these values are measured before any explanation is written.
+| | Effect A (CPU) | Effect B (GPU) |
+|---|---|---|
+| Peak particle count | 46 | 120 |
+| Predicted headless CPU price (ms per frame, above the control) | 0.015ms | 0ms |
+| Predicted GPU time (ms per frame, effect on − off) | 0.001ms | 0.003ms |
+| Budget, and the price it is compared on | 0.2ms (CPU node: both prices) | 0.2ms (GPU node: GPU time) |
 
-## 4. Material plan
 
-**Object:** two new flat tiles in the A3 diorama (`godot/diorama/asset_diorama.tscn`), `LinenSquareLight` and `LinenSquareDark`, each a `MeshInstance3D` with a 1 m × 1 m `PlaneMesh` (one board square), lying just above the floor, in view of the existing camera.
+## 8. Answers (Jiean)
 
-**Why not the A3 `board_square.glb`:** it has no UV coordinates (checked headlessly on 2026-10-31: both surfaces have no `ARRAY_TEX_UV`), so a texture cannot be placed on it. The source model must not change. Putting a material behind the importer would also change what `check_assets.gd` measures (`check_assets.gd:132-152`), and an importer material is shared by every instance, so it cannot give two looks.
-
-**Lighting to judge under:** the diorama's own lamp (one `DirectionalLight3D`, shadows on) and its ambient light (`asset_diorama.tscn:15-33`), with the camera unchanged. Compatibility has no SSAO or SSR, so nothing has to be switched off. The diorama keeps exactly one light (`check_assets.gd:187`).
-
-### Textures (Poly Haven **Hessian 380**, CC0; credits in `godot/assets/textures/hessian_380/ATTRIBUTION.md`)
-
-| File | Role | What the numbers mean | Sampled as | `compress/mode` | `compress/normal_map` | `mipmaps/generate` |
-|---|---|---|---|---|---|---|
-| `hessian_380_diff_1k.jpg` | colour | sRGB colour | colour (`source_color`) | 0 Lossless | 2 Disable | true |
-| `hessian_380_rough_1k.png` | data | roughness 0 glossy … 1 rough, linear | data (no `source_color`) | 0 Lossless | 2 Disable | true |
-| `hessian_380_nor_gl_1k.png` | data | tangent-space normal, OpenGL green-up; 0.5 = no tilt | data (`hint_normal`) | 0 Lossless | 1 Enable | true |
-| `hessian_380_nor_dx_1k.png` | calibration only, never bound | as above, DirectX green-down | — | 0 Lossless | 1 Enable | false |
-| `hint_greys.png` (3 × 1, written by a committed script) | hint experiment | greys 64, 128, 192 | both | 0 Lossless | 2 Disable | false |
-
-**Normal map convention:** `_nor_gl`, because Godot expects OpenGL.
-
-**Authors and roles, licence and date checked** (used as-is by the audit): Hessian 380, https://polyhaven.com/a/hessian_380; colormass (photography), Rico Cilliers (processing); CC0 (https://polyhaven.com/license); checked 2026-10-31.
-
-### Shader and uniforms
-
-- Shader: `godot/shaders/linen_square.gdshader`, `shader_type spatial;`, default (lit) render mode.
-- Hint-experiment shader: `godot/shaders/hint_experiment.gdshader`, `render_mode unshaded`.
-
-| Uniform | Type | Hint | Range | Default | Group | What should change on screen across the range |
-|---|---|---|---|---|---|---|
-| `albedo_tex` | `sampler2D` | `source_color, filter_linear_mipmap, repeat_enable` | — | diff | surface | — |
-| `tint` | `vec4` | `source_color` | colour | white | surface | white = the cloth as photographed; darker = darker cloth |
-| `uv_scale` | `float` | `hint_range(0.5, 8.0, 0.05)` | 0.5–8 | 3.65 (1 m ÷ 0.274 m) | surface | weave size: small values give huge threads, large values a fine weave |
-| `roughness_tex` | `sampler2D` | `filter_linear_mipmap, repeat_enable` | — | rough | relief | — |
-| `roughness_scale` | `float` | `hint_range(0.0, 1.0)` | 0–1 | 1.0 | relief | 0: glossy, a sharp lamp highlight; 1: matte cloth |
-| `normal_tex` | `sampler2D` | `hint_normal, filter_linear_mipmap, repeat_enable` | — | nor_gl | relief | — |
-| `normal_strength` | `float` | `hint_range(0.0, 2.0)` | 0–2 | 1.0 | relief | 0: flat (threads only painted); 2: deep threads with strong light and shade |
-
-Groups use `group_uniforms surface;` and `group_uniforms relief;`.
-
-### The two materials
-
-| Material | `tint` | `normal_strength` | Everything else |
-|---|---|---|---|
-| `godot/materials/linen_light.tres` | white `#FFFFFF` | 1.0 | defaults |
-| `godot/materials/linen_dark.tres` | stitch brown `#9A7F55` (the A3 board border, CHANGE-BRIEF A3-R1 at tag `a3`) | 1.5 | defaults |
-
-**Why:** the 2D board alternates light and dark squares (`main.gd:41-42`). Two materials from one shader give the 3D board the same checkerboard. The dark square has deeper threads, so that it reads as worn cloth and not only as a darker colour.
-
-## 5. Predicted failure cases
-
-1. **The tint restarts from 0 on a retrigger** (flicker). *Check:* the driver test taps the arrow keys faster than 0.20 s and asserts that the value never drops while the state holds (R3).
-2. **The enemy is tinted too, because the material is shared.** *Check:* the test asserts that the two sprites' materials are different objects and that the enemy's value stays 0.0 (R6).
-3. **The duration depends on the frame rate** (counting frames instead of time). *Check:* the same test at 30, 60 and 144 fps; game-time duration 0.20 s within one frame period (R2).
-4. **The tint keeps fading while paused, or ignores time scale.** *Check:* pause mid-fade, then `Engine.time_scale` 0.5 (R4).
-5. **After R (retry) the new sprite has no material.** *Check:* press R, then assert the material and the value (R6).
-6. **A data texture sampled with `source_color`, or the colour texture without it.** *Check:* the material test reads each sampler's hints from the shader source; mutation: removing `source_color` must fail it.
-7. **The DirectX normal map bound instead of the OpenGL one.** *Check:* the material test asserts the bound texture path; the curl ratio (about 0 for `_nor_gl`, about 2 for `_nor_dx` under the GL convention).
-8. **A renamed uniform silently stops the effect** (`set_shader_parameter` with an unknown name raises no error). *Check:* the uniform-list assertion; mutation: rename it in the shader only.
-
-## 6. Answers (Jiean)
-
-1. Which renderer does project.godot name, and what does it rule out? It names the Compatibility renderer (gl_compatibility, project.godot:24), which is the OpenGL 3.3 / WebGL 2 path. So we can't use decals or compute shaders — those need Forward+ or Mobile — and we can't use VoxelGI, SDFGI or SSIL, which are Forward+ only. I'm keeping Compatibility because the final project might go on the web, and web export needs it. Neither of the two A5 shaders needs anything from the excluded list, so it costs us nothing.
-
-2. What colour arrives in your fragment function before you change it, and what would the tempting alternative give you? By the time fragment() runs, COLOR is already the sprite's texture colour at that pixel, with the node's modulate / self_modulate (and any vertex colour) multiplied in. On the player archer modulate is white, so it's just the texture. On an enemy using the red fallback tint (piece.gd:182), the tint would already be in there. The tempting alternative is to sample the texture myself instead — that's question 3.
-
-3. For canvas_item: what would texture(TEXTURE, UV) give you instead of COLOR? Just the raw texel from the sprite image, with no modulate on top. So it would quietly lose any tint or fade the game applies through modulate, and it would read the texture a second time for no reason.
-
-4. For spatial: what does ALBEDO hold if you never write it, and what does COLOR hold? If I never touch ALBEDO, it stays white (vec3(1.0)), so the surface comes out white under the light. COLOR in fragment() is what came down from vertex() — the mesh's vertex colour, which is white when the mesh has none (a PlaneMesh doesn't). It is not the texture. I should double-check both against the "Spatial shaders" docs page before I lean on it.
-
-5. How long would a frame-counting version of your effect last at 30, 60 and 144 fps? Suppose someone wrote "add 1/12 per frame", tuned for 0.20 s at 60 fps (12 frames). Then the fade always takes 12 frames, so it lasts 12 ÷ fps seconds: 30 fps → 0.40 s, 60 fps → 0.20 s, 144 fps → about 0.083 s. That is why R2 measures in game time (delta), not frames.
-
-6. Which resource holds your uniform's default, which holds its current value, and what happens if two objects share the material? The default lives in the shader itself — the = 0.0 on the uniform line in the .gdshader. The current value lives in the ShaderMaterial: set_shader_parameter writes it there, and the material file saves whatever differs from the default. If two sprites share one material, setting the value hits both at once, so one archer's danger tint would show up on the other. That's failure case 2, and it's exactly why R6 gives every sprite its own material.
-
-7. Does hint_range clamp a value your driver sets from code? (prediction) My prediction: it does not clamp. hint_range is only a hint for drawing the Inspector slider; set_shader_parameter("exposed_amount", 2.0) from a script goes through the material, not the Inspector. If it really is not clamped, your line at t = 2.0 uses the factor 0.7 × 2 = 1.4, and mix goes past the red: for P1, G = 174 + (69 − 174) × 1.4 = 174 − 147 = 27, B = 117 + (58 − 117) × 1.4 = 117 − 82.6 = 34.4 → 34, giving (224, 27, 34), a deeper and more saturated red than the target. This is a prediction; the test that sets 2.0 will confirm it.
+1. Which node type does each effect use, and which features in your brief does it lack? Effect A use CPUParticles2D, and need nothing. Effect B is GPUParticles2D, which does have turbulence. However, there was a warning on Compatibility that a node draw nothing using trail, and that turns me to use moving world-space emitter instead: the emitter follows the arrow and leaves one dot per frame behind it.
+2. With `local_coords` as you set it, what does Effect A do if its parent moves after the event? local_coords is off, meaning world space. The burst is one-shot, so by the time the parent moves, every particle has already been born and stays exactly where it was born.
+3. Under the retrigger rule, each "damaged" event spawns a new HitBurst and the earlier one keeps playing. Only the two archers can land hits in this slice, and their hits are 1.05 s apart while a burst lives 1.2 s, so the second burst starts before the first has died. At most 2 bursts are alive at once, and at 23 particles per burst that is a peak of 46 particles. There is no melee in this slice, so nothing else can add a third burst.
+4. A headless run reports ≈0 for the GPU effect: the dummy renderer draws nothing and never runs the particle shader, so what is left is the node's CPU-side bookkeeping, which is negligible. The headless number is CPU time, not GPU time. With vsync on, FPS reads the display refresh rate in both cases, effect off and effect on, because each frame finishes far inside 1/refresh and vsync waits for the next refresh regardless; a sub-millisecond effect does not move the readout.
+5. First frame after load: there is no arrow yet, so there is no trail either way — nothing appears with or without preprocess. Preprocess matters mid-game: if the effect starts while an arrow already exists, preprocess makes the trail appear already "full" at the bow, as if it had been running; without it the trail starts empty and fills in as the arrow moves. Paused: pressing P in the game sets speed_scale to 0, so the emitter stops advancing and the trail holds its last state on screen; the test's tree pause does the same, with existing dots staying drawn and no new ones emitted. Hidden: rule B5 applies — the node stops drawing but keeps simulating by default, so unhiding shows the trail where it would have been; I did not freeze it on hide.
+6. Emission — when and how many: amount, one_shot, explosiveness, lifetime, and the emission shape decide when particles are born and how many per event. Process — how each particle moves and changes: initial velocity, spread, gravity, damping, turbulence, and the scale and colour curves and ramps; I also file local_coords here, because it picks the coordinate space the simulation runs in rather than what the particles look like, though it could sit under emission as where particles are born relative to the parent. Draw — what it looks like: texture, material, blend mode, and z-index; I also file visibility_rect here under draw/culling, because it only affects whether the node is drawn, not how particles behave.
 
 ## Revisions
 
-**Revision 1, 2026-11-02 (wording only).** Section 6: Jiean rewrote answers 1–4 and 6 in Jiean's own words after version 1 was committed (`5a32988`), replacing wording that came from Claude's hint drafts; the content of each answer is unchanged. Answer 5's set-up ("add 1/12 per frame", 12 ÷ fps) comes from Claude's hint; the three durations are Jiean's. Answer 7 is Jiean's own. Nothing else in the brief changed.
+*(none yet)*
