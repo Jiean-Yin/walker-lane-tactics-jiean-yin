@@ -1,0 +1,466 @@
+{
+	"all_passed": true,
+	"checks": [
+		{
+			"check": "empty r1: 600 frames sampled",
+			"detail": "600",
+			"pass": true
+		},
+		{
+			"check": "game_off r1: game at PLAN_MOVE with 2 pieces",
+			"detail": "PLAN_MOVE",
+			"pass": true
+		},
+		{
+			"check": "game_off r1: drivers idle (no burst, no trail, no event played)",
+			"detail": "bursts 0, trails 0, events 0",
+			"pass": true
+		},
+		{
+			"check": "game_off r1: 600 frames sampled",
+			"detail": "600",
+			"pass": true
+		},
+		{
+			"check": "burst_x2 r1: game at PLAN_MOVE with 2 pieces",
+			"detail": "PLAN_MOVE",
+			"pass": true
+		},
+		{
+			"check": "burst_x2 r1: drivers idle (no burst, no trail, no event played)",
+			"detail": "bursts 0, trails 0, events 0",
+			"pass": true
+		},
+		{
+			"check": "burst_x2 r1: 600 frames sampled",
+			"detail": "600",
+			"pass": true
+		},
+		{
+			"check": "burst_x2 r1: 2 bursts alive on every sampled frame (rule A3 maximum)",
+			"detail": "min 2, max 2",
+			"pass": true
+		},
+		{
+			"check": "trail_x2 r1: game at PLAN_MOVE with 2 pieces",
+			"detail": "PLAN_MOVE",
+			"pass": true
+		},
+		{
+			"check": "trail_x2 r1: drivers idle (no burst, no trail, no event played)",
+			"detail": "bursts 0, trails 0, events 0",
+			"pass": true
+		},
+		{
+			"check": "trail_x2 r1: 600 frames sampled",
+			"detail": "600",
+			"pass": true
+		},
+		{
+			"check": "trail_x2 r1: 2 trails x 2 emitters emitting on every sampled frame (§2 peak)",
+			"detail": "min 4, max 4",
+			"pass": true
+		},
+		{
+			"check": "trail_x2 r2: game at PLAN_MOVE with 2 pieces",
+			"detail": "PLAN_MOVE",
+			"pass": true
+		},
+		{
+			"check": "trail_x2 r2: drivers idle (no burst, no trail, no event played)",
+			"detail": "bursts 0, trails 0, events 0",
+			"pass": true
+		},
+		{
+			"check": "trail_x2 r2: 600 frames sampled",
+			"detail": "600",
+			"pass": true
+		},
+		{
+			"check": "trail_x2 r2: 2 trails x 2 emitters emitting on every sampled frame (§2 peak)",
+			"detail": "min 4, max 4",
+			"pass": true
+		},
+		{
+			"check": "burst_x2 r2: game at PLAN_MOVE with 2 pieces",
+			"detail": "PLAN_MOVE",
+			"pass": true
+		},
+		{
+			"check": "burst_x2 r2: drivers idle (no burst, no trail, no event played)",
+			"detail": "bursts 0, trails 0, events 0",
+			"pass": true
+		},
+		{
+			"check": "burst_x2 r2: 600 frames sampled",
+			"detail": "600",
+			"pass": true
+		},
+		{
+			"check": "burst_x2 r2: 2 bursts alive on every sampled frame (rule A3 maximum)",
+			"detail": "min 2, max 2",
+			"pass": true
+		},
+		{
+			"check": "game_off r2: game at PLAN_MOVE with 2 pieces",
+			"detail": "PLAN_MOVE",
+			"pass": true
+		},
+		{
+			"check": "game_off r2: drivers idle (no burst, no trail, no event played)",
+			"detail": "bursts 0, trails 0, events 0",
+			"pass": true
+		},
+		{
+			"check": "game_off r2: 600 frames sampled",
+			"detail": "600",
+			"pass": true
+		},
+		{
+			"check": "empty r2: 600 frames sampled",
+			"detail": "600",
+			"pass": true
+		},
+		{
+			"check": "fixed rate: every sampled delta is the same (--fixed-fps)",
+			"detail": "delta 0.016667 .. 0.016667 s, 60 fps",
+			"pass": true
+		}
+	],
+	"differences": [
+		{
+			"a": "empty",
+			"b": "game_off",
+			"diff_us": 118.746666666667,
+			"metric": "frame",
+			"note": "",
+			"t": 187.132507623811
+		},
+		{
+			"a": "empty",
+			"b": "game_off",
+			"diff_us": 0.0,
+			"metric": "process",
+			"note": "identical means: the script may be measuring only itself",
+			"t": 0.0
+		},
+		{
+			"a": "game_off",
+			"b": "burst_x2",
+			"diff_us": 7.81333333333333,
+			"metric": "frame",
+			"note": "",
+			"t": 8.083757007602
+		},
+		{
+			"a": "game_off",
+			"b": "burst_x2",
+			"diff_us": 0.0,
+			"metric": "process",
+			"note": "identical means: the script may be measuring only itself",
+			"t": 0.0
+		},
+		{
+			"a": "game_off",
+			"b": "trail_x2",
+			"diff_us": 6.61166666666668,
+			"metric": "frame",
+			"note": "",
+			"t": 8.02504930281374
+		},
+		{
+			"a": "game_off",
+			"b": "trail_x2",
+			"diff_us": 0.0,
+			"metric": "process",
+			"note": "identical means: the script may be measuring only itself",
+			"t": 0.0
+		},
+		{
+			"a": "burst_x2",
+			"b": "trail_x2",
+			"diff_us": -1.20166666666665,
+			"metric": "frame",
+			"note": "not distinguishable from noise (|t| < 2)",
+			"t": -1.33562094237626
+		},
+		{
+			"a": "burst_x2",
+			"b": "trail_x2",
+			"diff_us": 0.0,
+			"metric": "process",
+			"note": "identical means: the script may be measuring only itself",
+			"t": 0.0
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"fps_ticks": 60,
+	"passed": 25,
+	"per_round": {
+		"burst_x2": [
+			{
+				"frame": {
+					"max": 270.0,
+					"mean": 126.693333333333,
+					"min": 119.0,
+					"n": 600,
+					"p50": 123.0,
+					"p95": 150.0,
+					"sd": 12.7858679638186
+				},
+				"process": {
+					"max": 0.0,
+					"mean": 0.0,
+					"min": 0.0,
+					"n": 600,
+					"p50": 0.0,
+					"p95": 0.0,
+					"sd": 0.0
+				},
+				"round": 1
+			},
+			{
+				"frame": {
+					"max": 505.0,
+					"mean": 132.873333333333,
+					"min": 120.0,
+					"n": 600,
+					"p50": 124.0,
+					"p95": 181.0,
+					"sd": 33.1111945959093
+				},
+				"process": {
+					"max": 0.0,
+					"mean": 0.0,
+					"min": 0.0,
+					"n": 600,
+					"p50": 0.0,
+					"p95": 0.0,
+					"sd": 0.0
+				},
+				"round": 2
+			}
+		],
+		"empty": [
+			{
+				"frame": {
+					"max": 23.0,
+					"mean": 3.36,
+					"min": 3.0,
+					"n": 600,
+					"p50": 3.0,
+					"p95": 4.0,
+					"sd": 1.32160675215647
+				},
+				"process": {
+					"max": 0.0,
+					"mean": 0.0,
+					"min": 0.0,
+					"n": 600,
+					"p50": 0.0,
+					"p95": 0.0,
+					"sd": 0.0
+				},
+				"round": 1
+			},
+			{
+				"frame": {
+					"max": 16.0,
+					"mean": 3.08666666666667,
+					"min": 3.0,
+					"n": 600,
+					"p50": 3.0,
+					"p95": 4.0,
+					"sd": 0.627012064560216
+				},
+				"process": {
+					"max": 0.0,
+					"mean": 0.0,
+					"min": 0.0,
+					"n": 600,
+					"p50": 0.0,
+					"p95": 0.0,
+					"sd": 0.0
+				},
+				"round": 2
+			}
+		],
+		"game_off": [
+			{
+				"frame": {
+					"max": 428.0,
+					"mean": 121.28,
+					"min": 116.0,
+					"n": 600,
+					"p50": 118.0,
+					"p95": 128.0,
+					"sd": 18.4214689297355
+				},
+				"process": {
+					"max": 0.0,
+					"mean": 0.0,
+					"min": 0.0,
+					"n": 600,
+					"p50": 0.0,
+					"p95": 0.0,
+					"sd": 0.0
+				},
+				"round": 1
+			},
+			{
+				"frame": {
+					"max": 423.0,
+					"mean": 122.66,
+					"min": 116.0,
+					"n": 600,
+					"p50": 118.0,
+					"p95": 138.0,
+					"sd": 24.9944447918083
+				},
+				"process": {
+					"max": 0.0,
+					"mean": 0.0,
+					"min": 0.0,
+					"n": 600,
+					"p50": 0.0,
+					"p95": 0.0,
+					"sd": 0.0
+				},
+				"round": 2
+			}
+		],
+		"trail_x2": [
+			{
+				"frame": {
+					"max": 470.0,
+					"mean": 130.723333333333,
+					"min": 123.0,
+					"n": 600,
+					"p50": 125.0,
+					"p95": 147.0,
+					"sd": 24.635508980469
+				},
+				"process": {
+					"max": 0.0,
+					"mean": 0.0,
+					"min": 0.0,
+					"n": 600,
+					"p50": 0.0,
+					"p95": 0.0,
+					"sd": 0.0
+				},
+				"round": 1
+			},
+			{
+				"frame": {
+					"max": 192.0,
+					"mean": 126.44,
+					"min": 122.0,
+					"n": 600,
+					"p50": 124.0,
+					"p95": 139.0,
+					"sd": 7.02129363250035
+				},
+				"process": {
+					"max": 0.0,
+					"mean": 0.0,
+					"min": 0.0,
+					"n": 600,
+					"p50": 0.0,
+					"p95": 0.0,
+					"sd": 0.0
+				},
+				"round": 2
+			}
+		]
+	},
+	"pooled": {
+		"burst_x2": {
+			"frame": {
+				"max": 505.0,
+				"mean": 129.783333333333,
+				"min": 119.0,
+				"n": 1200,
+				"p50": 123.0,
+				"p95": 168.0,
+				"sd": 25.2773715039231
+			},
+			"process": {
+				"max": 0.0,
+				"mean": 0.0,
+				"min": 0.0,
+				"n": 1200,
+				"p50": 0.0,
+				"p95": 0.0,
+				"sd": 0.0
+			}
+		},
+		"empty": {
+			"frame": {
+				"max": 23.0,
+				"mean": 3.22333333333333,
+				"min": 3.0,
+				"n": 1200,
+				"p50": 3.0,
+				"p95": 4.0,
+				"sd": 1.04292631649615
+			},
+			"process": {
+				"max": 0.0,
+				"mean": 0.0,
+				"min": 0.0,
+				"n": 1200,
+				"p50": 0.0,
+				"p95": 0.0,
+				"sd": 0.0
+			}
+		},
+		"game_off": {
+			"frame": {
+				"max": 428.0,
+				"mean": 121.97,
+				"min": 116.0,
+				"n": 1200,
+				"p50": 118.0,
+				"p95": 132.0,
+				"sd": 21.9570230006076
+			},
+			"process": {
+				"max": 0.0,
+				"mean": 0.0,
+				"min": 0.0,
+				"n": 1200,
+				"p50": 0.0,
+				"p95": 0.0,
+				"sd": 0.0
+			}
+		},
+		"trail_x2": {
+			"frame": {
+				"max": 470.0,
+				"mean": 128.581666666667,
+				"min": 122.0,
+				"n": 1200,
+				"p50": 125.0,
+				"p95": 143.0,
+				"sd": 18.2323982929237
+			},
+			"process": {
+				"max": 0.0,
+				"mean": 0.0,
+				"min": 0.0,
+				"n": 1200,
+				"p50": 0.0,
+				"p95": 0.0,
+				"sd": 0.0
+			}
+		}
+	},
+	"report": "cost_effects",
+	"rounds": 2,
+	"sample_frames": 600,
+	"total": 25,
+	"units": "microseconds",
+	"unix_time": 1794167318,
+	"warmup_frames": 90
+}

@@ -1,0 +1,74 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+cost_effects: Godot 4.7.2-stable (official), warm-up 90, samples 600 per case per round, 2 rounds
+PASS  empty r1: 600 frames sampled  (600)
+CASE empty     round 1  frame   n 600  mean 0.0034 ms  sd 0.0013  min 0.0030  p50 0.0030  p95 0.0040  max 0.0230
+CASE empty     round 1  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+PASS  game_off r1: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  game_off r1: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  game_off r1: 600 frames sampled  (600)
+CASE game_off  round 1  frame   n 600  mean 0.1213 ms  sd 0.0184  min 0.1160  p50 0.1180  p95 0.1280  max 0.4280
+CASE game_off  round 1  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+PASS  burst_x2 r1: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  burst_x2 r1: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  burst_x2 r1: 600 frames sampled  (600)
+PASS  burst_x2 r1: 2 bursts alive on every sampled frame (rule A3 maximum)  (min 2, max 2)
+CASE burst_x2  round 1  frame   n 600  mean 0.1267 ms  sd 0.0128  min 0.1190  p50 0.1230  p95 0.1500  max 0.2700
+CASE burst_x2  round 1  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+PASS  trail_x2 r1: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  trail_x2 r1: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  trail_x2 r1: 600 frames sampled  (600)
+PASS  trail_x2 r1: 2 trails x 2 emitters emitting on every sampled frame (§2 peak)  (min 4, max 4)
+CASE trail_x2  round 1  frame   n 600  mean 0.1307 ms  sd 0.0246  min 0.1230  p50 0.1250  p95 0.1470  max 0.4700
+CASE trail_x2  round 1  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+PASS  trail_x2 r2: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  trail_x2 r2: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  trail_x2 r2: 600 frames sampled  (600)
+PASS  trail_x2 r2: 2 trails x 2 emitters emitting on every sampled frame (§2 peak)  (min 4, max 4)
+CASE trail_x2  round 2  frame   n 600  mean 0.1264 ms  sd 0.0070  min 0.1220  p50 0.1240  p95 0.1390  max 0.1920
+CASE trail_x2  round 2  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+PASS  burst_x2 r2: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  burst_x2 r2: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  burst_x2 r2: 600 frames sampled  (600)
+PASS  burst_x2 r2: 2 bursts alive on every sampled frame (rule A3 maximum)  (min 2, max 2)
+CASE burst_x2  round 2  frame   n 600  mean 0.1329 ms  sd 0.0331  min 0.1200  p50 0.1240  p95 0.1810  max 0.5050
+CASE burst_x2  round 2  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+PASS  game_off r2: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  game_off r2: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  game_off r2: 600 frames sampled  (600)
+CASE game_off  round 2  frame   n 600  mean 0.1227 ms  sd 0.0250  min 0.1160  p50 0.1180  p95 0.1380  max 0.4230
+CASE game_off  round 2  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+PASS  empty r2: 600 frames sampled  (600)
+CASE empty     round 2  frame   n 600  mean 0.0031 ms  sd 0.0006  min 0.0030  p50 0.0030  p95 0.0040  max 0.0160
+CASE empty     round 2  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+PASS  fixed rate: every sampled delta is the same (--fixed-fps)  (delta 0.016667 .. 0.016667 s, 60 fps)
+
+POOLED (all rounds)
+CASE empty     frame   n 1200  mean 0.0032 ms  sd 0.0010  min 0.0030  p50 0.0030  p95 0.0040  max 0.0230
+CASE empty     process n 1200  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+CASE game_off  frame   n 1200  mean 0.1220 ms  sd 0.0220  min 0.1160  p50 0.1180  p95 0.1320  max 0.4280
+CASE game_off  process n 1200  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+CASE burst_x2  frame   n 1200  mean 0.1298 ms  sd 0.0253  min 0.1190  p50 0.1230  p95 0.1680  max 0.5050
+CASE burst_x2  process n 1200  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+CASE trail_x2  frame   n 1200  mean 0.1286 ms  sd 0.0182  min 0.1220  p50 0.1250  p95 0.1430  max 0.4700
+CASE trail_x2  process n 1200  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+
+DIFFERENCES (pooled mean, B - A; t = difference / standard error of the difference)
+frame    empty     -> game_off   +0.1187 ms  (t +187.1)
+process  empty     -> game_off   +0.0000 ms  (t +0.0)
+NOTE  process empty vs game_off: identical means: the script may be measuring only itself. Expected to differ because the game scene does work every frame (board, HUD, pieces, drivers).
+frame    game_off  -> burst_x2   +0.0078 ms  (t +8.1)
+process  game_off  -> burst_x2   +0.0000 ms  (t +0.0)
+NOTE  process game_off vs burst_x2: identical means: the script may be measuring only itself. Expected to differ because Effect A is a CPU node: 2 bursts simulate on the CPU.
+frame    game_off  -> trail_x2   +0.0066 ms  (t +8.0)
+process  game_off  -> trail_x2   +0.0000 ms  (t +0.0)
+NOTE  process game_off vs trail_x2: identical means: the script may be measuring only itself. Expected to differ because Effect B is a GPU node: headless near zero is the prediction (§7, answer 4).
+frame    burst_x2  -> trail_x2   -0.0012 ms  (t -1.3)
+NOTE  frame burst_x2 vs trail_x2: not distinguishable from noise (|t| < 2). Expected to differ because CPU effect vs GPU effect.
+process  burst_x2  -> trail_x2   +0.0000 ms  (t +0.0)
+NOTE  process burst_x2 vs trail_x2: identical means: the script may be measuring only itself. Expected to differ because CPU effect vs GPU effect.
+SUMMARY cost_effects: 25/25 passed -> <repo>/evidence/cost_effects-1794167318.json
+WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
