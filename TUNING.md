@@ -182,7 +182,6 @@ Claude's comparison of r1 with its prediction. Sources: `captures/arrow_trail/r1
 - **Why it is weaker than predicted:** α 0.7 is the wisp's peak at birth, at the centre of a soft dot that fades to its edge, on a particle only 16–26 px across. So in flight the wisp hides behind the streak dot it is born with. It shows on its own only after the streak dots die (from about frame 24), which is where r1 differs most from r0.
 
 The change mainly strengthens the **after-image**: after the arrow lands, a trace of the path stays for about 0.3 s longer than in r0.
-My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
-> *Hint (Claude):* watch a shot in play. Do the darker puffs after the landing help you follow who shot whom, or are they noise? Does the dotted streak in flight still read as a line?
+My verdict (running game, 1280 × 720): Jiean: "The darker arrow flew through the lines clearly and I can easily tell where it came out and went to. Darker puffs provide extra hints for the result of the battle, which keep more attention focusing on the result of each turn within limited time." (Recorded as **kept**.)
 Strips: captures/arrow_trail/r0/, captures/arrow_trail/r1/
 Commits: `f8cb529` (prediction), `c3bbb9e` (change)

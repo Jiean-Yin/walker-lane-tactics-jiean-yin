@@ -90,7 +90,7 @@ All strips are **fixture captures** from `godot/previews/` with a fixed seed, re
 | A | r2 | `Flash.scale_amount` 1.25 → 3.0 | kept | `captures/hit_burst/r2/` |
 | A | r3 | `Flash.lifetime` 0.36 → 1.08 | kept | `captures/hit_burst/r3/` |
 | B | r0 | — | first look: "closely dotted lines … Clear." | `captures/arrow_trail/r0/` |
-| B | r1 | `Wisps.color_ramp` `#9A8466` α 0.45 → `#6E5A44` α 0.7 | TO FILL | `captures/arrow_trail/r1/` |
+| B | r1 | `Wisps.color_ramp` `#9A8466` α 0.45 → `#6E5A44` α 0.7 | kept: "I can easily tell where it came out and went to" | `captures/arrow_trail/r1/` |
 
 ## A6.6 Price
 
@@ -177,18 +177,22 @@ Jiean's conclusion: TO FILL (Jiean)
 
 | What | Line(s) | The line |
 |---|---|---|
-| `shader_type` | TO FILL | |
-| `start()` | TO FILL | |
-| `process()` | TO FILL | |
-| initial velocity set from its minimum and maximum | TO FILL | |
-| gravity changes velocity | TO FILL | |
-| colour over life sampled | TO FILL | |
-| scale over life applied | TO FILL | |
-| a line tied to a brief setting, with that setting's value | TO FILL | |
+| `shader_type` | 3 | shader_type particles; |
+| `start()` | 323 | void start() |
+| `process()` | 378 | void process() |
+| initial velocity set from its minimum and maximum | 10 | |
+| gravity changes velocity | 44 | |
+| colour over life sampled | 45 | |
+| scale over life applied | 46 | |
+| a line tied to a brief setting, with that setting's value | `turbulence_enabled` true | 441 |
 
 > *Hint (Claude):* search the file for these words, then read a few lines around each hit to find the one that does the job: `shader_type`; `void start`; `void process`; `initial_linear_velocity_min` (in this version the uniform has `linear` in its name: look for the `mix(` that picks a value between it and `_max`); `gravity` (look for where it becomes the force, then where the force changes the velocity); `color_ramp` (look for a `texture(` call); `scale_curve` (look for where its sample changes the scale, then where the scale multiplies `TRANSFORM`). For the last row: most uniforms here have **no value** in the file, because the values were stored in the material, which was not saved. So tie a line to a setting in one of two ways. Either pick code that exists only because of a setting in brief §2 (for example `turbulence_enabled` true, `emission_shape` sphere, or `particle_flag_disable_z` true), or pick a line that uses a uniform and give that uniform's value from the brief (for example `gravity`, (0, −20, 0) for `Wisps`).
 
-Which of the brief's settings live in this shader, and which belong to the draw step instead: TO FILL (Jiean)
+Which of the brief's settings live in this shader, and which belong to the draw step instead: (Jiean)
+Shader:
+All settings start with uniform or #define, "start()" or "process()" that changes `VELOCITY, COLOR or TRANSFORM`. 
+Draw Step:
+Draw-side settings are texture, CanvasItemMaterial blend mode, visibility_rect, and the node-side emission controls.
 > *Hint (Claude):* go through the `Wisps` column of brief §2. A setting lives in the shader if it appears as a `uniform` or a `#define`, or changes `VELOCITY`, `COLOR` or `TRANSFORM` in `start()` or `process()`. If it is not in the shader, find where it is set: on the `GPUParticles2D` node or on its `CanvasItemMaterial`. Then decide whether it changes how the particles are drawn, or when and how many are born (compare with your answer 6).
 
 ## A6.8 In play (HUMAN CHECK): Jiean's playtest
