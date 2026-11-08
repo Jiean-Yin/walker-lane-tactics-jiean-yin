@@ -18,15 +18,79 @@ All suites run through `scripts/run-test.sh <test> <fps|realtime> [timeout]` (th
 
 ## A6.1 Baseline, before and after
 
-| Suite | fps | Before (`5bcaf78`, `evidence/a6/baseline/`) | After |
+| Suite | fps | Before (`5bcaf78`, `evidence/a6/baseline/`) | After (`evidence/a6/final/`) |
 |---|---|---|---|
-| test_rules | 60 | 51/51 | — |
-| test_audio_events | 60 | 70/70 | — |
-| check_assets | 60 | 38/38 | — |
-| test_exposed_tint | 30 / 60 / 144 | 46/46 each | — |
-| test_materials | 60 | 148/148 | — |
+| test_rules | 60 | 51/51 | 51/51 |
+| test_audio_events | 60 | 70/70 | 70/70 |
+| check_assets | 60 | 38/38 | 38/38 |
+| test_exposed_tint | 30 / 60 / 144 | 46/46 each | 46/46 each |
+| test_materials | 60 | 148/148 | 148/148 |
+| test_hit_burst_config (new) | 60 | — | 107/107 |
+| test_arrow_trail_config (new) | 60 | — | 135/135 |
+| test_hit_burst_state (new) | 60 | — | 31/31 |
+| test_arrow_trail_state (new) | 60 | — | 31/31 |
+
+"After" is the run after CHANGE-BRIEF Revision 1 and Effect B r1, every suite with exit status 0. The final tag is re-run from a fresh clone (§A6.11).
 
 Known non-failing lines, the same as in A5: `test_rules` prints the expected `Rules.resolve_attacks called in phase 'move'`; `test_audio_events` and `test_exposed_tint` end with `N resources still in use at exit`.
+
+## A6.2 Configuration tests
+
+`test_hit_burst_config.gd` (agent, session 2a, `cb9830b`) and `test_arrow_trail_config.gd` (agent, session 2b, `de4f389`) load each effect scene and read every value of brief §1–2 back, with the brief's values as the expected values. They also check:
+- `emitting` saved as false (failure 3) and `local_coords` false (failure 4);
+- `trail_enabled` false (failure 5) and blend mode Mix (failure 6);
+- every `texture` non-null (failure 9) and `visibility_rect` as set;
+- turbulence on for `Wisps` only;
+- a scan of the scene text for Godot 3 and editor-only names (failure 2).
+
+Expected values changed only with a tuning revision, each in the same commit as the scene: Effect A r1–r3 (`8aa178c`, `1079375`, `cc9e1ee`) and Effect B r1 (`c3bbb9e`).
+
+## A6.3 Mutations on Effect A's configuration test (Jiean)
+
+Each mutation was made by hand in `godot/effects/hit_burst.tscn`, run with `./scripts/run-test.sh test_hit_burst_config.gd 60`, and then restored (`git diff` empty, 107/107 again). Commit `17a8e30`.
+
+| Mutation | Result | Evidence |
+|---|---|---|
+| 1. Godot 3 name: `initial_velocity_min = 140.0` written as `initial_velocity = 140.0` on `Splinters` | **exit 1, 105/107.** Two checks fail: the text scan (`line 104: initial_velocity = 140.0`) and the read-back (`Splinters.initial_velocity_min == 140.0` got **0.0**). The scene still loaded with no error or warning: the Godot 3 name was dropped silently and the default stayed (failure 2, now measured). | `evidence/a6/mutations/mutation-1.*` |
+| 2. A value: `Splinters.spread` 75 → 60 | **exit 1, 106/107**: `Splinters.spread == 75.0` got 60.0. Only that check fails. | `evidence/a6/mutations/mutation-2.*` |
+
+Mutation 1 in the running game (HUMAN, Jiean): "Does not seem to have any other problem, but the red flash seemed to fade earlier."
+- **Claude's hypothesis, not tested:** with `initial_velocity_min` at 0, splinters start between 0 and 260 px/s instead of 140 and 260. More of them stay near the hit point and cover the flash, which is drawn under them, so it seems to fade earlier.
+- The splinters still spray, because `_max` stays 260. That is why the mutation is easy to miss by eye and is caught by the test.
+
+## A6.4 State tests (real key presses, 60 fps)
+
+`test_hit_burst_state.gd` (agent, session 3a, `dd0ad5c`) and `test_arrow_trail_state.gd` (agent, session 3b, `e1e151d`).
+- **How they play:** both play the win route through `root.push_input()`. Turn 4 has two hits 64 frames apart; turn 5 is the killing hit.
+- **What they cover:** play again, P pause, `time_scale` 0.5, a SceneTree pause, and R. Every frame is sampled from a node with `process_priority` 1000.
+
+| Rule | Result (final run) |
+|---|---|
+| A1 one burst per `"damaged"` event, at the archer + (0, −40), all three emitters on | pass: 5 bursts, within 0.01 px |
+| A2 never otherwise (load, turns without hits, play again, R) | pass: per-frame count over 1092 frames |
+| A3 overlap: a new instance per hit, 2 alive at turn 4's second hit, never more than 2 | pass (failure 1 not seen) |
+| A4 a child of the driver, not the archer; R clears live bursts | pass |
+| A5 `speed_scale` 0 while paused, = `time_scale` otherwise; holds through a tree pause | pass |
+| A6 frees itself on `Dust.finished` | pass: 1.22–1.28 s (Revision 1 item 2) |
+| B1 a trail starts on the arrow's first frame, at its start point, emitting | pass: 6 trails, within 1 px |
+| B2 follows the tip within 1 px; stops when the arrow leaves `_arrows`; freed 0.70 s later | pass: 224 rows |
+| B2 stop against the impact | **first run 30/31**: measured 0, −2, 0, 0, −2 frames against the brief's −1..1. The agent left the check failing and reported it instead of widening the bound. The brief was corrected (Revision 1 item 3), then the bound: 31/31 |
+| B3 never otherwise; R clears trails | pass. The `"attack_cancelled"` case can't be reached in this 1-vs-1 slice; only the per-frame rule covers it |
+| B4 / B6 pause, tree pause, time scale | pass |
+| B5 hidden: `emitting` unchanged, no code reacts | pass. Whether the GPU keeps simulating while hidden is not observable headlessly |
+
+## A6.5 Frame strips and tuning
+
+All strips are **fixture captures** from `godot/previews/` with a fixed seed, rendered by Jiean with Movie Maker at 30 fps. Each revision's prediction, comparison and Jiean's verdict are in `TUNING.md`.
+
+| Effect | Revision | Change | Verdict (Jiean) | Strip |
+|---|---|---|---|---|
+| A | r0 | — | first look: "a clear hitten effect" | `captures/hit_burst/r0/`, `r0_retrigger/` |
+| A | r1 | `Flash.lifetime` 0.12 → 0.36 | kept, asked for more | `captures/hit_burst/r1/` |
+| A | r2 | `Flash.scale_amount` 1.25 → 3.0 | kept | `captures/hit_burst/r2/` |
+| A | r3 | `Flash.lifetime` 0.36 → 1.08 | kept | `captures/hit_burst/r3/` |
+| B | r0 | — | first look: "closely dotted lines … Clear." | `captures/arrow_trail/r0/` |
+| B | r1 | `Wisps.color_ramp` `#9A8466` α 0.45 → `#6E5A44` α 0.7 | TO FILL | `captures/arrow_trail/r1/` |
 
 ## A6.6 Price
 
@@ -122,6 +186,50 @@ Jiean's conclusion: TO FILL (Jiean)
 
 Which of the brief's settings live in this shader, and which belong to the draw step instead: TO FILL (Jiean)
 > *Hint (Claude):* go through the `Wisps` column of brief §2. A setting lives in the shader if it appears as a `uniform` or a `#define`, or changes `VELOCITY`, `COLOR` or `TRANSFORM` in `start()` or `process()`. If it is not in the shader, find where it is set: on the `GPUParticles2D` node or on its `CanvasItemMaterial`. Then decide whether it changes how the particles are drawn, or when and how many are born (compare with your answer 6).
+
+## A6.8 In play (HUMAN CHECK): Jiean's playtest
+
+TO FILL (Jiean): play several full games at 1280 × 720 and write what you saw for each line.
+
+| Check | What you saw |
+|---|---|
+| Two-hit turn: can you tell which archer took which hit? | TO FILL |
+| Rapid repeats: restart (R) during a burst or a trail; play again | TO FILL |
+| Effect B start and stop: the trail starts at the bow, stops at the hit | TO FILL |
+| P pause during a burst and during a flight: both freeze, both resume | TO FILL |
+| Scene load: nothing on the title or the first turn | TO FILL |
+| Size against the 80 px archer; over the light square and the dark table | TO FILL |
+| Edge of the screen (the player's start square touches the table) | TO FILL |
+| Does it read as "hit" and "who shot whom"? | TO FILL |
+
+> *Hint (Claude):* write each line as what you saw, not what should happen, for example "R during the trail: the trail vanished on the same frame". Where you disagree with a reading of Claude's in TUNING.md, say so here; disagreements are part of the evidence.
+
+## A6.9 Predicted failures (CHANGE-BRIEF §6) against results
+
+| # | Failure | Happened? | Caught by |
+|---|---|---|---|
+| 1 | Dropped retrigger | No: each hit makes a new instance | state test A3 overlap |
+| 2 | Godot 3 names load silently | Not in the agent's scenes. Mutation 1 showed it: it loads with no error and leaves 0.0 | config test text scan and read-back |
+| 3 | `emitting = true` saved | No | config test; zero bursts and trails on load |
+| 4 | Trail with `local_coords` on | No | config test; strip r0 frame 21 shows the whole arc |
+| 5 | `trail_enabled` on Compatibility | No | config test |
+| 6 | Additive blend | No | config test (Mix); strips |
+| 7 | Effects ignore the game's pause | No | state tests A5, B4 |
+| 8 | Dotted trail | **Yes**: dots about 20–25 px apart (strip r0, Jiean's first look) | strip and eyes; not fixed, see A6.10 |
+| 9 | Null texture | No | config test |
+
+## A6.10 Known limitations and what no headless run can show
+
+- **The trail is dotted** (failure 8). `GPUParticles2D` steps at `fixed_fps` 30, so one emission step per frame leaves one dot per step. Jiean judged the path clear as it is. Not tuned: raising `fixed_fps` or `amount` would be the next change to try.
+- **B5 while hidden:** whether the GPU keeps simulating can't be observed headlessly; the look while hidden is a human check (A6.8).
+- **The `"attack_cancelled"` case of A2 and B3** can't be reached in this 1-vs-1 slice. Only the per-frame "never otherwise" rule covers it.
+- **A3 overlap:** a burst may in principle free itself as early as 0.84 s, before the second hit at 1.05 s. This was never seen (measured 1.22–1.28 s).
+- **The red flash on the red enemy** has weak value contrast (TUNING r0 reading). Since r2 it reads by its edge over the board.
+- **Price:** see A6.6 for what each measurement can't show.
+
+## A6.11 Fresh-clone verification of the tag
+
+TO FILL (Claude, after tagging `a6`): clone, import, run every suite.
 
 # Assignment 5 — shaders, materials and the Godot shading language
 

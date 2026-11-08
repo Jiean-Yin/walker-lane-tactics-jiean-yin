@@ -1,0 +1,268 @@
+{
+	"all_passed": false,
+	"checks": [
+		{
+			"check": "archer_piece: loads from res://assets/models/archer_piece.glb",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "archer_piece: bounding box W x H x D matches brief within 0.01 m",
+			"detail": "got (0.4000, 0.8000, 0.4000), brief (0.4000, 0.8000, 0.4000)",
+			"pass": true
+		},
+		{
+			"check": "archer_piece: stands along Y (height 0.80 m on Y)",
+			"detail": "height axis Y",
+			"pass": true
+		},
+		{
+			"check": "archer_piece: lowest point at y = 0 (origin at the base)",
+			"detail": "min y 0.0000, max y 0.8000",
+			"pass": true
+		},
+		{
+			"check": "archer_piece: every node has scale (1, 1, 1) and rotation 0",
+			"detail": "archer_piece2 Node3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000); archer_piece MeshInstance3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000)",
+			"pass": true
+		},
+		{
+			"check": "archer_piece: triangles within budget 400",
+			"detail": "254 triangles",
+			"pass": true
+		},
+		{
+			"check": "archer_piece: every brief colour arrived as a material albedo (±2 of 255)",
+			"detail": "found 5A3A22, 1F6F78, E2B887, 24323F, 1B1410, missing ",
+			"pass": true
+		},
+		{
+			"check": "board_square: loads from res://assets/models/board_square.glb",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "board_square: bounding box W x H x D matches brief within 0.01 m",
+			"detail": "got (1.0000, 0.0500, 1.0000), brief (1.0000, 0.0500, 1.0000)",
+			"pass": true
+		},
+		{
+			"check": "board_square: stands along Y (height 0.05 m on Y)",
+			"detail": "height axis Y",
+			"pass": true
+		},
+		{
+			"check": "board_square: lowest point at y = 0 (origin at the base)",
+			"detail": "min y 0.0000, max y 0.0500",
+			"pass": true
+		},
+		{
+			"check": "board_square: every node has scale (1, 1, 1) and rotation 0",
+			"detail": "board_square2 Node3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000); board_square MeshInstance3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000)",
+			"pass": true
+		},
+		{
+			"check": "board_square: triangles within budget 100",
+			"detail": "60 triangles",
+			"pass": true
+		},
+		{
+			"check": "board_square: every brief colour arrived as a material albedo (±2 of 255)",
+			"detail": "found D8C7A0, 9A7F55, missing ",
+			"pass": true
+		},
+		{
+			"check": "goal_flag: loads from res://assets/models/goal_flag.glb",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "goal_flag: bounding box W x H x D matches brief within 0.01 m",
+			"detail": "got (0.4500, 1.2000, 0.3000), brief (0.4500, 1.2000, 0.3000)",
+			"pass": true
+		},
+		{
+			"check": "goal_flag: stands along Y (height 1.20 m on Y)",
+			"detail": "height axis Y",
+			"pass": true
+		},
+		{
+			"check": "goal_flag: lowest point at y = 0 (origin at the base)",
+			"detail": "min y 0.0000, max y 1.2000",
+			"pass": true
+		},
+		{
+			"check": "goal_flag: every node has scale (1, 1, 1) and rotation 0",
+			"detail": "goal_flag2 Node3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000); goal_flag MeshInstance3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000)",
+			"pass": true
+		},
+		{
+			"check": "goal_flag: triangles within budget 150",
+			"detail": "84 triangles",
+			"pass": true
+		},
+		{
+			"check": "goal_flag: every brief colour arrived as a material albedo (±2 of 255)",
+			"detail": "found 5A3A22, B23A2E, missing ",
+			"pass": true
+		},
+		{
+			"check": "diorama: res://diorama/asset_diorama.tscn loads",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: exactly one light",
+			"detail": "1 Light3D nodes",
+			"pass": true
+		},
+		{
+			"check": "diorama: has archer_piece",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: archer_piece sits on the floor (gap 0.0000 m)",
+			"detail": "asset min y 0.0000, floor top 0.0000",
+			"pass": true
+		},
+		{
+			"check": "diorama: archer_piece fully inside the camera view",
+			"detail": "box (-0.2000, 0.0000, -0.2000) .. (0.2000, 0.8000, 0.2000)",
+			"pass": true
+		},
+		{
+			"check": "diorama: has board_square",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: board_square sits on the floor (gap 0.0000 m)",
+			"detail": "asset min y 0.0000, floor top 0.0000",
+			"pass": true
+		},
+		{
+			"check": "diorama: board_square fully inside the camera view",
+			"detail": "box (-0.5000, 0.0000, -0.5000) .. (0.5000, 0.0500, 0.5000)",
+			"pass": true
+		},
+		{
+			"check": "diorama: has goal_flag",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: goal_flag sits on the floor (gap 0.0000 m)",
+			"detail": "asset min y 0.0000, floor top 0.0000",
+			"pass": true
+		},
+		{
+			"check": "diorama: goal_flag fully inside the camera view",
+			"detail": "box (-0.1500, 0.0000, -0.1500) .. (0.3000, 1.2000, 0.1500)",
+			"pass": true
+		},
+		{
+			"check": "diorama: the three assets stand side by side without overlapping in X",
+			"detail": "[(-0.5, 0.5), (-0.2, 0.2), (-0.15, 0.3)]",
+			"pass": false
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"measured": {
+		"archer_piece": {
+			"aabb_min": [
+				-0.200000002980232,
+				0.0,
+				-0.200000002980232
+			],
+			"aabb_size": [
+				0.400000005960464,
+				0.800000011920929,
+				0.400000005960464
+			],
+			"albedo_hex": [
+				"5A3A22",
+				"1F6F78",
+				"E2B887",
+				"24323F",
+				"1B1410"
+			],
+			"nodes": [
+				"archer_piece2 Node3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000)",
+				"archer_piece MeshInstance3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000)"
+			],
+			"stands_along": "Y",
+			"triangles": 254
+		},
+		"board_square": {
+			"aabb_min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"aabb_size": [
+				1.0,
+				0.0500000007450581,
+				1.0
+			],
+			"albedo_hex": [
+				"D8C7A0",
+				"9A7F55"
+			],
+			"nodes": [
+				"board_square2 Node3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000)",
+				"board_square MeshInstance3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000)"
+			],
+			"stands_along": "Y",
+			"triangles": 60
+		},
+		"diorama": {
+			"floor_top_y": 0.0,
+			"gap_to_floor": {
+				"archer_piece": 0.0,
+				"board_square": 0.0,
+				"goal_flag": 0.0
+			},
+			"x_spans": [
+				[
+					-0.5,
+					0.5
+				],
+				[
+					-0.200000002980232,
+					0.200000002980232
+				],
+				[
+					-0.150000005960464,
+					0.300000011920929
+				]
+			]
+		},
+		"goal_flag": {
+			"aabb_min": [
+				-0.150000005960464,
+				0.0,
+				-0.150000005960464
+			],
+			"aabb_size": [
+				0.450000017881393,
+				1.20000004768372,
+				0.300000011920929
+			],
+			"albedo_hex": [
+				"5A3A22",
+				"B23A2E"
+			],
+			"nodes": [
+				"goal_flag2 Node3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000)",
+				"goal_flag MeshInstance3D scale (1.0000, 1.0000, 1.0000) rot (0.0000, 0.0000, 0.0000)"
+			],
+			"stands_along": "Y",
+			"triangles": 84
+		}
+	},
+	"passed": 32,
+	"report": "check_assets",
+	"total": 33,
+	"unix_time": 1792106172
+}

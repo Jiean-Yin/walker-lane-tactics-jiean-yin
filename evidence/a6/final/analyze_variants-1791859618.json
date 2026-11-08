@@ -1,0 +1,1029 @@
+{
+	"engine": "4.7.2-stable (official)",
+	"method": "BFS by turn over all player orders (9 moves x [hold fire + each valid target]); identical states merged with sequence counts; enemy orders from the AI. 'tie' = won only because ties go to the player (both lost the same turn, or equal pieces at the turn limit). Naive routes shoot the first valid target (top lane first).",
+	"report": "analyze_variants",
+	"seconds": 4.897,
+	"unix_time": 1791859618,
+	"variants": [
+		{
+			"clean_win_possible": false,
+			"counts_exact": true,
+			"earliest_clean_win_turn": -1,
+			"earliest_win_turn": 7,
+			"example_routes": {
+				"tie_same_turn": {
+					"reason": "back row reached (both sides lost this turn; ties go to the player)",
+					"route": [
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							1,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							0,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						]
+					],
+					"turn": 7
+				}
+			},
+			"expansions": 1005,
+			"id": "V0",
+			"label": "earlier setup: player HP 4, 2 marching enemies (lanes 2 & 4), order slots = all living units",
+			"losing_sequences": 45782.0,
+			"max_states_per_turn": 31,
+			"naive_forward_lane5": {
+				"kind": "back_row",
+				"reason": "back row reached (both sides lost this turn; ties go to the player)",
+				"result": "won",
+				"tie": true,
+				"turn": 7
+			},
+			"real_timing_decision": false,
+			"stay_and_shoot": {
+				"kind": "enemy_back_row",
+				"reason": "an enemy archer reached your back row in lane 2",
+				"result": "lost",
+				"tie": false,
+				"turn": 7
+			},
+			"total_sequences": 45834.0,
+			"win_fraction": 0.00113452895230615,
+			"winning_sequences": 52.0,
+			"wins_by_kind": {
+				"back_row": 0.0,
+				"elimination": 0.0,
+				"tie_same_turn": 52.0,
+				"tie_turn_limit": 0.0,
+				"turn_limit_more": 0.0
+			}
+		},
+		{
+			"clean_win_possible": false,
+			"counts_exact": true,
+			"earliest_clean_win_turn": -1,
+			"earliest_win_turn": -1,
+			"example_routes": {},
+			"expansions": 783,
+			"id": "V0b",
+			"label": "V0 but attack-order slots only for units that have a target",
+			"losing_sequences": 32718.0,
+			"max_states_per_turn": 18,
+			"naive_forward_lane5": {
+				"kind": "shot",
+				"reason": "shot by the enemy archer in lane 4",
+				"result": "lost",
+				"tie": false,
+				"turn": 4
+			},
+			"real_timing_decision": false,
+			"stay_and_shoot": {
+				"kind": "shot",
+				"reason": "shot by the enemy archer in lane 4",
+				"result": "lost",
+				"tie": false,
+				"turn": 6
+			},
+			"total_sequences": 32718.0,
+			"win_fraction": 0.0,
+			"winning_sequences": 0.0,
+			"wins_by_kind": {
+				"back_row": 0.0,
+				"elimination": 0.0,
+				"tie_same_turn": 0.0,
+				"tie_turn_limit": 0.0,
+				"turn_limit_more": 0.0
+			}
+		},
+		{
+			"clean_win_possible": false,
+			"counts_exact": true,
+			"earliest_clean_win_turn": -1,
+			"earliest_win_turn": 7,
+			"example_routes": {
+				"tie_same_turn": {
+					"reason": "back row reached (both sides lost this turn; ties go to the player)",
+					"route": [
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							1,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							0,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						]
+					],
+					"turn": 7
+				}
+			},
+			"expansions": 1005,
+			"id": "V1",
+			"label": "V0 with player HP 6",
+			"losing_sequences": 45782.0,
+			"max_states_per_turn": 31,
+			"naive_forward_lane5": {
+				"kind": "back_row",
+				"reason": "back row reached (both sides lost this turn; ties go to the player)",
+				"result": "won",
+				"tie": true,
+				"turn": 7
+			},
+			"real_timing_decision": false,
+			"stay_and_shoot": {
+				"kind": "enemy_back_row",
+				"reason": "an enemy archer reached your back row in lane 2",
+				"result": "lost",
+				"tie": false,
+				"turn": 7
+			},
+			"total_sequences": 45834.0,
+			"win_fraction": 0.00113452895230615,
+			"winning_sequences": 52.0,
+			"wins_by_kind": {
+				"back_row": 0.0,
+				"elimination": 0.0,
+				"tie_same_turn": 52.0,
+				"tie_turn_limit": 0.0,
+				"turn_limit_more": 0.0
+			}
+		},
+		{
+			"clean_win_possible": true,
+			"counts_exact": true,
+			"earliest_clean_win_turn": 5,
+			"earliest_win_turn": 5,
+			"example_routes": {
+				"back_row": {
+					"reason": "back row reached",
+					"route": [
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							1,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							1,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						]
+					],
+					"turn": 7
+				},
+				"elimination": {
+					"reason": "both enemies defeated",
+					"route": [
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							1,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							-1,
+							[
+								3,
+								1
+							]
+						],
+						[
+							-1,
+							-1,
+							[
+								3,
+								1
+							]
+						]
+					],
+					"turn": 5
+				},
+				"tie_same_turn": {
+					"reason": "back row reached (both sides lost this turn; ties go to the player)",
+					"route": [
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							1,
+							null
+						],
+						[
+							1,
+							0,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							-1,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						]
+					],
+					"turn": 7
+				}
+			},
+			"expansions": 6308,
+			"id": "V2",
+			"label": "V0 with player HP 7",
+			"losing_sequences": 690385.0,
+			"max_states_per_turn": 167,
+			"naive_forward_lane5": {
+				"kind": "back_row",
+				"reason": "back row reached (both sides lost this turn; ties go to the player)",
+				"result": "won",
+				"tie": true,
+				"turn": 7
+			},
+			"real_timing_decision": false,
+			"stay_and_shoot": {
+				"kind": "enemy_back_row",
+				"reason": "an enemy archer reached your back row in lane 2",
+				"result": "lost",
+				"tie": false,
+				"turn": 7
+			},
+			"total_sequences": 702972.0,
+			"win_fraction": 0.0179054073277456,
+			"winning_sequences": 12587.0,
+			"wins_by_kind": {
+				"back_row": 105.0,
+				"elimination": 10159.0,
+				"tie_same_turn": 2323.0,
+				"tie_turn_limit": 0.0,
+				"turn_limit_more": 0.0
+			}
+		},
+		{
+			"clean_win_possible": false,
+			"counts_exact": true,
+			"earliest_clean_win_turn": -1,
+			"earliest_win_turn": 7,
+			"example_routes": {
+				"tie_same_turn": {
+					"reason": "back row reached (both sides lost this turn; ties go to the player)",
+					"route": [
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							1,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							0,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						]
+					],
+					"turn": 7
+				}
+			},
+			"expansions": 1005,
+			"id": "V3",
+			"label": "V0 with enemy damage 2 (player HP 4)",
+			"losing_sequences": 45782.0,
+			"max_states_per_turn": 31,
+			"naive_forward_lane5": {
+				"kind": "back_row",
+				"reason": "back row reached (both sides lost this turn; ties go to the player)",
+				"result": "won",
+				"tie": true,
+				"turn": 7
+			},
+			"real_timing_decision": false,
+			"stay_and_shoot": {
+				"kind": "enemy_back_row",
+				"reason": "an enemy archer reached your back row in lane 2",
+				"result": "lost",
+				"tie": false,
+				"turn": 7
+			},
+			"total_sequences": 45834.0,
+			"win_fraction": 0.00113452895230615,
+			"winning_sequences": 52.0,
+			"wins_by_kind": {
+				"back_row": 0.0,
+				"elimination": 0.0,
+				"tie_same_turn": 52.0,
+				"tie_turn_limit": 0.0,
+				"turn_limit_more": 0.0
+			}
+		},
+		{
+			"clean_win_possible": true,
+			"counts_exact": true,
+			"earliest_clean_win_turn": 5,
+			"earliest_win_turn": 5,
+			"example_routes": {
+				"back_row": {
+					"reason": "back row reached",
+					"route": [
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						]
+					],
+					"turn": 7
+				},
+				"elimination": {
+					"reason": "enemy defeated",
+					"route": [
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							1,
+							0,
+							[
+								3,
+								3
+							]
+						],
+						[
+							0,
+							0,
+							[
+								3,
+								3
+							]
+						]
+					],
+					"turn": 5
+				},
+				"tie_same_turn": {
+					"reason": "back row reached (both sides lost this turn; ties go to the player)",
+					"route": [
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						]
+					],
+					"turn": 8
+				}
+			},
+			"expansions": 2001,
+			"id": "V4",
+			"label": "SLICE DEFAULT: one marching enemy only (lane 4)",
+			"losing_sequences": 242466.0,
+			"max_states_per_turn": 46,
+			"naive_forward_lane5": {
+				"kind": "shot",
+				"reason": "shot by the enemy archer in lane 4",
+				"result": "lost",
+				"tie": false,
+				"turn": 4
+			},
+			"real_timing_decision": true,
+			"stay_and_shoot": {
+				"kind": "shot",
+				"reason": "shot by the enemy archer in lane 4",
+				"result": "lost",
+				"tie": false,
+				"turn": 6
+			},
+			"total_sequences": 259043.0,
+			"win_fraction": 0.0639932366441093,
+			"winning_sequences": 16577.0,
+			"wins_by_kind": {
+				"back_row": 10.0,
+				"elimination": 16385.0,
+				"tie_same_turn": 182.0,
+				"tie_turn_limit": 0.0,
+				"turn_limit_more": 0.0
+			}
+		},
+		{
+			"clean_win_possible": true,
+			"counts_exact": false,
+			"earliest_clean_win_turn": 7,
+			"earliest_win_turn": 7,
+			"example_routes": {
+				"back_row": {
+					"reason": "back row reached",
+					"route": [
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							0,
+							[
+								4,
+								3
+							]
+						],
+						[
+							1,
+							1,
+							null
+						],
+						[
+							1,
+							1,
+							[
+								3,
+								3
+							]
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						]
+					],
+					"turn": 7
+				},
+				"tie_turn_limit": {
+					"reason": "turn limit reached; you hold as many pieces or more (ties go to you)",
+					"route": [
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							1,
+							[
+								1,
+								3
+							]
+						],
+						[
+							0,
+							0,
+							[
+								1,
+								3
+							]
+						],
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						]
+					],
+					"turn": 20
+				}
+			},
+			"expansions": 7544,
+			"id": "V5",
+			"label": "V0 but the lane-2 enemy guards col 7; lane-4 enemy marches",
+			"losing_sequences": 5603518683644845.0,
+			"max_states_per_turn": 60,
+			"naive_forward_lane5": {
+				"kind": "shot",
+				"reason": "shot by the enemy archer in lane 4",
+				"result": "lost",
+				"tie": false,
+				"turn": 4
+			},
+			"real_timing_decision": true,
+			"stay_and_shoot": {
+				"kind": "shot",
+				"reason": "shot by the enemy archer in lane 4",
+				"result": "lost",
+				"tie": false,
+				"turn": 6
+			},
+			"total_sequences": 59449874557095720.0,
+			"win_fraction": 0.905743809799578,
+			"winning_sequences": 53846355873450872.0,
+			"wins_by_kind": {
+				"back_row": 10519298725000.0,
+				"elimination": 0.0,
+				"tie_same_turn": 0.0,
+				"tie_turn_limit": 53835836574725872.0,
+				"turn_limit_more": 0.0
+			}
+		},
+		{
+			"clean_win_possible": true,
+			"counts_exact": false,
+			"earliest_clean_win_turn": 7,
+			"earliest_win_turn": 7,
+			"example_routes": {
+				"back_row": {
+					"reason": "back row reached",
+					"route": [
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							-1,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							1,
+							null
+						],
+						[
+							1,
+							1,
+							[
+								7,
+								3
+							]
+						],
+						[
+							1,
+							0,
+							[
+								7,
+								3
+							]
+						],
+						[
+							1,
+							0,
+							null
+						]
+					],
+					"turn": 7
+				},
+				"tie_turn_limit": {
+					"reason": "turn limit reached; you hold as many pieces or more (ties go to you)",
+					"route": [
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							-1,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							0,
+							0,
+							null
+						],
+						[
+							1,
+							0,
+							null
+						],
+						[
+							1,
+							1,
+							null
+						],
+						[
+							1,
+							1,
+							null
+						],
+						[
+							1,
+							1,
+							null
+						],
+						[
+							1,
+							1,
+							[
+								7,
+								3
+							]
+						],
+						[
+							0,
+							0,
+							[
+								7,
+								3
+							]
+						]
+					],
+					"turn": 20
+				}
+			},
+			"expansions": 15977,
+			"id": "V6",
+			"label": "V0 but both enemies guard col 7",
+			"losing_sequences": 140331242182828930.0,
+			"max_states_per_turn": 158,
+			"naive_forward_lane5": {
+				"kind": "back_row",
+				"reason": "back row reached",
+				"result": "won",
+				"tie": false,
+				"turn": 7
+			},
+			"real_timing_decision": false,
+			"stay_and_shoot": {
+				"kind": "turn_limit",
+				"reason": "turn limit reached with fewer pieces",
+				"result": "lost",
+				"tie": false,
+				"turn": 20
+			},
+			"total_sequences": 141302677051305600.0,
+			"win_fraction": 0.00687485112630923,
+			"winning_sequences": 971434868476678.0,
+			"wins_by_kind": {
+				"back_row": 37252744166242.0,
+				"elimination": 0.0,
+				"tie_same_turn": 0.0,
+				"tie_turn_limit": 934182124310436.0,
+				"turn_limit_more": 0.0
+			}
+		}
+	]
+}

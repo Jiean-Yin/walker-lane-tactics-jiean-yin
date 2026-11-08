@@ -1,0 +1,138 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  scene text is readable
+PASS  no Godot 3 / editor-only names in the scene text (failure 2)  ([])
+PASS  scene loads: res://effects/arrow_trail.tscn
+PASS  root is a Node2D named ArrowTrail  (["Node2D", &"ArrowTrail"])
+PASS  children are exactly Streak, Wisps, each a GPUParticles2D  (["Streak:GPUParticles2D", "Wisps:GPUParticles2D"])
+PASS  Streak exists as GPUParticles2D
+PASS  Streak.emitting is a stored GPUParticles2D property in this build
+PASS  Streak.emitting == false  (false)
+PASS  Streak.amount is a stored GPUParticles2D property in this build
+PASS  Streak.amount == 48  (48)
+PASS  Streak.lifetime is a stored GPUParticles2D property in this build
+PASS  Streak.lifetime == 0.3  (0.3)
+PASS  Streak.one_shot is a stored GPUParticles2D property in this build
+PASS  Streak.one_shot == false  (false)
+PASS  Streak.explosiveness is a stored GPUParticles2D property in this build
+PASS  Streak.explosiveness == 0.0  (0.0)
+PASS  Streak.preprocess is a stored GPUParticles2D property in this build
+PASS  Streak.preprocess == 0.0  (0.0)
+PASS  Streak.local_coords is a stored GPUParticles2D property in this build
+PASS  Streak.local_coords == false  (false)
+PASS  Streak.fixed_fps is a stored GPUParticles2D property in this build
+PASS  Streak.fixed_fps == 30  (30)
+PASS  Streak.interpolate is a stored GPUParticles2D property in this build
+PASS  Streak.interpolate == true  (true)
+PASS  Streak.trail_enabled is a stored GPUParticles2D property in this build
+PASS  Streak.trail_enabled == false  (false)
+PASS  Streak.visibility_rect is a stored GPUParticles2D property in this build
+PASS  Streak.visibility_rect == [P: (-320.0, -200.0), S: (640.0, 400.0)]  ([P: (-320.0, -200.0), S: (640.0, 400.0)])
+PASS  Streak.use_fixed_seed is a stored GPUParticles2D property in this build
+PASS  Streak.use_fixed_seed == false  (false)
+PASS  Streak.texture is a GradientTexture2D, not null (failure 9)  (GradientTexture2D)
+PASS  Streak.texture has a Gradient
+PASS  Streak.texture: soft dot 32 x 32, radial, white -> transparent (as Effect A)  (32x32 fill 1, alpha first 1.00 last 0.00, white true)
+PASS  Streak.material is CanvasItemMaterial, blend_mode Mix (0), not additive (failure 6)  (CanvasItemMaterial blend 0)
+PASS  Streak.process_material is a ParticleProcessMaterial  (ParticleProcessMaterial)
+PASS  Streak.process_material.particle_flag_disable_z is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.particle_flag_disable_z == true  (true)
+PASS  Streak.process_material.emission_shape is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.emission_shape == 0  (0)
+PASS  Streak.process_material.direction is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.direction == (0.0, -1.0, 0.0)  ((0.0, -1.0, 0.0))
+PASS  Streak.process_material.spread is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.spread == 180.0  (180.0)
+PASS  Streak.process_material.gravity is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.gravity == (0.0, 0.0, 0.0)  ((0.0, 0.0, 0.0))
+PASS  Streak.process_material.initial_velocity_min is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.initial_velocity_min == 0.0  (0.0)
+PASS  Streak.process_material.initial_velocity_max is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.initial_velocity_max == 8.0  (8.0)
+PASS  Streak.process_material.damping_min is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.damping_min == 10.0  (10.0)
+PASS  Streak.process_material.damping_max is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.damping_max == 10.0  (10.0)
+PASS  Streak.process_material.scale_min is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.scale_min == 0.3  (0.30000001192093)
+PASS  Streak.process_material.scale_max is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.scale_max == 0.35  (0.34999999403954)
+PASS  Streak.process_material.turbulence_enabled is a stored ParticleProcessMaterial property in this build
+PASS  Streak.process_material.turbulence_enabled == false  (false)
+PASS  Streak.scale_curve is a CurveTexture with a Curve
+PASS  Streak.scale_curve 1.0 -> 0.2 (2 points)  (points 2, sample(0) 1.0000, sample(1) 0.2000, max_value 2.00)
+PASS  Streak.color_ramp is a GradientTexture1D with a Gradient
+PASS  Streak.color_ramp ["0.00 #6E5A44 a0.80", "1.00 #6E5A44 a0.00"]  (["0.00 6e5a44 a0.80", "1.00 6e5a44 a0.00"])
+PASS  Wisps exists as GPUParticles2D
+PASS  Wisps.emitting is a stored GPUParticles2D property in this build
+PASS  Wisps.emitting == false  (false)
+PASS  Wisps.amount is a stored GPUParticles2D property in this build
+PASS  Wisps.amount == 12  (12)
+PASS  Wisps.lifetime is a stored GPUParticles2D property in this build
+PASS  Wisps.lifetime == 0.7  (0.7)
+PASS  Wisps.one_shot is a stored GPUParticles2D property in this build
+PASS  Wisps.one_shot == false  (false)
+PASS  Wisps.explosiveness is a stored GPUParticles2D property in this build
+PASS  Wisps.explosiveness == 0.0  (0.0)
+PASS  Wisps.preprocess is a stored GPUParticles2D property in this build
+PASS  Wisps.preprocess == 0.0  (0.0)
+PASS  Wisps.local_coords is a stored GPUParticles2D property in this build
+PASS  Wisps.local_coords == false  (false)
+PASS  Wisps.fixed_fps is a stored GPUParticles2D property in this build
+PASS  Wisps.fixed_fps == 30  (30)
+PASS  Wisps.interpolate is a stored GPUParticles2D property in this build
+PASS  Wisps.interpolate == true  (true)
+PASS  Wisps.trail_enabled is a stored GPUParticles2D property in this build
+PASS  Wisps.trail_enabled == false  (false)
+PASS  Wisps.visibility_rect is a stored GPUParticles2D property in this build
+PASS  Wisps.visibility_rect == [P: (-320.0, -200.0), S: (640.0, 400.0)]  ([P: (-320.0, -200.0), S: (640.0, 400.0)])
+PASS  Wisps.use_fixed_seed is a stored GPUParticles2D property in this build
+PASS  Wisps.use_fixed_seed == false  (false)
+PASS  Wisps.texture is a GradientTexture2D, not null (failure 9)  (GradientTexture2D)
+PASS  Wisps.texture has a Gradient
+PASS  Wisps.texture: soft dot 32 x 32, radial, white -> transparent (as Effect A)  (32x32 fill 1, alpha first 1.00 last 0.00, white true)
+PASS  Wisps.material is CanvasItemMaterial, blend_mode Mix (0), not additive (failure 6)  (CanvasItemMaterial blend 0)
+PASS  Wisps.process_material is a ParticleProcessMaterial  (ParticleProcessMaterial)
+PASS  Wisps.process_material.particle_flag_disable_z is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.particle_flag_disable_z == true  (true)
+PASS  Wisps.process_material.emission_shape is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.emission_shape == 1  (1)
+PASS  Wisps.process_material.emission_sphere_radius is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.emission_sphere_radius == 4.0  (4.0)
+PASS  Wisps.process_material.direction is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.direction == (0.0, -1.0, 0.0)  ((0.0, -1.0, 0.0))
+PASS  Wisps.process_material.spread is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.spread == 180.0  (180.0)
+PASS  Wisps.process_material.gravity is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.gravity == (0.0, -20.0, 0.0)  ((0.0, -20.0, 0.0))
+PASS  Wisps.process_material.initial_velocity_min is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.initial_velocity_min == 10.0  (10.0)
+PASS  Wisps.process_material.initial_velocity_max is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.initial_velocity_max == 25.0  (25.0)
+PASS  Wisps.process_material.damping_min is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.damping_min == 15.0  (15.0)
+PASS  Wisps.process_material.damping_max is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.damping_max == 20.0  (20.0)
+PASS  Wisps.process_material.scale_min is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.scale_min == 0.5  (0.5)
+PASS  Wisps.process_material.scale_max is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.scale_max == 0.8  (0.80000001192093)
+PASS  Wisps.process_material.turbulence_enabled is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.turbulence_enabled == true  (true)
+PASS  Wisps.process_material.turbulence_influence_min is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.turbulence_influence_min == 0.1  (0.10000000149012)
+PASS  Wisps.process_material.turbulence_influence_max is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.turbulence_influence_max == 0.2  (0.20000000298023)
+PASS  Wisps.process_material.turbulence_noise_strength is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.turbulence_noise_strength == 1.0  (1.0)
+PASS  Wisps.process_material.turbulence_noise_scale is a stored ParticleProcessMaterial property in this build
+PASS  Wisps.process_material.turbulence_noise_scale == 9.0  (9.0)
+PASS  Wisps.scale_curve is a CurveTexture with a Curve
+PASS  Wisps.scale_curve 0.6 -> 1.4 (2 points)  (points 2, sample(0) 0.6000, sample(1) 1.4000, max_value 2.00)
+PASS  Wisps.color_ramp is a GradientTexture1D with a Gradient
+PASS  Wisps.color_ramp ["0.00 #6E5A44 a0.70", "1.00 #6E5A44 a0.00"]  (["0.00 6e5a44 a0.70", "1.00 6e5a44 a0.00"])
+PASS  each emitter has its own ParticleProcessMaterial
+PASS  turbulence (GPU-only feature) is on for Wisps only
+PASS  CPUParticles2D has no turbulence property (why Effect B is GPU)
+PASS  peak count: 60 particles per trail, 120 with 2 trails alive  (60)
+SUMMARY test_arrow_trail_config: 135/135 passed -> <repo>/evidence/test_arrow_trail_config-1794176620.json
