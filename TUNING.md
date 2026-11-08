@@ -158,3 +158,31 @@ Claude's prediction for r1 (written before the edit). The preview uses a fixed s
 
 Not fixed by this change: the gaps between the streak dots (predicted failure 8) stay the same. The curl from turbulence will still be hard to see in stills: with damping 15–20 the wisps drift only a few pixels in their life.
 Risk: darker wisps compete with the streak, so the path may read as smoke puffs rather than a crisp line.
+Claude's comparison of r1 with its prediction. Sources: `captures/arrow_trail/r1/sheet_path_2x.png` next to r0's, a 3× crop of frames 16–31 with r0 above r1, and a pixel count over the trail region (x 190–590, y 400–620). The count shows pixels whose luminance changed by more than 2/255 from r0; every one of them is darker in r1:
+
+| Frame | Pixels changed | Mean / max darkening (of 255) |
+|---|---|---|
+| 10 | 34 | 6 / 12 |
+| 13 | 236 | 9 / 26 |
+| 16 | 403 | 10 / 36 |
+| 21 | 1004 | 10 / 32 |
+| 26 | 1264 | 8 / 27 |
+| 31 | 1087 | 6 / 18 |
+| 42 | 0 | — |
+
+- **frame 10:** **almost matches.** I predicted no change; 34 pixels are slightly darker, because the first wisp is already born on the launch frame.
+- **frame 13:** **does not match.** I predicted one or two separate blobs near the bow. There is only a faint darker halo around the first streak dot; at 2× it is hard to tell from r0.
+- **frame 16:** **partly matches.** The halos around the first two streak dots are darker, but the line does not look thicker or smudged.
+- **frame 21 (landing):** **does not match.** I predicted a dusty band. It still reads as a clean dotted line, with soft darker halos around 2–3 dots on the half nearest the bow; the dots near the target stay crisp.
+- **frame 26:** **matches in count and visibility, not in size.** 4–5 soft brown puffs along the arc are clearly visible, where r0 showed them only faintly. They are about 20 px across, not the 30 px I predicted.
+- **frame 31:** **matches, smaller than predicted.** 4 faint puffs, about 20–25 px, still visible; in r0 they had almost gone.
+- **frame 42:** matches; pixel-identical to r0, nothing left.
+- **Streak and arrow:** unchanged; the arrow is still the darkest thing on the path. The wisps don't compete with the streak in flight, so the risk I named did not happen in the strip.
+- **Turbulence:** still not visible as a curl in stills; the puffs rise a few pixels and stay in place.
+- **Why it is weaker than predicted:** α 0.7 is the wisp's peak at birth, at the centre of a soft dot that fades to its edge, on a particle only 16–26 px across. So in flight the wisp hides behind the streak dot it is born with. It shows on its own only after the streak dots die (from about frame 24), which is where r1 differs most from r0.
+
+The change mainly strengthens the **after-image**: after the arrow lands, a trace of the path stays for about 0.3 s longer than in r0.
+My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
+> *Hint (Claude):* watch a shot in play. Do the darker puffs after the landing help you follow who shot whom, or are they noise? Does the dotted streak in flight still read as a line?
+Strips: captures/arrow_trail/r0/, captures/arrow_trail/r1/
+Commits: `f8cb529` (prediction), `c3bbb9e` (change)
