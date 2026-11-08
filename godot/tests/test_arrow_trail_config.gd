@@ -15,7 +15,7 @@ const SCENE_PATH: String = "res://effects/arrow_trail.tscn"
 const EPS: float = 1e-4
 
 const STREAK_COL: String = "#6E5A44"
-const WISP_COL: String = "#9A8466"
+const WISP_COL: String = "#6E5A44"  # r1 (TUNING.md): was #9A8466
 const VIS_RECT: Rect2 = Rect2(-320, -200, 640, 400)
 
 ## GPUParticles2D node values per emitter (CHANGE-BRIEF §2 table, upper half).
@@ -63,7 +63,7 @@ const CURVES: Dictionary = {"Streak": [1.0, 0.2], "Wisps": [0.6, 1.4]}
 ## color_ramp: [offset, hex colour, alpha] per point.
 const RAMPS: Dictionary = {
 	"Streak": [[0.0, STREAK_COL, 0.8], [1.0, STREAK_COL, 0.0]],
-	"Wisps": [[0.0, WISP_COL, 0.45], [1.0, WISP_COL, 0.0]],
+	"Wisps": [[0.0, WISP_COL, 0.7], [1.0, WISP_COL, 0.0]],  # r1: alpha was 0.45
 }
 
 ## Godot 3 (or editor-only) names that must never be written as a scene property.

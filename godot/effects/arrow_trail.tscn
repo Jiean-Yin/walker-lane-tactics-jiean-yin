@@ -56,7 +56,7 @@ curve = SubResource("Curve_wisps_scale")
 
 [sub_resource type="Gradient" id="Gradient_wisps"]
 offsets = PackedFloat32Array(0, 1)
-colors = PackedColorArray(0.603922, 0.517647, 0.4, 0.45, 0.603922, 0.517647, 0.4, 0)
+colors = PackedColorArray(0.431373, 0.352941, 0.266667, 0.7, 0.431373, 0.352941, 0.266667, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_wisps"]
 gradient = SubResource("Gradient_wisps")
