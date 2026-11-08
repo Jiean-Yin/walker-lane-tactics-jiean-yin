@@ -106,11 +106,21 @@ Claude's prediction for r3 (written before the edit). Alpha 0.9 → 0 and scale 
 Risks:
 - the red glow now lasts as long as the dust, so it may read as a lasting red aura rather than a hit;
 - in a two-hit turn, the first flash (1.08 s) is still faintly visible when the second hit lands (1.05 s).
-Claude's comparison of r3 with its prediction: TO FILL (after the recapture)
+Claude's comparison of r3 with its prediction (from `captures/hit_burst/r3/sheet_player_2x.png` next to r2's):
+- **frame 10:** matches; byte-identical to r2.
+- **frame 12:** matches; the same red glow as r2 around the splinter cluster, slightly stronger.
+- **frame 15:** matches; a clear pink-red glow about 110 px across around the torso, where r2 showed only orange edges.
+- **frame 20:** matches; a clearly red glow about 120 px across, strongest at the upper right. r2 had no red here. The centre reads weaker than the alpha ≈ 0.6 I predicted, because the dust greys the body on top of it.
+- **frame 30:** **partly matches.** A haze covers most of the square as predicted, but it reads warm brown more than pink: the dust is drawn on top. The red shows mainly as a tint on the archer: the navy hair looks purple from frame 10 to frame 30 and is navy again at frame 50.
+- **frame 50:** matches; nothing left.
+- **Splinters and Dust:** unchanged.
+- **What it means for the risk I named:** the archer stays tinted red for about 0.7 s, about as long as the dust is visible. Whether that reads as "hit" or as a lasting aura can only be judged in play.
+
+Note on the folders: the r3 capture was first written into `captures/hit_burst/r2/` as well. Every frame there was byte-identical to `r3/`, so Claude restored the committed r2 strip (`3d465d5`) from git.
 My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
 > *Hint (Claude):* compare r2 and r3 in play. Does the longer glow read as "hit", or as a status effect? Is the archer hidden too long?
 Strips: captures/hit_burst/r2/, captures/hit_burst/r3/
-Commits:
+Commits: `3d465d5` (prediction), `cc9e1ee` (change)
 
 ## Effect B: first look (strip r0, before any revision)
 
@@ -133,3 +143,20 @@ Summary of the claim:
 - **Path and timing match the intent:** the trail starts at launch, stops at landing, is gone by +0.7 s, and the arrow stays readable in front of it.
 - **The wisps barely show:** `#9A8466` at alpha 0.45 over the beige board is low contrast, so the turbulence isn't visible.
 
+## 2026-11-08 -- Effect B, revision r1
+
+What I saw (running game, 1280 × 720): see "Effect B: first look" ("A continous black closely dotted lines into the target square. Clear."). Jiean chose this change from Claude's two options ("Stronger wisps").
+Claude's reading of r0: see "Claude's reading of r0" under Effect B (the wisps barely show, so the turbulence isn't visible).
+Change: `Wisps` `color_ramp` `#9A8466` α 0.45 → 0 becomes `#6E5A44` α 0.7 → 0 (one setting, the wisps' colour ramp: the streak's colour at a higher alpha). Requested by Jiean. Nothing else changes; the config test's expected value follows.
+Claude's prediction for r1 (written before the edit). The preview uses a fixed seed (71), so every wisp is born at the same place and moves the same way as in r0; only its colour and alpha change:
+- **frame 10:** unchanged (nothing has been emitted yet).
+- **frame 13:** one or two soft grey-brown blobs, about 16–20 px, near the bow, where r0 showed none.
+- **frame 16:** 3–4 soft brown blobs among the streak dots on the first half of the arc. The dotted line looks thicker and smudged there.
+- **frame 21 (landing):** about 5–6 blobs along the whole arc, the older ones near the bow larger (about 25–30 px) and fainter. They are drawn over the streak dots (`Wisps` comes after `Streak` in the scene), so the path reads as a dusty band with dots in it rather than a clean dotted line.
+- **frame 26:** the streak dots mostly gone, as in r0; 4–5 brown puffs about 30 px stay clearly visible along the arc, risen a few pixels.
+- **frame 31:** the puffs faint but still visible, about 35 px.
+- **frame 42:** nothing, as in r0 (the last wisp is born at landing, frame 21, and lives 0.7 s = 21 frames).
+- **Streak and arrow:** unchanged; the arrow stays darker (`#5A3A22` shaft, `#1B1410` head) than the wisps.
+
+Not fixed by this change: the gaps between the streak dots (predicted failure 8) stay the same. The curl from turbulence will still be hard to see in stills: with damping 15–20 the wisps drift only a few pixels in their life.
+Risk: darker wisps compete with the streak, so the path may read as smoke puffs rather than a crisp line.
