@@ -1,0 +1,146 @@
+[gd_scene format=3]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mix"]
+blend_mode = 0
+
+[sub_resource type="Gradient" id="Gradient_dot"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dot"]
+gradient = SubResource("Gradient_dot")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_sliver"]
+offsets = PackedFloat32Array(0, 0.25, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sliver"]
+gradient = SubResource("Gradient_sliver")
+width = 4
+height = 16
+fill = 0
+fill_from = Vector2(0, 0)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Curve" id="Curve_flash_scale"]
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.6, 0, 1, Vector2(1, 1.6), 0.6, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_flash"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.878431, 0.270588, 0.227451, 0.9, 0.878431, 0.270588, 0.227451, 0)
+
+[sub_resource type="Curve" id="Curve_splinters_scale"]
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, -0.4, 0, 1, Vector2(1, 0.6), -0.4, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_splinters"]
+offsets = PackedFloat32Array(0, 0.2, 0.7, 1)
+colors = PackedColorArray(0.878431, 0.270588, 0.227451, 1, 0.227451, 0.14902, 0.0862745, 1, 0.227451, 0.14902, 0.0862745, 1, 0.227451, 0.14902, 0.0862745, 0)
+
+[sub_resource type="Curve" id="Curve_dust_scale"]
+max_value = 2.0
+_data = [Vector2(0, 0.6), 0.0, 1.0, 0, 1, Vector2(1, 1.6), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dust"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.478431, 0.352941, 0.227451, 0.55, 0.478431, 0.352941, 0.227451, 0)
+
+[node name="HitBurst" type="Node2D"]
+z_index = 2
+
+[node name="Flash" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_mix")
+emitting = false
+amount = 1
+lifetime = 0.12
+one_shot = true
+preprocess = 0.0
+explosiveness = 1.0
+lifetime_randomness = 0.0
+local_coords = false
+texture = SubResource("GradientTexture2D_dot")
+emission_shape = 0
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 0.0
+initial_velocity_max = 0.0
+angular_velocity_min = 0.0
+angular_velocity_max = 0.0
+damping_min = 0.0
+damping_max = 0.0
+angle_min = 0.0
+angle_max = 0.0
+scale_amount_min = 1.25
+scale_amount_max = 1.25
+scale_amount_curve = SubResource("Curve_flash_scale")
+color_ramp = SubResource("Gradient_flash")
+particle_flag_align_y = false
+
+[node name="Splinters" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_mix")
+emitting = false
+amount = 14
+lifetime = 0.45
+one_shot = true
+preprocess = 0.0
+explosiveness = 1.0
+lifetime_randomness = 0.3
+local_coords = false
+texture = SubResource("GradientTexture2D_sliver")
+emission_shape = 0
+direction = Vector2(0, -1)
+spread = 75.0
+gravity = Vector2(0, 900)
+initial_velocity_min = 140.0
+initial_velocity_max = 260.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+damping_min = 0.0
+damping_max = 0.0
+angle_min = 0.0
+angle_max = 360.0
+scale_amount_min = 0.8
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_splinters_scale")
+color_ramp = SubResource("Gradient_splinters")
+particle_flag_align_y = true
+
+[node name="Dust" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_mix")
+emitting = false
+amount = 8
+lifetime = 1.2
+one_shot = true
+preprocess = 0.0
+explosiveness = 0.9
+lifetime_randomness = 0.3
+local_coords = false
+texture = SubResource("GradientTexture2D_dot")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, -30)
+initial_velocity_min = 10.0
+initial_velocity_max = 35.0
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+damping_min = 0.0
+damping_max = 0.0
+angle_min = 0.0
+angle_max = 360.0
+scale_amount_min = 1.0
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_dust_scale")
+color_ramp = SubResource("Gradient_dust")
+particle_flag_align_y = false

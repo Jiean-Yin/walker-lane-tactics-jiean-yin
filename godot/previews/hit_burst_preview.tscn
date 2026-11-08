@@ -1,0 +1,39 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://previews/hit_burst_preview.gd" id="1_preview"]
+[ext_resource type="PackedScene" path="res://game/main.tscn" id="2_main"]
+[ext_resource type="PackedScene" path="res://effects/hit_burst.tscn" id="3_burst"]
+
+[node name="HitBurstPreview" type="Node2D"]
+script = ExtResource("1_preview")
+retrigger = false
+
+[node name="Main" parent="." instance=ExtResource("2_main")]
+
+[node name="Burst1" parent="." instance=ExtResource("3_burst")]
+
+[node name="Flash" parent="Burst1" index="0"]
+use_fixed_seed = true
+seed = 61
+
+[node name="Splinters" parent="Burst1" index="1"]
+use_fixed_seed = true
+seed = 61
+
+[node name="Dust" parent="Burst1" index="2"]
+use_fixed_seed = true
+seed = 61
+
+[node name="Burst2" parent="." instance=ExtResource("3_burst")]
+
+[node name="Flash" parent="Burst2" index="0"]
+use_fixed_seed = true
+seed = 62
+
+[node name="Splinters" parent="Burst2" index="1"]
+use_fixed_seed = true
+seed = 62
+
+[node name="Dust" parent="Burst2" index="2"]
+use_fixed_seed = true
+seed = 62
