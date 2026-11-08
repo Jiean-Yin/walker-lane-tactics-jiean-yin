@@ -11,7 +11,7 @@ Effect B strip frames: 10, 13, 16, 21, 26, 31, 42 (arrow launched at 10, lands a
 
 ## Effect A: first look (strip r0, before any revision)
 
-What I saw (running game, 1280 × 720): I can see a clear hitten effect that looks like being hitten by a rock, accompanied by spreading dust that are clearly visible and vanish in a short time that can be captured by eyes.
+What I saw (running game, 1280 × 720): I can see a clear hitten effect that looks like being hitten by a rock, accompanied by spreading dust that are clearly visible and vanish in a short time that can be captured by eyes. (Jiean)
 
 
 ### Claude's reading of r0 (fixture; read after Jiean's first look, from `captures/hit_burst/r0/sheet_player_2x.png` and `r0_retrigger/sheet_enemy_2x.png`)
@@ -59,13 +59,32 @@ Claude's comparison of r1 with its prediction (from `captures/hit_burst/r1/sheet
 - **frames 30 and 50, and all splinters and dust:** match; pixel-for-pixel the same shapes as r0.
 - **Why it is weaker than predicted:** `Flash` is the first child of `HitBurst`, so `Splinters` (opaque dark brown) and `Dust` are drawn **on top** of it. From frame 11 the splinter cluster covers the centre of the soft dot, where its alpha is highest, and the dust greys what is left. My prediction used the flash's own alpha and ignored what is drawn over it.
 - **Possible next steps if you want the flash to read:** move `Flash` after `Dust` in the scene, so it draws on top; or make it larger or lighter. Each is one change, to judge separately.
-My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
-> *Hint (Claude):* say whether the flash now registers as a hit without staring, whether 0.36 s now feels too long next to the splinters, and how it looks on the enemy.
+My verdict (running game, 1280 × 720): Jiean: "I still cannot see the red flash clearly. Make it much larger than right now and last 3 times longer than the current status." (Recorded as **kept**: the next changes build on 0.36 s. Claude split Jiean's two requests into r2, size, and r3, length, so that each revision changes one setting.)
 Strips: captures/hit_burst/r0/, captures/hit_burst/r1/
+Commits: `83bd6ba` (prediction), `8aa178c` (change), `6f2263f` (strip r1 and comparison)
+
+## 2026-11-08 -- Effect A, revision r2
+
+What I saw (running game, 1280 × 720): see r1's verdict ("I still cannot see the red flash clearly. Make it much larger …").
+Claude's reading of r1: see r1's comparison (the flash is only faintly visible after frame 10, because the splinters and dust draw over it).
+Change: `Flash.scale_amount_min` / `_max` 1.25 / 1.25 → 3.0 / 3.0 (one setting, the flash's size), requested by Jiean. `Flash.lifetime` stays 0.36 until r3.
+Claude's prediction for r2 (written before the edit). The flash quad goes from 40 px to 96 px at birth and grows to about 154 px by the end of its life (curve 1.0 → 1.6):
+- **frame 10:** a large red glow, about 60–70 px of clearly red core, covering the archer's chest, head and arms and spilling onto the board on both sides;
+- **frame 12:** a red glow about 100 px across around the dark splinter cluster, clearly visible beyond the splinters;
+- **frame 15:** a pink-red halo about 120 px across at about half strength, reaching past the edges of the square;
+- **frame 20:** a faint pink haze over most of the square;
+- **frames 30 and 50:** unchanged;
+- **Splinters and Dust:** unchanged.
+
+Also predicted: on the red enemy the flash now spills onto the board around it, so it reads there by its edge rather than over the tunic. Risk: for 2–4 frames it hides the archer's face.
+Claude's comparison of r2 with its prediction: TO FILL (after the recapture)
+My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
+> *Hint (Claude):* is the hit now obvious without staring? Is the red disc too big for an 80 px archer, and does hiding the archer for a moment bother you?
+Strips: captures/hit_burst/r1/, captures/hit_burst/r2/
 Commits:
 
 ## Effect B: first look (strip r0, before any revision)
 
-What I saw (running game, 1280 × 720): TO FILL (Jiean)
+What I saw (running game, 1280 × 720): A continous black closely dotted lines into the target square. Clear. (Jiean)
 
 > *Hint (Claude):* say whether you see a continuous line or dots, how long the trail is compared with the shot, whether the wisps curl visibly, and whether the trail is gone before the next arrow.
