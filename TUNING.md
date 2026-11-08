@@ -37,6 +37,26 @@ Summary of the claim:
   2. the dust starts on frame 10 with the flash, drawn over the archer, so it greys the body instead of reading as a separate puff afterwards;
   3. the splinters spray out more than up.
 
+## 2026-11-08 -- Effect A, revision r1
+
+What I saw (running game, 1280 × 720): Jiean: "Let the red flash last longer, at least 3 times as long as now. I can barely realize it happens."
+Claude's reading of r0: see "Claude's reading of r0" above (flash visible on frames 10–11 only, about 30 px; weak on the red enemy).
+Change: `Flash.lifetime` 0.12 → 0.36 s (3×, the minimum Jiean asked for), requested by Jiean. Nothing else changes; the config test's expected value follows.
+Claude's prediction for r1 (written before the edit). The flash alpha falls linearly from 0.9 to 0, and its scale grows from 1.0 to 1.6 over 0.36 s instead of 0.12 s:
+- **frame 10:** unchanged, the same 30 px red dot at full strength;
+- **frame 12** (+0.07 s, 19% of its life): still clearly red, alpha ≈ 0.73, about 10% larger, instead of gone;
+- **frame 15** (+0.17 s, 46%): red still visible at about half strength, ≈ 1.3× the frame-10 size. The splinters are drawn on top of it (they come after `Flash` in the tree);
+- **frame 20** (+0.33 s, 93%): almost gone, a faint pink haze;
+- **frames 30 and 50:** unchanged from r0;
+- **Splinters and Dust** are pixel-identical to r0 in every frame (same fixed seeds, separate emitters).
+
+Not fixed by this change: the flash is still `#E0453A` on the red enemy, so it stays weak there (frames 42–44).
+Claude's comparison of r1 with its prediction: TO FILL (after the recapture)
+My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
+> *Hint (Claude):* say whether the flash now registers as a hit without staring, whether 0.36 s now feels too long next to the splinters, and how it looks on the enemy.
+Strips: captures/hit_burst/r0/, captures/hit_burst/r1/
+Commits:
+
 ## Effect B: first look (strip r0, before any revision)
 
 What I saw (running game, 1280 × 720): TO FILL (Jiean)
