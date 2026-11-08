@@ -1,0 +1,155 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  res://shaders/linen_square.gdshader loads as a Shader
+PASS  res://shaders/linen_square.gdshader: source text read  (835 chars)
+PASS  res://shaders/linen_square.gdshader: get_shader_uniform_list() names are exactly ["albedo_tex", "tint", "uv_scale", "roughness_tex", "roughness_scale", "normal_tex", "normal_strength"]  (listed ["albedo_tex", "tint", "uv_scale", "roughness_tex", "roughness_scale", "normal_tex", "normal_strength"])
+PASS  res://shaders/linen_square.gdshader: uniform albedo_tex has type 24  (listed type 24)
+PASS  res://shaders/linen_square.gdshader: uniform tint has type 20  (listed type 20)
+PASS  res://shaders/linen_square.gdshader: uniform uv_scale has type 3  (listed type 3)
+PASS  res://shaders/linen_square.gdshader: uniform roughness_tex has type 24  (listed type 24)
+PASS  res://shaders/linen_square.gdshader: uniform roughness_scale has type 3  (listed type 3)
+PASS  res://shaders/linen_square.gdshader: uniform normal_tex has type 24  (listed type 24)
+PASS  res://shaders/linen_square.gdshader: uniform normal_strength has type 3  (listed type 3)
+PASS  res://shaders/linen_square.gdshader: source declares exactly ["albedo_tex", "tint", "uv_scale", "roughness_tex", "roughness_scale", "normal_tex", "normal_strength"]  (source ["albedo_tex", "tint", "uv_scale", "roughness_tex", "roughness_scale", "normal_tex", "normal_strength"])
+PASS  res://shaders/linen_square.gdshader: albedo_tex hints are "source_color, filter_linear_mipmap, repeat_enable"  (source "source_color, filter_linear_mipmap, repeat_enable")
+PASS  res://shaders/linen_square.gdshader: tint hints are "source_color"  (source "source_color")
+PASS  res://shaders/linen_square.gdshader: tint default is vec4(1.0)  (source "vec4(1.0)")
+PASS  res://shaders/linen_square.gdshader: uv_scale hints are "hint_range(0.5, 8.0, 0.05)"  (source "hint_range(0.5, 8.0, 0.05)")
+PASS  res://shaders/linen_square.gdshader: uv_scale default is 3.65  (source "3.65")
+PASS  res://shaders/linen_square.gdshader: roughness_tex hints are "filter_linear_mipmap, repeat_enable"  (source "filter_linear_mipmap, repeat_enable")
+PASS  res://shaders/linen_square.gdshader: roughness_scale hints are "hint_range(0.0, 1.0)"  (source "hint_range(0.0, 1.0)")
+PASS  res://shaders/linen_square.gdshader: roughness_scale default is 1.0  (source "1.0")
+PASS  res://shaders/linen_square.gdshader: normal_tex hints are "hint_normal, filter_linear_mipmap, repeat_enable"  (source "hint_normal, filter_linear_mipmap, repeat_enable")
+PASS  res://shaders/linen_square.gdshader: normal_strength hints are "hint_range(0.0, 2.0)"  (source "hint_range(0.0, 2.0)")
+PASS  res://shaders/linen_square.gdshader: normal_strength default is 1.0  (source "1.0")
+PASS  res://shaders/linen_square.gdshader: albedo_tex has source_color  (hints "source_color, filter_linear_mipmap, repeat_enable")
+PASS  res://shaders/linen_square.gdshader: roughness_tex has no source_color  (hints "filter_linear_mipmap, repeat_enable")
+PASS  res://shaders/linen_square.gdshader: normal_tex has no source_color  (hints "hint_normal, filter_linear_mipmap, repeat_enable")
+PASS  res://shaders/linen_square.gdshader: does not use TIME
+PASS  res://shaders/hint_experiment.gdshader loads as a Shader
+PASS  res://shaders/hint_experiment.gdshader: source text read  (321 chars)
+PASS  res://shaders/hint_experiment.gdshader: get_shader_uniform_list() names are exactly ["grey_srgb", "grey_raw", "use_srgb"]  (listed ["grey_srgb", "grey_raw", "use_srgb"])
+PASS  res://shaders/hint_experiment.gdshader: uniform grey_srgb has type 24  (listed type 24)
+PASS  res://shaders/hint_experiment.gdshader: uniform grey_raw has type 24  (listed type 24)
+PASS  res://shaders/hint_experiment.gdshader: uniform use_srgb has type 1  (listed type 1)
+PASS  res://shaders/hint_experiment.gdshader: source declares exactly ["grey_srgb", "grey_raw", "use_srgb"]  (source ["grey_srgb", "grey_raw", "use_srgb"])
+PASS  res://shaders/hint_experiment.gdshader: grey_srgb hints are "source_color, filter_nearest"  (source "source_color, filter_nearest")
+PASS  res://shaders/hint_experiment.gdshader: grey_raw hints are "filter_nearest"  (source "filter_nearest")
+PASS  res://shaders/hint_experiment.gdshader: use_srgb hints are ""  (source "")
+PASS  res://shaders/hint_experiment.gdshader: use_srgb default is true  (source "true")
+PASS  res://shaders/hint_experiment.gdshader: grey_srgb has source_color  (hints "source_color, filter_nearest")
+PASS  res://shaders/hint_experiment.gdshader: grey_raw has no source_color  (hints "filter_nearest")
+PASS  res://shaders/hint_experiment.gdshader: does not use TIME
+PASS  res://materials/linen_light.tres loads as a ShaderMaterial
+PASS  res://materials/linen_light.tres: shader is res://shaders/linen_square.gdshader  (res://shaders/linen_square.gdshader)
+PASS  res://materials/linen_light.tres: tint = FFFFFF  (material holds #FFFFFF)
+PASS  res://materials/linen_light.tres: normal_strength = 1.0  (material holds 1.0)
+PASS  res://materials/linen_light.tres: uv_scale = not set (shader default)  (material holds null)
+PASS  res://materials/linen_light.tres: roughness_scale = not set (shader default)  (material holds null)
+PASS  res://materials/linen_light.tres: albedo_tex binds hessian_380_diff_1k.jpg  (res://assets/textures/hessian_380/hessian_380_diff_1k.jpg)
+PASS  res://materials/linen_light.tres: roughness_tex binds hessian_380_rough_1k.png  (res://assets/textures/hessian_380/hessian_380_rough_1k.png)
+PASS  res://materials/linen_light.tres: normal_tex binds hessian_380_nor_gl_1k.png  (res://assets/textures/hessian_380/hessian_380_nor_gl_1k.png)
+PASS  res://materials/linen_light.tres: every stored parameter is a shader uniform  (stored ["albedo_tex", "tint", "roughness_tex", "normal_tex", "normal_strength"])
+PASS  res://materials/linen_light.tres: never binds the DirectX normal map
+PASS  res://materials/linen_dark.tres loads as a ShaderMaterial
+PASS  res://materials/linen_dark.tres: shader is res://shaders/linen_square.gdshader  (res://shaders/linen_square.gdshader)
+PASS  res://materials/linen_dark.tres: tint = 9A7F55  (material holds #9A7F55)
+PASS  res://materials/linen_dark.tres: normal_strength = 1.5  (material holds 1.5)
+PASS  res://materials/linen_dark.tres: uv_scale = not set (shader default)  (material holds null)
+PASS  res://materials/linen_dark.tres: roughness_scale = not set (shader default)  (material holds null)
+PASS  res://materials/linen_dark.tres: albedo_tex binds hessian_380_diff_1k.jpg  (res://assets/textures/hessian_380/hessian_380_diff_1k.jpg)
+PASS  res://materials/linen_dark.tres: roughness_tex binds hessian_380_rough_1k.png  (res://assets/textures/hessian_380/hessian_380_rough_1k.png)
+PASS  res://materials/linen_dark.tres: normal_tex binds hessian_380_nor_gl_1k.png  (res://assets/textures/hessian_380/hessian_380_nor_gl_1k.png)
+PASS  res://materials/linen_dark.tres: every stored parameter is a shader uniform  (stored ["albedo_tex", "tint", "roughness_tex", "normal_tex", "normal_strength"])
+PASS  res://materials/linen_dark.tres: never binds the DirectX normal map
+PASS  res://materials/hint_srgb.tres loads as a ShaderMaterial
+PASS  res://materials/hint_srgb.tres: shader is res://shaders/hint_experiment.gdshader  (res://shaders/hint_experiment.gdshader)
+PASS  res://materials/hint_srgb.tres: use_srgb = true  (material holds true)
+PASS  res://materials/hint_srgb.tres: grey_srgb binds hint_greys.png  (res://assets/textures/hint_experiment/hint_greys.png)
+PASS  res://materials/hint_srgb.tres: grey_raw binds hint_greys.png  (res://assets/textures/hint_experiment/hint_greys.png)
+PASS  res://materials/hint_srgb.tres: every stored parameter is a shader uniform  (stored ["grey_srgb", "grey_raw", "use_srgb"])
+PASS  res://materials/hint_srgb.tres: never binds the DirectX normal map
+PASS  res://materials/hint_raw.tres loads as a ShaderMaterial
+PASS  res://materials/hint_raw.tres: shader is res://shaders/hint_experiment.gdshader  (res://shaders/hint_experiment.gdshader)
+PASS  res://materials/hint_raw.tres: use_srgb = false  (material holds false)
+PASS  res://materials/hint_raw.tres: grey_srgb binds hint_greys.png  (res://assets/textures/hint_experiment/hint_greys.png)
+PASS  res://materials/hint_raw.tres: grey_raw binds hint_greys.png  (res://assets/textures/hint_experiment/hint_greys.png)
+PASS  res://materials/hint_raw.tres: every stored parameter is a shader uniform  (stored ["grey_srgb", "grey_raw", "use_srgb"])
+PASS  res://materials/hint_raw.tres: never binds the DirectX normal map
+PASS  both linen materials reference res://shaders/linen_square.gdshader
+PASS  both linen materials share one Shader object (resource cache)
+PASS  the two linen materials are different objects
+PASS  hessian_380_diff_1k.jpg.import parses with ConfigFile  (error 0)
+PASS  hessian_380_diff_1k.jpg: compress/mode = 0  (file 0)
+PASS  hessian_380_diff_1k.jpg: compress/normal_map = 2  (file 2)
+PASS  hessian_380_diff_1k.jpg: mipmaps/generate = true  (file true)
+PASS  hessian_380_diff_1k.jpg: source_file is the texture itself
+PASS  hessian_380_diff_1k.jpg loads as a Texture2D  (1024 x 1024)
+PASS  hessian_380_rough_1k.png.import parses with ConfigFile  (error 0)
+PASS  hessian_380_rough_1k.png: compress/mode = 0  (file 0)
+PASS  hessian_380_rough_1k.png: compress/normal_map = 2  (file 2)
+PASS  hessian_380_rough_1k.png: mipmaps/generate = true  (file true)
+PASS  hessian_380_rough_1k.png: source_file is the texture itself
+PASS  hessian_380_rough_1k.png loads as a Texture2D  (1024 x 1024)
+PASS  hessian_380_nor_gl_1k.png.import parses with ConfigFile  (error 0)
+PASS  hessian_380_nor_gl_1k.png: compress/mode = 0  (file 0)
+PASS  hessian_380_nor_gl_1k.png: compress/normal_map = 1  (file 1)
+PASS  hessian_380_nor_gl_1k.png: mipmaps/generate = true  (file true)
+PASS  hessian_380_nor_gl_1k.png: source_file is the texture itself
+PASS  hessian_380_nor_gl_1k.png loads as a Texture2D  (1024 x 1024)
+PASS  hessian_380_nor_dx_1k.png.import parses with ConfigFile  (error 0)
+PASS  hessian_380_nor_dx_1k.png: compress/mode = 0  (file 0)
+PASS  hessian_380_nor_dx_1k.png: compress/normal_map = 1  (file 1)
+PASS  hessian_380_nor_dx_1k.png: mipmaps/generate = false  (file false)
+PASS  hessian_380_nor_dx_1k.png: source_file is the texture itself
+PASS  hessian_380_nor_dx_1k.png loads as a Texture2D  (1024 x 1024)
+PASS  hint_greys.png.import parses with ConfigFile  (error 0)
+PASS  hint_greys.png: compress/mode = 0  (file 0)
+PASS  hint_greys.png: compress/normal_map = 2  (file 2)
+PASS  hint_greys.png: mipmaps/generate = false  (file false)
+PASS  hint_greys.png: source_file is the texture itself
+PASS  hint_greys.png loads as a Texture2D  (3 x 1)
+PASS  res://diorama/asset_diorama.tscn loads
+PASS  diorama: LinenSquareLight is a MeshInstance3D
+PASS  diorama: LinenSquareLight mesh is a 1 x 1 m PlaneMesh  ((1.0, 1.0))
+PASS  diorama: LinenSquareLight surface override 0 is linen_light.tres  (res://materials/linen_light.tres)
+PASS  diorama: LinenSquareLight has no material_override (would hide the surface one)
+PASS  diorama: LinenSquareDark is a MeshInstance3D
+PASS  diorama: LinenSquareDark mesh is a 1 x 1 m PlaneMesh  ((1.0, 1.0))
+PASS  diorama: LinenSquareDark surface override 0 is linen_dark.tres  (res://materials/linen_dark.tres)
+PASS  diorama: LinenSquareDark has no material_override (would hide the surface one)
+PASS  diorama: the two tiles hold different materials
+PASS  diorama: exactly one Light3D  (1)
+PASS  diorama: the light is a DirectionalLight3D named Lamp
+PASS  diorama: Lamp energy 1.0 (default)  (1.000)
+PASS  diorama: Lamp colour (1, 0.92, 0.8)  (ffebcc)
+PASS  diorama: Lamp shadows on
+PASS  diorama: WorldEnvironment has an Environment
+INFO  diorama environment: { "background_mode": 1, "background_color": "292624", "ambient_source": 2, "ambient_color": "fff2e0", "ambient_energy": 0.34999999403954, "reflected_source": 0, "tonemap_mode": 0, "tonemap_exposure": 1.0, "tonemap_white": 1.0, "glow": false, "fog": false, "adjustments": false }
+PASS  diorama: background Color (1)  (1)
+PASS  diorama: ambient source Color (2)  (2)
+PASS  diorama: ambient energy 0.35  (0.350)
+PASS  diorama: ambient colour (1, 0.95, 0.88)  (fff2e0)
+PASS  diorama: tonemap Linear (0), not set in the scene  (0)
+PASS  diorama: tonemap exposure 1.0, not set in the scene  (1.000)
+PASS  diorama: glow, fog and adjustments off
+PASS  res://hint/hint_experiment.tscn loads
+PASS  hint scene: QuadA_source_color is a MeshInstance3D
+PASS  hint scene: QuadA_source_color surface override 0 is hint_srgb.tres  (res://materials/hint_srgb.tres)
+PASS  hint scene: QuadB_no_hint is a MeshInstance3D
+PASS  hint scene: QuadB_no_hint surface override 0 is hint_raw.tres  (res://materials/hint_raw.tres)
+PASS  hint scene: the two quads hold different materials
+PASS  hint scene: no Light3D (both materials are unshaded)  (0)
+PASS  hint scene: WorldEnvironment has an Environment
+INFO  hint scene environment: { "background_mode": 1, "background_color": "000000", "ambient_source": 0, "ambient_color": "000000", "ambient_energy": 1.0, "reflected_source": 0, "tonemap_mode": 0, "tonemap_exposure": 1.0, "tonemap_white": 1.0, "glow": false, "fog": false, "adjustments": false }
+PASS  hint scene: tonemap Linear (0)  (0)
+PASS  hint scene: exposure 1.0  (1.000)
+PASS  hint scene: glow, fog and adjustments off
+PASS  hint scene: background Color, black
+PASS  hessian_380_nor_gl_1k.png decodes with Image.load_from_file
+INFO  hessian_380_nor_gl_1k.png  1024 x 1024, decoded format 4: curl_ratio(directx=false) = 0.6813, curl_ratio(directx=true) = 1.3187
+PASS  hessian_380_nor_dx_1k.png decodes with Image.load_from_file
+INFO  hessian_380_nor_dx_1k.png  1024 x 1024, decoded format 4: curl_ratio(directx=false) = 1.3167, curl_ratio(directx=true) = 0.6833
+PASS  nor_gl (the bound map) is lower under the OpenGL convention than under DirectX  (0.6813 vs 1.3187)
+PASS  nor_dx (calibration only) is lower under the DirectX convention than under OpenGL  (1.3167 vs 0.6833)
+SUMMARY test_materials: 148/148 passed -> <repo>/evidence/test_materials-1794154856.json
