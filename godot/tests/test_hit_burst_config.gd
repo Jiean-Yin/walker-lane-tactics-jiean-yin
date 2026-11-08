@@ -27,7 +27,7 @@ const EXPECT: Dictionary = {
 		"angle_min": 0.0, "angle_max": 0.0,
 		"angular_velocity_min": 0.0, "angular_velocity_max": 0.0,
 		"damping_min": 0.0, "damping_max": 0.0,
-		"scale_amount_min": 1.25, "scale_amount_max": 1.25,
+		"scale_amount_min": 3.0, "scale_amount_max": 3.0,
 		"particle_flag_align_y": false,
 		"preprocess": 0.0, "use_fixed_seed": false,
 	},
