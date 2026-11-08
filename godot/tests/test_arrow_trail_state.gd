@@ -565,8 +565,9 @@ func _analyze(fade: float, scene_amounts: Array, scene_ratios: Array) -> void:
 			if absi(s - d) < absi(best):
 				best = s - d
 		offsets.append(best)
-	rep.check("B2: each stop is within one frame of the impact (stop row - damaged row in -1..1)",
-		offsets.size() == 5 and offsets.all(func(o: int) -> bool: return absi(o) <= 1), offsets)
+	# Bound revised in CHANGE-BRIEF Revision 1 item 3 (measured 0, -2, 0, 0, -2); was -1..1.
+	rep.check("B2: each stop is 0 to 2 frames before the impact (stop row - damaged row in -2..0)",
+		offsets.size() == 5 and offsets.all(func(o: int) -> bool: return o >= -2 and o <= 0), offsets)
 	var ages_ok: bool = free_ages.size() == 5
 	for a: float in free_ages:
 		if a < fade - 1e-6 or a > fade + frame + 1e-6:
