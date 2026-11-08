@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b8og5yiwfij0k" path="res://game/exposed_driver.gd" id="3_exposed"]
 [ext_resource type="Script" path="res://game/hit_burst_driver.gd" id="4_hitburst"]
 [ext_resource type="Script" path="res://game/arrow_trail_driver.gd" id="5_arrowtrail"]
+[ext_resource type="Script" path="res://game/vsync_debug.gd" id="6_vsync"]
 
 [node name="Main" type="Node2D" unique_id=667676238]
 script = ExtResource("1_main")
@@ -24,3 +25,6 @@ script = ExtResource("4_hitburst")
 z_index = 2
 process_priority = 10
 script = ExtResource("5_arrowtrail")
+
+[node name="VsyncDebug" type="Node" parent="." unique_id=1203398817]
+script = ExtResource("6_vsync")
