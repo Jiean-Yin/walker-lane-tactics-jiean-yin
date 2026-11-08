@@ -87,4 +87,20 @@ Commits:
 
 What I saw (running game, 1280 × 720): A continous black closely dotted lines into the target square. Clear. (Jiean)
 
-> *Hint (Claude):* say whether you see a continuous line or dots, how long the trail is compared with the shot, whether the wisps curl visibly, and whether the trail is gone before the next arrow.
+### Claude's reading of r0 (fixture; read after Jiean's first look, from `captures/arrow_trail/r0/sheet_path_2x.png`)
+
+| Frame | Intent (brief §2) | What the strip shows |
+|---|---|---|
+| 10 (launch) | the streak starts at the bow | the arrow is not visible yet at the bow in this crop, and there is no trail yet |
+| 13 | the streak follows the tip | the arrow is a third of the way along; **one** dark dot is left near the bow |
+| 16 (steady) | a dark streak drawing the arc | the arrow is two-thirds of the way; behind it **3–4 separate dots, about 20–25 px apart**, each about 6 px. It is a dotted line, not a streak |
+| 21 (landing) | emission stops; the streak shrinks away | the arrow has gone; **8–9 dots trace the whole arc** from the bow to the target, the older ones smaller and fainter. It reads clearly as the path, as dots |
+| 26 | the streak gone within 0.3 s; wisps drift | the streak dots are mostly gone; 4–5 pale blobs (wisps) about 15–20 px, very faint |
+| 31 | wisps curling and fading | the wisps are barely visible; no visible curl at this size and alpha |
+| 42 | nothing | nothing left |
+
+Summary of the claim:
+- **Predicted failure 8 happened, as Jiean also saw:** one emission step per frame at 30 fps leaves one dot per step. The arrow moves about 20–25 px per frame, so the dots sit 20–25 px apart.
+- **Path and timing match the intent:** the trail starts at launch, stops at landing, is gone by +0.7 s, and the arrow stays readable in front of it.
+- **The wisps barely show:** `#9A8466` at alpha 0.45 over the beige board is low contrast, so the turbulence isn't visible.
+
