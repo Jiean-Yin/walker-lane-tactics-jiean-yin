@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://previews/arrow_trail_preview.gd" id="1_preview"]
+[ext_resource type="PackedScene" path="res://game/main.tscn" id="2_main"]
+[ext_resource type="PackedScene" path="res://effects/arrow_trail.tscn" id="3_trail"]
+
+[node name="ArrowTrailPreview" type="Node2D"]
+script = ExtResource("1_preview")
+
+[node name="Main" parent="." instance=ExtResource("2_main")]
+
+[node name="Trail" parent="." instance=ExtResource("3_trail")]
+z_index = 2
+
+[node name="Streak" parent="Trail" index="0"]
+use_fixed_seed = true
+seed = 71
+
+[node name="Wisps" parent="Trail" index="1"]
+use_fixed_seed = true
+seed = 71
+
+[node name="Arrow" type="Node2D" parent="."]
+z_index = 2

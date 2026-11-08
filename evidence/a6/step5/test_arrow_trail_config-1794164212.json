@@ -1,0 +1,686 @@
+{
+	"all_passed": true,
+	"checks": [
+		{
+			"check": "scene text is readable",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "no Godot 3 / editor-only names in the scene text (failure 2)",
+			"detail": "[]",
+			"pass": true
+		},
+		{
+			"check": "scene loads: res://effects/arrow_trail.tscn",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "root is a Node2D named ArrowTrail",
+			"detail": "[\"Node2D\", &\"ArrowTrail\"]",
+			"pass": true
+		},
+		{
+			"check": "children are exactly Streak, Wisps, each a GPUParticles2D",
+			"detail": "[\"Streak:GPUParticles2D\", \"Wisps:GPUParticles2D\"]",
+			"pass": true
+		},
+		{
+			"check": "Streak exists as GPUParticles2D",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.emitting is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.emitting == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Streak.amount is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.amount == 48",
+			"detail": "48",
+			"pass": true
+		},
+		{
+			"check": "Streak.lifetime is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.lifetime == 0.3",
+			"detail": "0.3",
+			"pass": true
+		},
+		{
+			"check": "Streak.one_shot is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.one_shot == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Streak.explosiveness is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.explosiveness == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Streak.preprocess is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.preprocess == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Streak.local_coords is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.local_coords == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Streak.fixed_fps is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.fixed_fps == 30",
+			"detail": "30",
+			"pass": true
+		},
+		{
+			"check": "Streak.interpolate is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.interpolate == true",
+			"detail": "true",
+			"pass": true
+		},
+		{
+			"check": "Streak.trail_enabled is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.trail_enabled == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Streak.visibility_rect is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.visibility_rect == [P: (-320.0, -200.0), S: (640.0, 400.0)]",
+			"detail": "[P: (-320.0, -200.0), S: (640.0, 400.0)]",
+			"pass": true
+		},
+		{
+			"check": "Streak.use_fixed_seed is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.use_fixed_seed == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Streak.texture is a GradientTexture2D, not null (failure 9)",
+			"detail": "GradientTexture2D",
+			"pass": true
+		},
+		{
+			"check": "Streak.texture has a Gradient",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.texture: soft dot 32 x 32, radial, white -> transparent (as Effect A)",
+			"detail": "32x32 fill 1, alpha first 1.00 last 0.00, white true",
+			"pass": true
+		},
+		{
+			"check": "Streak.material is CanvasItemMaterial, blend_mode Mix (0), not additive (failure 6)",
+			"detail": "CanvasItemMaterial blend 0",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material is a ParticleProcessMaterial",
+			"detail": "ParticleProcessMaterial",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.particle_flag_disable_z is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.particle_flag_disable_z == true",
+			"detail": "true",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.emission_shape is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.emission_shape == 0",
+			"detail": "0",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.direction is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.direction == (0.0, -1.0, 0.0)",
+			"detail": "(0.0, -1.0, 0.0)",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.spread is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.spread == 180.0",
+			"detail": "180.0",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.gravity is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.gravity == (0.0, 0.0, 0.0)",
+			"detail": "(0.0, 0.0, 0.0)",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.initial_velocity_min is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.initial_velocity_min == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.initial_velocity_max is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.initial_velocity_max == 8.0",
+			"detail": "8.0",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.damping_min is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.damping_min == 10.0",
+			"detail": "10.0",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.damping_max is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.damping_max == 10.0",
+			"detail": "10.0",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.scale_min is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.scale_min == 0.3",
+			"detail": "0.30000001192093",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.scale_max is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.scale_max == 0.35",
+			"detail": "0.34999999403954",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.turbulence_enabled is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.process_material.turbulence_enabled == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Streak.scale_curve is a CurveTexture with a Curve",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.scale_curve 1.0 -> 0.2 (2 points)",
+			"detail": "points 2, sample(0) 1.0000, sample(1) 0.2000, max_value 2.00",
+			"pass": true
+		},
+		{
+			"check": "Streak.color_ramp is a GradientTexture1D with a Gradient",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Streak.color_ramp [\"0.00 #6E5A44 a0.80\", \"1.00 #6E5A44 a0.00\"]",
+			"detail": "[\"0.00 6e5a44 a0.80\", \"1.00 6e5a44 a0.00\"]",
+			"pass": true
+		},
+		{
+			"check": "Wisps exists as GPUParticles2D",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.emitting is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.emitting == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Wisps.amount is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.amount == 12",
+			"detail": "12",
+			"pass": true
+		},
+		{
+			"check": "Wisps.lifetime is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.lifetime == 0.7",
+			"detail": "0.7",
+			"pass": true
+		},
+		{
+			"check": "Wisps.one_shot is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.one_shot == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Wisps.explosiveness is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.explosiveness == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.preprocess is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.preprocess == 0.0",
+			"detail": "0.0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.local_coords is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.local_coords == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Wisps.fixed_fps is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.fixed_fps == 30",
+			"detail": "30",
+			"pass": true
+		},
+		{
+			"check": "Wisps.interpolate is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.interpolate == true",
+			"detail": "true",
+			"pass": true
+		},
+		{
+			"check": "Wisps.trail_enabled is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.trail_enabled == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Wisps.visibility_rect is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.visibility_rect == [P: (-320.0, -200.0), S: (640.0, 400.0)]",
+			"detail": "[P: (-320.0, -200.0), S: (640.0, 400.0)]",
+			"pass": true
+		},
+		{
+			"check": "Wisps.use_fixed_seed is a stored GPUParticles2D property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.use_fixed_seed == false",
+			"detail": "false",
+			"pass": true
+		},
+		{
+			"check": "Wisps.texture is a GradientTexture2D, not null (failure 9)",
+			"detail": "GradientTexture2D",
+			"pass": true
+		},
+		{
+			"check": "Wisps.texture has a Gradient",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.texture: soft dot 32 x 32, radial, white -> transparent (as Effect A)",
+			"detail": "32x32 fill 1, alpha first 1.00 last 0.00, white true",
+			"pass": true
+		},
+		{
+			"check": "Wisps.material is CanvasItemMaterial, blend_mode Mix (0), not additive (failure 6)",
+			"detail": "CanvasItemMaterial blend 0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material is a ParticleProcessMaterial",
+			"detail": "ParticleProcessMaterial",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.particle_flag_disable_z is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.particle_flag_disable_z == true",
+			"detail": "true",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.emission_shape is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.emission_shape == 1",
+			"detail": "1",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.emission_sphere_radius is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.emission_sphere_radius == 4.0",
+			"detail": "4.0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.direction is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.direction == (0.0, -1.0, 0.0)",
+			"detail": "(0.0, -1.0, 0.0)",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.spread is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.spread == 180.0",
+			"detail": "180.0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.gravity is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.gravity == (0.0, -20.0, 0.0)",
+			"detail": "(0.0, -20.0, 0.0)",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.initial_velocity_min is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.initial_velocity_min == 10.0",
+			"detail": "10.0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.initial_velocity_max is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.initial_velocity_max == 25.0",
+			"detail": "25.0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.damping_min is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.damping_min == 15.0",
+			"detail": "15.0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.damping_max is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.damping_max == 20.0",
+			"detail": "20.0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.scale_min is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.scale_min == 0.5",
+			"detail": "0.5",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.scale_max is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.scale_max == 0.8",
+			"detail": "0.80000001192093",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.turbulence_enabled is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.turbulence_enabled == true",
+			"detail": "true",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.turbulence_influence_min is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.turbulence_influence_min == 0.1",
+			"detail": "0.10000000149012",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.turbulence_influence_max is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.turbulence_influence_max == 0.2",
+			"detail": "0.20000000298023",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.turbulence_noise_strength is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.turbulence_noise_strength == 1.0",
+			"detail": "1.0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.turbulence_noise_scale is a stored ParticleProcessMaterial property in this build",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.process_material.turbulence_noise_scale == 9.0",
+			"detail": "9.0",
+			"pass": true
+		},
+		{
+			"check": "Wisps.scale_curve is a CurveTexture with a Curve",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.scale_curve 0.6 -> 1.4 (2 points)",
+			"detail": "points 2, sample(0) 0.6000, sample(1) 1.4000, max_value 2.00",
+			"pass": true
+		},
+		{
+			"check": "Wisps.color_ramp is a GradientTexture1D with a Gradient",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "Wisps.color_ramp [\"0.00 #9A8466 a0.45\", \"1.00 #9A8466 a0.00\"]",
+			"detail": "[\"0.00 9a8466 a0.45\", \"1.00 9a8466 a0.00\"]",
+			"pass": true
+		},
+		{
+			"check": "each emitter has its own ParticleProcessMaterial",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "turbulence (GPU-only feature) is on for Wisps only",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "CPUParticles2D has no turbulence property (why Effect B is GPU)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "peak count: 60 particles per trail, 120 with 2 trails alive",
+			"detail": "60",
+			"pass": true
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"passed": 135,
+	"report": "test_arrow_trail_config",
+	"scene": "res://effects/arrow_trail.tscn",
+	"total": 135,
+	"unix_time": 1794164212
+}

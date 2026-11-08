@@ -1,0 +1,117 @@
+[gd_scene format=3]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mix"]
+blend_mode = 0
+
+[sub_resource type="Gradient" id="Gradient_dot"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dot"]
+gradient = SubResource("Gradient_dot")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Curve" id="Curve_streak_scale"]
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, -0.8, 0, 1, Vector2(1, 0.2), -0.8, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_streak_scale"]
+curve = SubResource("Curve_streak_scale")
+
+[sub_resource type="Gradient" id="Gradient_streak"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.431373, 0.352941, 0.266667, 0.8, 0.431373, 0.352941, 0.266667, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_streak"]
+gradient = SubResource("Gradient_streak")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_streak"]
+particle_flag_disable_z = true
+emission_shape = 0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.0
+initial_velocity_max = 8.0
+damping_min = 10.0
+damping_max = 10.0
+scale_min = 0.3
+scale_max = 0.35
+scale_curve = SubResource("CurveTexture_streak_scale")
+color_ramp = SubResource("GradientTexture1D_streak")
+turbulence_enabled = false
+
+[sub_resource type="Curve" id="Curve_wisps_scale"]
+max_value = 2.0
+_data = [Vector2(0, 0.6), 0.0, 0.8, 0, 1, Vector2(1, 1.4), 0.8, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wisps_scale"]
+curve = SubResource("Curve_wisps_scale")
+
+[sub_resource type="Gradient" id="Gradient_wisps"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.603922, 0.517647, 0.4, 0.45, 0.603922, 0.517647, 0.4, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wisps"]
+gradient = SubResource("Gradient_wisps")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wisps"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+gravity = Vector3(0, -20, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 25.0
+damping_min = 15.0
+damping_max = 20.0
+scale_min = 0.5
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_wisps_scale")
+color_ramp = SubResource("GradientTexture1D_wisps")
+turbulence_enabled = true
+turbulence_noise_strength = 1.0
+turbulence_noise_scale = 9.0
+turbulence_influence_min = 0.1
+turbulence_influence_max = 0.2
+
+[node name="ArrowTrail" type="Node2D"]
+
+[node name="Streak" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_mix")
+emitting = false
+amount = 48
+lifetime = 0.3
+one_shot = false
+preprocess = 0.0
+explosiveness = 0.0
+fixed_fps = 30
+interpolate = true
+visibility_rect = Rect2(-320, -200, 640, 400)
+local_coords = false
+trail_enabled = false
+texture = SubResource("GradientTexture2D_dot")
+process_material = SubResource("ParticleProcessMaterial_streak")
+
+[node name="Wisps" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_mix")
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = false
+preprocess = 0.0
+explosiveness = 0.0
+fixed_fps = 30
+interpolate = true
+visibility_rect = Rect2(-320, -200, 640, 400)
+local_coords = false
+trail_enabled = false
+texture = SubResource("GradientTexture2D_dot")
+process_material = SubResource("ParticleProcessMaterial_wisps")
