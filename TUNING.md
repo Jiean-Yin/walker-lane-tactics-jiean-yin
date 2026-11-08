@@ -84,8 +84,7 @@ Claude's comparison of r2 with its prediction (from `captures/hit_burst/r2/sheet
 - **frame 20:** no red visible. I predicted a faint haze; close enough.
 - **frames 30 and 50, and all splinters and dust:** match, unchanged.
 - **Why:** the size change gets the flash out from under the splinters. Its life (0.36 s) still ends its visible part by about frame 15.
-My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
-> *Hint (Claude):* is the hit now obvious without staring? Is the red disc too big for an 80 px archer, and does hiding the archer for a moment bother you?
+My verdict (running game, 1280 × 720): Jiean: "A r2 and r3 are clear enough that can make the unit apparent. r2's shining color contradict more to the background color, and r3's enlarging makes unit easier to be seen." (One verdict for r2 and r3; recorded as **kept**.)
 Strips: captures/hit_burst/r1/, captures/hit_burst/r2/
 Commits: `2efe98f` (prediction), `1079375` (change)
 
@@ -117,8 +116,7 @@ Claude's comparison of r3 with its prediction (from `captures/hit_burst/r3/sheet
 - **What it means for the risk I named:** the archer stays tinted red for about 0.7 s, about as long as the dust is visible. Whether that reads as "hit" or as a lasting aura can only be judged in play.
 
 Note on the folders: the r3 capture was first written into `captures/hit_burst/r2/` as well. Every frame there was byte-identical to `r3/`, so Claude restored the committed r2 strip (`3d465d5`) from git.
-My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
-> *Hint (Claude):* compare r2 and r3 in play. Does the longer glow read as "hit", or as a status effect? Is the archer hidden too long?
+My verdict (running game, 1280 × 720): Jiean: "A r2 and r3 are clear enough that can make the unit apparent. r2's shining color contradict more to the background color, and r3's enlarging makes unit easier to be seen." (Recorded as **kept**: `Flash` ends at `lifetime` 1.08 s, `scale_amount` 3.0.)
 Strips: captures/hit_burst/r2/, captures/hit_burst/r3/
 Commits: `3d465d5` (prediction), `cc9e1ee` (change)
 
