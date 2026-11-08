@@ -4,6 +4,8 @@ extends Node2D
 ##   0 = both effects off (the game board only), 1 = Effect A at its peak (2 hit bursts alive at all times,
 ##   rule A3), 2 = Effect B at its peak (2 arrow trails emitting along a two-square arc, brief §2).
 ## Or start with a case: `-- --case=1`. V toggles vsync (the game's own VsyncDebug node inside main.tscn).
+## Unattended sweep (Claude's cross-check of the Visual Profiler): `-- --sweep=8 [--vsync=off]` holds cases
+## 0, 1, 2, 0, 1, 2 for 8 s of wall time each, printing the per-second line, then quits.
 ## Every second it prints and shows the case, FPS and the viewport's measured GPU time
 ## (RenderingServer.viewport_get_measured_render_time_gpu), as a cross-check of the Visual Profiler.
 ## The effect scenes are instanced unchanged; this script only places them and sets emitting.
@@ -20,6 +22,9 @@ var _trail_t: Array[float] = [0.0, 0.175]
 var _gpu_sum: float = 0.0
 var _frames: int = 0
 var _acc: float = 0.0
+var _sweep: Array[int] = []
+var _sweep_secs: float = 0.0
+var _sweep_t: float = 0.0
 
 @onready var _main: Node2D = $Main
 @onready var _label: Label = $Label
@@ -31,6 +36,12 @@ func _ready() -> void:
 	for a: String in OS.get_cmdline_user_args():
 		if a.begins_with("--case="):
 			_set_case.call_deferred(int(a.trim_prefix("--case=")))
+		elif a.begins_with("--sweep="):
+			_sweep_secs = float(a.trim_prefix("--sweep="))
+			_sweep = [1, 2, 0, 1, 2]
+			_set_case.call_deferred(0)
+		elif a == "--vsync=off":
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -82,6 +93,19 @@ func _on_burst_finished(b: Node2D, i: int) -> void:
 
 
 func _process(delta: float) -> void:
+	if _sweep_secs > 0.0:
+		_sweep_t += delta
+		if _sweep_t >= _sweep_secs:
+			_sweep_t = 0.0
+			if _sweep.is_empty():
+				for n: Node2D in _bursts + _trails:
+					n.free()
+				_bursts.clear()
+				_trails.clear()
+				get_tree().quit()
+				return
+			_set_case(_sweep.pop_front())
+			_acc = 0.0
 	var p1: Node2D = _main.get("pieces")["p1"]
 	var from: Vector2 = p1.position + Vector2(14.0, -36.0)
 	var to: Vector2 = from + Vector2(256.0, -96.0)

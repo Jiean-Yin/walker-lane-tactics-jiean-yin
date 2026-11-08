@@ -1,0 +1,45 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3070 Ti Laptop GPU
+
+PRICE case 0  fps 132  gpu 0.1118 ms (mean of 1255 frames)  vsync off
+PRICE case 0  fps 1476  gpu 0.1073 ms (mean of 1484 frames)  vsync off
+PRICE case 0  fps 1495  gpu 0.1056 ms (mean of 1529 frames)  vsync off
+PRICE case 0  fps 1494  gpu 0.1085 ms (mean of 1470 frames)  vsync off
+PRICE case 0  fps 1514  gpu 0.1079 ms (mean of 1515 frames)  vsync off
+PRICE case 0  fps 1501  gpu 0.1068 ms (mean of 1503 frames)  vsync off
+PRICE case 0  fps 1507  gpu 0.1046 ms (mean of 1523 frames)  vsync off
+PRICE case 1  fps 1454  gpu 0.1075 ms (mean of 1399 frames)  vsync off
+PRICE case 1  fps 1388  gpu 0.1107 ms (mean of 1369 frames)  vsync off
+PRICE case 1  fps 1397  gpu 0.1094 ms (mean of 1425 frames)  vsync off
+PRICE case 1  fps 1416  gpu 0.1089 ms (mean of 1439 frames)  vsync off
+PRICE case 1  fps 1432  gpu 0.1078 ms (mean of 1459 frames)  vsync off
+PRICE case 1  fps 1468  gpu 0.1078 ms (mean of 1478 frames)  vsync off
+PRICE case 1  fps 1474  gpu 0.1087 ms (mean of 1450 frames)  vsync off
+PRICE case 2  fps 1402  gpu 0.1130 ms (mean of 1341 frames)  vsync off
+PRICE case 2  fps 1385  gpu 0.1109 ms (mean of 1416 frames)  vsync off
+PRICE case 2  fps 1420  gpu 0.1125 ms (mean of 1417 frames)  vsync off
+PRICE case 2  fps 1414  gpu 0.1155 ms (mean of 1400 frames)  vsync off
+PRICE case 2  fps 1398  gpu 0.1145 ms (mean of 1407 frames)  vsync off
+PRICE case 2  fps 1408  gpu 0.1121 ms (mean of 1406 frames)  vsync off
+PRICE case 2  fps 1395  gpu 0.1125 ms (mean of 1396 frames)  vsync off
+PRICE case 0  fps 1458  gpu 0.1060 ms (mean of 1547 frames)  vsync off
+PRICE case 0  fps 1531  gpu 0.1038 ms (mean of 1539 frames)  vsync off
+PRICE case 0  fps 1539  gpu 0.1036 ms (mean of 1548 frames)  vsync off
+PRICE case 0  fps 1548  gpu 0.1048 ms (mean of 1536 frames)  vsync off
+PRICE case 0  fps 1534  gpu 0.1049 ms (mean of 1546 frames)  vsync off
+PRICE case 0  fps 1544  gpu 0.1072 ms (mean of 1514 frames)  vsync off
+PRICE case 0  fps 1508  gpu 0.1046 ms (mean of 1524 frames)  vsync off
+PRICE case 1  fps 1514  gpu 0.1060 ms (mean of 1462 frames)  vsync off
+PRICE case 1  fps 1458  gpu 0.1078 ms (mean of 1449 frames)  vsync off
+PRICE case 1  fps 1453  gpu 0.1066 ms (mean of 1440 frames)  vsync off
+PRICE case 1  fps 1434  gpu 0.1082 ms (mean of 1459 frames)  vsync off
+PRICE case 1  fps 1470  gpu 0.1084 ms (mean of 1479 frames)  vsync off
+PRICE case 1  fps 1464  gpu 0.1141 ms (mean of 1321 frames)  vsync off
+PRICE case 1  fps 1295  gpu 0.1094 ms (mean of 1404 frames)  vsync off
+PRICE case 2  fps 1416  gpu 0.1102 ms (mean of 1429 frames)  vsync off
+PRICE case 2  fps 1428  gpu 0.1099 ms (mean of 1438 frames)  vsync off
+PRICE case 2  fps 1435  gpu 0.1103 ms (mean of 1393 frames)  vsync off
+PRICE case 2  fps 1363  gpu 0.1130 ms (mean of 1335 frames)  vsync off
+PRICE case 2  fps 1343  gpu 0.1129 ms (mean of 1325 frames)  vsync off
+PRICE case 2  fps 1318  gpu 0.1169 ms (mean of 1303 frames)  vsync off
+PRICE case 2  fps 1312  gpu 0.1119 ms (mean of 1397 frames)  vsync off

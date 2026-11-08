@@ -28,6 +28,81 @@ All suites run through `scripts/run-test.sh <test> <fps|realtime> [timeout]` (th
 
 Known non-failing lines, the same as in A5: `test_rules` prints the expected `Rules.resolve_attacks called in phase 'move'`; `test_audio_events` and `test_exposed_tint` end with `N resources still in use at exit`.
 
+## A6.6 Price
+
+Both effects are measured at their peak from the brief (§7): **Effect A ×2** = 2 hit bursts alive at all times (46 particles), **Effect B ×2** = 2 arrow trails emitting along a two-square arc (120 particles). The control is the same game scene at PLAN_MOVE with both effects off.
+
+### Headless CPU price (Step 7)
+
+`godot/tests/cost_effects.gd`, written by the agent (`claude -p`, session 7) and committed unedited (`f0e5977`). Run with `./scripts/run-test.sh cost_effects.gd 60`. It samples 2 rounds × 600 frames per case and reports the mean frame time; t = difference / standard error. Log: `evidence/a6/step7/cost_effects_60fps.log`, 25/25 checks.
+
+| Case | Mean frame time (ms, n = 1200) | Above the control |
+|---|---|---|
+| empty scene | 0.0032 | — |
+| game, effects off (control) | 0.1220 | — |
+| Effect A ×2 | 0.1298 | **+0.0078 ms** (t 8.1) |
+| Effect B ×2 | 0.1286 | **+0.0066 ms** (t 8.0) |
+
+- Effect A and Effect B can't be told apart headless (−0.0012 ms, t −1.3).
+- `Performance.TIME_PROCESS` read 0.0000 ms in every case. The script printed a NOTE that it "may be measuring only itself". Only its own frame timer is used for these numbers.
+
+### GPU price: Visual Profiler (HUMAN: Jiean, in the editor)
+
+`godot/previews/price_effects.tscn` run with F6. Keys 0 / 1 / 2 hold each case; V toggles vsync. Jiean read the "Render Viewport" (RV) GPU time in Debugger → Visual Profiler as the range the graph moved through:
+
+| Case | vsync on | vsync off |
+|---|---|---|
+| 0, effects off | 4 < RV < 6 ms | 0 < RV < 1.5 ms |
+| 1, Effect A ×2 | 4.5 < RV < 6.5 ms | 0.3 < RV < 1.5 ms |
+| 2, Effect B ×2 | 4.5 < RV < 6.5 ms | 0.3 < RV < 1.2 ms |
+
+### Cross-check: the viewport's measured GPU time (Claude, windowed)
+
+The same fixture, unattended: `"$GODOT" --path godot res://previews/price_effects.tscn -- --sweep=8` and then again with `--vsync=off`.
+- It holds cases 0, 1, 2, 0, 1, 2 for 8 s of wall time each.
+- Every second it prints the mean of `RenderingServer.viewport_get_measured_render_time_gpu` and the FPS.
+- The first 2 s of each hold are dropped, which leaves 10 one-second means per case.
+- Logs: `evidence/a6/gpu/sweep_vsync_on.log`, `sweep_vsync_off.log`.
+- Display: 180 Hz.
+
+| Case | GPU ms, vsync off (sd of the 1 s means) | Above case 0 | FPS, vsync off | GPU ms, vsync on (sd) | FPS, vsync on |
+|---|---|---|---|---|---|
+| 0, effects off | 0.1058 (0.0016) | — | 1518 | 0.1889 (0.0233) | 180 |
+| 1, Effect A ×2 | 0.1089 (0.0019) | **+0.0031 ms** (t ≈ 3.9) | 1430 | 0.2043 (0.0192) | 180 |
+| 2, Effect B ×2 | 0.1132 (0.0018) | **+0.0074 ms** (t ≈ 9.7) | 1381 | 0.2905 (0.1719) | 180 |
+
+The exit line `2 resources still in use at exit` in both logs is the game's music stream (`mus_loop.ogg`, AudioDirector), shown with `--verbose`. It is the same known line as in A6.1, not the effects.
+
+### Against Jiean's predictions and budget (CHANGE-BRIEF §7)
+
+| | Effect A (CPU node) | Effect B (GPU node) |
+|---|---|---|
+| Peak particles | 46 | 120 |
+| Headless CPU price: predicted → measured | 0.015 → **0.0078 ms** | 0 → **0.0066 ms** |
+| GPU time: predicted → measured (vsync off) | 0.001 → **0.0031 ms** | 0.003 → **0.0074 ms** |
+| Budget | 0.2 ms on both prices: **under** (0.0078 CPU, 0.0031 GPU) | 0.2 ms on GPU time: **under** (0.0074) |
+
+What Claude reads from these numbers (claims, not Jiean's conclusion):
+1. **The Visual Profiler can't show these prices.**
+   - In Jiean's ranges, the three cases overlap completely: the graph swings by about 1.5 ms from frame to frame, about 200 times the effects' price.
+   - Only means over many frames separate them. That is what the cross-check gives, with a per-second spread of about 0.002 ms.
+2. **With vsync on, the profiler's RV is not the effects' work.**
+   - RV read 4–6 ms. The frame period at 180 Hz is 5.6 ms.
+   - The viewport's own measurement in the same state reads 0.19–0.29 ms.
+   - So the profiler's RV with vsync on most likely includes time spent waiting for the display. Not measured.
+   - The vsync-on means are also higher and noisier than vsync off (0.19 against 0.11 ms with effects off). One possible cause is the GPU lowering its clock while it is mostly idle. Also not measured.
+3. **FPS with vsync on is 180 in every case**, as answer 4 predicted.
+4. **FPS with vsync off falls from 1518 to 1430 (A) and 1381 (B).**
+   - In frame time, that is 0.659 → 0.699 ms (+0.041 ms, A) and → 0.724 ms (+0.065 ms, B).
+   - That is more than headless CPU plus GPU time (A 0.011 ms, B 0.014 ms).
+   - None of these measurements says where the rest goes. Most likely candidate: the windowed renderer's own CPU-side work for drawing the particles, which a headless run skips and a GPU timer doesn't see. Not measured.
+5. **Both predictions were too low, but by less than 0.01 ms.**
+   - The GPU node is not free on the CPU: the trail is moved every frame, and headless it costs as much as the CPU burst.
+   - Effect B's GPU time is about 2.4 times Effect A's, for 2.6 times the particles.
+
+Jiean's conclusion: TO FILL (Jiean)
+> *Hint (Claude):* in two or three sentences: is each effect under its budget on the price that matters for its node type (A: CPU and GPU; B: GPU)? Which of your predictions missed, by how much, and why might it have? What did the Visual Profiler show you that the means don't, and the other way round?
+
 # Assignment 5 — shaders, materials and the Godot shading language
 
 | | |
