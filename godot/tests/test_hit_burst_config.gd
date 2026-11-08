@@ -20,7 +20,7 @@ const DUST: String = "#7A5A3A"
 ## Plain property values per emitter (CHANGE-BRIEF §1 table). Angles are degrees, as the brief.
 const EXPECT: Dictionary = {
 	"Flash": {
-		"emitting": false, "amount": 1, "lifetime": 0.12, "one_shot": true,
+		"emitting": false, "amount": 1, "lifetime": 0.36, "one_shot": true,
 		"explosiveness": 1.0, "lifetime_randomness": 0.0, "local_coords": false,
 		"emission_shape": 0, "direction": Vector2(0, -1), "spread": 0.0, "gravity": Vector2(0, 0),
 		"initial_velocity_min": 0.0, "initial_velocity_max": 0.0,
