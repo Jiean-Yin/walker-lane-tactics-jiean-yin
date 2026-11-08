@@ -1,8 +1,8 @@
 # walker-lane-tactics-jiean-yin
 
-**Lane Tactics · Jiean Yin · current layer: Assignment 5 — Shaders, Materials, and the Godot Shading Language** (earlier layers below)
+**Lane Tactics · Jiean Yin · current layer: Assignment 6 — Creating Particle Effects with Godot and Claude** (earlier layers below)
 
-*Lane Tactics* (working title): a turn-based, simultaneous-orders tactics game. Carved wooden pieces fight on a five-lane tabletop board, and you win by standing a piece on the enemy's back row. This is the one game I build all semester: each assignment adds a layer to this repository and is submitted as a git tag (`a3` for Assignment 3, `a5` for Assignment 5).
+*Lane Tactics* (working title): a turn-based, simultaneous-orders tactics game. Carved wooden pieces fight on a five-lane tabletop board, and you win by standing a piece on the enemy's back row. This is the one game I build all semester: each assignment adds a layer to this repository and is submitted as a git tag (`a3` for Assignment 3, `a5` for Assignment 5, `a6` for Assignment 6).
 
 **Started from:** an empty Godot 4.7.2 project (no code from walker-jumpman or my Assignment 1). The test-and-evidence practice and document set come from Assignment 1, which extended Nik Bear Brown's [walker-jumpman](https://github.com/nikbearbrown/walker-jumpman). See [SOURCES.md](SOURCES.md).
 
@@ -17,6 +17,69 @@
 ## Game Design Document
 
 [GDD.md](GDD.md) is the whole game in one document: concept, game flow, assets, characters, the story told episode by episode, gameplay (goal, mechanics, abilities, the four episodes, losing and restarting, player skills), graphics, sound and the technical description. It brings together the design docs below and adds the campaign: goblin enemies, mountains, night raids, the Mend ability and the giant boss. The rules for all of this are in [RULES.md](RULES.md), and how each one was decided is in [DESIGN-HISTORY.md](DESIGN-HISTORY.md) section 8. The figures come from `design/tools/draw_gdd_sketches.py` (rendered with `bash design/tools/render_png.sh design/gdd`).
+
+## Assignment 6 — particle effects
+
+**What this layer adds** (contract: [CHANGE-BRIEF.md](CHANGE-BRIEF.md); tuning: [TUNING.md](TUNING.md); results: [TEST-REPORT.md](TEST-REPORT.md), section "Assignment 6"):
+
+- **Effect A, hit burst** (`godot/effects/hit_burst.tscn`, three `CPUParticles2D`):
+  - a red flash, wood splinters and a dust puff on the archer each time an arrow hits it (every `"damaged"` event);
+  - retrigger rule: **overlap**. Each hit makes a new instance, so the two hits of one turn (1.05 s apart) both show;
+  - spawned by `godot/game/hit_burst_driver.gd`.
+- **Effect B, arrow trail** (`godot/effects/arrow_trail.tscn`, two `GPUParticles2D`):
+  - a streak and turbulent dust wisps behind every arrow in flight, so you can see who shot whom;
+  - Compatibility doesn't draw Godot's own particle trails, so the trail comes from world-space emission by an emitter that follows the arrow tip;
+  - uses turbulence, which the CPU node lacks;
+  - driven by `godot/game/arrow_trail_driver.gd`.
+- **Both effects run on game time:** they freeze while the game is paused (P/Esc) and follow the game's speed. Their settings live only in the scene files; the drivers only read game state.
+- **Previews and strips:**
+  - `godot/previews/hit_burst_preview.tscn` and `arrow_trail_preview.tscn` are fixtures with fixed seeds, for Movie Maker frame strips (`captures/`);
+  - `godot/previews/price_effects.tscn` holds each effect at its peak for the GPU price.
+- **Tests:** a configuration test and a state test for each effect, the headless price script `godot/tests/cost_effects.gd`, and the generated process shader `godot/shaders/particles_generated.gdshader` (not used by the game).
+- **Agent sessions:** the effect scenes, drivers, tests and price script were written by `claude -p` sessions. Their prompts are in `prompts/a6/`, and their redacted transcripts in `evidence/a6/sessions/`. No agent edited `godot/shaders/`.
+
+### Run it
+
+Set `GODOT` to the Godot 4.7.2 console executable, then from the repository root:
+
+```bash
+"$GODOT" --headless --path godot --import
+"$GODOT" --path godot                                                 # the game (main.tscn)
+"$GODOT" --path godot res://previews/hit_burst_preview.tscn           # Effect A fixture (add -- --retrigger for the second hit)
+"$GODOT" --path godot res://previews/arrow_trail_preview.tscn         # Effect B fixture
+"$GODOT" --path godot res://previews/price_effects.tscn               # price fixture: 0 off, 1 Effect A x2, 2 Effect B x2, V vsync
+```
+
+Tests (through the course wrapper, `scripts/run-test.sh <test> <fps|realtime> [timeout]`):
+
+```bash
+./scripts/run-test.sh test_rules.gd 60
+./scripts/run-test.sh test_audio_events.gd 60
+./scripts/run-test.sh check_assets.gd 60
+./scripts/run-test.sh test_exposed_tint.gd 30
+./scripts/run-test.sh test_exposed_tint.gd 60
+./scripts/run-test.sh test_exposed_tint.gd 144
+./scripts/run-test.sh test_materials.gd 60
+./scripts/run-test.sh test_hit_burst_config.gd 60
+./scripts/run-test.sh test_arrow_trail_config.gd 60
+./scripts/run-test.sh test_hit_burst_state.gd 60
+./scripts/run-test.sh test_arrow_trail_state.gd 60
+./scripts/run-test.sh cost_effects.gd 60
+```
+
+**Controls:** as in Assignment 2 (below), plus one debug key: **V toggles vsync** (`godot/game/vsync_debug.gd`), for comparing FPS in the GPU price. V was unused; F9 is taken by the editor.
+
+### Known limitations (Assignment 6)
+
+- **The trail is dotted:** `GPUParticles2D` steps at 30 fps, so a fast arrow leaves dots about 20–25 px apart instead of a solid line (predicted failure 8). Jiean judged the path clear as it is.
+- **The red flash on the red enemy** has weak contrast over the red tunic; since tuning r2 it reads mainly by its edge over the board.
+- **No `"attack_cancelled"` case** can be reached in this 1-vs-1 slice, so "no effect without a hit" is covered only by the per-frame rule in the state tests.
+- **Timing:** the trail stops 0 to 2 frames before the impact cue at 60 fps (CHANGE-BRIEF Revision 1).
+- **GPU price:** both effects cost less than the Visual Profiler's frame-to-frame swing. The per-case numbers come from averaging the viewport's measured GPU time (TEST-REPORT A6.6).
+
+### Film (Assignment 6)
+
+TO FILL after the film is made: title and link, filename, SHA-256, the game-source revision shown.
 
 ## Assignment 5 — shaders, materials and the Godot shading language
 
