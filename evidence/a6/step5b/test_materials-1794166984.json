@@ -1,0 +1,906 @@
+{
+	"all_passed": true,
+	"checks": [
+		{
+			"check": "res://shaders/linen_square.gdshader loads as a Shader",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: source text read",
+			"detail": "835 chars",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: get_shader_uniform_list() names are exactly [\"albedo_tex\", \"tint\", \"uv_scale\", \"roughness_tex\", \"roughness_scale\", \"normal_tex\", \"normal_strength\"]",
+			"detail": "listed [\"albedo_tex\", \"tint\", \"uv_scale\", \"roughness_tex\", \"roughness_scale\", \"normal_tex\", \"normal_strength\"]",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: uniform albedo_tex has type 24",
+			"detail": "listed type 24",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: uniform tint has type 20",
+			"detail": "listed type 20",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: uniform uv_scale has type 3",
+			"detail": "listed type 3",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: uniform roughness_tex has type 24",
+			"detail": "listed type 24",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: uniform roughness_scale has type 3",
+			"detail": "listed type 3",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: uniform normal_tex has type 24",
+			"detail": "listed type 24",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: uniform normal_strength has type 3",
+			"detail": "listed type 3",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: source declares exactly [\"albedo_tex\", \"tint\", \"uv_scale\", \"roughness_tex\", \"roughness_scale\", \"normal_tex\", \"normal_strength\"]",
+			"detail": "source [\"albedo_tex\", \"tint\", \"uv_scale\", \"roughness_tex\", \"roughness_scale\", \"normal_tex\", \"normal_strength\"]",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: albedo_tex hints are \"source_color, filter_linear_mipmap, repeat_enable\"",
+			"detail": "source \"source_color, filter_linear_mipmap, repeat_enable\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: tint hints are \"source_color\"",
+			"detail": "source \"source_color\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: tint default is vec4(1.0)",
+			"detail": "source \"vec4(1.0)\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: uv_scale hints are \"hint_range(0.5, 8.0, 0.05)\"",
+			"detail": "source \"hint_range(0.5, 8.0, 0.05)\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: uv_scale default is 3.65",
+			"detail": "source \"3.65\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: roughness_tex hints are \"filter_linear_mipmap, repeat_enable\"",
+			"detail": "source \"filter_linear_mipmap, repeat_enable\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: roughness_scale hints are \"hint_range(0.0, 1.0)\"",
+			"detail": "source \"hint_range(0.0, 1.0)\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: roughness_scale default is 1.0",
+			"detail": "source \"1.0\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: normal_tex hints are \"hint_normal, filter_linear_mipmap, repeat_enable\"",
+			"detail": "source \"hint_normal, filter_linear_mipmap, repeat_enable\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: normal_strength hints are \"hint_range(0.0, 2.0)\"",
+			"detail": "source \"hint_range(0.0, 2.0)\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: normal_strength default is 1.0",
+			"detail": "source \"1.0\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: albedo_tex has source_color",
+			"detail": "hints \"source_color, filter_linear_mipmap, repeat_enable\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: roughness_tex has no source_color",
+			"detail": "hints \"filter_linear_mipmap, repeat_enable\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: normal_tex has no source_color",
+			"detail": "hints \"hint_normal, filter_linear_mipmap, repeat_enable\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/linen_square.gdshader: does not use TIME",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader loads as a Shader",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: source text read",
+			"detail": "321 chars",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: get_shader_uniform_list() names are exactly [\"grey_srgb\", \"grey_raw\", \"use_srgb\"]",
+			"detail": "listed [\"grey_srgb\", \"grey_raw\", \"use_srgb\"]",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: uniform grey_srgb has type 24",
+			"detail": "listed type 24",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: uniform grey_raw has type 24",
+			"detail": "listed type 24",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: uniform use_srgb has type 1",
+			"detail": "listed type 1",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: source declares exactly [\"grey_srgb\", \"grey_raw\", \"use_srgb\"]",
+			"detail": "source [\"grey_srgb\", \"grey_raw\", \"use_srgb\"]",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: grey_srgb hints are \"source_color, filter_nearest\"",
+			"detail": "source \"source_color, filter_nearest\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: grey_raw hints are \"filter_nearest\"",
+			"detail": "source \"filter_nearest\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: use_srgb hints are \"\"",
+			"detail": "source \"\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: use_srgb default is true",
+			"detail": "source \"true\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: grey_srgb has source_color",
+			"detail": "hints \"source_color, filter_nearest\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: grey_raw has no source_color",
+			"detail": "hints \"filter_nearest\"",
+			"pass": true
+		},
+		{
+			"check": "res://shaders/hint_experiment.gdshader: does not use TIME",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres loads as a ShaderMaterial",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres: shader is res://shaders/linen_square.gdshader",
+			"detail": "res://shaders/linen_square.gdshader",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres: tint = FFFFFF",
+			"detail": "material holds #FFFFFF",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres: normal_strength = 1.0",
+			"detail": "material holds 1.0",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres: uv_scale = not set (shader default)",
+			"detail": "material holds null",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres: roughness_scale = not set (shader default)",
+			"detail": "material holds null",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres: albedo_tex binds hessian_380_diff_1k.jpg",
+			"detail": "res://assets/textures/hessian_380/hessian_380_diff_1k.jpg",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres: roughness_tex binds hessian_380_rough_1k.png",
+			"detail": "res://assets/textures/hessian_380/hessian_380_rough_1k.png",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres: normal_tex binds hessian_380_nor_gl_1k.png",
+			"detail": "res://assets/textures/hessian_380/hessian_380_nor_gl_1k.png",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres: every stored parameter is a shader uniform",
+			"detail": "stored [\"albedo_tex\", \"tint\", \"roughness_tex\", \"normal_tex\", \"normal_strength\"]",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_light.tres: never binds the DirectX normal map",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres loads as a ShaderMaterial",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres: shader is res://shaders/linen_square.gdshader",
+			"detail": "res://shaders/linen_square.gdshader",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres: tint = 9A7F55",
+			"detail": "material holds #9A7F55",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres: normal_strength = 1.5",
+			"detail": "material holds 1.5",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres: uv_scale = not set (shader default)",
+			"detail": "material holds null",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres: roughness_scale = not set (shader default)",
+			"detail": "material holds null",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres: albedo_tex binds hessian_380_diff_1k.jpg",
+			"detail": "res://assets/textures/hessian_380/hessian_380_diff_1k.jpg",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres: roughness_tex binds hessian_380_rough_1k.png",
+			"detail": "res://assets/textures/hessian_380/hessian_380_rough_1k.png",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres: normal_tex binds hessian_380_nor_gl_1k.png",
+			"detail": "res://assets/textures/hessian_380/hessian_380_nor_gl_1k.png",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres: every stored parameter is a shader uniform",
+			"detail": "stored [\"albedo_tex\", \"tint\", \"roughness_tex\", \"normal_tex\", \"normal_strength\"]",
+			"pass": true
+		},
+		{
+			"check": "res://materials/linen_dark.tres: never binds the DirectX normal map",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_srgb.tres loads as a ShaderMaterial",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_srgb.tres: shader is res://shaders/hint_experiment.gdshader",
+			"detail": "res://shaders/hint_experiment.gdshader",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_srgb.tres: use_srgb = true",
+			"detail": "material holds true",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_srgb.tres: grey_srgb binds hint_greys.png",
+			"detail": "res://assets/textures/hint_experiment/hint_greys.png",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_srgb.tres: grey_raw binds hint_greys.png",
+			"detail": "res://assets/textures/hint_experiment/hint_greys.png",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_srgb.tres: every stored parameter is a shader uniform",
+			"detail": "stored [\"grey_srgb\", \"grey_raw\", \"use_srgb\"]",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_srgb.tres: never binds the DirectX normal map",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_raw.tres loads as a ShaderMaterial",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_raw.tres: shader is res://shaders/hint_experiment.gdshader",
+			"detail": "res://shaders/hint_experiment.gdshader",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_raw.tres: use_srgb = false",
+			"detail": "material holds false",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_raw.tres: grey_srgb binds hint_greys.png",
+			"detail": "res://assets/textures/hint_experiment/hint_greys.png",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_raw.tres: grey_raw binds hint_greys.png",
+			"detail": "res://assets/textures/hint_experiment/hint_greys.png",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_raw.tres: every stored parameter is a shader uniform",
+			"detail": "stored [\"grey_srgb\", \"grey_raw\", \"use_srgb\"]",
+			"pass": true
+		},
+		{
+			"check": "res://materials/hint_raw.tres: never binds the DirectX normal map",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "both linen materials reference res://shaders/linen_square.gdshader",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "both linen materials share one Shader object (resource cache)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "the two linen materials are different objects",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_diff_1k.jpg.import parses with ConfigFile",
+			"detail": "error 0",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_diff_1k.jpg: compress/mode = 0",
+			"detail": "file 0",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_diff_1k.jpg: compress/normal_map = 2",
+			"detail": "file 2",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_diff_1k.jpg: mipmaps/generate = true",
+			"detail": "file true",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_diff_1k.jpg: source_file is the texture itself",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_diff_1k.jpg loads as a Texture2D",
+			"detail": "1024 x 1024",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_rough_1k.png.import parses with ConfigFile",
+			"detail": "error 0",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_rough_1k.png: compress/mode = 0",
+			"detail": "file 0",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_rough_1k.png: compress/normal_map = 2",
+			"detail": "file 2",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_rough_1k.png: mipmaps/generate = true",
+			"detail": "file true",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_rough_1k.png: source_file is the texture itself",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_rough_1k.png loads as a Texture2D",
+			"detail": "1024 x 1024",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_gl_1k.png.import parses with ConfigFile",
+			"detail": "error 0",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_gl_1k.png: compress/mode = 0",
+			"detail": "file 0",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_gl_1k.png: compress/normal_map = 1",
+			"detail": "file 1",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_gl_1k.png: mipmaps/generate = true",
+			"detail": "file true",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_gl_1k.png: source_file is the texture itself",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_gl_1k.png loads as a Texture2D",
+			"detail": "1024 x 1024",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_dx_1k.png.import parses with ConfigFile",
+			"detail": "error 0",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_dx_1k.png: compress/mode = 0",
+			"detail": "file 0",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_dx_1k.png: compress/normal_map = 1",
+			"detail": "file 1",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_dx_1k.png: mipmaps/generate = false",
+			"detail": "file false",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_dx_1k.png: source_file is the texture itself",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_dx_1k.png loads as a Texture2D",
+			"detail": "1024 x 1024",
+			"pass": true
+		},
+		{
+			"check": "hint_greys.png.import parses with ConfigFile",
+			"detail": "error 0",
+			"pass": true
+		},
+		{
+			"check": "hint_greys.png: compress/mode = 0",
+			"detail": "file 0",
+			"pass": true
+		},
+		{
+			"check": "hint_greys.png: compress/normal_map = 2",
+			"detail": "file 2",
+			"pass": true
+		},
+		{
+			"check": "hint_greys.png: mipmaps/generate = false",
+			"detail": "file false",
+			"pass": true
+		},
+		{
+			"check": "hint_greys.png: source_file is the texture itself",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hint_greys.png loads as a Texture2D",
+			"detail": "3 x 1",
+			"pass": true
+		},
+		{
+			"check": "res://diorama/asset_diorama.tscn loads",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: LinenSquareLight is a MeshInstance3D",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: LinenSquareLight mesh is a 1 x 1 m PlaneMesh",
+			"detail": "(1.0, 1.0)",
+			"pass": true
+		},
+		{
+			"check": "diorama: LinenSquareLight surface override 0 is linen_light.tres",
+			"detail": "res://materials/linen_light.tres",
+			"pass": true
+		},
+		{
+			"check": "diorama: LinenSquareLight has no material_override (would hide the surface one)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: LinenSquareDark is a MeshInstance3D",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: LinenSquareDark mesh is a 1 x 1 m PlaneMesh",
+			"detail": "(1.0, 1.0)",
+			"pass": true
+		},
+		{
+			"check": "diorama: LinenSquareDark surface override 0 is linen_dark.tres",
+			"detail": "res://materials/linen_dark.tres",
+			"pass": true
+		},
+		{
+			"check": "diorama: LinenSquareDark has no material_override (would hide the surface one)",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: the two tiles hold different materials",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: exactly one Light3D",
+			"detail": "1",
+			"pass": true
+		},
+		{
+			"check": "diorama: the light is a DirectionalLight3D named Lamp",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: Lamp energy 1.0 (default)",
+			"detail": "1.000",
+			"pass": true
+		},
+		{
+			"check": "diorama: Lamp colour (1, 0.92, 0.8)",
+			"detail": "ffebcc",
+			"pass": true
+		},
+		{
+			"check": "diorama: Lamp shadows on",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: WorldEnvironment has an Environment",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "diorama: background Color (1)",
+			"detail": "1",
+			"pass": true
+		},
+		{
+			"check": "diorama: ambient source Color (2)",
+			"detail": "2",
+			"pass": true
+		},
+		{
+			"check": "diorama: ambient energy 0.35",
+			"detail": "0.350",
+			"pass": true
+		},
+		{
+			"check": "diorama: ambient colour (1, 0.95, 0.88)",
+			"detail": "fff2e0",
+			"pass": true
+		},
+		{
+			"check": "diorama: tonemap Linear (0), not set in the scene",
+			"detail": "0",
+			"pass": true
+		},
+		{
+			"check": "diorama: tonemap exposure 1.0, not set in the scene",
+			"detail": "1.000",
+			"pass": true
+		},
+		{
+			"check": "diorama: glow, fog and adjustments off",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "res://hint/hint_experiment.tscn loads",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hint scene: QuadA_source_color is a MeshInstance3D",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hint scene: QuadA_source_color surface override 0 is hint_srgb.tres",
+			"detail": "res://materials/hint_srgb.tres",
+			"pass": true
+		},
+		{
+			"check": "hint scene: QuadB_no_hint is a MeshInstance3D",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hint scene: QuadB_no_hint surface override 0 is hint_raw.tres",
+			"detail": "res://materials/hint_raw.tres",
+			"pass": true
+		},
+		{
+			"check": "hint scene: the two quads hold different materials",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hint scene: no Light3D (both materials are unshaded)",
+			"detail": "0",
+			"pass": true
+		},
+		{
+			"check": "hint scene: WorldEnvironment has an Environment",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hint scene: tonemap Linear (0)",
+			"detail": "0",
+			"pass": true
+		},
+		{
+			"check": "hint scene: exposure 1.0",
+			"detail": "1.000",
+			"pass": true
+		},
+		{
+			"check": "hint scene: glow, fog and adjustments off",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hint scene: background Color, black",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_gl_1k.png decodes with Image.load_from_file",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "hessian_380_nor_dx_1k.png decodes with Image.load_from_file",
+			"detail": "",
+			"pass": true
+		},
+		{
+			"check": "nor_gl (the bound map) is lower under the OpenGL convention than under DirectX",
+			"detail": "0.6813 vs 1.3187",
+			"pass": true
+		},
+		{
+			"check": "nor_dx (calibration only) is lower under the DirectX convention than under OpenGL",
+			"detail": "1.3167 vs 0.6833",
+			"pass": true
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"measured": {
+		"diorama LinenSquareDark position": "(0.55, 0.002, 1.0)",
+		"diorama LinenSquareLight position": "(-0.55, 0.002, 1.0)",
+		"diorama environment": {
+			"adjustments": false,
+			"ambient_color": "fff2e0",
+			"ambient_energy": 0.349999994039536,
+			"ambient_source": 2,
+			"background_color": "292624",
+			"background_mode": 1,
+			"fog": false,
+			"glow": false,
+			"reflected_source": 0,
+			"tonemap_exposure": 1.0,
+			"tonemap_mode": 0,
+			"tonemap_white": 1.0
+		},
+		"diorama lamp": {
+			"class": "DirectionalLight3D",
+			"color": "ffebcc",
+			"energy": 1.0,
+			"rotation": "(-0.8727, -0.6109, 0.0)",
+			"shadow": true
+		},
+		"hessian_380_diff_1k.jpg import": {
+			"compress/mode": 0,
+			"compress/normal_map": 2,
+			"importer": "texture",
+			"mipmaps/generate": true,
+			"source_file": "res://assets/textures/hessian_380/hessian_380_diff_1k.jpg"
+		},
+		"hessian_380_nor_dx_1k.png curl_ratio": {
+			"decoded_format": 4,
+			"directx_false": 1.3166956550279,
+			"directx_true": 0.683304344972072,
+			"height": 1024,
+			"width": 1024
+		},
+		"hessian_380_nor_dx_1k.png import": {
+			"compress/mode": 0,
+			"compress/normal_map": 1,
+			"importer": "texture",
+			"mipmaps/generate": false,
+			"source_file": "res://assets/textures/hessian_380/hessian_380_nor_dx_1k.png"
+		},
+		"hessian_380_nor_gl_1k.png curl_ratio": {
+			"decoded_format": 4,
+			"directx_false": 0.681337662461599,
+			"directx_true": 1.3186623375384,
+			"height": 1024,
+			"width": 1024
+		},
+		"hessian_380_nor_gl_1k.png import": {
+			"compress/mode": 0,
+			"compress/normal_map": 1,
+			"importer": "texture",
+			"mipmaps/generate": true,
+			"source_file": "res://assets/textures/hessian_380/hessian_380_nor_gl_1k.png"
+		},
+		"hessian_380_rough_1k.png import": {
+			"compress/mode": 0,
+			"compress/normal_map": 2,
+			"importer": "texture",
+			"mipmaps/generate": true,
+			"source_file": "res://assets/textures/hessian_380/hessian_380_rough_1k.png"
+		},
+		"hint scene environment": {
+			"adjustments": false,
+			"ambient_color": "000000",
+			"ambient_energy": 1.0,
+			"ambient_source": 0,
+			"background_color": "000000",
+			"background_mode": 1,
+			"fog": false,
+			"glow": false,
+			"reflected_source": 0,
+			"tonemap_exposure": 1.0,
+			"tonemap_mode": 0,
+			"tonemap_white": 1.0
+		},
+		"hint_greys.png import": {
+			"compress/mode": 0,
+			"compress/normal_map": 2,
+			"importer": "texture",
+			"mipmaps/generate": false,
+			"source_file": "res://assets/textures/hint_experiment/hint_greys.png"
+		},
+		"res://shaders/hint_experiment.gdshader source uniforms": {
+			"grey_raw": {
+				"default": "",
+				"hints": "filter_nearest",
+				"type_name": "sampler2D"
+			},
+			"grey_srgb": {
+				"default": "",
+				"hints": "source_color, filter_nearest",
+				"type_name": "sampler2D"
+			},
+			"use_srgb": {
+				"default": "true",
+				"hints": "",
+				"type_name": "bool"
+			}
+		},
+		"res://shaders/hint_experiment.gdshader uniform list": {
+			"grey_raw": 24,
+			"grey_srgb": 24,
+			"use_srgb": 1
+		},
+		"res://shaders/linen_square.gdshader source uniforms": {
+			"albedo_tex": {
+				"default": "",
+				"hints": "source_color, filter_linear_mipmap, repeat_enable",
+				"type_name": "sampler2D"
+			},
+			"normal_strength": {
+				"default": "1.0",
+				"hints": "hint_range(0.0, 2.0)",
+				"type_name": "float"
+			},
+			"normal_tex": {
+				"default": "",
+				"hints": "hint_normal, filter_linear_mipmap, repeat_enable",
+				"type_name": "sampler2D"
+			},
+			"roughness_scale": {
+				"default": "1.0",
+				"hints": "hint_range(0.0, 1.0)",
+				"type_name": "float"
+			},
+			"roughness_tex": {
+				"default": "",
+				"hints": "filter_linear_mipmap, repeat_enable",
+				"type_name": "sampler2D"
+			},
+			"tint": {
+				"default": "vec4(1.0)",
+				"hints": "source_color",
+				"type_name": "vec4"
+			},
+			"uv_scale": {
+				"default": "3.65",
+				"hints": "hint_range(0.5, 8.0, 0.05)",
+				"type_name": "float"
+			}
+		},
+		"res://shaders/linen_square.gdshader uniform list": {
+			"albedo_tex": 24,
+			"normal_strength": 3,
+			"normal_tex": 24,
+			"roughness_scale": 3,
+			"roughness_tex": 24,
+			"tint": 20,
+			"uv_scale": 3
+		}
+	},
+	"passed": 148,
+	"report": "test_materials",
+	"total": 148,
+	"unix_time": 1794166984
+}
