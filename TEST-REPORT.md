@@ -201,6 +201,7 @@ TO FILL (Jiean): play several full games at 1280 × 720 and write what you saw f
 | Size against the 80 px archer; over the light square and the dark table | TO FILL |
 | Edge of the screen (the player's start square touches the table) | TO FILL |
 | Does it read as "hit" and "who shot whom"? | TO FILL |
+| Claude against you: one point where you disagreed with a strip reading of Claude's in TUNING.md, or "none" | TO FILL |
 
 > *Hint (Claude):* write each line as what you saw, not what should happen, for example "R during the trail: the trail vanished on the same frame". Where you disagree with a reading of Claude's in TUNING.md, say so here; disagreements are part of the evidence.
 
