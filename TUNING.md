@@ -77,10 +77,39 @@ Claude's prediction for r2 (written before the edit). The flash quad goes from 4
 - **Splinters and Dust:** unchanged.
 
 Also predicted: on the red enemy the flash now spills onto the board around it, so it reads there by its edge rather than over the tunic. Risk: for 2–4 frames it hides the archer's face.
-Claude's comparison of r2 with its prediction: TO FILL (after the recapture)
+Claude's comparison of r2 with its prediction (from `captures/hit_burst/r2/sheet_player_2x.png`):
+- **frame 10:** matches, and slightly larger than predicted. A red glow about 90–100 px across covers the whole upper body and spills onto the board; the archer stays visible through it, tinted red.
+- **frame 12:** matches; a clear red glow about 110 px across around the dark splinter cluster.
+- **frame 15:** weaker than predicted; an orange-red halo shows only at the edges.
+- **frame 20:** no red visible. I predicted a faint haze; close enough.
+- **frames 30 and 50, and all splinters and dust:** match, unchanged.
+- **Why:** the size change gets the flash out from under the splinters. Its life (0.36 s) still ends its visible part by about frame 15.
 My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
 > *Hint (Claude):* is the hit now obvious without staring? Is the red disc too big for an 80 px archer, and does hiding the archer for a moment bother you?
 Strips: captures/hit_burst/r1/, captures/hit_burst/r2/
+Commits: `2efe98f` (prediction), `1079375` (change)
+
+## 2026-11-08 -- Effect A, revision r3
+
+What I saw (running game, 1280 × 720): Jiean's r1 verdict, second half: "… and last 3 times longer than the current status."
+Claude's reading of r2: see r2's comparison (large and clear until frame 12, gone by about frame 15).
+Change: `Flash.lifetime` 0.36 → 1.08 s (3×), requested by Jiean. The scale stays 3.0.
+Claude's prediction for r3 (written before the edit). Alpha 0.9 → 0 and scale 1.0 → 1.6 now spread over 1.08 s:
+- **frame 10:** the same as r2;
+- **frame 12:** the same as r2, marginally stronger;
+- **frame 15** (15% of its life): a strong red glow about 100 px across;
+- **frame 20** (31%): a clearly red glow about 110 px across, with alpha ≈ 0.6 at the centre;
+- **frame 30** (62%): a faint pink glow about 130 px across, over the whole square;
+- **frame 50:** nothing (it ends at about frame 42).
+- **Splinters and Dust:** unchanged.
+
+Risks:
+- the red glow now lasts as long as the dust, so it may read as a lasting red aura rather than a hit;
+- in a two-hit turn, the first flash (1.08 s) is still faintly visible when the second hit lands (1.05 s).
+Claude's comparison of r3 with its prediction: TO FILL (after the recapture)
+My verdict (running game, 1280 × 720): TO FILL (Jiean) kept | reverted, because …
+> *Hint (Claude):* compare r2 and r3 in play. Does the longer glow read as "hit", or as a status effect? Is the archer hidden too long?
+Strips: captures/hit_burst/r2/, captures/hit_burst/r3/
 Commits:
 
 ## Effect B: first look (strip r0, before any revision)
