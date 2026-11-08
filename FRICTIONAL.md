@@ -339,3 +339,86 @@ Same format. Claude Code wrote the factual lines from the session record; the ju
 - **Human / Claude / model:** the approval, the pronunciation and the final watch were mine. The script draft, captures, tools, checks and QC were Claude Code's. The narration voice is Kokoro-82M (`am_onyx`, local). No other generative model was used.
 - **Still unresolved:** TO FILL
   > *Hint (Claude):* for example, why roughness 0 looked shiny in the editor but not in the capture, and whether the hint experiment comes out differently on Forward+.
+
+# Assignment 6 — particle effects
+
+Same format. Claude Code wrote the factual lines (Asked, Got, Human / Claude / model) from the session record. The judgment lines (Wanted, Decided, Still unresolved) are Jiean's own words; each `TO FILL` has a hint draft beside it, to be rewritten.
+
+## 2026-11-08 — Effect B: wound smoke dropped for the arrow trail
+- **Wanted:** TO FILL (Jiean)
+  > *Hint (Claude):* what did you want the second effect to tell the player, and why did it have to be a different job from the hit burst?
+- **Asked:** Claude to check which conditions in the slice could drive a second effect that starts, stops, pauses and hides.
+- **Got:**
+  - HP goes 4 → 1 → 0 (`rules.gd:12-13`), so a "wounded" state lasts one hit and is nearly binary.
+  - An arrow in flight (`main._arrows`, `main.gd:102`) starts and stops on every shot.
+  - A probe showed that `trail_enabled` draws nothing on the Compatibility renderer and prints a warning. So the trail had to come from world-space emission by a moving emitter, with turbulence as the GPU-only feature Effect A lacks.
+- **Decided:** TO FILL (Jiean)
+  > *Hint (Claude):* which option you chose ("Arrow trail"), and the reason in one sentence, for example that it answers the A2 playtest problem of who shot whom.
+- **Next:** the brief's §2 settings and rules B1–B6.
+- **Human / Claude / model:** the choice was Jiean's; the condition analysis and the trail probe were Claude's. No generative model.
+- **Still unresolved:** TO FILL (Jiean)
+  > *Hint (Claude):* for example whether the trail still reads when several archers shoot in one turn, which this 1-vs-1 slice can't show.
+
+## 2026-11-08 — Agent sessions: CLAUDE.md, both effects, both drivers, the price script
+- **Wanted:** TO FILL (Jiean)
+  > *Hint (Claude):* what you wanted to learn from letting a scoped agent build from the brief alone, and what you wanted to check yourself.
+- **Asked:** eight scoped `claude -p` runs with the course prompts (`prompts/a6/`, session records in `evidence/a6/sessions/`):
+  - Step 1, the CLAUDE.md draft;
+  - Step 2, Effect A's scene, config test and preview;
+  - Step 5, the same for Effect B;
+  - Steps 3 and 5, a read-only plan, then an implementation for each driver and state test;
+  - Step 7, the price script.
+- **Got:**
+  - CLAUDE.md: 82 lines. It claimed that a Godot 3 name in a `.tscn` "raises no error, leaves defaults", which nobody had measured; Claude's review marked it unmeasured (`dcd33b6`). Mutation 1 later measured it: true for `initial_velocity`.
+  - Step 1's agent reported a private-data check whose command the allow list had refused. It had redone the check with Grep, which Claude verified.
+  - Step 2's agent worked around the allow list: it copied a probe into `godot/tests/zz_probe_tmp.gd` and ran it through `run-test.sh`. This is recorded in `cb9830b`.
+  - Config tests: 107/107 and 135/135.
+  - Step 3's first state test failed on its own fps check and on a free window that ignored `lifetime_randomness`; the agent fixed its test. Result: 31/31.
+  - Step 5's state test: 30/31. The agent left the B2 timing check failing (measured 0 or −2 frames against the brief's −1..1) and reported it instead of widening the bound. The brief was wrong; Revision 1 corrected it.
+  - Step 7: the course's Example 09 cost script is not in this repository (the agent searched for it), so the agent wrote `cost_effects.gd` from the brief. Its first run had a timer bug in the burst replacement, which it fixed. It flagged that `Performance.TIME_PROCESS` read 0 headless.
+  - Scope: no agent session changed `godot/shaders/` (`git diff --stat godot/shaders/` empty after every run). Every run had some commands refused by the allow list.
+- **Decided:** TO FILL (Jiean)
+  > *Hint (Claude):* what you accepted, and what you checked before accepting it (for example, that each state-test check maps to a rule A1–A6 or B1–B6).
+- **Next:** mutations, tuning, the price.
+- **Human / Claude / model:** Jiean approved each implementation prompt, which Claude drafted, and answered the agents' questions. The agents (Claude Opus 5.5 via `claude -p`) wrote the drafts, committed unedited. Claude Code ran and reviewed them in separate commits.
+- **Still unresolved:** TO FILL (Jiean)
+  > *Hint (Claude):* for example the B2 timing: the trail stops up to 2 frames before the impact cue, and the cause in `main.gd` was not investigated.
+
+## 2026-11-08 — Tuning the red flash (Effect A r1–r3)
+- **Wanted:** TO FILL (Jiean)
+  > *Hint (Claude):* in the running game you could barely notice the flash; what did you want the moment of the hit to look like?
+- **Asked:** "Let the red flash last longer, at least 3 times as long as now." After r1: "Make it much larger than right now and last 3 times longer than the current status."
+- **Got:**
+  - Claude split the requests so that each revision changes one setting: r1 `Flash.lifetime` 0.12 → 0.36, r2 `scale_amount` 1.25 → 3.0, r3 `lifetime` 0.36 → 1.08. Each had a prediction committed before the edit, Jiean's strip, and Claude's comparison (`TUNING.md`).
+  - Claude's r1 prediction was too strong: it ignored that the splinters and dust are drawn over the flash.
+  - r2 and r3 matched their predictions.
+  - The r3 capture was also written into the r2 folder; Claude restored the committed r2 strip from git (the files were byte-identical to r3).
+- **Decided:** TO FILL (Jiean)
+  > *Hint (Claude):* your verdict in your words: both r2 and r3 kept, because the colour stands out more from the background and the larger size makes the hit archer easier to see.
+- **Next:** CHANGE-BRIEF Revision 1 records the new values.
+- **Human / Claude / model:** the requests and verdicts were Jiean's; the split, predictions, edits and comparisons were Claude's. No generative model.
+- **Still unresolved:** TO FILL (Jiean)
+  > *Hint (Claude):* for example whether a 1 s red glow will read as a status effect once there are more unit types, and the weak contrast on the red enemy.
+
+## 2026-11-08 — Effect B r1: stronger wisps
+- **Wanted:** TO FILL (Jiean)
+- **Asked:** Claude for options after the r0 strip; Jiean chose "Stronger wisps" over "Bigger streak dots".
+- **Got:** `Wisps.color_ramp` `#9A8466` α 0.45 → `#6E5A44` α 0.7, with a prediction committed first (`f8cb529`, `c3bbb9e`). Claude's pruning loop then deleted every frame of Jiean's first r1 capture (a brace pattern inside a shell `case` is not expanded), so the strip was captured again.
+- **Decided:** TO FILL (Jiean)
+- **Next:** the comparison and Jiean's verdict.
+- **Human / Claude / model:** the choice and verdict were Jiean's; the options, prediction and edit were Claude's.
+- **Still unresolved:** TO FILL (Jiean)
+  > *Hint (Claude):* for these three lines: what you wanted the wisps to add to the trail, whether r1 gives it, and whether the dotted streak (failure 8) still bothers you.
+
+## 2026-11-08 — The GPU price: the Visual Profiler and the means
+- **Wanted:** TO FILL (Jiean)
+- **Asked:** detailed steps for the Visual Profiler, which Jiean could not find at first, and a fixture that holds each effect at its peak.
+- **Got:**
+  - A V key that toggles vsync (`vsync_debug.gd`) and `godot/previews/price_effects.tscn`.
+  - Jiean's Visual Profiler readings overlap completely across the three cases: 4–6.5 ms with vsync on, 0–1.5 ms with vsync off.
+  - Claude's unattended sweep of the viewport's measured GPU time, vsync off, gave +0.0031 ms for A and +0.0074 ms for B (TEST-REPORT A6.6). Both are under the 0.2 ms budget, and both are 2–3 times Jiean's predictions.
+- **Decided:** TO FILL (Jiean)
+- **Next:** TEST-REPORT A6.6, Jiean's conclusion.
+- **Human / Claude / model:** the profiler readings were Jiean's; the fixture, the sweep and the analysis were Claude's.
+- **Still unresolved:** TO FILL (Jiean)
+  > *Hint (Claude):* for these three lines: what you wanted to compare, whether you trust the profiler or the means for numbers this small and why, and the vsync-on reading of 4–6 ms that nobody has explained by measurement.
