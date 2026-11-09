@@ -1,0 +1,1080 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: res://game/main.tscn:3 - ext_resource, invalid UID: uid://r0rfkynwcqc0 - using text path instead: res://game/main.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://game/main.tscn:4 - ext_resource, invalid UID: uid://y4ef6blnx5g7 - using text path instead: res://game/audio_director.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://game/main.tscn:5 - ext_resource, invalid UID: uid://b8og5yiwfij0k - using text path instead: res://game/exposed_driver.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+cost_effects: Godot 4.7.2-stable (official), warm-up 90, samples 600 per case per round, 2 rounds
+PASS  empty r1: 600 frames sampled  (600)
+CASE empty     round 1  frame   n 600  mean 0.0132 ms  sd 0.2338  min 0.0030  p50 0.0040  p95 0.0040  max 5.7300
+CASE empty     round 1  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+ERROR: Cannot open file 'res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hit.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hurt.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_win.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/music/mus_loop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Unable to open file: res://.godot/imported/archer_idle.png-84df2138939b1fecb8098b0bf5c152c6.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _build (res://tests/cost_effects.gd:226)
+       [8] _measure (res://tests/cost_effects.gd:277)
+       [9] _run (res://tests/cost_effects.gd:341)
+       [10] _measure (res://tests/cost_effects.gd:324)
+       [11] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/archer_idle.png-84df2138939b1fecb8098b0bf5c152c6.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _build (res://tests/cost_effects.gd:226)
+       [8] _measure (res://tests/cost_effects.gd:277)
+       [9] _run (res://tests/cost_effects.gd:341)
+       [10] _measure (res://tests/cost_effects.gd:324)
+       [11] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/art/archer_idle.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _build (res://tests/cost_effects.gd:226)
+       [8] _measure (res://tests/cost_effects.gd:277)
+       [9] _run (res://tests/cost_effects.gd:341)
+       [10] _measure (res://tests/cost_effects.gd:324)
+       [11] _frames (res://tests/cost_effects.gd:187)
+ERROR: Unable to open file: res://.godot/imported/archer_idle_enemy.png-77b9105ce61d068b80f08e91456fb73e.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _build (res://tests/cost_effects.gd:226)
+       [8] _measure (res://tests/cost_effects.gd:277)
+       [9] _run (res://tests/cost_effects.gd:341)
+       [10] _measure (res://tests/cost_effects.gd:324)
+       [11] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/archer_idle_enemy.png-77b9105ce61d068b80f08e91456fb73e.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _build (res://tests/cost_effects.gd:226)
+       [8] _measure (res://tests/cost_effects.gd:277)
+       [9] _run (res://tests/cost_effects.gd:341)
+       [10] _measure (res://tests/cost_effects.gd:324)
+       [11] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/art/archer_idle_enemy.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _build (res://tests/cost_effects.gd:226)
+       [8] _measure (res://tests/cost_effects.gd:277)
+       [9] _run (res://tests/cost_effects.gd:341)
+       [10] _measure (res://tests/cost_effects.gd:324)
+       [11] _frames (res://tests/cost_effects.gd:187)
+ERROR: Unable to open file: res://.godot/imported/env_table.png-05de5b70255545558687ccb1be3b49e6.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _tex (res://game/main.gd:609)
+       [1] _draw_board (res://game/main.gd:619)
+       [2] _draw (res://game/draw_layer.gd:9)
+ERROR: Failed loading resource: res://.godot/imported/env_table.png-05de5b70255545558687ccb1be3b49e6.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _tex (res://game/main.gd:609)
+       [1] _draw_board (res://game/main.gd:619)
+       [2] _draw (res://game/draw_layer.gd:9)
+ERROR: Failed loading resource: res://assets/art/env_table.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _tex (res://game/main.gd:609)
+       [1] _draw_board (res://game/main.gd:619)
+       [2] _draw (res://game/draw_layer.gd:9)
+PASS  game_off r1: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  game_off r1: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  game_off r1: 600 frames sampled  (600)
+CASE game_off  round 1  frame   n 600  mean 0.2118 ms  sd 0.0704  min 0.1390  p50 0.1990  p95 0.2980  max 1.3930
+CASE game_off  round 1  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+ERROR: Cannot open file 'res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hit.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hurt.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_win.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/music/mus_loop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+PASS  burst_x2 r1: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  burst_x2 r1: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  burst_x2 r1: 600 frames sampled  (600)
+PASS  burst_x2 r1: 2 bursts alive on every sampled frame (rule A3 maximum)  (min 2, max 2)
+CASE burst_x2  round 1  frame   n 600  mean 0.2087 ms  sd 0.0496  min 0.1420  p50 0.2070  p95 0.2940  max 0.4690
+CASE burst_x2  round 1  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+ERROR: Cannot open file 'res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hit.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hurt.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_win.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/music/mus_loop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+PASS  trail_x2 r1: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  trail_x2 r1: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  trail_x2 r1: 600 frames sampled  (600)
+PASS  trail_x2 r1: 2 trails x 2 emitters emitting on every sampled frame (§2 peak)  (min 4, max 4)
+CASE trail_x2  round 1  frame   n 600  mean 0.1681 ms  sd 0.0389  min 0.1450  p50 0.1540  p95 0.2530  max 0.4510
+CASE trail_x2  round 1  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+ERROR: Cannot open file 'res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hit.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hurt.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_win.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/music/mus_loop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+PASS  trail_x2 r2: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  trail_x2 r2: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  trail_x2 r2: 600 frames sampled  (600)
+PASS  trail_x2 r2: 2 trails x 2 emitters emitting on every sampled frame (§2 peak)  (min 4, max 4)
+CASE trail_x2  round 2  frame   n 600  mean 0.1608 ms  sd 0.0309  min 0.1360  p50 0.1500  p95 0.2340  max 0.3800
+CASE trail_x2  round 2  process n 600  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+ERROR: Cannot open file 'res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hit.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hurt.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_win.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/music/mus_loop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+PASS  burst_x2 r2: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  burst_x2 r2: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  burst_x2 r2: 600 frames sampled  (600)
+PASS  burst_x2 r2: 2 bursts alive on every sampled frame (rule A3 maximum)  (min 2, max 2)
+CASE burst_x2  round 2  frame   n 600  mean 0.2195 ms  sd 0.0906  min 0.1340  p50 0.1740  p95 0.3870  max 0.8090
+CASE burst_x2  round 2  process n 600  mean 13.9449 ms  sd 12.7094  min 0.0000  p50 25.5090  p95 25.5090  max 25.5090
+ERROR: Cannot open file 'res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hit.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hurt.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/sfx/sfx_win.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Cannot open file 'res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+ERROR: Failed loading resource: res://assets/music/mus_loop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _build (res://tests/cost_effects.gd:226)
+       [3] _measure (res://tests/cost_effects.gd:277)
+       [4] _run (res://tests/cost_effects.gd:341)
+       [5] _measure (res://tests/cost_effects.gd:324)
+       [6] _frames (res://tests/cost_effects.gd:187)
+PASS  game_off r2: game at PLAN_MOVE with 2 pieces  (PLAN_MOVE)
+PASS  game_off r2: drivers idle (no burst, no trail, no event played)  (bursts 0, trails 0, events 0)
+PASS  game_off r2: 600 frames sampled  (600)
+CASE game_off  round 2  frame   n 600  mean 0.2288 ms  sd 0.0654  min 0.1390  p50 0.2040  p95 0.3160  max 0.8820
+CASE game_off  round 2  process n 600  mean 25.5090 ms  sd 0.0000  min 25.5090  p50 25.5090  p95 25.5090  max 25.5090
+PASS  empty r2: 600 frames sampled  (600)
+CASE empty     round 2  frame   n 600  mean 0.0099 ms  sd 0.0020  min 0.0090  p50 0.0100  p95 0.0110  max 0.0520
+CASE empty     round 2  process n 600  mean 25.5090 ms  sd 0.0000  min 25.5090  p50 25.5090  p95 25.5090  max 25.5090
+PASS  fixed rate: every sampled delta is the same (--fixed-fps)  (delta 0.016667 .. 0.016667 s, 60 fps)
+
+POOLED (all rounds)
+CASE empty     frame   n 1200  mean 0.0115 ms  sd 0.1653  min 0.0030  p50 0.0090  p95 0.0100  max 5.7300
+CASE empty     process n 1200  mean 12.7545 ms  sd 12.7598  min 0.0000  p50 25.5090  p95 25.5090  max 25.5090
+CASE game_off  frame   n 1200  mean 0.2203 ms  sd 0.0685  min 0.1390  p50 0.2010  p95 0.3080  max 1.3930
+CASE game_off  process n 1200  mean 12.7545 ms  sd 12.7598  min 0.0000  p50 25.5090  p95 25.5090  max 25.5090
+CASE burst_x2  frame   n 1200  mean 0.2141 ms  sd 0.0732  min 0.1340  p50 0.2060  p95 0.3600  max 0.8090
+CASE burst_x2  process n 1200  mean 6.9725 ms  sd 11.3733  min 0.0000  p50 0.0000  p95 25.5090  max 25.5090
+CASE trail_x2  frame   n 1200  mean 0.1645 ms  sd 0.0353  min 0.1360  p50 0.1520  p95 0.2370  max 0.4510
+CASE trail_x2  process n 1200  mean 0.0000 ms  sd 0.0000  min 0.0000  p50 0.0000  p95 0.0000  max 0.0000
+
+DIFFERENCES (pooled mean, B - A; t = difference / standard error of the difference)
+frame    empty     -> game_off   +0.2087 ms  (t +40.4)
+process  empty     -> game_off   +0.0000 ms  (t +0.0)
+NOTE  process empty vs game_off: identical means: the script may be measuring only itself. Expected to differ because the game scene does work every frame (board, HUD, pieces, drivers).
+frame    game_off  -> burst_x2   -0.0062 ms  (t -2.1)
+process  game_off  -> burst_x2   -5.7820 ms  (t -11.7)
+frame    game_off  -> trail_x2   -0.0558 ms  (t -25.1)
+process  game_off  -> trail_x2   -12.7545 ms  (t -34.6)
+frame    burst_x2  -> trail_x2   -0.0496 ms  (t -21.1)
+process  burst_x2  -> trail_x2   -6.9725 ms  (t -21.2)
+SUMMARY cost_effects: 25/25 passed -> <home>/AppData/Local/Temp/claude/2e0eb91af20de06b/6dec7a23-c003-47b3-aaa3-2386f1705ef3/scratchpad/gh/evidence/cost_effects-1794187990.json

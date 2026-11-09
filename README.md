@@ -76,10 +76,16 @@ Tests (through the course wrapper, `scripts/run-test.sh <test> <fps|realtime> [t
 - **No `"attack_cancelled"` case** can be reached in this 1-vs-1 slice, so "no effect without a hit" is covered only by the per-frame rule in the state tests.
 - **Timing:** the trail stops 0 to 2 frames before the impact cue at 60 fps (CHANGE-BRIEF Revision 1).
 - **GPU price:** both effects cost less than the Visual Profiler's frame-to-frame swing. The per-case numbers come from averaging the viewport's measured GPU time (TEST-REPORT A6.6).
+- **First import:** in one fresh clone from GitHub, Godot's first `--import` crashed (segmentation fault while importing `sfx_win.ogg`); a second `--import` finished and every suite passed. The other fresh clones (Claude's check and the film's capture copies) imported cleanly the first time. If the first import crashes, run it again.
 
 ### Film (Assignment 6)
 
-TO FILL after the film is made: title and link, filename, SHA-256, the game-source revision shown.
+**[Lane Tactics: A Hit Burst and an Arrow Trail](https://youtu.be/Hfi4B5O40qw)** (YouTube), the Brutalist godot-gamedev explainer (walker modifier).
+
+- File: `claude-liam-walker-lane-tactics-jiean-yin-a6-gamedev.mp4`, 3840 × 2160, 30 fps, 10:30
+- SHA-256: `68124efb8d904f0eb81a8ee462470ed6ec43e23f1826fac922c26510b00075c6`
+- Game source shown: tag `a6` (`7f199f9`)
+- Film records: [youtube/claude-liam-walker-lane-tactics-jiean-yin-a6-gamedev/](youtube/claude-liam-walker-lane-tactics-jiean-yin-a6-gamedev/)
 
 ## Assignment 5 — shaders, materials and the Godot shading language
 

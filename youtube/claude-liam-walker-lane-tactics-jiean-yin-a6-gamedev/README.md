@@ -11,8 +11,7 @@ Assignment 6 explainer film for the Lane Tactics particle effects:
 - SHA-256 `68124efb8d904f0eb81a8ee462470ed6ec43e23f1826fac922c26510b00075c6`;
 - checks and QC in [_qc/MASTER-QC.md](_qc/MASTER-QC.md);
 - Jiean's watch-through of the full export (2026-11-08): "Ready as is".
-- Uploaded by Jiean: TO FILL (after upload).
-  > *Hint (Claude):* the YouTube link and its visibility (for example unlisted), once you have uploaded it.
+- Uploaded by Jiean to YouTube: https://youtu.be/Hfi4B5O40qw
 
 | File | What it is |
 |---|---|

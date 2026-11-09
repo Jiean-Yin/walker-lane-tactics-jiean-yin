@@ -1,0 +1,433 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: res://game/main.tscn:3 - ext_resource, invalid UID: uid://r0rfkynwcqc0 - using text path instead: res://game/main.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://game/main.tscn:4 - ext_resource, invalid UID: uid://y4ef6blnx5g7 - using text path instead: res://game/audio_director.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://game/main.tscn:5 - ext_resource, invalid UID: uid://b8og5yiwfij0k - using text path instead: res://game/exposed_driver.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hop.ogg-d1f72d49ab02ce0b8eadab8c4bf17ebd.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hit.ogg-74a4d1afb6eb6e35ebe9e780e21ba4f4.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hit.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Cannot open file 'res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://.godot/imported/sfx_hurt.ogg-f603980b52d88089dfba4eba11e9fced.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://assets/sfx/sfx_hurt.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Cannot open file 'res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://.godot/imported/sfx_win.ogg-7875952f2bdafb4b8309f18834c9aa77.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://assets/sfx/sfx_win.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:61)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Cannot open file 'res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr'.
+   at: load (core/io/resource_format_binary.cpp:1156)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://.godot/imported/mus_loop.ogg-a7c9e2089f5059d549932225bf4e5f89.oggvorbisstr.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://assets/music/mus_loop.ogg.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_stream (res://game/audio_director.gd:227)
+       [1] _ready (res://game/audio_director.gd:68)
+       [2] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Unable to open file: res://.godot/imported/archer_idle.png-84df2138939b1fecb8098b0bf5c152c6.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://.godot/imported/archer_idle.png-84df2138939b1fecb8098b0bf5c152c6.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://assets/art/archer_idle.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Unable to open file: res://.godot/imported/archer_idle_enemy.png-77b9105ce61d068b80f08e91456fb73e.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://.godot/imported/archer_idle_enemy.png-77b9105ce61d068b80f08e91456fb73e.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _run (res://tests/test_hit_burst_state.gd:213)
+ERROR: Failed loading resource: res://assets/art/archer_idle_enemy.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] setup (res://game/piece.gd:61)
+       [5] _build_pieces (res://game/main.gd:349)
+       [6] _ready (res://game/main.gd:126)
+       [7] _run (res://tests/test_hit_burst_state.gd:213)
+PASS  main.tscn has a HitBurstDriver (Node2D, process_priority 10) under Main
+ERROR: Unable to open file: res://.godot/imported/env_table.png-05de5b70255545558687ccb1be3b49e6.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _tex (res://game/main.gd:609)
+       [1] _draw_board (res://game/main.gd:619)
+       [2] _draw (res://game/draw_layer.gd:9)
+ERROR: Failed loading resource: res://.godot/imported/env_table.png-05de5b70255545558687ccb1be3b49e6.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _tex (res://game/main.gd:609)
+       [1] _draw_board (res://game/main.gd:619)
+       [2] _draw (res://game/draw_layer.gd:9)
+ERROR: Failed loading resource: res://assets/art/env_table.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _tex (res://game/main.gd:609)
+       [1] _draw_board (res://game/main.gd:619)
+       [2] _draw (res://game/draw_layer.gd:9)
+PASS  A2 load: 30 frames on the title, no burst  (spawned 0, children 0)
+PASS  start cells: p1 at column 0, lane 5 (zero-based (0, 4)); e1 at column 7, lane 4 ((7, 3))  (PLAN_MOVE (0, 4) (7, 3))
+PASS  win turns 1-3: no damaged event, no burst  (damaged [], spawned 0)
+ERROR: Unable to open file: res://.godot/imported/archer_draw_enemy.png-df7ab42128e3f77c57d505f50cf6f500.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_draw (res://game/main.gd:486)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://.godot/imported/archer_draw_enemy.png-df7ab42128e3f77c57d505f50cf6f500.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_draw (res://game/main.gd:486)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://assets/art/archer_draw_enemy.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_draw (res://game/main.gd:486)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Unable to open file: res://.godot/imported/archer_draw.png-a942a057527b40d2542cebb5e68e55a1.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:158)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_draw (res://game/main.gd:486)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://.godot/imported/archer_draw.png-a942a057527b40d2542cebb5e68e55a1.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:158)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_draw (res://game/main.gd:486)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://assets/art/archer_draw.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:158)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_draw (res://game/main.gd:486)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Unable to open file: res://.godot/imported/archer_hurt.png-07f6e291b4e669bfa5089bcb2c0c9e37.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] show_hurt (res://game/piece.gd:92)
+       [5] _cue_impact (res://game/main.gd:511)
+       [6] _run_cues (res://game/main.gd:196)
+       [7] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://.godot/imported/archer_hurt.png-07f6e291b4e669bfa5089bcb2c0c9e37.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] show_hurt (res://game/piece.gd:92)
+       [5] _cue_impact (res://game/main.gd:511)
+       [6] _run_cues (res://game/main.gd:196)
+       [7] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://assets/art/archer_hurt.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] show_hurt (res://game/piece.gd:92)
+       [5] _cue_impact (res://game/main.gd:511)
+       [6] _run_cues (res://game/main.gd:196)
+       [7] _process (res://game/main.gd:168)
+ERROR: Unable to open file: res://.godot/imported/archer_hurt_enemy.png-766fdefdc12270d30ef66cafeff7b238.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] show_hurt (res://game/piece.gd:92)
+       [5] _cue_impact (res://game/main.gd:511)
+       [6] _run_cues (res://game/main.gd:196)
+       [7] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://.godot/imported/archer_hurt_enemy.png-766fdefdc12270d30ef66cafeff7b238.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] show_hurt (res://game/piece.gd:92)
+       [5] _cue_impact (res://game/main.gd:511)
+       [6] _run_cues (res://game/main.gd:196)
+       [7] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://assets/art/archer_hurt_enemy.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] show_hurt (res://game/piece.gd:92)
+       [5] _cue_impact (res://game/main.gd:511)
+       [6] _run_cues (res://game/main.gd:196)
+       [7] _process (res://game/main.gd:168)
+PASS  win turn 4 hits: e1 hits p1 (4 -> 1), then p1 hits e1 (4 -> 1)  ([["p1", "e1", 1], ["e1", "p1", 1]])
+PASS  win turn 4: two bursts created  (2)
+ERROR: Unable to open file: res://.godot/imported/archer_defeat_enemy.png-c647da6f99698a4a211c0ba1b51ab263.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_impact (res://game/main.gd:513)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://.godot/imported/archer_defeat_enemy.png-c647da6f99698a4a211c0ba1b51ab263.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_impact (res://game/main.gd:513)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://assets/art/archer_defeat_enemy.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:155)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_impact (res://game/main.gd:513)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Unable to open file: res://.godot/imported/archer_defeat.png-58aa0f381217d21f5efed23e16663c1f.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:158)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_impact (res://game/main.gd:513)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://.godot/imported/archer_defeat.png-58aa0f381217d21f5efed23e16663c1f.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:158)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_impact (res://game/main.gd:513)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://assets/art/archer_defeat.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:158)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _cue_impact (res://game/main.gd:513)
+       [5] _run_cues (res://game/main.gd:196)
+       [6] _process (res://game/main.gd:168)
+PASS  A4: the killing-hit burst is alive 20 frames later, a child of the driver, not of the archer; the archer is still in the tree in its defeat pose  (burst HitBurst:<Node2D#46372226698>, e1 state defeat)
+ERROR: Unable to open file: res://.godot/imported/archer_win.png-11bc4d73058ee48ff724739242d0b4ea.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _enter_won (res://game/main.gd:551)
+       [5] _after_attacks (res://game/main.gd:535)
+       [6] _run_cues (res://game/main.gd:196)
+       [7] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://.godot/imported/archer_win.png-11bc4d73058ee48ff724739242d0b4ea.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _enter_won (res://game/main.gd:551)
+       [5] _after_attacks (res://game/main.gd:535)
+       [6] _run_cues (res://game/main.gd:196)
+       [7] _process (res://game/main.gd:168)
+ERROR: Failed loading resource: res://assets/art/archer_win.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_tex (res://game/piece.gd:173)
+       [1] _find_texture (res://game/piece.gd:162)
+       [2] _apply_visual (res://game/piece.gd:183)
+       [3] set_state (res://game/piece.gd:88)
+       [4] _enter_won (res://game/main.gd:551)
+       [5] _after_attacks (res://game/main.gd:535)
+       [6] _run_cues (res://game/main.gd:196)
+       [7] _process (res://game/main.gd:168)
+PASS  win turn 5 hit: p1 kills e1 (1 -> 0), no hit on p1  ([["e1", "p1", 0]] killed ["e1"])
+PASS  win route: 3 bursts in total == 3 damaged events  (3)
+PASS  A2 play again: back to PLAN_MOVE turn 1, no burst for 30 frames  (PLAN_MOVE turn 1)
+PASS  run 2 start cells again (0, 4) and (7, 3)
+PASS  A5 pause: P held for 2 s (longer than a burst's life); every emitter's speed_scale is 0 every frame  ([0.0, 0.0, 0.0])
+PASS  A5 pause: the burst is still alive after 2 s paused (its Dust has not finished) and the game clock did not move  (clock 0.716667 -> 0.716667)
+PASS  A5 unpause: speed_scale back to time_scale 1.0  ([1.0, 1.0, 1.0])
+PASS  A5 time scale: with main.time_scale 0.5, every emitter's speed_scale is 0.5  ([0.5, 0.5, 0.5])
+PASS  A5 tree pause: 2 s with the SceneTree paused; the burst holds (still alive) and the game clock did not move  (clock 0.833333 -> 0.850000)
+PASS  run 2 turn 4 hits: e1 hits p1 (4 -> 1), then p1 hits e1 (4 -> 1)  ([["p1", "e1", 1], ["e1", "p1", 1]])
+PASS  A3 run 2: two bursts alive, the first one (through pause, time scale and tree pause) among them  ([53737424471, 59324237402])
+PASS  A2 / A4 R: zero bursts on the frame after R and for the next 2 s; no new burst; back to PLAN_MOVE turn 1  (zero frames 120/120, PLAN_MOVE turn 1)
+PASS  every frame's delta is exactly 1/60 s (--fixed-fps 60; the frame counts below assume it)  (0 of 1092 rows differ)
+PASS  A1/A2 every frame: new bursts == damaged events played that frame, and never otherwise (load, turns without hits, play again, after R)  (1092 rows; [])
+PASS  A1 position: each burst at the hit archer's base-disc centre + (0, -40), within 0.01 px  (5 bursts; [])
+PASS  A1: all three emitters emitting on the burst's first frame  ([])
+PASS  A4: every burst is a child of HitBurstDriver on every frame  ([])
+PASS  A5 every frame: speed_scale == 0 while main.paused, == main.time_scale otherwise  ([])
+PASS  A3: at most 2 bursts alive at once  (2)
+PASS  A3: turn 4's two impacts are 63 +- 1 frames apart (1.05 s at 60 fps), inside one burst life  (64)
+PASS  A3 overlap: on the frame of turn 4's second hit, 2 bursts are alive (the first one not re-fired, a new instance)  ([[266, "win", 42312140410, "p1", 1], [330, "win", 43889198704, "e1", 2], [432, "win", 46372226698, "e1", 1]])
+PASS  A1 killing hit: the third burst of run 1 is on e1  ([[266, "win", 42312140410, "p1", 1], [330, "win", 43889198704, "e1", 2], [432, "win", 46372226698, "e1", 1]])
+PASS  A6: each burst not cleared by R freed itself after 0.84-1.32 s of game time (+2 frames), on Dust's finished  ([["win", 1.3], ["win", 1.2667], ["win", 1.2167]])
+PASS  A4 R: the two live bursts were cleared by the reset, not by finishing  (2)
+SUMMARY test_hit_burst_state: 31/31 passed -> <home>/AppData/Local/Temp/claude/2e0eb91af20de06b/6dec7a23-c003-47b3-aaa3-2386f1705ef3/scratchpad/gh/evidence/test_hit_burst_state-1794187988.json
