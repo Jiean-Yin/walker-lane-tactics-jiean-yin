@@ -206,7 +206,7 @@ Jiean's own playtest of the running game at 1280 × 720 (at least three full gam
 | P pause during a burst and during a flight: both freeze, both resume | Can be paused any time except game end showing victory or defeat. |
 | Scene load: nothing on the title or the first turn | Nothing but words about controlling. |
 | Size against the 80 px archer; over the light square and the dark table | perfectly fit on the square, and enough spaces for two units in same square |
-| Edge of the screen (the player's start square touches the table) | Number at player's side. May add number to all four sides for easier calculations. |
+| Edge of the screen (the player's start square touches the table) | Effects work exactly same at edge of boarder. |
 | Does it read as "hit" and "who shot whom"? | Yes, there are animation of shooting and getting hit, plus the effect of arrow and wounded. |
 | Claude against you: one point where you disagreed with a strip reading of Claude's in TUNING.md, or "none" | Claude first consider a very brief red flash timing enough for human eyes and tried to adjust color instead, while I pointed out that it is the visibility that mattered so we put brighter and longer effect.  |
 

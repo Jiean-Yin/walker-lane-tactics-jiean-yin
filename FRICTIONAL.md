@@ -345,7 +345,7 @@ Same format. Claude Code wrote the factual lines (Asked, Got, Human / Claude / m
 - **Decided:** Let the AI do jobs of building structure and I checked out the effect logic and performance. (Jiean)
 - **Next:** mutations, tuning, the price.
 - **Human / Claude / model:** Jiean approved each implementation prompt, which Claude drafted, and answered the agents' questions. The agents (Claude Opus 5.5 via `claude -p`) wrote the drafts, committed unedited. Claude Code ran and reviewed them in separate commits.
-- **Still unresolved:** AI reported B2 timing errors, which did not happen later nor did I diagnoise successfully. (Jiean)
+- **Still unresolved:** AI reported B2 timing errors, which did not include in later bound nor did I diagnoise successfully. (Jiean)
 
 ## 2026-11-08 — Tuning the red flash (Effect A r1–r3)
 - **Wanted:** The red flash could barely be seen or catched by human eyes, and a much clearer effect is essential. (Jiean)
@@ -364,7 +364,7 @@ Same format. Claude Code wrote the factual lines (Asked, Got, Human / Claude / m
 - **Wanted:** A smooth animation that can showcase both sides and directions. (Jiean)
 - **Asked:** Claude for options after the r0 strip; Jiean chose "Stronger wisps" over "Bigger streak dots".
 - **Got:** `Wisps.color_ramp` `#9A8466` α 0.45 → `#6E5A44` α 0.7, with a prediction committed first (`f8cb529`, `c3bbb9e`). Claude's pruning loop then deleted every frame of Jiean's first r1 capture (a brace pattern inside a shell `case` is not expanded), so the strip was captured again.
-- **Decided:** Prlong the lasting time of the wisps effect and set the middle time as hit so player has both line and flash as hit effect for clearer identification. (Jiean)
+- **Decided:** Raise the brightness of the wisps effect and set the middle time as hit so player has both line and flash as hit effect for clearer identification. (Jiean)
 - **Next:** the comparison and Jiean's verdict.
 - **Human / Claude / model:** the choice and verdict were Jiean's; the options, prediction and edit were Claude's.
 - **Still unresolved:** None (Jiean)
