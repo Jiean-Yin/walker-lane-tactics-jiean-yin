@@ -236,7 +236,24 @@ Jiean's own playtest of the running game at 1280 × 720 (at least three full gam
 
 ## A6.11 Fresh-clone verification of the tag
 
-TO FILL (Claude, after tagging `a6`): clone, import, run every suite.
+Fresh `git clone` of `a6-particles` at **`37dfc6e`** into an empty folder (2026-11-08), then `--import` (exit 0), then every suite through `scripts/run-test.sh` in its stated mode. Logs, with paths redacted: `evidence/a6/fresh-clone/`.
+
+| Suite | Mode | Result | `SHADER ERROR` / `SCRIPT ERROR` lines |
+|---|---|---|---|
+| test_rules | 60 fps | 51/51, exit 0 | 0 / 0 |
+| test_audio_events | 60 fps | 70/70, exit 0 | 0 / 0 |
+| check_assets | 60 fps | 38/38, exit 0 | 0 / 0 |
+| test_exposed_tint | 30 / 60 / 144 fps | 46/46 each, exit 0 | 0 / 0 |
+| test_materials | 60 fps | 148/148, exit 0 | 0 / 0 |
+| test_hit_burst_config | 60 fps | 107/107, exit 0 | 0 / 0 |
+| test_arrow_trail_config | 60 fps | 135/135, exit 0 | 0 / 0 |
+| test_hit_burst_state | 60 fps | 31/31, exit 0 | 0 / 0 |
+| test_arrow_trail_state | 60 fps | 31/31, exit 0 | 0 / 0 |
+| cost_effects | 60 fps | 25/25, exit 0 | 0 / 0 |
+
+- **Counts:** every count matches §A6.1.
+- **The price script's numbers move between runs, as timings do.** This run: Effect A +0.0058 ms (t 3.0), Effect B +0.0041 ms (t 2.0) above the control, against +0.0078 and +0.0066 in §A6.6. Both remain far under the 0.2 ms budget; Effect B's difference is at the edge of the noise in this run.
+- **After `37dfc6e`:** later commits change documents only. `git diff --stat 37dfc6e a6 -- godot scripts` is empty, checked when tagging (see the tag's message).
 
 # Assignment 5 — shaders, materials and the Godot shading language
 

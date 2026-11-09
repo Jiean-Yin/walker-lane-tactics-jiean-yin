@@ -1,0 +1,55 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+INFO  fps 144 from frames 31-40; first 10 deltas: [0.008333, 0.008333, 0.008333, 0.008333, 0.006667, 0.006667, 0.006667, 0.006667, 0.006944, 0.008056]
+PASS  frames 31-40 all have delta 1/144 (a steady fixed step to measure with)  (0.00694444444444)
+PASS  shader loads: res://shaders/exposed_tint.gdshader
+PASS  uniform list is exactly [exposed_amount, exposed_color] (case 8)  (["exposed_amount", "exposed_color"])
+PASS  exposed_amount: type float (3), hint_range (1) 0.0..1.0  ([3, 1, "0.0,1.0,0.0010000000475"])
+PASS  exposed_color: type vec4 (20)  (20)
+PASS  source: shader_type canvas_item; and no render_mode
+PASS  source: no sampler uniform of its own
+PASS  source: TIME is not used (R7)
+PASS  source: exposed_amount : hint_range(0.0, 1.0) = 0.0
+PASS  source: exposed_color : source_color = vec4(0.878, 0.271, 0.227, 1.0)
+PASS  source: the colour line is Jiean's
+PASS  set 2.0 from code is stored as 2.0 (hint_range does not clamp storage; drawing: by eye)  (2.0)
+PASS  main.tscn has the ExposedDriver node, process_priority 10 < sampler 1000
+PASS  main.time_scale == 1 and Engine.time_scale == 1 at the start
+PASS  turn 1 PLAN_MOVE: p1 at (0,4), e1 at (7,3)  (["PLAN_MOVE", (0, 4), (7, 3)])
+PASS  each sprite's material uses exposed_tint.gdshader, starts at 0.0, and they differ (R6)
+PASS  turn 2 PLAN_MOVE: p1 at (1, 4), e1 at (6, 3)  ([(1, 4), (6, 3)])
+PASS  turn 3 PLAN_MOVE: p1 at (2, 4), e1 at (5, 3)  ([(2, 4), (5, 3)])
+PASS  turns 1-2 and turn 3 before any key: every sample is 0.0 (R1)
+PASS  turn 3 standing square (2,4) is out of reach of (5,3)
+PASS  same player material through turns 1-3 (pose changes keep it)
+PASS  Right plans (3,4) and it is in reach (state begins)
+PASS  rise: the first frame already moves by 5 x dt (begins on the first frame)  (0.03472222222222)
+PASS  rise 0 -> 1 takes 0.20 s of game time (R2)  (0.2014 s game time in 29 frames, expected 0.2000 s +- 0.0069)
+PASS  holds at 1.0 while the state holds (R1)
+PASS  fall 1 -> 0 takes 0.20 s of game time (R2)  (0.2014 s game time in 29 frames, expected 0.2000 s +- 0.0069)
+PASS  ends mid-rise at v = 0.556: reaches 0 after v x 0.20 s (R5)  (0.1181 s game time in 17 frames, expected 0.1111 s +- 0.0069)
+PASS  retrigger: the state flipped 9 times mid-transition (the test reached R3's case)  (9)
+PASS  retrigger: no frame at 0 while the state holds (R3, case 1)  ([])
+PASS  retrigger: never falls while true, never rises while false; turns around from its current value (R3)  ([])
+PASS  paused mid-rise at 0.417: value constant for 30+ frames (R4, case 4)
+PASS  with a pause inside, the rise still takes 0.20 s of unpaused game time (R4)  (0.2014 s game time in 60 frames, expected 0.2000 s +- 0.0069)
+INFO  Engine.time_scale 0.5 under --fixed-fps 144: delta = 0.003472 (1/fps = 0.006944) -> scaled, using Engine.time_scale
+PASS  Engine.time_scale 0.5: rise still 0.20 s of game time (R4)  (0.2014 s game time in 58 frames, expected 0.2000 s +- 0.0035)
+PASS  Engine.time_scale 0.5: twice the frames, about 0.40 s real time (R4)  (58 frames (0.4028 s real) vs 29 at scale 1)
+PASS  before Enter: at 1.0, planning (3,4)
+PASS  Enter (confirm) ends it: falls 1 -> 0 in 0.20 s during PLAY_MOVES  (0.2014 s game time in 29 frames, expected 0.2000 s +- 0.0069)
+PASS  turn 4 PLAN_MOVE: p1 at (3,4) alive, e1 at (4,3)  (["PLAN_MOVE", 4, (3, 4), (4, 3)])
+PASS  turn 4 begins already in reach: rises from the first PLAN_MOVE frame (Begins)  (0.03472222222222)
+PASS  same player material until the retry
+PASS  R: turn 1, p1 back at (0,4), e1 at (7,3)  ([(0, 4), (7, 3)])
+PASS  R: the new sprite has a new material with the shader, not the old one or the enemy's (R6, case 5)
+PASS  R while at 1.0: the new sprite fades 1 -> 0 in 0.20 s (no jump)  (0.2014 s game time in 29 frames, expected 0.2000 s +- 0.0069)
+PASS  after R: the new sprite's value is driven (0.0) and the enemy's stays 0.0
+PASS  every frame (1122): value = move_toward(previous, state ? 1 : 0, 5 x game dt) (R1, R2, R3, R4, R5)  ([])
+PASS  every frame: enemy exposed_amount == 0.0 (R6, case 2)  ([])
+PASS  every frame: player and enemy have a material each, never the same one (R6, case 2)  (0 bad frames)
+SUMMARY test_exposed_tint_144fps: 46/46 passed -> <home>/AppData/Local/Temp/claude/2e0eb91af20de06b/6dec7a23-c003-47b3-aaa3-2386f1705ef3/scratchpad/fc/evidence/test_exposed_tint_144fps-1794186869.json
+WARNING: 24 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 6 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
