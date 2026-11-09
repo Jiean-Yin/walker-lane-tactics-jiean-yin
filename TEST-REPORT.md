@@ -164,8 +164,7 @@ What Claude reads from these numbers (claims, not Jiean's conclusion):
    - The GPU node is not free on the CPU: the trail is moved every frame, and headless it costs as much as the CPU burst.
    - Effect B's GPU time is about 2.4 times Effect A's, for 2.6 times the particles.
 
-Jiean's conclusion: TO FILL (Jiean)
-> *Hint (Claude):* in two or three sentences: is each effect under its budget on the price that matters for its node type (A: CPU and GPU; B: GPU)? Which of your predictions missed, by how much, and why might it have? What did the Visual Profiler show you that the means don't, and the other way round?
+Jiean's conclusion: Both effects are under the 0.2 ms budget on the price that matters: A on CPU (0.0078 ms) and GPU (0.0031 ms), B on GPU (0.0074 ms). Both predictions were too low, but by less than 0.01 ms — B's CPU cost wasn't 0 because the trail is moved every frame. The Visual Profiler couldn't show these prices since the frame-to-frame swing (~1.5 ms) hides them; only means over many frames separate the cases, and with vsync on its RV includes display waiting, not the effects' work. (Jiean)
 
 ## A6.7 The process shader
 
@@ -183,10 +182,9 @@ Jiean's conclusion: TO FILL (Jiean)
 | initial velocity set from its minimum and maximum | 232 | multiplier = mix(initial_linear_velocity_min, initial_linear_velocity_max, rand_from_seed(alt_seed)); |
 | gravity changes velocity | 412 | force = gravity; |
 | colour over life sampled | parameters.color *= texture(color_ramp, vec2(lifetime)); | 255 |
-| scale over life applied | uniform sampler2D scale_curve : repeat_disable; | 46 | 
+| scale over life applied | s.scale *= texture(scale_curve, vec2(lifetime)).rgb; | 254 | 
 | a line tied to a brief setting, with that setting's value | `turbulence_enabled` true | 441 |
 
-> *Hint (Claude):* search the file for these words, then read a few lines around each hit to find the one that does the job: `shader_type`; `void start`; `void process`; `initial_linear_velocity_min` (in this version the uniform has `linear` in its name: look for the `mix(` that picks a value between it and `_max`); `gravity` (look for where it becomes the force, then where the force changes the velocity); `color_ramp` (look for a `texture(` call); `scale_curve` (look for where its sample changes the scale, then where the scale multiplies `TRANSFORM`). For the last row: most uniforms here have **no value** in the file, because the values were stored in the material, which was not saved. So tie a line to a setting in one of two ways. Either pick code that exists only because of a setting in brief §2 (for example `turbulence_enabled` true, `emission_shape` sphere, or `particle_flag_disable_z` true), or pick a line that uses a uniform and give that uniform's value from the brief (for example `gravity`, (0, −20, 0) for `Wisps`).
 
 Which of the brief's settings live in this shader, and which belong to the draw step instead: (Jiean)
 Shader:
@@ -195,25 +193,23 @@ All settings start with uniform or #define. Like direction, spread, gravity.
 Draw Step:
 Draw-side settings are texture, CanvasItemMaterial blend mode, visibility_rect.
 
-> *Hint (Claude):* go through the `Wisps` column of brief §2. A setting lives in the shader if it appears as a `uniform` or a `#define`, or changes `VELOCITY`, `COLOR` or `TRANSFORM` in `start()` or `process()`. If it is not in the shader, find where it is set: on the `GPUParticles2D` node or on its `CanvasItemMaterial`. Then decide whether it changes how the particles are drawn, or when and how many are born (compare with your answer 6).
 
 ## A6.8 In play (HUMAN CHECK): Jiean's playtest
 
-TO FILL (Jiean): play several full games at 1280 × 720 and write what you saw for each line.
+Jiean's own playtest of the running game at 1280 × 720 (at least three full games, SUBMISSION.md), in Jiean's words:
 
 | Check | What you saw |
 |---|---|
-| Two-hit turn: can you tell which archer took which hit? | TO FILL |
-| Rapid repeats: restart (R) during a burst or a trail; play again | TO FILL |
-| Effect B start and stop: the trail starts at the bow, stops at the hit | TO FILL |
-| P pause during a burst and during a flight: both freeze, both resume | TO FILL |
-| Scene load: nothing on the title or the first turn | TO FILL |
-| Size against the 80 px archer; over the light square and the dark table | TO FILL |
-| Edge of the screen (the player's start square touches the table) | TO FILL |
-| Does it read as "hit" and "who shot whom"? | TO FILL |
-| Claude against you: one point where you disagreed with a strip reading of Claude's in TUNING.md, or "none" | TO FILL |
+| Two-hit turn: can you tell which archer took which hit? | Easily tell, as I can identify the shooting arrow's appearance and direction, and the other unit get hit effect. |
+| Rapid repeats: restart (R) during a burst or a trail; play again | The whole animation and music froze immediately and returned to starting status. |
+| Effect B start and stop: the trail starts at the bow, stops at the hit | Exactly as what I imagined, with clear path of start and end. |
+| P pause during a burst and during a flight: both freeze, both resume | Can be paused any time except game end showing victory or defeat. |
+| Scene load: nothing on the title or the first turn | Nothing but words about controlling. |
+| Size against the 80 px archer; over the light square and the dark table | perfectly fit on the square, and enough spaces for two units in same square |
+| Edge of the screen (the player's start square touches the table) | Number at player's side. May add number to all four sides for easier calculations. |
+| Does it read as "hit" and "who shot whom"? | Yes, there are animation of shooting and getting hit, plus the effect of arrow and wounded. |
+| Claude against you: one point where you disagreed with a strip reading of Claude's in TUNING.md, or "none" | Claude first consider a very brief red flash timing enough for human eyes and tried to adjust color instead, while I pointed out that it is the visibility that mattered so we put brighter and longer effect.  |
 
-> *Hint (Claude):* write each line as what you saw, not what should happen, for example "R during the trail: the trail vanished on the same frame". Where you disagree with a reading of Claude's in TUNING.md, say so here; disagreements are part of the evidence.
 
 ## A6.9 Predicted failures (CHANGE-BRIEF §6) against results
 

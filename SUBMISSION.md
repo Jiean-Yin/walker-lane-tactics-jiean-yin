@@ -18,8 +18,6 @@ The earlier submission files are kept as [SUBMISSION-A5.md](SUBMISSION-A5.md) an
 | Texture sources and licences (or model, version, and terms) | No image files: both particle textures are `GradientTexture2D` resources defined in the scene files (`godot/effects/ATTRIBUTION.md`). No generative model |
 | Final film URL and filename | TO FILL |
 | Final film SHA-256 | TO FILL |
-| Summary of my work | TO FILL (Jiean) |
+| Summary of my work | Diagonising and choosing the effects for the game. Compared expected numbers with actual read and performance through eyes. Manually make mutations and did all the playtest myself at least 3 times. Record and output the shader. (Jiean) |
 | Known limitations | The trail is dotted at 30 fps particle steps; the red flash is weak over the red enemy; the cancelled-attack case can't be reached in this slice; both prices are below the Visual Profiler's frame-to-frame swing (README, TEST-REPORT A6.10) |
 | Changed games since Assignment 2 (yes/no; if yes, FRICTIONAL.md entry) | No: still Lane Tactics |
-
-> *Hint (Claude) for "Summary of my work":* one or two sentences in your words. What did you choose and decide (the two effects, the retrigger rule, the predictions and budget, the tuning requests and verdicts), and what did you check yourself (the strips, the mutations, the Visual Profiler, the playtest, the process-shader lines)?
