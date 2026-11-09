@@ -254,6 +254,10 @@ Fresh `git clone` of `a6-particles` at **`37dfc6e`** into an empty folder (2026-
 - **Counts:** every count matches §A6.1.
 - **The price script's numbers move between runs, as timings do.** This run: Effect A +0.0058 ms (t 3.0), Effect B +0.0041 ms (t 2.0) above the control, against +0.0078 and +0.0066 in §A6.6. Both remain far under the 0.2 ms budget; Effect B's difference is at the edge of the noise in this run.
 - **After `37dfc6e`:** later commits change documents only. `git diff --stat 37dfc6e a6 -- godot scripts` is empty, checked when tagging (see the tag's message).
+- **History rewritten once, before the first push of this branch (2026-11-08).** Three agent transcripts (`evidence/a6/sessions/session-1.jsonl`, `session-3b-plan.jsonl`, `session-7-cost.jsonl`) contained a Windows username, a local folder path, and a git name and email. They were redacted in the commits that first added them. Every commit from the Step 1 agent run onward therefore has a new ID.
+  - Commit IDs quoted in the documents and commit messages were mapped to the new IDs.
+  - Commit IDs quoted *inside* agent transcripts and logs are left as recorded, so they are pre-rewrite IDs.
+  - The final files are identical to the pre-rewrite ones except for those remapped IDs. No game file, script or evidence file changed, so the fresh-clone result above still holds for the same source.
 
 # Assignment 5 — shaders, materials and the Godot shading language
 
