@@ -1,0 +1,250 @@
+{
+  "film": "claude-liam-walker-lane-tactics-jiean-yin-a6-gamedev.mp4",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 3840,
+        "height": 2160,
+        "r_frame_rate": "30/1",
+        "nb_frames": "18900"
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "nb_frames": "29533"
+      }
+    ],
+    "format": {
+      "duration": "630.000000",
+      "size": "58799226"
+    }
+  },
+  "beats": [
+    {
+      "beat": "B00",
+      "start_s": 0.0,
+      "dur_s": 16.933,
+      "mean_db": -26.9,
+      "peak_db": -5.6
+    },
+    {
+      "beat": "B01",
+      "start_s": 16.933,
+      "dur_s": 12.8,
+      "mean_db": -27.7,
+      "peak_db": -5.7
+    },
+    {
+      "beat": "B02",
+      "start_s": 29.733,
+      "dur_s": 19.033,
+      "mean_db": -27.8,
+      "peak_db": -5.1
+    },
+    {
+      "beat": "B03",
+      "start_s": 48.767,
+      "dur_s": 21.4,
+      "mean_db": -27.3,
+      "peak_db": -2.8
+    },
+    {
+      "beat": "B04",
+      "start_s": 70.167,
+      "dur_s": 16.1,
+      "mean_db": -27.5,
+      "peak_db": -8.7
+    },
+    {
+      "beat": "B05",
+      "start_s": 86.267,
+      "dur_s": 18.1,
+      "mean_db": -27.5,
+      "peak_db": -6.0
+    },
+    {
+      "beat": "B06",
+      "start_s": 104.367,
+      "dur_s": 15.067,
+      "mean_db": -27.4,
+      "peak_db": -3.0
+    },
+    {
+      "beat": "B07",
+      "start_s": 119.433,
+      "dur_s": 18.933,
+      "mean_db": -27.3,
+      "peak_db": -6.3
+    },
+    {
+      "beat": "B08",
+      "start_s": 138.367,
+      "dur_s": 19.3,
+      "mean_db": -27.2,
+      "peak_db": -8.3
+    },
+    {
+      "beat": "B09",
+      "start_s": 157.667,
+      "dur_s": 17.8,
+      "mean_db": -27.1,
+      "peak_db": -3.2
+    },
+    {
+      "beat": "B10",
+      "start_s": 175.467,
+      "dur_s": 20.9,
+      "mean_db": -27.3,
+      "peak_db": -7.0
+    },
+    {
+      "beat": "B11",
+      "start_s": 196.367,
+      "dur_s": 18.6,
+      "mean_db": -27.5,
+      "peak_db": -3.5
+    },
+    {
+      "beat": "B12",
+      "start_s": 214.967,
+      "dur_s": 17.367,
+      "mean_db": -26.9,
+      "peak_db": -5.8
+    },
+    {
+      "beat": "B13",
+      "start_s": 232.333,
+      "dur_s": 19.4,
+      "mean_db": -27.1,
+      "peak_db": -6.0
+    },
+    {
+      "beat": "B14",
+      "start_s": 251.733,
+      "dur_s": 16.333,
+      "mean_db": -27.3,
+      "peak_db": -8.0
+    },
+    {
+      "beat": "B15",
+      "start_s": 268.067,
+      "dur_s": 18.7,
+      "mean_db": -27.0,
+      "peak_db": -5.7
+    },
+    {
+      "beat": "B16",
+      "start_s": 286.767,
+      "dur_s": 27.5,
+      "mean_db": -27.1,
+      "peak_db": -6.4
+    },
+    {
+      "beat": "B17",
+      "start_s": 314.267,
+      "dur_s": 18.867,
+      "mean_db": -27.4,
+      "peak_db": -6.9
+    },
+    {
+      "beat": "B18",
+      "start_s": 333.133,
+      "dur_s": 21.867,
+      "mean_db": -27.6,
+      "peak_db": -8.0
+    },
+    {
+      "beat": "B19",
+      "start_s": 355.0,
+      "dur_s": 16.967,
+      "mean_db": -26.9,
+      "peak_db": -3.9
+    },
+    {
+      "beat": "B20",
+      "start_s": 371.967,
+      "dur_s": 20.6,
+      "mean_db": -27.5,
+      "peak_db": -7.6
+    },
+    {
+      "beat": "B21",
+      "start_s": 392.567,
+      "dur_s": 16.667,
+      "mean_db": -26.8,
+      "peak_db": -2.9
+    },
+    {
+      "beat": "B22",
+      "start_s": 409.233,
+      "dur_s": 18.033,
+      "mean_db": -27.2,
+      "peak_db": -6.5
+    },
+    {
+      "beat": "B23",
+      "start_s": 427.267,
+      "dur_s": 16.733,
+      "mean_db": -26.8,
+      "peak_db": -3.0
+    },
+    {
+      "beat": "B24",
+      "start_s": 444.0,
+      "dur_s": 28.3,
+      "mean_db": -27.0,
+      "peak_db": -3.4
+    },
+    {
+      "beat": "B25",
+      "start_s": 472.3,
+      "dur_s": 34.733,
+      "mean_db": -27.2,
+      "peak_db": -5.3
+    },
+    {
+      "beat": "B26",
+      "start_s": 507.033,
+      "dur_s": 22.867,
+      "mean_db": -27.4,
+      "peak_db": -3.1
+    },
+    {
+      "beat": "BCRD",
+      "start_s": 529.9,
+      "dur_s": 34.367,
+      "mean_db": -27.1,
+      "peak_db": -5.1
+    },
+    {
+      "beat": "BVDT",
+      "start_s": 564.267,
+      "dur_s": 38.767,
+      "mean_db": -27.1,
+      "peak_db": -6.2
+    },
+    {
+      "beat": "BHTF",
+      "start_s": 603.033,
+      "dur_s": 21.633,
+      "mean_db": -27.2,
+      "peak_db": -5.6
+    },
+    {
+      "beat": "BOUT",
+      "start_s": 624.667,
+      "dur_s": 5.333,
+      "mean_db": -26.6,
+      "peak_db": -4.0
+    }
+  ],
+  "integrated_lufs": "-24.6",
+  "true_peak_dbfs": "-2.8",
+  "silences_over_2_5s_below_-50dB": [],
+  "sum_of_beats_s": 630.0
+}

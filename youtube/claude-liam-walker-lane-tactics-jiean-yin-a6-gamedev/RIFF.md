@@ -1,0 +1,15 @@
+# RIFF — what each piece of footage actually shows
+
+Written from the inspected frames of the built clips (`media/<beat>.mp4`, contact sheets) and the per-frame logs, not from imagined play. Frame numbers are capture master frames.
+
+| Beat | Footage | What is on screen (inspected) |
+|---|---|---|
+| B04 | play 110–271, then slow 250–572 (¼ speed, 3× crop) | **Real speed:** turns 3 and 4 planned by key presses. In turn 4 the player hops right, both orders are confirmed, and the enemy's arrow crosses two squares and hits the player's archer (259): a red glow over the body, the "−3", splinters. **¼ speed, cropped to the player's square:** the arrow arrives from the right; the glow covers the torso, splinters spray out and fall, and a brown haze hangs over the archer. The archer turns and shoots back while the glow fades. From about +1.2 s game time the square is empty again. The enemy's archer stays outside the crop, so its own burst is not in frame. |
+| B06 | play 527–979 (run 2, turn 4) | The turn is planned, then the enemy's arrow hits the player (636). 0.3 s later P: the PAUSED overlay dims the board, and the burst and the "−3" hold still under it for 6.5 s. Unpause (840): the burst finishes. The player's arrow hits the enemy (862), and the turn ends in turn 5's planning. In planning, the player's archer shows the A5 red tint, because it stands in reach. |
+| B08 | play 200–330, then slow 250–699 (¼ speed, 2× crop) | **Real speed:** turn 4's moves, then two hits about a second apart: the player at 259, the enemy at 290. **¼ speed, both archers:** the enemy's arrow, its dotted trail, the player's burst. The player shoots back. At the second hit (417), the first burst has almost faded, a faint warm haze, while the new glow appears on the enemy. Turn 5's planning squares appear at the end. The state test's A3 line is on a card, bottom right. |
+| B12 | play 245–315, then slow 230–520 and 845–1006 (¼ speed, 2× crop) | **Real speed:** both arrows of turn 4. **¼ speed:** each arrow leaves a row of separate dark dots along its arc, about 20–25 px apart on the 1280 × 720 canvas. After the landing, the oldest dots fade first. **The last segment:** turn 5's killing shot; the enemy falls into its defeat pose under the burst. Jiean's first look is on a card, bottom right. |
+| B14 | slow 397–592 (¼ speed, 2× crop), then play 1063–1358 (run 3, turn 4) | **¼ speed:** the player's arrow lands on the enemy. The streak dots shrink away from the shooter's end, a few soft wisps stay for a moment, and the burst opens on the enemy. **Real speed, run 3:** the enemy's arrow is barely out of the bow (1078) when P freezes the arrow and its short trail under the PAUSED overlay for 5 s. Unpause (1233): the arrow lands (1238), the trail fades, the burst opens, and the turn ends in turn 5's planning. |
+
+Notes:
+- **The PAUSED overlay:** it dims the whole board, so frozen particles read darker than in play. The film says it is the game's own pause.
+- **The A5 red tint:** it appears on the player's archer during planning in B06, B08 and B14. It is the earlier assignment's shader working as designed, not an effect of this assignment.

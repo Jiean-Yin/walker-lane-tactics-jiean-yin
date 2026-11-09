@@ -1,0 +1,14 @@
+import exit 0
+test_rules.gd @ 60: exit 0 | shader 0 script 0 | SUMMARY test_rules: 51/51 passed -> <capture-copy>/a6/evidence/test_rules-1794188629.json
+test_audio_events.gd @ 60: exit 0 | shader 0 script 0 | SUMMARY test_audio_events: 70/70 passed -> <capture-copy>/a6/evidence/test_audio_events-1794188629.json
+check_assets.gd @ 60: exit 0 | shader 0 script 0 | SUMMARY check_assets: 38/38 passed -> <capture-copy>/a6/evidence/check_assets-1794188630.json
+test_exposed_tint.gd @ 30: exit 0 | shader 0 script 0 | SUMMARY test_exposed_tint_30fps: 46/46 passed -> <capture-copy>/a6/evidence/test_exposed_tint_30fps-1794188631.json
+test_exposed_tint.gd @ 60: exit 0 | shader 0 script 0 | SUMMARY test_exposed_tint_60fps: 46/46 passed -> <capture-copy>/a6/evidence/test_exposed_tint_60fps-1794188631.json
+test_exposed_tint.gd @ 144: exit 0 | shader 0 script 0 | SUMMARY test_exposed_tint_144fps: 46/46 passed -> <capture-copy>/a6/evidence/test_exposed_tint_144fps-1794188632.json
+test_materials.gd @ 60: exit 0 | shader 0 script 0 | SUMMARY test_materials: 148/148 passed -> <capture-copy>/a6/evidence/test_materials-1794188633.json
+test_hit_burst_config.gd @ 60: exit 0 | shader 0 script 0 | SUMMARY test_hit_burst_config: 107/107 passed -> <capture-copy>/a6/evidence/test_hit_burst_config-1794188634.json
+test_arrow_trail_config.gd @ 60: exit 0 | shader 0 script 0 | SUMMARY test_arrow_trail_config: 135/135 passed -> <capture-copy>/a6/evidence/test_arrow_trail_config-1794188634.json
+test_hit_burst_state.gd @ 60: exit 0 | shader 0 script 0 | SUMMARY test_hit_burst_state: 31/31 passed -> <capture-copy>/a6/evidence/test_hit_burst_state-1794188635.json
+test_arrow_trail_state.gd @ 60: exit 0 | shader 0 script 0 | SUMMARY test_arrow_trail_state: 31/31 passed -> <capture-copy>/a6/evidence/test_arrow_trail_state-1794188636.json
+cost_effects.gd @ 60: exit 0 | shader 0 script 0 | SUMMARY cost_effects: 25/25 passed -> <capture-copy>/a6/evidence/cost_effects-1794188637.json
+ALL DONE

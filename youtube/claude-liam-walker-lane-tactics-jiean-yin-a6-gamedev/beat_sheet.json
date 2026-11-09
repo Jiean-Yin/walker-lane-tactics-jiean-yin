@@ -1,0 +1,1971 @@
+{
+  "metadata": {
+    "title": "Lane Tactics: A Hit Burst and an Arrow Trail",
+    "slug": "claude-liam-walker-lane-tactics-jiean-yin-a6-gamedev",
+    "topic": "WALKER · GODOT GAMEDEV",
+    "kind": "godot-gamedev",
+    "skill": "godot-gamedev",
+    "modifier": "walker",
+    "brand": "claude-liam",
+    "audience": "Course reviewers and makers following Walker/Claude workflows",
+    "register": "Teardown",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "aspect_ratio": "16:9",
+    "fit": "crop",
+    "captions": false,
+    "channel": "@NikBearBrown",
+    "folderLabel": "@NikBearBrown",
+    "greeting": "Hello, Liam",
+    "persona": "Liam (in for Bear)",
+    "presenter": "Liam (in for Bear)",
+    "in_for_bear": true,
+    "script_status": "approved by Jiean on 2026-11-08 ('Approve as is', SCRIPT-DRAFT.md); bracketed quotes filled verbatim from tag a6",
+    "pronunciation_note": "Narration spells Jiean as 'Jay-Ann' for the voice only (Jiean's choice for the A5 film). Screen text keeps 'Jiean'.",
+    "teaching_contract": "code-then-result-v1",
+    "game": {
+      "name": "walker-lane-tactics-jiean-yin",
+      "repository": "https://github.com/Jiean-Yin/walker-lane-tactics-jiean-yin",
+      "source_revision": "tag a6 = 7f199f9ee4f24a3bb75b117d67e9ad0c2dfda004 (tree f33676681056154ae5b4e7679375e165204f9863)",
+      "engine": "Godot 4.7.2.stable.official.ed1daf0bf",
+      "renderer": "Compatibility"
+    },
+    "audio_policy_note": "Narration only. Engine captures carry no audio track in the film; the outro card carries only Liam's voice.",
+    "labels": {
+      "engine": "SCRIPTED KEY PRESSES · REAL GODOT RENDER",
+      "slow": "¼ SPEED · captured at 120 fps",
+      "fixture": "FIXTURE · Jiean's Movie Maker captures",
+      "reconstruction": "Illustrative reconstruction of the Claude interface — not a transcript",
+      "editor": "Godot editor reconstruction (printed by GodotDevWorkbench)",
+      "headless": "HEADLESS CHECK OUTPUT · recorded reports, no rendering"
+    },
+    "build": {
+      "at": "2026-11-08T22:18:05",
+      "cut": "master",
+      "filled": 31,
+      "of": 31,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "narration_text": "Hello, this is Liam, in for Bear. Jay-Ann Yin's game is Lane Tactics: archers on a five-lane board, where you win by reaching the enemy's back row. This assignment adds particle effects: a burst where an arrow hits, and a trail behind the arrow in flight. The prompt on screen is an illustrative reconstruction.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on",
+        "label": "Illustrative reconstruction of the Claude interface — not a transcript",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hello, Liam",
+            "topic": "WALKER · GODOT GAMEDEV",
+            "segment": "A Hit Burst and an Arrow Trail",
+            "command": "Please use Walker to convert my game design document about Lane Tactics — archers on a five-lane board, simultaneous orders, win by reaching the enemy's back row — into two particle effects: a hit burst that shows which archer an arrow hit, and a trail that shows who shot whom. Test both, price both, and show me what a headless run cannot.",
+            "runningText": "reading CHANGE-BRIEF.md…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "High",
+            "output": [
+              "test_hit_burst_config 107/107 · test_arrow_trail_config 135/135",
+              "test_hit_burst_state 31/31 · test_arrow_trail_state 31/31 at 60 fps",
+              "Source shown: tag a6"
+            ],
+            "durationSeconds": 16.933333333333334
+          }
+        }
+      },
+      "role_note": "walker B00: ClaudeComposerAsk; prompt begins 'Please use Walker to convert my game design document about'; illustrative reconstruction, labelled. Result lines are recorded numbers (TEST-REPORT A6.1).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 16.917,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B00-timed.wav",
+      "actual_duration_s": 16.933333333333334,
+      "clip_frames": 508,
+      "duration_note": "voice 16.917s + lead 0.0s, padded with silence to 508 frames = 508/30 s",
+      "render_duration_s": 16.933333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B00.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "lead_silence_s": 0.8,
+      "narration_text": "Two particle effects: a burst that marks the hit, and a trail that shows the shot. The tests guard every setting. How they look was decided by Jay-Ann's eyes, one revision at a time.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on-correct",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Two particle effects for Lane Tactics:\na burst where the arrow lands,\na trail behind it in flight.\nTests decide how they look.",
+            "triggerWords": "Tests",
+            "replacementWords": "Jiean's eyes",
+            "fontSize": 80,
+            "lineSpacing": 2.2,
+            "align": "center",
+            "seed": "lane-tactics-a6-1108",
+            "mistakeRate": 2,
+            "hesitateWithin": 0,
+            "hesitateBetween": 1,
+            "charMs": 8,
+            "ink": "#3D3929",
+            "accent": "#D97757",
+            "bg": "#FAF9F5",
+            "durationSeconds": 12.8
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-11-09T03:10:39.329814+00:00"
+          }
+        }
+      },
+      "role_note": "walker B01: hesitant-writer summary; 'Tests decide' -> 'Jiean's eyes decide' is the film's point (settings are tested, the look was tuned by eye).",
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "Hesitant-writer BLUF bookend: centred serif lines typed on cream."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 10.496,
+      "audio_file": "mp3/beat-B01-timed.wav",
+      "actual_duration_s": 12.8,
+      "clip_frames": 384,
+      "duration_note": "voice 10.496s + lead 0.8s, padded with silence to 384 frames = 384/30 s",
+      "render_duration_s": 12.8,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "SETUP",
+      "narration_text": "Each effect has one job. Effect A: an arrow hit an archer, and which one. It fires on an event, every damaged event. Effect B: who shot whom, and along which path. It runs while a condition holds, an arrow in flight. One is a CPU particle node, one a GPU node. And the game runs on Godot's Compatibility renderer. That matters later.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B02",
+        "label": ""
+      },
+      "role_note": "Setup: the two jobs, event vs condition, node types, renderer (CHANGE-BRIEF §1, §2; project.godot:25).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 18.411,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B02-timed.wav",
+      "actual_duration_s": 19.033333333333335,
+      "clip_frames": 571,
+      "duration_note": "voice 18.411s + lead 0.0s, padded with silence to 571 frames = 571/30 s",
+      "render_duration_s": 19.033333333333335,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B02.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "CODE",
+      "narration_text": "Effect A is one scene: a root and three CPU particle nodes, Flash, Splinters and Dust. Here are the splinters. Line ninety-one: saved not emitting, so nothing fires when a scene loads. Fourteen, born all at once. Up to seventy-five degrees either side of straight up, at one hundred forty to two hundred sixty pixels a second, and gravity pulls them back down. Line ninety-eight: local coords off, so each splinter stays where it was born.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "hit_burst.tscn: the splinters",
+            "project": "Lane Tactics",
+            "path": "res://effects/hit_burst.tscn",
+            "source": "godot/effects/hit_burst.tscn · lines 91–104 · tag a6",
+            "code": "emitting = false\namount = 14\nlifetime = 0.45\none_shot = true\npreprocess = 0.0\nexplosiveness = 1.0\nlifetime_randomness = 0.3\nlocal_coords = false\ntexture = SubResource(\"GradientTexture2D_sliver\")\nemission_shape = 0\ndirection = Vector2(0, -1)\nspread = 75.0\ngravity = Vector2(0, 900)\ninitial_velocity_min = 140.0",
+            "startLine": 91,
+            "codeFontSize": 23,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Effect A",
+                "value": "Flash 1 · Splinters 14 · Dust 8"
+              },
+              {
+                "label": "Line 105, just below",
+                "value": "velocity max 260.0"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 2a (cb9830b)"
+              }
+            ],
+            "output": [
+              "Look values: in the scene file only",
+              "Textures: GradientTexture2D, no image file"
+            ],
+            "durationSeconds": 21.4,
+            "cues": [
+              {
+                "at": 5.2,
+                "line": 91,
+                "label": "line 91: saved with emitting = false"
+              },
+              {
+                "at": 9.3,
+                "line": 96,
+                "label": "line 92: 14 particles · line 96: explosiveness 1.0"
+              },
+              {
+                "at": 10.17,
+                "line": 102,
+                "label": "line 102: spread 75° around straight up"
+              },
+              {
+                "at": 12.85,
+                "line": 104,
+                "label": "line 104: 140 px/s minimum · line 105, just below: 260 maximum"
+              },
+              {
+                "at": 15.92,
+                "line": 103,
+                "label": "line 103: gravity (0, 900) px/s²"
+              },
+              {
+                "at": 17.38,
+                "line": 98,
+                "label": "line 98: local_coords = false"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-11-09T02:36:57.294913+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "effects/hit_burst.tscn",
+        "start_line": 91,
+        "end_line": 104
+      },
+      "role_note": "Effect A scene; code beat, result B04.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 21.376,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B03-timed.wav",
+      "actual_duration_s": 21.4,
+      "clip_frames": 642,
+      "duration_note": "voice 21.376s + lead 0.0s, padded with silence to 642 frames = 642/30 s",
+      "render_duration_s": 21.4,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B03.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "RESULT",
+      "narration_text": "In the real game, keys pressed by a script. The enemy's arrow lands on the player's archer. Now at a quarter speed: a red glow over the body, splinters thrown out and falling, a haze of brown dust, and after about a second, nothing. The whole burst stays inside about one board square.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "play",
+            "a": 110,
+            "b": 271,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio"
+          },
+          {
+            "src": "slow",
+            "a": 250,
+            "b": 572,
+            "crop": [
+              240,
+              1362,
+              1280,
+              720
+            ],
+            "label": "¼ SPEED · CROPPED 3× · REAL GODOT RENDER|120 fps capture played at 30 · around the player's archer · main.tscn @ tag a6"
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B04.mp4"
+      },
+      "role_note": "Result of B03: play P2 (turn 4, first hit) at real speed, then slow S2 (same hit) at ¼ speed.",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.4839,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill, top right). The region is the narrowest segment pill's exact extent, inside the label on every frame. Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "lead_silence_s": 0.3,
+      "voice_duration_s": 15.275,
+      "audio_file": "mp3/beat-B04-timed.wav",
+      "actual_duration_s": 16.1,
+      "clip_frames": 483,
+      "duration_note": "voice 15.275s + lead 0.3s, padded with silence to 483 frames = 483/30 s (clip length; no retiming)",
+      "render_duration_s": 16.1,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B04.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "CODE",
+      "narration_text": "Nothing in this game sends a signal. So the driver runs every frame, right after the game's own update, and reads the list of events the game has played. Line forty-four: every new damaged event gets a burst. Line forty-nine: every emitter's speed scale is the game's speed, and zero while it's paused. The driver reads the game. It never writes it.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "hit_burst_driver.gd: reading the game",
+            "project": "Lane Tactics",
+            "path": "res://game/hit_burst_driver.gd",
+            "source": "godot/game/hit_burst_driver.gd · lines 37–49 · tag a6",
+            "code": "\tvar events: Array[Dictionary] = _main.played_events\n\tif events.size() < _read:\n\t\tclear_bursts()\n\t\t_read = 0\n\twhile _read < events.size():\n\t\tvar ev: Dictionary = events[_read]\n\t\t_read += 1\n\t\tif String(ev[\"type\"]) == \"damaged\":\n\t\t\t_spawn(ev)\n\tvar speed: float = _speed()\n\tfor burst: Node in get_children():\n\t\tfor emitter: Node in burst.get_children():\n\t\t\t(emitter as CPUParticles2D).speed_scale = speed",
+            "startLine": 37,
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "process_priority",
+                "value": "10: runs after main"
+              },
+              {
+                "label": "Reads only",
+                "value": "main.played_events"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 3a; plan approved by Jiean (dd0ad5c)"
+              }
+            ],
+            "output": [
+              "Enter → _cue_impact → \"damaged\" (main.gd:502) → this driver, same frame"
+            ],
+            "durationSeconds": 18.1,
+            "cues": [
+              {
+                "at": 5.4,
+                "line": 37,
+                "label": "line 37: main.played_events, read only"
+              },
+              {
+                "at": 7.78,
+                "line": 44,
+                "label": "line 44: a new \"damaged\" event → _spawn()"
+              },
+              {
+                "at": 10.63,
+                "line": 49,
+                "label": "line 49: speed_scale = game speed"
+              },
+              {
+                "at": 15.51,
+                "line": 46,
+                "label": "line 46: _speed() reads main.paused and main.time_scale"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": "2026-11-09T02:38:22.974721+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "game/hit_burst_driver.gd",
+        "start_line": 37,
+        "end_line": 49
+      },
+      "role_note": "Effect A driver (read side); code beat, result B06.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 18.091,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B05-timed.wav",
+      "actual_duration_s": 18.1,
+      "clip_frames": 543,
+      "duration_note": "voice 18.091s + lead 0.0s, padded with silence to 543 frames = 543/30 s",
+      "render_duration_s": 18.1,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B05.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "RESULT",
+      "narration_text": "The burst appears on the frame the arrow lands. Press P in the middle of it: the game's own pause. The pieces hold, and so does every splinter, in mid-air. Unpause, and it carries on from where it stopped. The game never pauses its scene tree. A speed scale of zero does it.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "play",
+            "a": 527,
+            "b": 979,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio"
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B06.mp4"
+      },
+      "role_note": "Result of B05: play P4 (run 2, turn 4: P 0.25 s after the first hit, 2 s, P).",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.4781,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill, top right). The region is the narrowest segment pill's exact extent, inside the label on every frame. Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "lead_silence_s": 0.5,
+      "voice_duration_s": 14.379,
+      "audio_file": "mp3/beat-B06-timed.wav",
+      "actual_duration_s": 15.066666666666666,
+      "clip_frames": 452,
+      "duration_note": "voice 14.379s + lead 0.5s, padded with silence to 452 frames = 452/30 s (clip length; no retiming)",
+      "render_duration_s": 15.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B06.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "CODE",
+      "narration_text": "Spawning. Line seventy-five: a new instance for every hit. That's the retrigger rule Jay-Ann chose, overlap: an earlier burst keeps playing. Line seventy-seven: at the archer's base, plus forty pixels up, the body. Line seventy-nine: when the dust, the longest emitter, reports finished, the burst frees itself. And it's a child of the driver, never of the archer.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "hit_burst_driver.gd: one burst per hit",
+            "project": "Lane Tactics",
+            "path": "res://game/hit_burst_driver.gd",
+            "source": "godot/game/hit_burst_driver.gd · lines 71–80 · tag a6",
+            "code": "func _spawn(ev: Dictionary) -> void:\n\tvar piece: Node2D = _main.pieces.get(ev[\"unit\"])\n\tif piece == null:\n\t\treturn\n\tvar burst: Node2D = HitBurstScene.instantiate() as Node2D\n\tadd_child(burst)\n\tburst.position = piece.position + HIT_OFFSET\n\tvar longest: CPUParticles2D = burst.get_node(LONGEST_EMITTER) as CPUParticles2D\n\tlongest.finished.connect(burst.queue_free)\n\tvar speed: float = _speed()",
+            "startLine": 71,
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Retrigger rule",
+                "value": "overlap: Jiean's rule"
+              },
+              {
+                "label": "HIT_OFFSET, line 20",
+                "value": "(0, −40): base → body"
+              },
+              {
+                "label": "Frees itself",
+                "value": "1.22–1.28 s (Rev. 1)"
+              }
+            ],
+            "output": [
+              "Lines 81–84: every emitter starts at the game's speed"
+            ],
+            "durationSeconds": 18.933333333333334,
+            "cues": [
+              {
+                "at": 0.32,
+                "line": 75,
+                "label": "line 75: a new HitBurst instance per hit"
+              },
+              {
+                "at": 7.12,
+                "line": 77,
+                "label": "line 77: archer position + (0, −40)"
+              },
+              {
+                "at": 10.96,
+                "line": 79,
+                "label": "line 79: Dust.finished → queue_free"
+              },
+              {
+                "at": 16.47,
+                "line": 76,
+                "label": "line 76: added under the driver, not the archer"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": "2026-11-09T02:39:51.962740+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "game/hit_burst_driver.gd",
+        "start_line": 71,
+        "end_line": 80
+      },
+      "role_note": "Effect A driver (spawn side); code beat, result B08.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 18.901,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B07-timed.wav",
+      "actual_duration_s": 18.933333333333334,
+      "clip_frames": 568,
+      "duration_note": "voice 18.901s + lead 0.0s, padded with silence to 568 frames = 568/30 s",
+      "render_duration_s": 18.933333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B07.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "RESULT",
+      "narration_text": "Turn four: both archers hit, about a second apart. When the second hit lands, the first burst has almost faded from sight, but it is still alive. Two bursts alive at once, and the state test counted exactly that: two, on the frame of the second hit. The brief predicted that re-firing a single node would drop the second hit. A new instance per hit avoids it.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "play",
+            "a": 200,
+            "b": 330,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio"
+          },
+          {
+            "src": "slow",
+            "a": 250,
+            "b": 699,
+            "crop": [
+              384,
+              990,
+              1920,
+              1080
+            ],
+            "label": "¼ SPEED · CROPPED 2× · REAL GODOT RENDER|120 fps capture played at 30 · both archers · main.tscn @ tag a6",
+            "quote_pos": "bottom-right",
+            "quote_width": 1800,
+            "quote": [
+              [
+                "PASS  A3 overlap: on the frame of turn 4's second hit, 2 bursts are alive (the first one not re-fired, a new instance)",
+                "mono"
+              ],
+              [
+                "test_hit_burst_state.gd, 60 fps · evidence/a6/final/test_hit_burst_state_60fps.log:30",
+                true
+              ]
+            ]
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B08.mp4"
+      },
+      "role_note": "Result of B07: play P2 (turn 4, both hits), with the state test's A3 overlap line on screen.",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.4839,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill, top right). The region is the narrowest segment pill's exact extent, inside the label on every frame. Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "lead_silence_s": 0.3,
+      "voice_duration_s": 18.496,
+      "audio_file": "mp3/beat-B08-timed.wav",
+      "actual_duration_s": 19.3,
+      "clip_frames": 579,
+      "duration_note": "voice 18.496s + lead 0.3s, padded with silence to 579 frames = 579/30 s (clip length; no retiming)",
+      "render_duration_s": 19.3,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B08.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "CODE",
+      "narration_text": "The flash wasn't planned like this. The brief gave it point one two seconds. Jay-Ann watched it in the game and wrote: I can barely realize it happens. So it was tuned, one setting per revision, with Claude's prediction written down before each edit. Lifetime, then size, then lifetime again. Line sixty-four now says one point oh eight seconds.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "hit_burst.tscn: the flash, after tuning",
+            "project": "Lane Tactics",
+            "path": "res://effects/hit_burst.tscn",
+            "source": "godot/effects/hit_burst.tscn · lines 60–66 · tag a6",
+            "code": "[node name=\"Flash\" type=\"CPUParticles2D\" parent=\".\"]\nmaterial = SubResource(\"CanvasItemMaterial_mix\")\nemitting = false\namount = 1\nlifetime = 1.08\none_shot = true\npreprocess = 0.0",
+            "startLine": 60,
+            "codeFontSize": 34,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "r1 (8aa178c)",
+                "value": "lifetime 0.12 → 0.36"
+              },
+              {
+                "label": "r2 (1079375)",
+                "value": "scale 1.25 → 3.0 (83–84)"
+              },
+              {
+                "label": "r3 (cc9e1ee)",
+                "value": "lifetime 0.36 → 1.08"
+              }
+            ],
+            "output": [
+              "One setting per revision; Claude's prediction committed before each edit (TUNING.md)"
+            ],
+            "durationSeconds": 17.8,
+            "cues": [
+              {
+                "at": 0.0,
+                "line": 60,
+                "label": "line 60: Flash, one particle"
+              },
+              {
+                "at": 14.89,
+                "line": 64,
+                "label": "line 64: lifetime 1.08 s (brief: 0.12 s)"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B09.mp4",
+            "at": "2026-11-09T02:16:32.998895+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "effects/hit_burst.tscn",
+        "start_line": 60,
+        "end_line": 66
+      },
+      "role_note": "Effect A tuning; code beat, result B10.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 17.771,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B09-timed.wav",
+      "actual_duration_s": 17.8,
+      "clip_frames": 534,
+      "duration_note": "voice 17.771s + lead 0.0s, padded with silence to 534 frames = 534/30 s",
+      "render_duration_s": 17.8,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B09.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "RESULT",
+      "narration_text": "Jay-Ann's strips, with the same fixed seed in every row. Revision one, three times longer, and frame twelve barely changed. Claude had predicted \"still clearly red\", and was wrong. The flash is the first child, so the splinters and the dust are drawn on top of it. Revision two, about two and a half times larger, gets out from under them. Revision three keeps the glow for about a second. Jay-Ann kept both.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B10",
+        "label": "FIXTURE · hit_burst_preview.tscn · fixed seed · Jiean's Movie Maker captures, 30 fps",
+        "evidence_media": "media/B10.mp4"
+      },
+      "role_note": "Result of B09: captures/hit_burst/r0..r3 frames 10, 12, 15, 20, 30; Jiean's words verbatim (TUNING.md).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 20.096,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B10-timed.wav",
+      "actual_duration_s": 20.9,
+      "clip_frames": 627,
+      "duration_note": "voice 20.096s + lead 0.0s, padded with silence to 627 frames = 627/30 s",
+      "render_duration_s": 20.9,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B10.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "CODE",
+      "narration_text": "Effect B is two GPU particle nodes, Streak and Wisps. Godot has a trail setting, and on the Compatibility renderer it draws nothing at all, with a warning. That was measured before the brief was written. So line ninety-nine keeps it off, and line ninety-eight does the work: local coords off. The node follows the arrow, and every particle stays where it was dropped.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "arrow_trail.tscn: the streak",
+            "project": "Lane Tactics",
+            "path": "res://effects/arrow_trail.tscn",
+            "source": "godot/effects/arrow_trail.tscn · lines 87–99 · tag a6",
+            "code": "[node name=\"Streak\" type=\"GPUParticles2D\" parent=\".\"]\nmaterial = SubResource(\"CanvasItemMaterial_mix\")\nemitting = false\namount = 48\nlifetime = 0.3\none_shot = false\npreprocess = 0.0\nexplosiveness = 0.0\nfixed_fps = 30\ninterpolate = true\nvisibility_rect = Rect2(-320, -200, 640, 400)\nlocal_coords = false\ntrail_enabled = false",
+            "startLine": 87,
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Measured, brief §0",
+                "value": "trail_enabled: nothing drawn"
+              },
+              {
+                "label": "Godot warns",
+                "value": "no trails on Compatibility"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 2b (de4f389)"
+              }
+            ],
+            "output": [
+              "fixed_fps 30 (line 95): thirty particle steps a second"
+            ],
+            "durationSeconds": 18.6,
+            "cues": [
+              {
+                "at": 0.41,
+                "line": 87,
+                "label": "line 87: Streak, a GPUParticles2D"
+              },
+              {
+                "at": 10.28,
+                "line": 99,
+                "label": "line 99: trail_enabled = false"
+              },
+              {
+                "at": 12.05,
+                "line": 98,
+                "label": "line 98: local_coords = false"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B11.mp4",
+            "at": "2026-11-09T02:41:26.196946+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "effects/arrow_trail.tscn",
+        "start_line": 87,
+        "end_line": 99
+      },
+      "role_note": "Effect B scene; code beat, result B12.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 18.581,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B11-timed.wav",
+      "actual_duration_s": 18.6,
+      "clip_frames": 558,
+      "duration_note": "voice 18.581s + lead 0.0s, padded with silence to 558 frames = 558/30 s",
+      "render_duration_s": 18.6,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B11.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "RESULT",
+      "narration_text": "The arrow flies two squares, and the streak draws its arc behind it. Look closely: it's a row of dots, about twenty to twenty-five pixels apart. Line ninety-five: the GPU node steps thirty times a second, and each step leaves one dot. The brief predicted this failure. Jay-Ann looked, and called the path clear.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "play",
+            "a": 245,
+            "b": 315,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio"
+          },
+          {
+            "src": "slow",
+            "a": 230,
+            "b": 520,
+            "crop": [
+              384,
+              990,
+              1920,
+              1080
+            ],
+            "label": "¼ SPEED · CROPPED 2× · REAL GODOT RENDER|120 fps capture played at 30 · both archers · main.tscn @ tag a6"
+          },
+          {
+            "src": "slow",
+            "a": 845,
+            "b": 1006,
+            "crop": [
+              384,
+              990,
+              1920,
+              1080
+            ],
+            "label": "¼ SPEED · CROPPED 2× · REAL GODOT RENDER|120 fps capture played at 30 · turn 5 · main.tscn @ tag a6",
+            "quote_pos": "bottom-right",
+            "quote_width": 1800,
+            "quote": [
+              [
+                "A continous black closely dotted lines into the target square. Clear.",
+                false
+              ],
+              [
+                "Jiean, first look at Effect B (TUNING.md)",
+                true
+              ]
+            ]
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B12.mp4"
+      },
+      "role_note": "Result of B11: play P2 (turn 4, the player's arrow) at real speed, then slow S2 at ¼ speed; Jiean's first look verbatim (TUNING.md).",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.5099,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill, top right). The region is the narrowest segment pill's exact extent, inside the label on every frame. Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "lead_silence_s": 0.3,
+      "voice_duration_s": 16.555,
+      "audio_file": "mp3/beat-B12-timed.wav",
+      "actual_duration_s": 17.366666666666667,
+      "clip_frames": 521,
+      "duration_note": "voice 16.555s + lead 0.3s, padded with silence to 521 frames = 521/30 s (clip length; no retiming)",
+      "render_duration_s": 17.366666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B12.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "CODE",
+      "narration_text": "The trail's driver keeps one entry per arrow. While the arrow is in the game's list, the trail moves to its tip, with the game's own arc formula: line sixty-nine. On the frame the arrow leaves the list, both emitters stop, line seventy-four, and a countdown starts: the wisps' lifetime, seven tenths of a second of game time. Then the node is freed. A new arrow gets a new trail.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "arrow_trail_driver.gd: follow, stop, free",
+            "project": "Lane Tactics",
+            "path": "res://game/arrow_trail_driver.gd",
+            "source": "godot/game/arrow_trail_driver.gd · lines 62–75 · tag a6",
+            "code": "\t\tif tr[\"landed\"]:\n\t\t\ttr[\"left\"] = float(tr[\"left\"]) - dt\n\t\t\tif float(tr[\"left\"]) <= 0.0:\n\t\t\t\tremove_child(trail)\n\t\t\t\ttrail.queue_free()\n\t\t\t\tcontinue\n\t\telif _in_flight(tr[\"arrow\"]):\n\t\t\ttrail.position = tip_of(tr[\"arrow\"])\n\t\telse:\n\t\t\ttr[\"landed\"] = true\n\t\t\ttr[\"left\"] = _longest_lifetime(trail)\n\t\t\tfor emitter: Node in trail.get_children():\n\t\t\t\t(emitter as GPUParticles2D).emitting = false\n\t\tkeep.append(tr)",
+            "startLine": 62,
+            "codeFontSize": 23,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "tip_of, lines 43–47",
+                "value": "main.gd's arc formula"
+              },
+              {
+                "label": "Free timer",
+                "value": "0.7 s, read from the scene"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 3b; plan approved by Jiean (e1e151d)"
+              }
+            ],
+            "output": [
+              "Lines 77–79: a new trail for each new arrow in main._arrows"
+            ],
+            "durationSeconds": 19.4,
+            "cues": [
+              {
+                "at": 2.15,
+                "line": 68,
+                "label": "line 68: still in main._arrows?"
+              },
+              {
+                "at": 7.26,
+                "line": 69,
+                "label": "line 69: to the tip, with main.gd's arc formula"
+              },
+              {
+                "at": 11.2,
+                "line": 74,
+                "label": "line 74: both emitters stop"
+              },
+              {
+                "at": 12.37,
+                "line": 72,
+                "label": "line 72: the longest lifetime, 0.7 s of game time"
+              },
+              {
+                "at": 16.46,
+                "line": 66,
+                "label": "line 66: queue_free()"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B13.mp4",
+            "at": "2026-11-09T02:19:19.299328+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "game/arrow_trail_driver.gd",
+        "start_line": 62,
+        "end_line": 75
+      },
+      "role_note": "Effect B driver; code beat, result B14.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 19.371,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B13-timed.wav",
+      "actual_duration_s": 19.4,
+      "clip_frames": 582,
+      "duration_note": "voice 19.371s + lead 0.0s, padded with silence to 582 frames = 582/30 s",
+      "render_duration_s": 19.4,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B13.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "RESULT",
+      "narration_text": "The arrow lands. Emission stops, the dots shrink away from the oldest end, a few wisps hang on, and the burst takes over at the target. Pause in mid-flight, and the arrow and its trail freeze together. Unpause, and both carry on. The test found one surprise in this hand-over. We'll get to it.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "slow",
+            "a": 397,
+            "b": 592,
+            "crop": [
+              384,
+              990,
+              1920,
+              1080
+            ],
+            "label": "¼ SPEED · CROPPED 2× · REAL GODOT RENDER|120 fps capture played at 30 · both archers · main.tscn @ tag a6"
+          },
+          {
+            "src": "play",
+            "a": 1063,
+            "b": 1358,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio"
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B14.mp4"
+      },
+      "role_note": "Result of B13: play P2 (landing) and P4 (P mid-flight, 2 s).",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.4849,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill, top right). The region is the narrowest segment pill's exact extent, inside the label on every frame. Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "lead_silence_s": 0.6,
+      "voice_duration_s": 15.509,
+      "audio_file": "mp3/beat-B14-timed.wav",
+      "actual_duration_s": 16.333333333333332,
+      "clip_frames": 490,
+      "duration_note": "voice 15.509s + lead 0.6s, padded with silence to 490 frames = 490/30 s (clip length; no retiming)",
+      "render_duration_s": 16.333333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B14.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "CODE",
+      "narration_text": "The wisps carry the feature the CPU node doesn't have: turbulence, line seventy-nine. Each wisp gets an influence between point one and point two, so it drifts in a noise field, while damping slows it down. After the first strip, Jay-Ann chose stronger wisps: the colour ramp went from a pale brown at forty-five percent to the streak's own colour at seventy.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "arrow_trail.tscn: the wisps",
+            "project": "Lane Tactics",
+            "path": "res://effects/arrow_trail.tscn",
+            "source": "godot/effects/arrow_trail.tscn · lines 70–83 · tag a6",
+            "code": "gravity = Vector3(0, -20, 0)\ninitial_velocity_min = 10.0\ninitial_velocity_max = 25.0\ndamping_min = 15.0\ndamping_max = 20.0\nscale_min = 0.5\nscale_max = 0.8\nscale_curve = SubResource(\"CurveTexture_wisps_scale\")\ncolor_ramp = SubResource(\"GradientTexture1D_wisps\")\nturbulence_enabled = true\nturbulence_noise_strength = 1.0\nturbulence_noise_scale = 9.0\nturbulence_influence_min = 0.1\nturbulence_influence_max = 0.2",
+            "startLine": 70,
+            "codeFontSize": 23,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Effect B r1 (c3bbb9e)",
+                "value": "#9A8466 α 0.45 → #6E5A44 α 0.7"
+              },
+              {
+                "label": "Chosen by",
+                "value": "Jiean, of two options"
+              },
+              {
+                "label": "GPU only",
+                "value": "no turbulence on CPU"
+              }
+            ],
+            "output": [
+              "ParticleProcessMaterial_wisps (line 64) · colour ramp: Gradient_wisps (line 59)"
+            ],
+            "durationSeconds": 18.7,
+            "cues": [
+              {
+                "at": 2.66,
+                "line": 79,
+                "label": "line 79: turbulence_enabled = true"
+              },
+              {
+                "at": 5.05,
+                "line": 82,
+                "label": "lines 82–83: influence 0.1 to 0.2"
+              },
+              {
+                "at": 9.37,
+                "line": 73,
+                "label": "lines 73–74: damping 15 to 20"
+              },
+              {
+                "at": 13.32,
+                "line": 78,
+                "label": "line 78: color_ramp → Gradient_wisps (line 59)"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B15.mp4",
+            "at": "2026-11-09T02:20:40.849534+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "effects/arrow_trail.tscn",
+        "start_line": 70,
+        "end_line": 83
+      },
+      "role_note": "Effect B wisps and turbulence; code beat, result B16.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 18.667,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B15-timed.wav",
+      "actual_duration_s": 18.7,
+      "clip_frames": 561,
+      "duration_note": "voice 18.667s + lead 0.0s, padded with silence to 561 frames = 561/30 s",
+      "render_duration_s": 18.7,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B15.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "RESULT",
+      "narration_text": "Revision zero above, revision one below, same seed. In flight, almost no difference: each wisp hides behind the streak dot it was born with. After the landing, at frames twenty-six and thirty-one, the puffs stay visible along the arc, where before they had nearly gone. The curl of the turbulence doesn't show in stills. Jay-Ann's verdict: Darker puffs provide extra hints for the result of the battle, which keep more attention focusing on the result of each turn within limited time.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B16",
+        "label": "FIXTURE · arrow_trail_preview.tscn · seed 71 · Jiean's Movie Maker captures, 30 fps",
+        "evidence_media": "media/B16.mp4"
+      },
+      "role_note": "Result of B15: captures/arrow_trail/r0, r1 frames 16, 21, 26, 31; Claude's pixel count (TUNING.md); Jiean's verdict verbatim.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B16-timed.wav",
+      "actual_duration_s": 27.5,
+      "voice_duration_s": 26.682,
+      "lead_silence_s": 0.0,
+      "clip_frames": 825,
+      "duration_note": "voice 26.682s + lead 0.0s, padded with silence to 825 frames = 825/30 s",
+      "render_duration_s": 27.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B16.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B17",
+      "act": "CODE",
+      "narration_text": "Now the tests. The configuration tests load each scene and read every value back against the brief: one hundred seven checks for the burst, one hundred thirty-five for the trail. This part reads the scene as plain text, line by line, looking for Godot three names, like initial velocity without its min. Why read the text? Because an old name might load without a word.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "test_hit_burst_config.gd: reading the scene as text",
+            "project": "Lane Tactics",
+            "path": "res://tests/test_hit_burst_config.gd",
+            "source": "godot/tests/test_hit_burst_config.gd · lines 130–140 · tag a6",
+            "code": "\tvar bad: Array[String] = []\n\tvar line_no: int = 0\n\tfor line: String in src.split(\"\\n\"):\n\t\tline_no += 1\n\t\tvar key: String = line.get_slice(\"=\", 0).strip_edges()\n\t\tif line.contains(\"=\") and not line.begins_with(\"[\") and key in FORBIDDEN_KEYS:\n\t\t\tbad.append(\"line %d: %s\" % [line_no, line.strip_edges()])\n\t\tfor t: String in FORBIDDEN_TYPES:\n\t\t\tif line.begins_with(\"[\") and line.contains(\"type=\" + t):\n\t\t\t\tbad.append(\"line %d: %s\" % [line_no, line.strip_edges()])\n\trep.check(\"no Godot 3 / editor-only names in the scene text (failure 2)\", bad.is_empty(), bad)",
+            "startLine": 130,
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "FORBIDDEN_KEYS, line 80",
+                "value": "initial_velocity, damping, …"
+              },
+              {
+                "label": "Read-back, lines 145–149",
+                "value": "every §1 value"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 2a (cb9830b)"
+              }
+            ],
+            "output": [
+              "test_hit_burst_config 107 checks · test_arrow_trail_config 135"
+            ],
+            "durationSeconds": 18.866666666666667,
+            "cues": [
+              {
+                "at": 9.46,
+                "line": 132,
+                "label": "line 132: the scene file, line by line, as text"
+              },
+              {
+                "at": 11.76,
+                "line": 135,
+                "label": "line 135: a key in FORBIDDEN_KEYS"
+              },
+              {
+                "at": 15.34,
+                "line": 140,
+                "label": "line 140: fails on any hit, naming the line"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B17.mp4",
+            "at": "2026-11-09T02:22:03.103621+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "tests/test_hit_burst_config.gd",
+        "start_line": 130,
+        "end_line": 140
+      },
+      "role_note": "Config test; code beat, result B18.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 18.859,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B17-timed.wav",
+      "actual_duration_s": 18.866666666666667,
+      "clip_frames": 566,
+      "duration_note": "voice 18.859s + lead 0.0s, padded with silence to 566 frames = 566/30 s",
+      "render_duration_s": 18.866666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B17.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B18",
+      "act": "RESULT",
+      "narration_text": "Jay-Ann tested the tests. Mutation one: write initial velocity, the Godot three name, on the splinters. The scene loaded with no error and no warning, and the value read back as zero. Two checks failed: the text scan and the read-back. In the game, Jay-Ann saw almost nothing wrong, only a flash that seemed to fade earlier. That's why it needs a test. Mutation two: one value changed, exactly one check failed.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B18",
+        "label": "HEADLESS CHECK OUTPUT · recorded reports, no rendering",
+        "evidence_media": "media/B18.mp4"
+      },
+      "role_note": "Result of B17: evidence/a6/mutations/mutation-1.log, mutation-2.log (TEST-REPORT A6.3); Jiean's words.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 21.035,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B18-timed.wav",
+      "actual_duration_s": 21.866666666666667,
+      "clip_frames": 656,
+      "duration_note": "voice 21.035s + lead 0.0s, padded with silence to 656 frames = 656/30 s",
+      "render_duration_s": 21.866666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B18.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B19",
+      "act": "CODE",
+      "narration_text": "The state tests play the game with real key presses at sixty frames a second, and check every frame against the rules. This check compares each trail's stop with the hit it leads to. The brief said: within one frame. The agent's first run measured zero, minus two, zero, zero, minus two. Up to two frames early.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "test_arrow_trail_state.gd: the stop against the hit",
+            "project": "Lane Tactics",
+            "path": "res://tests/test_arrow_trail_state.gd",
+            "source": "godot/tests/test_arrow_trail_state.gd · lines 561–570 · tag a6",
+            "code": "\tvar offsets: Array = []\n\tfor s: int in stop_rows:\n\t\tvar best: int = 1 << 30\n\t\tfor d: int in damaged_rows:\n\t\t\tif absi(s - d) < absi(best):\n\t\t\t\tbest = s - d\n\t\toffsets.append(best)\n\t# Bound revised in CHANGE-BRIEF Revision 1 item 3 (measured 0, -2, 0, 0, -2); was -1..1.\n\trep.check(\"B2: each stop is 0 to 2 frames before the impact (stop row - damaged row in -2..0)\",\n\t\toffsets.size() == 5 and offsets.all(func(o: int) -> bool: return o >= -2 and o <= 0), offsets)",
+            "startLine": 561,
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Every frame",
+                "value": "after main and drivers"
+              },
+              {
+                "label": "Route",
+                "value": "win_route.json, real keys"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 3b; bound: Claude Code (1268b40)"
+              }
+            ],
+            "output": [
+              "60 fps, real key presses through root.push_input()"
+            ],
+            "durationSeconds": 16.966666666666665,
+            "cues": [
+              {
+                "at": 6.89,
+                "line": 566,
+                "label": "lines 562–567: the nearest hit to each stop"
+              },
+              {
+                "at": 9.78,
+                "line": 568,
+                "label": "line 568: the brief's bound was −1 to 1"
+              },
+              {
+                "at": 11.63,
+                "line": 569,
+                "label": "line 569: now −2 to 0 (Revision 1)"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B19.mp4",
+            "at": "2026-11-09T02:23:18.729719+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "tests/test_arrow_trail_state.gd",
+        "start_line": 561,
+        "end_line": 570
+      },
+      "role_note": "State test; code beat, result B20.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 16.96,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B19-timed.wav",
+      "actual_duration_s": 16.966666666666665,
+      "clip_frames": 509,
+      "duration_note": "voice 16.960s + lead 0.0s, padded with silence to 509 frames = 509/30 s",
+      "render_duration_s": 16.966666666666665,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B19.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B20",
+      "act": "RESULT",
+      "narration_text": "The agent didn't widen the bound to make it pass. It left the check failing, and reported it. The brief was wrong, so the brief was corrected first, in a dated revision, and only then the test: thirty-one of thirty-one. Why two frames? The arrow's clock and the hit cue advance in different places. Game timing was out of scope, so that stays open. And no headless run draws a single particle.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B20",
+        "label": "HEADLESS CHECK OUTPUT · recorded reports, no rendering",
+        "evidence_media": "media/B20.mp4"
+      },
+      "role_note": "Result of B19: evidence/a6/step5b (30/31), CHANGE-BRIEF Revision 1 item 3, evidence/a6/final (31/31).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 19.797,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B20-timed.wav",
+      "actual_duration_s": 20.6,
+      "clip_frames": 618,
+      "duration_note": "voice 19.797s + lead 0.0s, padded with silence to 618 frames = 618/30 s",
+      "render_duration_s": 20.6,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B20.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B21",
+      "act": "CODE",
+      "narration_text": "The price, first without a screen. The agent's script times each frame from a node that runs last, line seventy-seven. Six hundred frames, twice, for each case: an empty scene, the game with no effects, two bursts alive the whole time, and two trails in flight. It reports the means, and leaves the verdict to the reader.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "cost_effects.gd: timing a frame",
+            "project": "Lane Tactics",
+            "path": "res://tests/cost_effects.gd",
+            "source": "godot/tests/cost_effects.gd · lines 76–86 · tag a6",
+            "code": "\tfunc _process(delta: float) -> void:\n\t\tvar now: int = Time.get_ticks_usec()\n\t\tif recording:\n\t\t\tmin_delta = minf(min_delta, delta)\n\t\t\tmax_delta = maxf(max_delta, delta)\n\t\t\tif last_usec >= 0:\n\t\t\t\tframe_us.append(float(now - last_usec))\n\t\t\t\tprocess_us.append(Performance.get_monitor(Performance.TIME_PROCESS) * 1.0e6)\n\t\t\tif probe.is_valid():\n\t\t\t\tprobe.call()\n\t\tlast_usec = now",
+            "startLine": 76,
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Cases",
+                "value": "empty · off · A ×2 · B ×2"
+              },
+              {
+                "label": "Samples",
+                "value": "2 × 600 frames each"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 7 (f0e5977), unedited"
+              }
+            ],
+            "output": [
+              "Headless: no particle is drawn; this times the CPU side only"
+            ],
+            "durationSeconds": 16.666666666666668,
+            "cues": [
+              {
+                "at": 4.93,
+                "line": 77,
+                "label": "line 77: the wall clock, in a node that runs last"
+              },
+              {
+                "at": 5.97,
+                "line": 82,
+                "label": "line 82: one frame time per frame"
+              },
+              {
+                "at": 13.38,
+                "line": 82,
+                "label": "the means per case: 2 × 600 frames"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B21.mp4",
+            "at": "2026-11-09T02:24:32.244646+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "tests/cost_effects.gd",
+        "start_line": 76,
+        "end_line": 86
+      },
+      "role_note": "Headless price; code beat, result B22.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 16.64,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B21-timed.wav",
+      "actual_duration_s": 16.666666666666668,
+      "clip_frames": 500,
+      "duration_note": "voice 16.640s + lead 0.0s, padded with silence to 500 frames = 500/30 s",
+      "render_duration_s": 16.666666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B21.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B22",
+      "act": "RESULT",
+      "narration_text": "Above the control: about eight thousandths of a millisecond for the bursts, and almost seven for the trails. Jay-Ann had predicted zero for the GPU trail. It isn't free on the CPU: the node still moves every frame, and headless it costs about as much as the CPU burst. Both are far under the budget of point two milliseconds.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B22",
+        "label": "RECORDED LOG · evidence/a6/step7 · chart redrawn from it",
+        "evidence_media": "media/B22.mp4"
+      },
+      "role_note": "Result of B21: TEST-REPORT A6.6 headless table; CHANGE-BRIEF §7 predictions and budget.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 17.429,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B22-timed.wav",
+      "actual_duration_s": 18.033333333333335,
+      "clip_frames": 541,
+      "duration_note": "voice 17.429s + lead 0.0s, padded with silence to 541 frames = 541/30 s",
+      "render_duration_s": 18.033333333333335,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B22.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B23",
+      "act": "CODE",
+      "narration_text": "For the graphics card, a fixture holds each case at its peak. Line one fifteen reads the viewport's measured GPU time every frame, and once a second it prints the mean. Jay-Ann read the Visual Profiler in the editor. Claude ran the same fixture unattended, each case held twice, with and without vsync.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "price_effects.gd: the GPU time",
+            "project": "Lane Tactics",
+            "path": "res://previews/price_effects.gd",
+            "source": "godot/previews/price_effects.gd · lines 115–123 · tag a6",
+            "code": "\t_gpu_sum += RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())\n\t_frames += 1\n\t_acc += delta\n\tif _acc >= 1.0:\n\t\t_acc = 0.0\n\t\tvar line: String = \"PRICE case %d  fps %d  gpu %.4f ms (mean of %d frames)  vsync %s\" % [\n\t\t\tcase_id, Engine.get_frames_per_second(), _gpu_sum / maxf(1.0, _frames), _frames,\n\t\t\t\"off\" if DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_DISABLED else \"on\"]\n\t\tprint(line)",
+            "startLine": 115,
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Fixture",
+                "value": "0 off · 1 A ×2 · 2 B ×2 · V vsync"
+              },
+              {
+                "label": "Sweep",
+                "value": "0,1,2,0,1,2 · 8 s each"
+              },
+              {
+                "label": "Written by",
+                "value": "Claude Code (ac38e82, 67d0b30)"
+              }
+            ],
+            "output": [
+              "Display 180 Hz · RTX 3070 Ti Laptop GPU · OpenGL 3.3"
+            ],
+            "durationSeconds": 16.733333333333334,
+            "cues": [
+              {
+                "at": 3.23,
+                "line": 115,
+                "label": "line 115: the viewport's measured GPU time"
+              },
+              {
+                "at": 7.27,
+                "line": 120,
+                "label": "lines 118–123: once a second, the mean"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B23.mp4",
+            "at": "2026-11-09T02:25:45.398757+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "previews/price_effects.gd",
+        "start_line": 115,
+        "end_line": 123
+      },
+      "role_note": "GPU price; code beat, result B24.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 16.704,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-B23-timed.wav",
+      "actual_duration_s": 16.733333333333334,
+      "clip_frames": 502,
+      "duration_note": "voice 16.704s + lead 0.0s, padded with silence to 502 frames = 502/30 s",
+      "render_duration_s": 16.733333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B23.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B24",
+      "act": "RESULT",
+      "narration_text": "Jay-Ann's readings: the three cases overlap completely. The graph swings by about one and a half milliseconds, and the effects cost a few thousandths. Only the means separate them: three thousandths of a millisecond for the bursts, seven for the trails. Under budget, and two to three times Jay-Ann's predictions. With vsync on, every case reads one hundred eighty frames a second, as Jay-Ann predicted. Jay-Ann's conclusion: B's C P U cost wasn't zero because the trail is moved every frame.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B24",
+        "label": "HUMAN CHECK · Jiean, Visual Profiler  |  RECORDED LOGS · evidence/a6/gpu",
+        "evidence_media": "media/B24.mp4"
+      },
+      "role_note": "Result of B23: TEST-REPORT A6.6 (Jiean's readings, the sweep, Jiean's conclusion verbatim).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B24-timed.wav",
+      "actual_duration_s": 28.3,
+      "voice_duration_s": 27.471,
+      "lead_silence_s": 0.0,
+      "clip_frames": 849,
+      "duration_note": "voice 27.471s + lead 0.0s, padded with silence to 849 frames = 849/30 s",
+      "render_duration_s": 28.3,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B24.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B25",
+      "act": "CODE",
+      "narration_text": "Last, the process shader. Jay-Ann converted the wisps' material into a shader in the editor, and saved it unedited. Nearly five hundred lines, and the game doesn't use it. It's a particles shader: a start function for each new particle, and a process function for every step. Jay-Ann's table: shader type on line three, start on three twenty-three, process on three seventy-eight. The initial velocity is mixed from its minimum and maximum on two thirty-two. Gravity becomes the force on four twelve. Scale and colour over life are applied on two fifty-four and two fifty-five. And line four forty-one belongs to turbulence, which the wisps switch on.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "particles_generated.gdshader: Jiean's lines",
+            "project": "Lane Tactics",
+            "path": "res://shaders/particles_generated.gdshader",
+            "source": "godot/shaders/particles_generated.gdshader · lines 252–257 · tag a6",
+            "code": "void process_display_param(inout DisplayParameters parameters, float lifetime) {\n\t// Compile-time add textures.\n\tparameters.scale *= texture(scale_curve, vec2(lifetime)).rgb;\n\tparameters.color *= texture(color_ramp, vec2(lifetime));\n\tparameters.color = rotate_hue(parameters.color, parameters.hue_rotation);\n}",
+            "startLine": 252,
+            "codeFontSize": 34,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Jiean's rows",
+                "value": "start() 323 · process() 378"
+              },
+              {
+                "label": "Shown here",
+                "value": "scale 254 · colour 255"
+              },
+              {
+                "label": "Jiean's other rows",
+                "value": "3 · 232 · 412 · 441"
+              }
+            ],
+            "output": [
+              "Editor-generated from the Wisps material, saved by Jiean, unedited",
+              "Rows: TEST-REPORT A6.7"
+            ],
+            "durationSeconds": 34.733333333333334,
+            "cues": [
+              {
+                "at": 14.51,
+                "line": 252,
+                "label": "process_display_param(): every particle, every step"
+              },
+              {
+                "at": 28.75,
+                "line": 254,
+                "label": "line 254: scale over life (Jiean's row)"
+              },
+              {
+                "at": 29.76,
+                "line": 255,
+                "label": "line 255: colour over life (Jiean's row)"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B25.mp4",
+            "at": "2026-11-09T02:44:02.280115+00:00"
+          }
+        },
+        "label": "Generated by the Godot editor from the Wisps material, saved by Jiean, unedited · not used by the game"
+      },
+      "excerpt": {
+        "path": "shaders/particles_generated.gdshader",
+        "start_line": 252,
+        "end_line": 257
+      },
+      "role_note": "Process shader; code beat, result B26. Lines are Jiean's (TEST-REPORT A6.7).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B25-timed.wav",
+      "actual_duration_s": 34.733333333333334,
+      "voice_duration_s": 34.703,
+      "lead_silence_s": 0.0,
+      "clip_frames": 1042,
+      "duration_note": "voice 34.703s + lead 0.0s, padded with silence to 1042 frames = 1042/30 s",
+      "render_duration_s": 34.733333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B25.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "B26",
+      "act": "RESULT",
+      "narration_text": "What that code does, on screen: each wisp is born with its own speed, drifts slowly upward, because its gravity points up, swells, and fades out. The game runs the material, not this file, but the file spells it out line by line. Jay-Ann's split: Shader: all settings start with uniform or hash define. Like direction, spread, gravity. Draw step: draw-side settings are texture, Canvas Item Material blend mode, visibility rect.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B26",
+        "label": "FIXTURE · arrow_trail_preview.tscn r1 wisps, enlarged  |  Jiean's answer, TEST-REPORT A6.7",
+        "evidence_media": "media/B26.mp4"
+      },
+      "role_note": "Result of B25: captures/arrow_trail/r1 frames 21, 26, 31 (wisps enlarged); Jiean's split verbatim.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B26-timed.wav",
+      "actual_duration_s": 22.866666666666667,
+      "voice_duration_s": 22.251,
+      "lead_silence_s": 0.0,
+      "clip_frames": 686,
+      "duration_note": "voice 22.251s + lead 0.0s, padded with silence to 686 frames = 686/30 s",
+      "qc": {
+        "contrast_regions": [
+          {
+            "label": "title",
+            "box": [
+              0.05,
+              0.03,
+              0.62,
+              0.115
+            ]
+          },
+          {
+            "label": "Jiean's answer, verbatim",
+            "box": [
+              0.05,
+              0.655,
+              0.86,
+              0.865
+            ]
+          }
+        ],
+        "contrast_reason": "Evidence still: the pictures are enlarged pale board crops (Jiean's strips), not text. The essential text is the title and Jiean's answer, dark ink on the page, in the declared boxes."
+      },
+      "render_duration_s": 22.866666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B26.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "BCRD",
+      "act": "CREDITS",
+      "narration_text": "Who did what. Jay-Ann chose both effects, their jobs and the retrigger rule, wrote every prediction, the budget and the six answers, ran the mutations, captured every strip, read the profiler, and judged every revision. Claude agents, working from the brief, wrote the scenes, the drivers, the tests and the price script; Claude Code reviewed them, made the tuning edits Jay-Ann asked for, and built the price fixture. Caught on the way: a bound in the brief that was wrong, a prediction that ignored draw order, and a cleanup loop that deleted a strip, which Jay-Ann captured again. No image files: the textures are gradients inside the scenes. Source shown: tag a6.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py BCRD",
+        "label": ""
+      },
+      "role_note": "Human and AI contributions (SOURCES.md A6), mistakes caught (FRICTIONAL A6, TUNING), textures.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 33.765,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-BCRD-timed.wav",
+      "actual_duration_s": 34.36666666666667,
+      "clip_frames": 1031,
+      "duration_note": "voice 33.765s + lead 0.0s, padded with silence to 1031 frames = 1031/30 s",
+      "render_duration_s": 34.36666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BCRD.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "VERDICT",
+      "narration_text": "Verdict. Checked: every setting reads back, both mutations were caught, the rules held on every frame at sixty frames a second, two bursts overlap on a two-hit turn, and both effects cost a few thousandths of a millisecond, far under budget. Wrong: the brief's one-frame bound, Claude's first flash prediction, and Jay-Ann's price predictions, off by less than a hundredth of a millisecond. Uncertain: why the trail stops up to two frames early, what the profiler's four to six milliseconds with vsync on contain, and whether a hidden trail keeps simulating. In play, Jay-Ann's answer: Yes, there are animation of shooting and getting hit, plus the effect of arrow and wounded. Next: turn the dotted streak into a line, and predict the gap first.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "artifact-reveal",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Two Lane Tactics particle effects at tag a6.",
+            "brandLabel": "@NikBearBrown",
+            "artifactLines": [
+              "Checked: config 107/107 and 135/135 · both mutations exit 1 · state 31/31 and 31/31 at 60 fps · two bursts alive on a two-hit turn · +0.003 to +0.008 ms, budget 0.2 ms.",
+              "Wrong: the brief's ±1-frame bound (measured 0 to −2) · Claude's r1 flash prediction · Jiean's price predictions (off by < 0.01 ms: three low, one high).",
+              "Uncertain: why the trail stops up to 2 frames early · the profiler's 4–6 ms with vsync on · whether a hidden trail keeps simulating.",
+              "In play (Jiean): Yes, there are animation of shooting and getting hit, plus the effect of arrow and wounded.",
+              "Next step: raise the streak's fixed_fps, predict the gap first."
+            ],
+            "durationSeconds": 38.766666666666666
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": "2026-11-09T02:04:38.227352+00:00"
+          }
+        }
+      },
+      "role_note": "Verdict: checked vs wrong vs uncertain vs human judgement vs next step.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BVDT-timed.wav",
+      "actual_duration_s": 38.766666666666666,
+      "voice_duration_s": 38.735,
+      "lead_silence_s": 0.0,
+      "clip_frames": 1163,
+      "duration_note": "voice 38.735s + lead 0.0s, padded with silence to 1163 frames = 1163/30 s",
+      "render_duration_s": 38.766666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BVDT.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "HANDOFF",
+      "narration_text": "Your turn. Pick one setting, and predict before you look. Here's a prompt to start with: raise fixed F P S on the streak from thirty to sixty; before changing anything, predict the gap between the dots for a two-square shot of point three five seconds; then capture a strip and compare. It's one small change, and a direct test of why the trail is dotted. If the dots don't land where you predicted, that isn't a failure. That's a finding. I'm Liam, in for Bear.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on",
+        "label": "Reconstructed interface — suggested prompt, not a past run",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "WALKER · YOUR TURN",
+            "segment": "One Setting, One Prediction",
+            "command": "Raise fixed_fps on the Streak in my arrow trail from 30 to 60. Before you change anything, help me predict the gap between the dots for a two-square shot that lasts 0.35 seconds. Then I'll capture a strip and we compare.",
+            "runningText": "paste this into Claude…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "High",
+            "durationSeconds": 21.633333333333333
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": "2026-11-09T02:06:05.062480+00:00"
+          }
+        }
+      },
+      "role_note": "Your Turn: one bounded change + prediction + strip; Liam signs off.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 21.611,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-BHTF-timed.wav",
+      "actual_duration_s": 21.633333333333333,
+      "clip_frames": 649,
+      "duration_note": "voice 21.611s + lead 0.0s, padded with silence to 649 frames = 649/30 s",
+      "render_duration_s": 21.633333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BHTF.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-11-08T22:18:05"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "OUTRO",
+      "kind": "outro_voice",
+      "role_note": "OUTRO-LOCK: ClaudeTitleOutro, exact title, @NikBearBrown, slug-seeded mascot, no subline. Spoken, never scored; 1.0 s silent tail.",
+      "narration_text": "Lane Tactics: A Hit Burst and an Arrow Trail. At Nik Bear Brown.",
+      "tail_hold_s": 1.0,
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "mascot-title",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Lane Tactics: A Hit Burst and an Arrow Trail.",
+            "slug": "claude-liam-walker-lane-tactics-jiean-yin-a6-gamedev",
+            "handle": "@NikBearBrown",
+            "subline": "",
+            "durationSeconds": 5.333333333333333
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": "2026-11-09T02:06:31.655891+00:00"
+          }
+        }
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_duration_s": 4.309,
+      "lead_silence_s": 0.0,
+      "audio_file": "mp3/beat-BOUT-timed.wav",
+      "actual_duration_s": 5.333333333333333,
+      "clip_frames": 160,
+      "duration_note": "voice 4.309s + lead 0.0s, padded with silence to 160 frames = 160/30 s",
+      "render_duration_s": 5.333333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BOUT.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-11-08T22:18:05"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "source_revision": "tag a6 = 7f199f9ee4f24a3bb75b117d67e9ad0c2dfda004 (tree f33676681056154ae5b4e7679375e165204f9863)",
+  "read_from": "<capture-copy>/a6 (git archive of tag a6)",
+  "b_r1_verdict": "The darker arrow flew through the lines clearly and I can easily tell where it came out and went to. Darker puffs provide extra hints for the result of the battle, which keep more attention focusing on the result of each turn within limited time.",
+  "price_conclusion": "Both effects are under the 0.2 ms budget on the price that matters: A on CPU (0.0078 ms) and GPU (0.0031 ms), B on GPU (0.0074 ms). Both predictions were too low, but by less than 0.01 ms — B's CPU cost wasn't 0 because the trail is moved every frame. The Visual Profiler couldn't show these prices since the frame-to-frame swing (~1.5 ms) hides them; only means over many frames separate the cases, and with vsync on its RV includes display waiting, not the effects' work.",
+  "a67_rows": [
+    {
+      "what": "`shader_type`",
+      "lines": "3",
+      "line": "shader_type particles;"
+    },
+    {
+      "what": "`start()`",
+      "lines": "323",
+      "line": "void start()"
+    },
+    {
+      "what": "`process()`",
+      "lines": "378",
+      "line": "void process()"
+    },
+    {
+      "what": "initial velocity set from its minimum and maximum",
+      "lines": "232",
+      "line": "multiplier = mix(initial_linear_velocity_min, initial_linear_velocity_max, rand_from_seed(alt_seed));"
+    },
+    {
+      "what": "gravity changes velocity",
+      "lines": "412",
+      "line": "force = gravity;"
+    },
+    {
+      "what": "colour over life sampled",
+      "lines": "255",
+      "line": "parameters.color *= texture(color_ramp, vec2(lifetime));"
+    },
+    {
+      "what": "scale over life applied",
+      "lines": "254",
+      "line": "s.scale *= texture(scale_curve, vec2(lifetime)).rgb;"
+    },
+    {
+      "what": "a line tied to a brief setting, with that setting's value",
+      "lines": "441",
+      "line": "`turbulence_enabled` true"
+    }
+  ],
+  "a67_split": "Shader:\nAll settings start with uniform or #define. Like direction, spread, gravity.\n\"start()\" or \"process()\" that changes `VELOCITY, COLOR or TRANSFORM`. Like process_display_param, where the brief's colour ramp and scale curve take effect\nDraw Step:\nDraw-side settings are texture, CanvasItemMaterial blend mode, visibility_rect.",
+  "playtest_reads": "Yes, there are animation of shooting and getting hit, plus the effect of arrow and wounded.",
+  "approved_by": "Jiean, 2026-11-08 ('Approve as proposed', capture/QUOTES-REVIEW.md)",
+  "b_r1_verdict_spoken": "Darker puffs provide extra hints for the result of the battle, which keep more attention focusing on the result of each turn within limited time.",
+  "price_conclusion_spoken": "Jay-Ann's conclusion: B's C P U cost wasn't zero because the trail is moved every frame.",
+  "a67_range": [
+    252,
+    257
+  ],
+  "a67_rows_spoken": "Jay-Ann's table: shader type on line three, start on three twenty-three, process on three seventy-eight. The initial velocity is mixed from its minimum and maximum on two thirty-two. Gravity becomes the force on four twelve. Scale and colour over life are applied on two fifty-four and two fifty-five. And line four forty-one belongs to turbulence, which the wisps switch on.",
+  "a67_split_spoken": "Shader: all settings start with uniform or hash define. Like direction, spread, gravity. Draw step: draw-side settings are texture, Canvas Item Material blend mode, visibility rect.",
+  "playtest_reads_spoken": "Yes, there are animation of shooting and getting hit, plus the effect of arrow and wounded."
+}

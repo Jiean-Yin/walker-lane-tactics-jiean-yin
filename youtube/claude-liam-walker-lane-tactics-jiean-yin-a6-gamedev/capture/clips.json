@@ -1,0 +1,279 @@
+{
+  "B02": {
+    "still": true,
+    "n_frames": 571,
+    "path": "media/B02.mp4",
+    "sha256": "a3edfc3a70f8168efb2a730dc86eb1c86ce298423f4bd8da63e278b0bd4ca958",
+    "preview": "stills/B02.png"
+  },
+  "B04": {
+    "segments": [
+      {
+        "src": "play",
+        "a": 110,
+        "b": 271,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio"
+      },
+      {
+        "src": "slow",
+        "a": 250,
+        "b": 572,
+        "crop": [
+          240,
+          1362,
+          1280,
+          720
+        ],
+        "label": "¼ SPEED · CROPPED 3× · REAL GODOT RENDER|120 fps capture played at 30 · around the player's archer · main.tscn @ tag a6"
+      }
+    ],
+    "n_frames": 483,
+    "duration_s": "483/30",
+    "sources": {
+      "play": {
+        "file": "<capture-copy>/final-out/play-4k.mkv",
+        "fps": 30,
+        "sha256": "0b8cb0636d83949ba9f5fe08e5ac4da1be1d460d1b0a3a0dffd20cd2b12b9b73"
+      },
+      "slow": {
+        "file": "<capture-copy>/final-out/slow-4k.mkv",
+        "fps": 120,
+        "sha256": "8984bea017668840ab6daf68fcbb2f5b903198feca5dd72b4f80b6e5f3e14f4c"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B04.mp4",
+    "sha256": "8a1a52e2ca81e79dc650aca7e54480d1794de7e15c5023beb775224507aebda2"
+  },
+  "B06": {
+    "segments": [
+      {
+        "src": "play",
+        "a": 527,
+        "b": 979,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio"
+      }
+    ],
+    "n_frames": 452,
+    "duration_s": "452/30",
+    "sources": {
+      "play": {
+        "file": "<capture-copy>/final-out/play-4k.mkv",
+        "fps": 30,
+        "sha256": "0b8cb0636d83949ba9f5fe08e5ac4da1be1d460d1b0a3a0dffd20cd2b12b9b73"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B06.mp4",
+    "sha256": "024c7ab250da27ff738b1cfdb768abb877225850eeaa6b6a52a757d2f12fd263"
+  },
+  "B08": {
+    "segments": [
+      {
+        "src": "play",
+        "a": 200,
+        "b": 330,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio"
+      },
+      {
+        "src": "slow",
+        "a": 250,
+        "b": 699,
+        "crop": [
+          384,
+          990,
+          1920,
+          1080
+        ],
+        "label": "¼ SPEED · CROPPED 2× · REAL GODOT RENDER|120 fps capture played at 30 · both archers · main.tscn @ tag a6",
+        "quote_pos": "bottom-right",
+        "quote_width": 1800,
+        "quote": [
+          [
+            "PASS  A3 overlap: on the frame of turn 4's second hit, 2 bursts are alive (the first one not re-fired, a new instance)",
+            "mono"
+          ],
+          [
+            "test_hit_burst_state.gd, 60 fps · evidence/a6/final/test_hit_burst_state_60fps.log:30",
+            true
+          ]
+        ]
+      }
+    ],
+    "n_frames": 579,
+    "duration_s": "579/30",
+    "sources": {
+      "play": {
+        "file": "<capture-copy>/final-out/play-4k.mkv",
+        "fps": 30,
+        "sha256": "0b8cb0636d83949ba9f5fe08e5ac4da1be1d460d1b0a3a0dffd20cd2b12b9b73"
+      },
+      "slow": {
+        "file": "<capture-copy>/final-out/slow-4k.mkv",
+        "fps": 120,
+        "sha256": "8984bea017668840ab6daf68fcbb2f5b903198feca5dd72b4f80b6e5f3e14f4c"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B08.mp4",
+    "sha256": "b387f366bf0c6cbaee5c9d75b28010b2f4a33a993ef1147a2b6e3125b7524bee"
+  },
+  "B10": {
+    "still": true,
+    "n_frames": 627,
+    "path": "media/B10.mp4",
+    "sha256": "7504f258008b7abe05fc04e1d6a397e198127d37b24535a8258f05c402308952",
+    "preview": "stills/B10.png"
+  },
+  "B12": {
+    "segments": [
+      {
+        "src": "play",
+        "a": 245,
+        "b": 315,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio"
+      },
+      {
+        "src": "slow",
+        "a": 230,
+        "b": 520,
+        "crop": [
+          384,
+          990,
+          1920,
+          1080
+        ],
+        "label": "¼ SPEED · CROPPED 2× · REAL GODOT RENDER|120 fps capture played at 30 · both archers · main.tscn @ tag a6"
+      },
+      {
+        "src": "slow",
+        "a": 845,
+        "b": 1006,
+        "crop": [
+          384,
+          990,
+          1920,
+          1080
+        ],
+        "label": "¼ SPEED · CROPPED 2× · REAL GODOT RENDER|120 fps capture played at 30 · turn 5 · main.tscn @ tag a6",
+        "quote_pos": "bottom-right",
+        "quote_width": 1800,
+        "quote": [
+          [
+            "A continous black closely dotted lines into the target square. Clear.",
+            false
+          ],
+          [
+            "Jiean, first look at Effect B (TUNING.md)",
+            true
+          ]
+        ]
+      }
+    ],
+    "n_frames": 521,
+    "duration_s": "521/30",
+    "sources": {
+      "play": {
+        "file": "<capture-copy>/final-out/play-4k.mkv",
+        "fps": 30,
+        "sha256": "0b8cb0636d83949ba9f5fe08e5ac4da1be1d460d1b0a3a0dffd20cd2b12b9b73"
+      },
+      "slow": {
+        "file": "<capture-copy>/final-out/slow-4k.mkv",
+        "fps": 120,
+        "sha256": "8984bea017668840ab6daf68fcbb2f5b903198feca5dd72b4f80b6e5f3e14f4c"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B12.mp4",
+    "sha256": "9f2bb06f527b7af8c16d080c066ff60825d038410ff632a0c81910a412d42e52"
+  },
+  "B14": {
+    "segments": [
+      {
+        "src": "slow",
+        "a": 397,
+        "b": 592,
+        "crop": [
+          384,
+          990,
+          1920,
+          1080
+        ],
+        "label": "¼ SPEED · CROPPED 2× · REAL GODOT RENDER|120 fps capture played at 30 · both archers · main.tscn @ tag a6"
+      },
+      {
+        "src": "play",
+        "a": 1063,
+        "b": 1358,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio"
+      }
+    ],
+    "n_frames": 490,
+    "duration_s": "490/30",
+    "sources": {
+      "slow": {
+        "file": "<capture-copy>/final-out/slow-4k.mkv",
+        "fps": 120,
+        "sha256": "8984bea017668840ab6daf68fcbb2f5b903198feca5dd72b4f80b6e5f3e14f4c"
+      },
+      "play": {
+        "file": "<capture-copy>/final-out/play-4k.mkv",
+        "fps": 30,
+        "sha256": "0b8cb0636d83949ba9f5fe08e5ac4da1be1d460d1b0a3a0dffd20cd2b12b9b73"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a6, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B14.mp4",
+    "sha256": "1648a6e0a2a78cb71998756f97337ec9235746fd2e9011287d795d9b71b0c88e"
+  },
+  "B16": {
+    "still": true,
+    "n_frames": 825,
+    "path": "media/B16.mp4",
+    "sha256": "5d01d4ccd367ed30899c0b8849827d1d3a7c1c98835c83be3a78d5ae641e2e60",
+    "preview": "stills/B16.png"
+  },
+  "B18": {
+    "still": true,
+    "n_frames": 656,
+    "path": "media/B18.mp4",
+    "sha256": "caa2fabf4088e948b4454573bb68a36126043d29240a91bc64cc52312d1d93d1",
+    "preview": "stills/B18.png"
+  },
+  "B20": {
+    "still": true,
+    "n_frames": 618,
+    "path": "media/B20.mp4",
+    "sha256": "14061aaef06b7c1927ea1cd0d9d0fb50aebddd68f9113681a45c0cde4284271f",
+    "preview": "stills/B20.png"
+  },
+  "B22": {
+    "still": true,
+    "n_frames": 541,
+    "path": "media/B22.mp4",
+    "sha256": "034eadb3cf41bca3b33f39898cff0ee416c860205972e0671564685ca29fc993",
+    "preview": "stills/B22.png"
+  },
+  "B24": {
+    "still": true,
+    "n_frames": 849,
+    "path": "media/B24.mp4",
+    "sha256": "02cb628348e8ebcae24c534b66aea42fcb33385fc08aaacce8f1bd8e575aa85c",
+    "preview": "stills/B24.png"
+  },
+  "B26": {
+    "still": true,
+    "n_frames": 686,
+    "path": "media/B26.mp4",
+    "sha256": "ee017fd6adc7fbc0080631f47cccd620524cdcb1df612c3ea7966ccb292105e2",
+    "preview": "stills/B26.png"
+  },
+  "BCRD": {
+    "still": true,
+    "n_frames": 1031,
+    "path": "media/BCRD.mp4",
+    "sha256": "66f7584358464ff927d557115922a6304efa419196061beb2e21f90684b20d36",
+    "preview": "stills/BCRD.png"
+  }
+}

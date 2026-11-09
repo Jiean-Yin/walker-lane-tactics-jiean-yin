@@ -1,0 +1,10 @@
+# Large or regenerable build media stay local (the repo .gitignore already drops *.mp4 *.mp3 *.wav *.avi).
+_work/
+clips/
+media/
+mp3/
+exports/**/*.mp4
+*.mkv
+.remotion-*/
+# Draft sheet used only to voice the unquoted beats before Jiean approved the excerpts
+beat_sheet.draft.json
