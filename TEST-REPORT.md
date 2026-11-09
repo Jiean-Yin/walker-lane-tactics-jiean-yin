@@ -181,9 +181,9 @@ Jiean's conclusion: Both effects are under the 0.2 ms budget on the price that m
 | `process()` | 378 | void process() |
 | initial velocity set from its minimum and maximum | 232 | multiplier = mix(initial_linear_velocity_min, initial_linear_velocity_max, rand_from_seed(alt_seed)); |
 | gravity changes velocity | 412 | force = gravity; |
-| colour over life sampled | parameters.color *= texture(color_ramp, vec2(lifetime)); | 255 |
-| scale over life applied | s.scale *= texture(scale_curve, vec2(lifetime)).rgb; | 254 | 
-| a line tied to a brief setting, with that setting's value | `turbulence_enabled` true | 441 |
+| colour over life sampled | 255 | parameters.color *= texture(color_ramp, vec2(lifetime)); |
+| scale over life applied | 254 | s.scale *= texture(scale_curve, vec2(lifetime)).rgb; |
+| a line tied to a brief setting, with that setting's value | 441 | `turbulence_enabled` true |
 
 
 Which of the brief's settings live in this shader, and which belong to the draw step instead: (Jiean)
