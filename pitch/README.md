@@ -7,7 +7,7 @@
 | **Project** | Lane Tactics taken to a one-level vertical slice: title to end screen, three unit types, you against the AI |
 | **Target role** | Gameplay programmer (reader: a lead engineer) |
 | **Runtime** | Godot 4.7.2 standard, GDScript, Compatibility renderer; export target Windows desktop (not yet attempted) |
-| **Film** | `lane-tactics-pitch-a8.mp4` · 3840×2160 · 24 fps · 2:33 · SHA-256 `45f65fc28d8f86531112185c524ada7433a987983101bd6b875ed6e79de2f43c` · link: *to add by Jiean after upload to the course media storage* (the MP4 is not in git) |
+| **Film** | `lane-tactics-pitch-a8.mp4` · 3840×2160 · 24 fps · 2:33 · SHA-256 `45f65fc28d8f86531112185c524ada7433a987983101bd6b875ed6e79de2f43c` · uploaded by Jiean to YouTube: https://youtu.be/VRvjco1sxsM (the MP4 is not in git) |
 
 The seven answers are in [PROJECT-BRIEF.md](PROJECT-BRIEF.md), ending with **exists today** (with tags) and **will exist**.
 

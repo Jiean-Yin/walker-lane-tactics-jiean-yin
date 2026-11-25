@@ -16,7 +16,7 @@
 
 ## Assignment 8 — final project pitch film
 
-The pitch for the final project (Lane Tactics as a one-level vertical slice) is in [pitch/](pitch/): [PROJECT-BRIEF.md](pitch/PROJECT-BRIEF.md) answers the seven questions and lists what exists today (with tags) and what will exist. The film (2:33, built locally from [pitch/beat_sheet.json](pitch/beat_sheet.json)) is linked from [pitch/README.md](pitch/README.md).
+The pitch for the final project (Lane Tactics as a one-level vertical slice) is in [pitch/](pitch/): [PROJECT-BRIEF.md](pitch/PROJECT-BRIEF.md) answers the seven questions and lists what exists today (with tags) and what will exist. The film (2:33, built locally from [pitch/beat_sheet.json](pitch/beat_sheet.json)) is on YouTube: **[Lane Tactics: Final Project Pitch](https://youtu.be/VRvjco1sxsM)**; filename and SHA-256 in [pitch/README.md](pitch/README.md).
 
 ## Game Design Document
 
