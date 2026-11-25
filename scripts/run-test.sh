@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # scripts/run-test.sh <test-file.gd> <fps|realtime> [timeout-seconds]
-# Assignment 6 wrapper, from the assignment text. One local change, kept from Assignment 5:
+# Assignment 7 wrapper, from the assignment text: a resource-load failure now fails the run.
+# One local change, kept from Assignments 5 and 6:
 # Godot comes from the GODOT environment variable (the console build on Windows), else `godot` on PATH.
 set -o pipefail
 mkdir -p logs
@@ -12,5 +13,5 @@ fi
 log="logs/$(basename "$1" .gd)_${tag}.log"
 timeout "${3:-120}" "${GODOT:-godot}" --headless "${fps_args[@]}" --path godot --script "res://tests/$1" 2>&1 | tee "$log"
 status=$?
-if grep -qE "SHADER ERROR|SCRIPT ERROR" "$log"; then status=1; fi
+if grep -qE "SHADER ERROR|SCRIPT ERROR|Failed loading resource" "$log"; then status=1; fi
 exit $status
