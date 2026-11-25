@@ -12,7 +12,7 @@ Same format as the repository's `FRICTIONAL.md`. Claude Code writes the factual 
 - **Decided:** I accepted the defaults of Claude's proposal. Lane grounds' idea come from Plants vs Zombies, and strategy ideas come from many different strategy games like Into the Breach. I will adjust the gameply to showcase both intermediate decision making through simultaneously moving turn and turn based strategy through battle for more relaxed playing time.
 - **Next:** Assignment 7 (animation) feeds the "animation and state" line of answer 4.
 - **Human / Claude / model:** the project and the acceptance of each answer were Jiean's; the wording, the repository facts and the tag references were Claude Code's (Claude Opus 5.5). No generative model.
-- **Still unresolved:** Compatibility to what systems. It is safier to keep the playing only from  web  export. Also, the playtest logic still needs to be fixed in later testing.
+- **Still unresolved:** Compatibility to what systems. It is safier to keep the playing only through Windows desktops, but web export is considerable. Also, the playtest logic still needs to be fixed in later testing.
 
 ## 2026-11-24 — Building the film on the deadline day
 
