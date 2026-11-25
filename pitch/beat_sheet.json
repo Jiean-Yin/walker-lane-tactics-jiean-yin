@@ -1,0 +1,255 @@
+{
+  "metadata": {
+    "title": "Lane Tactics: Final Project Pitch",
+    "slug": "lane-tactics-pitch-a8",
+    "kind": "pitch",
+    "skill": "pitch (lean local build, see BUILD-PROMPT.md)",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "aspect_ratio": "16:9",
+    "captions": false,
+    "narrator": "Liam (Kokoro am_onyx), speaking as Jiean in the first person; no instructor name, persona or credit line",
+    "pronunciation_note": "Narration spells Jiean as 'Jay-Ann' for the voice only. Screen text keeps 'Jiean'.",
+    "script_status": "drafted by Claude Code on 2026-11-24 from Jiean's accepted answers (PROJECT-BRIEF.md)",
+    "game": {
+      "repository": "https://github.com/Jiean-Yin/walker-lane-tactics-jiean-yin",
+      "footage_revision": "tag a6 = 7f199f9 (footage cut from the A6 film master, itself a Movie Maker capture of tag a6 with scripted key presses)",
+      "engine": "Godot 4.7.2.stable.official.ed1daf0bf",
+      "renderer": "Compatibility",
+      "export_target": "Windows desktop (not yet attempted)"
+    },
+    "render": {
+      "width": 3840,
+      "height": 2160,
+      "fps": 24
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B01",
+      "act": "OPEN",
+      "question": "-",
+      "narration_text": "Hi, I'm Jay-Ann Yin. This is an AI voice reading my words. My final project is Lane Tactics, and this film is a pitch. I'll say what exists today, and what I will still build.",
+      "visual": {
+        "type": "slide",
+        "kicker": "CSYE 7270 · Assignment 8 · final project pitch",
+        "title": "Lane Tactics",
+        "lines": [
+          "A pitch, not a build.",
+          "Past tense = exists at a tag.  “Will” = not built yet."
+        ],
+        "label": "AI NARRATION (Kokoro am_onyx) READING JIEAN'S WORDS"
+      },
+      "audio_file": "mp3/beat-B01.mp3",
+      "actual_duration_s": 10.62
+    },
+    {
+      "beat_id": "B02",
+      "act": "WHAT",
+      "question": "1",
+      "narration_text": "Lane Tactics is a turn-based tactics game. Both sides give their orders at the same time, on a five-lane board, and you win by getting a piece into the enemy's back row. This footage is real: tag A6, recorded in Godot with scripted key presses, one archer against one archer. When it's done, it will be a Windows desktop build of one level, from title screen to end screen. You against the AI, with archers, riders and shielders.",
+      "visual": {
+        "type": "footage",
+        "source": "a6_master",
+        "start_s": 104.37,
+        "dur_s": 15.0,
+        "label": "EXISTS · real capture of tag a6 (7f199f9) · scripted key presses · cut from the A6 film"
+      },
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 22.14,
+      "shot": {
+        "type": "SOURCE-CUT",
+        "source": "A6 film master (tag a6 capture)"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "WHY CARE",
+      "question": "2",
+      "narration_text": "Why care? Plants versus Zombies has the lanes, but you react to waves. Into the Breach shows you the enemy's moves before you act. Lane Tactics hides the enemy's orders until both sides commit, so every turn is a guess about what the other side will do. Under it is one rules engine: plain data in, events out, deterministic, and tested without a screen.",
+      "visual": {
+        "type": "slide",
+        "kicker": "Why anyone would care",
+        "title": "Both sides commit at once",
+        "table": [
+          [
+            "Plants vs Zombies",
+            "lanes, but you react to waves"
+          ],
+          [
+            "Into the Breach",
+            "enemy moves shown before you act"
+          ],
+          [
+            "Lane Tactics",
+            "enemy orders hidden until both commit"
+          ]
+        ],
+        "lines": [
+          "rules.gd: data in → events out, deterministic, tested headlessly"
+        ],
+        "label": "CONSTRUCTED DIAGRAM · text only, no art from either game"
+      },
+      "audio_file": "mp3/beat-B03.mp3",
+      "actual_duration_s": 18.41
+    },
+    {
+      "beat_id": "B04",
+      "act": "WHO",
+      "question": "3",
+      "narration_text": "It's for a gameplay programmer role, and the reader is a lead engineer. In the first minute, they will run the export, press a key, and give an archer an order. The markers on the board show the move and the target, so there is nothing to read first. Then they rerun one test suite with one command.",
+      "visual": {
+        "type": "slide",
+        "kicker": "Who opens it · the first 60 seconds (will exist)",
+        "title": "Gameplay programmer · read by a lead engineer",
+        "steps": [
+          "Run the export",
+          "Press a key",
+          "Order one archer",
+          "Rerun one test suite"
+        ],
+        "label": "CONSTRUCTED · planned, not built"
+      },
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 14.81
+    },
+    {
+      "beat_id": "B05",
+      "act": "PROVES",
+      "question": "4",
+      "narration_text": "What does it prove? Shaders, at tag A5. The hit burst and arrow trail you see here, at tag A6, with configuration tests, state tests and a measured price. Fifty-one rule checks today, for archers only. Animation from Assignment 7, and a profile of the export, will come next. A fair reviewer could say I can build a small, testable rules engine, and keep the visuals from changing game state. Not that I can ship a big game.",
+      "visual": {
+        "type": "footage",
+        "source": "a6_master",
+        "start_s": 70.17,
+        "dur_s": 16.0,
+        "label": "EXISTS · tag a6 · hit burst and arrow trail · scripted input; second half is ¼ speed (labelled in the A6 film)"
+      },
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 22.02,
+      "shot": {
+        "type": "SOURCE-CUT",
+        "source": "A6 film master (tag a6 capture)"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "SCOPE",
+      "question": "5",
+      "narration_text": "What's in: one level, three unit types, the AI, title and end screens, a menu, and saved settings. What's out: multiplayer, and three of the four campaign episodes. First, I'll make the full turn loop run, with all three units against the AI. You'll know it ran because a headless test plays whole matches through the real keys and checks that each one ends, and a capture shows one match.",
+      "visual": {
+        "type": "slide",
+        "kicker": "In · out · first",
+        "title": "One level, three units, no multiplayer",
+        "columns": [
+          [
+            "IN",
+            "one level",
+            "archer · rider · shielder",
+            "AI opponent",
+            "title → end screen",
+            "menu, saved settings"
+          ],
+          [
+            "OUT",
+            "multiplayer",
+            "episodes 2–4",
+            "(hills, night raid, giant)"
+          ],
+          [
+            "FIRST",
+            "full turn loop, 3 units vs AI",
+            "proof: headless full-match test",
+            "+ a Movie Maker capture"
+          ]
+        ],
+        "label": "CONSTRUCTED · plan"
+      },
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 19.35
+    },
+    {
+      "beat_id": "B07",
+      "act": "RISK",
+      "question": "6",
+      "narration_text": "What could sink it? Every hit gets a strike back, so two pieces facing each other could stall a match forever. I'll pin each pair of units in the rule tests, and run an AI against AI test that counts matches still going after forty turns. If any stall, I change the rule in the rules document first, and log why.",
+      "visual": {
+        "type": "slide",
+        "kicker": "What could sink it",
+        "title": "Strike back on every hit → a stalled match",
+        "standoff": true,
+        "lines": [
+          "Plan: pin every unit pair in test_rules.gd",
+          "AI-vs-AI soak test: count matches still going after 40 turns"
+        ],
+        "label": "CONSTRUCTED DIAGRAM · risk, not a measured result"
+      },
+      "audio_file": "mp3/beat-B07.mp3",
+      "actual_duration_s": 16.98
+    },
+    {
+      "beat_id": "B08",
+      "act": "WHY ME",
+      "question": "7",
+      "narration_text": "Why this project? It's a mix of showing and learning. Shaders, particles, Blender assets and headless tests, I've already done, and the tags show them. Animation, an AI for three unit types, the export, and saving are new to me.",
+      "visual": {
+        "type": "slide",
+        "kicker": "Why this project · a mix",
+        "title": "Show what I have, learn what I don't",
+        "columns": [
+          [
+            "HAVE (evidence)",
+            "shaders · tag a5",
+            "particles + price · tag a6",
+            "Blender assets · tag a3",
+            "headless tests · TEST-REPORT.md"
+          ],
+          [
+            "NEW TO ME",
+            "animation (A7)",
+            "AI for three unit types",
+            "Windows export",
+            "save system"
+          ]
+        ],
+        "label": "CONSTRUCTED · summary of PROJECT-BRIEF.md"
+      },
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 12.71
+    },
+    {
+      "beat_id": "B09",
+      "act": "CLOSE",
+      "question": "-",
+      "narration_text": "So: today, one archer against one archer, with shaders, particles and tests. Next, one finished level that a stranger can play and check. That's Lane Tactics.",
+      "visual": {
+        "type": "slide",
+        "kicker": "Exists today  →  will exist",
+        "title": "Lane Tactics",
+        "columns": [
+          [
+            "EXISTS",
+            "1 archer vs 1 archer (film-source-v1)",
+            "3D diorama (a3)",
+            "shaders (a5)",
+            "particles (a6)"
+          ],
+          [
+            "WILL EXIST",
+            "rider and shielder",
+            "AI for 3 units",
+            "one level, title → end",
+            "Windows export + tests"
+          ]
+        ],
+        "lines": [
+          "github.com/Jiean-Yin/walker-lane-tactics-jiean-yin · pitch/"
+        ],
+        "label": "Godot 4.7.2 · Compatibility renderer · Windows desktop target"
+      },
+      "audio_file": "mp3/beat-B09.mp3",
+      "actual_duration_s": 9.28
+    }
+  ]
+}

@@ -14,6 +14,10 @@
 | Claude Code | 2.1.295 (bundled with the Claude desktop app), Claude Opus 5.5 |
 | OS | Windows 11 Home 10.0.26200 |
 
+## Assignment 8 — final project pitch film
+
+The pitch for the final project (Lane Tactics as a one-level vertical slice) is in [pitch/](pitch/): [PROJECT-BRIEF.md](pitch/PROJECT-BRIEF.md) answers the seven questions and lists what exists today (with tags) and what will exist. The film (2:33, built locally from [pitch/beat_sheet.json](pitch/beat_sheet.json)) is linked from [pitch/README.md](pitch/README.md).
+
 ## Game Design Document
 
 [GDD.md](GDD.md) is the whole game in one document: concept, game flow, assets, characters, the story told episode by episode, gameplay (goal, mechanics, abilities, the four episodes, losing and restarting, player skills), graphics, sound and the technical description. It brings together the design docs below and adds the campaign: goblin enemies, mountains, night raids, the Mend ability and the giant boss. The rules for all of this are in [RULES.md](RULES.md), and how each one was decided is in [DESIGN-HISTORY.md](DESIGN-HISTORY.md) section 8. The figures come from `design/tools/draw_gdd_sketches.py` (rendered with `bash design/tools/render_png.sh design/gdd`).
