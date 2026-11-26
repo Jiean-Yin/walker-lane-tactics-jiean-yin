@@ -227,3 +227,14 @@ mkdir -p captures/shoot/r0
      - The edge tests use these measured frames.
      - Game timing stays out of scope, so the table is not changed.
 2. **Turns 1–3 of the win route skip `PLAN_ATTACK`,** because no target is in range. **The `hop` pose never shows,** because there is no hop image, so a hop draws `idle` (`piece.gd:16`, `:115-116`). §5's `hop` row describes the code path, not what is seen.
+
+### Revision 2, 2026-11-25 (wiring; drafted by Claude from `evidence/a7/step5/test_anim_states_60fps.log`)
+
+1. **The clip runs one frame ahead of the cue clock,** as answer 5 allowed.
+   - **Measured:** on the frame a piece enters `draw`, `shoot`'s position is already 1/60 s. `piece.tick` advances it after the cue in the same `main._process`. So on game frame *k* after the draw frame, the clip shows phase-table frame *k* + 1.
+   - On the arrow's first frame: clip position − `arrow.t` = 0.20000 exactly, for all three shots.
+2. **End of the clip** (corrects revision 1, item 1): the clip finishes (position 0.8 s) on game frame 47.
+   - **Shots whose `idle` comes on frame 47:** the end pose is never shown; the last frame shown is 47/60 s.
+   - **Shots whose `idle` comes on frame 49:** the finished end pose is held for **2** frames, not 1.
+   - **Measured holds:** 0, 2, 0.
+3. **`draw` is entered from `hurt` as well as from `idle`:** p1's turn-4 shot comes 1.05 s after it was hit. §5 lists only `_cue_draw` from `idle`. The clip plays from 0 either way (measured).
