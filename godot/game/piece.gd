@@ -17,6 +17,13 @@ const OPTIONAL_FALLBACK: Dictionary = {"hop": "idle", "recover": "idle"}
 const ENEMY_TINT: Color = Color(1.0, 0.55, 0.5)
 ## A5 "exposed" tint (CHANGE-BRIEF §2). Each piece's sprite owns its own ShaderMaterial (R6).
 const ExposedTintShader: Shader = preload("res://shaders/exposed_tint.gdshader")
+## A7 keyed cutout rig (CHANGE-BRIEF §4). piece.gd owns Mount (placement, scale, facing, visible) and
+## starts, stops and advances the rig's AnimationPlayer; the clip alone writes Rig, Upper and Bow.
+const RigScene: PackedScene = preload("res://game/archer_rig.tscn")
+const RIG_PARTS: Array[String] = ["Rig/Lower", "Rig/Upper/UpperSprite", "Rig/Upper/Bow/BowSprite"]
+## Pose -> clip the rig plays (CHANGE-BRIEF §5). "" = no clip: rig hidden, player stopped.
+const POSE_CLIPS: Dictionary = {"idle": "", "draw": "shoot", "hurt": "", "defeat": "", "win": "", "hop": "",
+	"recover": ""}
 
 const COL_INK: Color = Color("#1B1410")
 const COL_BIRCH: Color = Color("#E2B887")
@@ -35,6 +42,8 @@ var cell: Vector2i = Vector2i.ZERO
 var texture_source: String = "placeholder" ## "player" | "enemy" | "player_tinted" | "placeholder"
 
 var _sprite: Sprite2D
+var _rig_mount: Node2D
+var _rig_anim: AnimationPlayer
 var _lift: float = 0.0
 var _hopping: bool = false
 var _hop_from: Vector2 = Vector2.ZERO
@@ -58,6 +67,13 @@ func setup(id: String, team_name: String, start_facing: int, start_cell: Vector2
 		mat.set_shader_parameter("exposed_amount", 0.0)
 		_sprite.material = mat
 		add_child(_sprite)
+	if _rig_mount == null:
+		_rig_mount = RigScene.instantiate() as Node2D
+		_rig_mount.visible = false
+		add_child(_rig_mount)
+		_rig_anim = _rig_mount.get_node("AnimationPlayer") as AnimationPlayer
+		for path: String in RIG_PARTS: # the parts reuse this piece's own material: the A5 tint carries over
+			(_rig_mount.get_node(path) as Sprite2D).material = _sprite.material
 	set_state("idle")
 
 
@@ -86,6 +102,18 @@ func set_state(new_state: String) -> void:
 	if new_state != "recover":
 		_recover_left = 0.0
 	_apply_visual()
+	_apply_clip()
+
+
+## Starts the pose's clip from frame 0, or stops the rig's player when the pose has none.
+func _apply_clip() -> void:
+	if _rig_anim == null:
+		return
+	_rig_anim.stop()
+	var clip: String = POSE_CLIPS.get(state, "")
+	if clip != "" and _rig_mount.visible:
+		_rig_anim.play(clip)
+		_rig_anim.advance(0.0) # MANUAL mode: apply the frame-0 pose now (CLAUDE.md "Headless facts")
 
 
 func show_hurt() -> void:
@@ -139,6 +167,8 @@ func tick(dt: float) -> void:
 		_recover_left -= dt
 		if _recover_left <= 0.0 and state == "recover":
 			set_state("idle")
+	if _rig_anim != null and _rig_anim.is_playing():
+		_rig_anim.advance(dt) # game time: stops while paused, scales with time_scale
 
 
 func _set_lift(v: float) -> void:
@@ -187,6 +217,8 @@ func _apply_visual() -> void:
 	texture_source = found[1]
 	if tex == null:
 		_sprite.visible = false
+		if _rig_mount != null:
+			_rig_mount.visible = false
 		queue_redraw()
 		return
 	# One scale for every pose, taken from the idle image, so all states share the same pixel size.
@@ -200,13 +232,25 @@ func _apply_visual() -> void:
 	_sprite.scale = Vector2(s, s)
 	_sprite.flip_h = facing < 0
 	_sprite.position = Vector2(0.0, -tex.get_height() * s * 0.5 + BASE_FROM_BOTTOM - _lift)
+	# The rig replaces the single sprite in a pose that has a clip; Mount sits where the centred
+	# sprite would (the rig's origin is the art's centre), with the same scale and facing flip.
+	var use_rig: bool = _rig_mount != null and String(POSE_CLIPS.get(state, "")) != ""
+	if _rig_mount != null:
+		_rig_mount.visible = use_rig
+		if use_rig:
+			for path: String in RIG_PARTS:
+				(_rig_mount.get_node(path) as Sprite2D).texture = tex
+			_rig_mount.modulate = found[2]
+			_rig_mount.scale = Vector2(s * (-1.0 if facing < 0 else 1.0), s)
+			_rig_mount.position = _sprite.position
+	_sprite.visible = not use_rig
 	queue_redraw()
 
 
 # ---------------------------------------------------------------- placeholder
 
 func _draw() -> void:
-	if _sprite != null and _sprite.visible:
+	if (_sprite != null and _sprite.visible) or (_rig_mount != null and _rig_mount.visible):
 		return
 	var paint: Color = COL_PLAYER if team == "player" else COL_ENEMY
 	var lean: float = 0.0

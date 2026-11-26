@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://game/hit_burst_driver.gd" id="4_hitburst"]
 [ext_resource type="Script" path="res://game/arrow_trail_driver.gd" id="5_arrowtrail"]
 [ext_resource type="Script" path="res://game/vsync_debug.gd" id="6_vsync"]
+[ext_resource type="PackedScene" path="res://game/goal_flag.tscn" id="7_goalflag"]
 
 [node name="Main" type="Node2D" unique_id=667676238]
 script = ExtResource("1_main")
@@ -28,3 +29,7 @@ script = ExtResource("5_arrowtrail")
 
 [node name="VsyncDebug" type="Node" parent="." unique_id=1203398817]
 script = ExtResource("6_vsync")
+
+[node name="GoalFlag" parent="." instance=ExtResource("7_goalflag")]
+z_index = 1
+position = Vector2(1176, 458)

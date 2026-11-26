@@ -1,0 +1,54 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  archer_rig.tscn loads  (res://game/archer_rig.tscn)
+PASS  shoot.tres loads as an Animation  (res://animations/shoot.tres)
+PASS  root is Mount  (Mount)
+PASS  rig nodes exist with the brief's classes  (.=Node2D, Rig=Node2D, Rig/Lower=Sprite2D, Rig/Upper=Node2D, Rig/Upper/UpperSprite=Sprite2D, Rig/Upper/Bow=Node2D, Rig/Upper/Bow/BowSprite=Sprite2D, AnimationPlayer=AnimationPlayer)
+PASS  no Bone2D, Skeleton2D, AnimatedSprite2D or AnimationTree  ([])
+PASS  exactly the 8 nodes of the brief  (8)
+PASS  every part's texture is archer_draw.png
+PASS  archer_draw.png is 288 x 321 and every region lies inside it  ((288.0, 321.0))
+PASS  regions (0,196,288,125), (0,0,204,204), (204,40,84,164), region_enabled, not centred  (Lower region [P: (0.0, 196.0), S: (288.0, 125.0)] at art (0.0, 196.0); UpperSprite region [P: (0.0, 0.0), S: (204.0, 204.0)] at art (0.0, 0.0); BowSprite region [P: (204.0, 40.0), S: (84.0, 164.0)] at art (204.0, 40.0))
+PASS  each part sits at its region's own place in the art (rest pose reassembles the image)  (Lower region [P: (0.0, 196.0), S: (288.0, 125.0)] at art (0.0, 196.0); UpperSprite region [P: (0.0, 0.0), S: (204.0, 204.0)] at art (0.0, 0.0); BowSprite region [P: (204.0, 40.0), S: (84.0, 164.0)] at art (204.0, 40.0))
+PASS  pivots: Upper at the belt (144, 200), Bow at the bow hand (236, 120)  (Upper at art (144.0, 200.0); Bow at art (236.0, 120.0))
+PASS  scene rest pose: Rig at (0,0), Upper and Bow unrotated, no scale on keyed nodes
+PASS  player has clip 'shoot'  (["shoot"])
+PASS  the player's 'shoot' is the resource shoot.tres (not built in the scene or code)  (res://animations/shoot.tres)
+PASS  callback_mode_process = ANIMATION_CALLBACK_MODE_PROCESS_MANUAL  (2)
+PASS  no autoplay (piece.gd starts the clip)
+PASS  speed_scale = 1  (1.0)
+PASS  root_node resolves to Mount  (.. -> Mount:<Node2D#27313309131>)
+PASS  track_problems() is empty: every track resolves to a real node and property, bone or blend shape
+PASS  exactly three tracks  (3)
+PASS  value tracks Rig:position, Rig/Upper:rotation, Rig/Upper/Bow:rotation exist  ([0, 1, 2])
+PASS  no track keys Mount or a sprite part (placement, facing and art belong to piece.gd)  (["Rig:position", "Rig/Upper:rotation", "Rig/Upper/Bow:rotation"])
+PASS  no method, audio or animation tracks (all three are value tracks)
+PASS  all three tracks UPDATE_CONTINUOUS (pivot motion, not a frame track)
+PASS  all three tracks use linear interpolation (easing comes from the key transitions)
+PASS  all three tracks enabled
+PASS  step = one frame period at 60 fps (1/60)  (0.01666669920087)
+PASS  length = 48 frames (0.8 s)  (0.8)
+PASS  loop_mode = LOOP_NONE  (0)
+PASS  Rig:position: keys at frames 0 / 12 / 33 / 40 / 48 within half a frame  (0.000000 (f0.00), 0.200000 (f12.00), 0.550000 (f33.00), 0.666667 (f40.00), 0.800000 (f48.00))
+PASS  Rig:position: every key on a whole 60 fps frame (not snapped to 1/30)
+PASS  Rig:position: no key past length, last key at length
+PASS  Rig/Upper:rotation: keys at frames 0 / 12 / 33 / 40 / 48 within half a frame  (0.000000 (f0.00), 0.200000 (f12.00), 0.550000 (f33.00), 0.666667 (f40.00), 0.800000 (f48.00))
+PASS  Rig/Upper:rotation: every key on a whole 60 fps frame (not snapped to 1/30)
+PASS  Rig/Upper:rotation: no key past length, last key at length
+PASS  Rig/Upper/Bow:rotation: keys at frames 0 / 12 / 33 / 40 / 48 within half a frame  (0.000000 (f0.00), 0.200000 (f12.00), 0.550000 (f33.00), 0.666667 (f40.00), 0.800000 (f48.00))
+PASS  Rig/Upper/Bow:rotation: every key on a whole 60 fps frame (not snapped to 1/30)
+PASS  Rig/Upper/Bow:rotation: no key past length, last key at length
+PASS  Rig:position = rest, rest, recoiled 6 px back (-6, 0), same, rest  ([(0.0, 0.0), (0.0, 0.0), (-6.0, 0.0), (-6.0, 0.0), (0.0, 0.0)])
+PASS  Rig/Upper:rotation = 0°, lean back -4°, 2° forward, same, 0°  (0.000°, -4.000°, 2.000°, 2.000°, 0.000°)
+PASS  Rig/Upper/Bow:rotation = 12° below level (+), level, level, level, 20° forward/down (+)  (12.000°, 0.000°, 0.000°, 0.000°, 20.000°)
+PASS  Rig:position: transitions ease in (2), ease out (0.5), hold (1), ease in-out (-2), last (1)  ([2.0, 0.5, 1.0, -2.0, 1.0])
+PASS  Rig/Upper:rotation: transitions ease in (2), ease out (0.5), hold (1), ease in-out (-2), last (1)  ([2.0, 0.5, 1.0, -2.0, 1.0])
+PASS  Rig/Upper/Bow:rotation: transitions ease in (2), ease out (0.5), hold (1), ease in-out (-2), last (1)  ([2.0, 0.5, 1.0, -2.0, 1.0])
+PASS  hold: keys at frames 33 and 40 have the same values on every track
+PASS  startup eases in: bow at frame 6 still above 6° (slow start)  (9.000°)
+PASS  startup: Upper leans back (negative) by frame 6, less than half way  (-1.000°)
+PASS  active eases out: recoil past -3 px by frame 22 (fast at the release)  ((-4.353741, 0.0))
+PASS  recovery frames 33-40: nothing moves (hold)
+PASS  bow drop eases in-out: about half way (10°) at frame 44, under 1/8 of the way at frame 41  (f41 0.625°, f44 10.000°)
+PASS  no overshoot: bow stays in [0°, 20°] and Upper in [-4°, 2°] on every frame 0-48
+SUMMARY test_shoot_readback: 51/51 passed -> <repo>/evidence/test_shoot_readback-1795664120.json
