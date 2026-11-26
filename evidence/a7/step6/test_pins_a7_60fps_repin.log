@@ -1,0 +1,38 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  Enter on the title (parse_input_event) starts turn 1 in PLAN_MOVE  (PLAN_MOVE, turn 1)
+PASS  run 1 ends in WON (elimination)  (WON { "result": "won", "kind": "elimination", "reason": "enemy defeated", "turn": 5, "tie": false })
+PASS  fixed frame rate: every sampled delta is 1/60 s (484 frames; run at 60)  (0 other deltas)
+PASS  pin: main.state order, title to WON (19 states)  (["TITLE", "PLAN_MOVE", "PLAY_MOVES", "PLAY_ATTACKS", "PLAN_MOVE", "PLAY_MOVES", "PLAY_ATTACKS", "PLAN_MOVE", "PLAY_MOVES", "PLAY_ATTACKS", "PLAN_MOVE", "PLAY_MOVES", "PLAN_ATTACK", "PLAY_ATTACKS", "PLAN_MOVE", "PLAY_MOVES", "PLAN_ATTACK", "PLAY_ATTACKS", "WON"])
+PASS  pin: p1 pose order  (["idle", "hurt", "draw", "idle", "draw", "idle", "win"])
+PASS  pin: e1 pose order  (["idle", "draw", "idle", "hurt", "idle", "defeat"])
+PASS  pin: run 1 has 3 shots, in order ["e1", "p1", "p1"]  ([{ "unit": "e1", "start": 222, "arrow": 12, "impact": 32, "idle": 47, "arrow_end": 32, "paused_frames": 0, "left_to": "idle" }, { "unit": "p1", "start": 284, "arrow": 12, "impact": 34, "idle": 49, "arrow_end": 32, "paused_frames": 0, "left_to": "idle" }, { "unit": "p1", "start": 390, "arrow": 12, "impact": 32, "idle": 47, "arrow_end": 32, "paused_frames": 0, "left_to": "idle" }])
+PASS  pin: shot 1 (e1, draw on row 222): arrow appears 12 frames after the draw (startup)  (12)
+PASS  pin: shot 1 (e1, draw on row 222): impact 32 frames after the draw (startup + active)  (32)
+PASS  pin: shot 1 (e1, draw on row 222): back to idle 47 frames after the draw (startup + active + recovery)  (47 -> idle)
+PASS  pin: shot 1 (e1, draw on row 222): _arrows empty again 32 frames after the draw (0-2 frames before the impact)  (32)
+PASS  pin: shot 2 (p1, draw on row 284): arrow appears 12 frames after the draw (startup)  (12)
+PASS  pin: shot 2 (p1, draw on row 284): impact 34 frames after the draw (startup + active)  (34)
+PASS  pin: shot 2 (p1, draw on row 284): back to idle 49 frames after the draw (startup + active + recovery)  (49 -> idle)
+PASS  pin: shot 2 (p1, draw on row 284): _arrows empty again 32 frames after the draw (0-2 frames before the impact)  (32)
+PASS  pin: shot 3 (p1, draw on row 390): arrow appears 12 frames after the draw (startup)  (12)
+PASS  pin: shot 3 (p1, draw on row 390): impact 32 frames after the draw (startup + active)  (32)
+PASS  pin: shot 3 (p1, draw on row 390): back to idle 47 frames after the draw (startup + active + recovery)  (47 -> idle)
+PASS  pin: shot 3 (p1, draw on row 390): _arrows empty again 32 frames after the draw (0-2 frames before the impact)  (32)
+PASS  pin: turn 4's two shots start 62 frames apart (nominal 63 = 1.05 s)  (62)
+PASS  pin: run 1 ignored no input (every key was legal where it was pressed)  (0)
+PASS  Enter, Enter on WON: play again, turn 1 in PLAN_MOVE  (PLAN_MOVE, turn 1)
+PASS  pin: Enter during the startup is ignored (ignored_inputs + 1, still PLAY_ATTACKS, e1 still draw)  (0 -> 1, PLAY_ATTACKS, draw)
+PASS  pin: P in the active phase pauses: game clock, arrow t and e1's pose hold for 30 frames  (paused true, clock 0.3167 -> 0.3167, pose draw, arrows 1)
+PASS  pin: P again resumes (paused false, clock moves)  (clock 0.3167 -> 0.3333 (arrow t was 0.1000 at 0.3000))
+PASS  pin: R in the active phase restarts: turn 1, PLAN_MOVE, _arrows empty, retries + 1  (PLAN_MOVE, turn 1, arrows 0, retries 1)
+PASS  pin: R rebuilt the archers (new p1 instance, pose recover or idle, not draw)  (pose idle)
+PASS  pin: after R no cue from the old turn fires (no draw, no arrow, no damage for 90 frames)  (idle idle arrows 0 damaged 0)
+PASS  pin: the paused shot keeps run 1's timing, 12 / 32 / 47 game frames (32 paused frames not counted)  ({ "unit": "e1", "start": 259, "arrow": 12, "impact": 32, "idle": 47, "arrow_end": 32, "paused_frames": 32, "left_to": "idle" })
+MEASURED run 1 shots: [{ "unit": "e1", "start": 222, "arrow": 12, "impact": 32, "idle": 47, "arrow_end": 32, "paused_frames": 0, "left_to": "idle" }, { "unit": "p1", "start": 284, "arrow": 12, "impact": 34, "idle": 49, "arrow_end": 32, "paused_frames": 0, "left_to": "idle" }, { "unit": "p1", "start": 390, "arrow": 12, "impact": 32, "idle": 47, "arrow_end": 32, "paused_frames": 0, "left_to": "idle" }]
+MEASURED run 2 shots: [{ "unit": "e1", "start": 259, "arrow": 12, "impact": 32, "idle": 47, "arrow_end": 32, "paused_frames": 32, "left_to": "idle" }, { "unit": "p1", "start": 353, "arrow": 12, "impact": -1, "idle": 19, "arrow_end": 19, "paused_frames": 0, "left_to": "idle" }]
+SUMMARY test_pins_a7: 29/29 passed -> <repo>/evidence/test_pins_a7-1795664405.json
+WARNING: 40 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 10 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

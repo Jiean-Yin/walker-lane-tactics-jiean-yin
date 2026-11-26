@@ -1,6 +1,103 @@
 # TEST-REPORT — Lane Tactics
 
-Newest assignment first. Assignment 6 below; the Assignment 5, 2 and 3 reports follow unchanged.
+Newest assignment first. Assignment 7 below; the Assignment 6, 5, 2 and 3 reports follow unchanged.
+
+# Assignment 7 — two animations (in progress)
+
+| | |
+|---|---|
+| Source revision tested | branch `a7-animation`; the final revision is the commit tagged `a7` |
+| Engine | Godot 4.7.2.stable.official.ed1daf0bf, standard build |
+| Renderer | **Compatibility**, `godot/project.godot:25` |
+| OS | Windows 11 Home 10.0.26200 |
+| Testers | Jiean Yin (human checks, marked HUMAN); headless suites run by Claude Code and by `claude -p` agent sessions (named per row) |
+| Date | 2026-11-25 |
+
+All suites run through `scripts/run-test.sh <test> <fps|realtime> [timeout]`. This is the A7 wrapper (`46ff595`): Godot comes from `$GODOT`, and a run fails on `SHADER ERROR`, `SCRIPT ERROR` or `Failed loading resource`.
+
+## A7.1 Baseline, before and after wiring
+
+| Suite | fps | Before (`46ff595`, `evidence/a7/baseline/`) | After wiring (`2882336`, `evidence/a7/step5/`) |
+|---|---|---|---|
+| test_rules | 60 | 51/51 | 51/51 |
+| test_audio_events | 60 | 70/70 | 70/70 |
+| check_assets | 60 | 38/38 | 38/38 |
+| test_exposed_tint | 30 / 60 / 144 | 46/46 each | 46/46 each |
+| test_materials | 60 | 148/148 | 148/148 |
+| test_hit_burst_config | 60 | 107/107 | 107/107 |
+| test_arrow_trail_config | 60 | 135/135 | 135/135 |
+| test_hit_burst_state | 60 | 31/31 | 31/31 |
+| test_arrow_trail_state | 60 | 31/31 | 31/31 |
+| cost_effects | 60 | 25/25 | 25/25 |
+
+`test_arrow_trail_state` prints the "ObjectDB instances leaked / resources still in use" lines at exit after wiring. Its baseline log doesn't have them. The same test on the pre-wiring commit, run in a throwaway worktree, prints the same lines, so the rig is not their cause.
+
+## A7.2 Pins (Step 2), before and after the change
+
+`godot/tests/test_pins_a7.gd`, 60 fps, real keys through `Input.parse_input_event`. Written by Claude Code in the main session (`428908f`), before any clip existed.
+
+| Run | Result | Log |
+|---|---|---|
+| Before (no clip) | 29/29 | `evidence/a7/pins/test_pins_a7_60fps.log` |
+| After wiring | 29/29, the same frames | `evidence/a7/step5/test_pins_a7_60fps.log` |
+| Re-pin, Step 6 | 29/29 | `evidence/a7/step6/test_pins_a7_60fps_repin.log` |
+
+- **Predicted by the brief:** no change (CHANGE-BRIEF §8). No pin changed.
+- **What the pins measured** (brief revision 1): the impact and back-to-idle cues land one frame either side of the table's 33 and 48, at 32/34/32 and 47/49/47.
+
+## A7.3 Read-backs
+
+| Suite | fps | Result | Agent session | Assertions named |
+|---|---|---|---|---|
+| test_flag_readback | 60 | 43/43 | session-3 | tracks resolve (`track_problems`); frame keys inside the sheet (< 4); `UPDATE_DISCRETE` on both tracks; key times 0 / 0.125 / 0.25 / 0.375 within half a step; `step` 0.125; `LOOP_LINEAR`; seam (no key at `length`, last key → `length` = one interval); offset fix; 90 live frames |
+| test_shoot_readback | 60 | 51/51 | session-4 | tracks resolve (branched on track type); keys at frames 0 / 12 / 33 / 40 / 48 within half a frame; `step` 1/60; length 0.8; `LOOP_NONE`; `MANUAL`; continuous updates (value tracks of a rig, not a frame track) |
+
+## A7.4 State machine
+
+`test_anim_states.gd` at 60 fps gives 51/51 (session-5-implement, `2882336`). It drives real keys through `Input.parse_input_event` and reads the clip with `current_animation`. It checks:
+- the pose → clip table against the rig's `AnimationPlayer`, and `wave` autoplaying;
+- the rig visible only in `draw`;
+- the clip starting from 0, one frame ahead of the cue clock (brief revision 2);
+- the three interrupts;
+- one material per piece;
+- a source scan for a second writer.
+
+## A7.5 Edges (Step 6)
+
+`godot/tests/test_shoot_edges.gd` at 60 fps gives **102/102** (`evidence/a7/step6/test_shoot_edges_60fps.log`). It was written by Claude Code in the main session.
+
+**Set-up:**
+- The shot is e1's turn-4 shot, pinned at arrow 12, impact 32, idle 47.
+- Each of P, R and Enter arrives one frame before, on and after each phase-table boundary (0, 12, 33, 48), giving 36 cases.
+- Every case first asserts that its key was handled on its target frame.
+
+**What each interrupt did:**
+- **P:**
+  - The shot freezes: pose, clip position and game clock all hold for 10 paused frames.
+  - After P again, the shot keeps 12 / 32 / 47 in game frames.
+  - P handled on the draw frame itself holds the shot **before** its first frame: the draw cue runs only after unpause.
+- **R:** turn 1, a new e1 with no clip, and nothing from the old turn follows.
+- **Enter:** ignored (`ignored_inputs` + 1), and the shot keeps its timing.
+
+**The frame before the draw (frame −1):** the game is still in `PLAN_ATTACK`, because the draw starts on the frame the attack Enter is handled. There:
+- P pauses `PLAN_ATTACK`, and the attack Enter that follows is ignored while paused.
+- R restarts, and the following Enter becomes a turn-1 order.
+- Enter is itself the attack order, so the shot starts one frame early with the same timing.
+
+My first version of the test assumed `PLAY_ATTACKS` at frame −1 and failed 6 checks. I fixed the test to assert what the game does; the game was not changed.
+
+## A7.6 Mutations (Step 6), in one git worktree at `a537924`, reset after each
+
+| # | Mutation | Test | Exit | What caught it |
+|---|---|---|---|---|
+| 1 | `shoot.tres`: track path `Rig/Upper:rotation` → `Rig/Upper:rotaton` (clip only) | test_shoot_readback | **1** (19/21) | `track_problems`: "track 1: Node2D has no property 'rotaton'" |
+| 2 | `wave.tres`: `loop_mode = 1` → `0` (`LOOP_NONE`) | test_flag_readback | **1** (41/43) | "loop_mode = LOOP_LINEAR (0)"; the live check also saw the flag stop |
+| 3 | `wave.tres`: frame key 3 → 4 (= `hframes × vframes`) | test_flag_readback | **1** | "every frame key is inside the sheet … [0, 1, 2, 4]" |
+| 4 | delete `godot/.godot`, `--import`, run the rig read-back | test_shoot_readback | **0** (51/51), as predicted | did not fail, because the rig is keyed as resource text: `loop_mode`, step and keys live in `shoot.tres`, not in importer settings. The flag read-back is also 43/43 from the empty cache. |
+
+**Mutation 3 also tripped a weakness in the test.** After the frame-range check failed, the test's pole-offset check indexed a 5th cell and stopped with `SCRIPT ERROR: Out of bounds get index '4'`, so no `SUMMARY` line was written. The wrapper turned the script error into exit 1. The mutation was caught by the assertion before the crash, but the test should guard that index. Not fixed yet.
+
+Logs: `evidence/a7/step6/mutations/`.
 
 # Assignment 6 — particle effects
 
