@@ -1,0 +1,46 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  goal_flag.tscn loads  (res://game/goal_flag.tscn)
+PASS  wave.tres loads as an Animation  (res://animations/wave.tres)
+PASS  root is GoalFlag, a Node2D  (GoalFlag Node2D)
+PASS  GoalFlag/FlagSprite is a Sprite2D
+PASS  GoalFlag/AnimationPlayer is an AnimationPlayer
+PASS  texture is the downloaded sheet  (res://assets/art/flag/flag_red.png)
+PASS  sheet is 500 x 249  ((500, 249))
+PASS  hframes = 4, vframes = 1  (4 x 1)
+PASS  cell is 125 x 249 and the grid divides the sheet exactly  ((125, 249))
+PASS  no region crop (the grid slices the sheet)
+PASS  FlagSprite scale 0.36  ((0.36, 0.36))
+PASS  player has clip 'wave'  (["wave"])
+PASS  the player's 'wave' is the resource wave.tres (not built in the scene or code)  (res://animations/wave.tres)
+PASS  autoplay = 'wave'  (wave)
+PASS  callback_mode_process = ANIMATION_CALLBACK_MODE_PROCESS_IDLE  (1)
+PASS  speed_scale = 1  (1.0)
+PASS  root_node resolves to GoalFlag  (.. -> GoalFlag:<Node2D#27313309131>)
+PASS  track_problems() is empty: every track resolves to a real node and property
+PASS  exactly two tracks  (2)
+PASS  value track FlagSprite:frame exists  (0)
+PASS  value track FlagSprite:offset exists  (1)
+PASS  step = one frame period at 8 fps (0.125)  (0.125)
+PASS  length = 4 intervals (0.5)  (0.5)
+PASS  loop_mode = LOOP_LINEAR  (1)
+PASS  frame track uses UPDATE_DISCRETE  (1)
+PASS  offset track uses UPDATE_DISCRETE  (1)
+PASS  both tracks enabled
+PASS  every frame key is an int
+PASS  every frame key is inside the sheet (0 <= frame < hframes x vframes = 4)  ([0, 1, 2, 3])
+PASS  frame order 0, 1, 2, 3  ([0, 1, 2, 3])
+PASS  frame key times 0, 0.125, 0.25, 0.375 (within half a period)  ([0.0, 0.125, 0.25, 0.375])
+PASS  frame keys one interval apart
+PASS  seam: no frame key at (or past) length  ([0.0, 0.125, 0.25, 0.375])
+PASS  seam: last frame key is 3, not a repeat of the first frame  ([0, 1, 2, 3])
+PASS  seam: last key -> length = one interval (0.125)  (0.125)
+PASS  seam: no frame shown for two intervals in a row, wrap included
+PASS  offset keys on the same times as the frame keys
+PASS  offset keys are Vector2(0, 0), (-4, 0), (-2, 0), (+1, 0)  ([[0.0, (0.0, 0.0)], [0.125, (-4.0, 0.0)], [0.25, (-2.0, 0.0)], [0.375, (1.0, 0.0)]])
+PASS  pole x + offset.x is the same in every keyed cell  ([4.0, 4.0, 4.0, 4.0])
+PASS  offset track has no key at length either
+PASS  live: autoplay plays 'wave' with no script call  (wave playing=true)
+PASS  live: all four cells shown over 1.5 s (it loops)  ([0, 1, 2, 3])
+PASS  live: offset matches the shown cell on every frame (pole still)  ([])
+SUMMARY test_flag_readback: 43/43 passed -> <repo>/evidence/test_flag_readback-1795663148.json

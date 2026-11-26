@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" uid="uid://bg2x4yux6bpl" path="res://assets/art/flag/flag_red.png" id="1_flag"]
+[ext_resource type="Animation" path="res://animations/wave.tres" id="2_wave"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_goal"]
+_data = {
+&"wave": ExtResource("2_wave")
+}
+
+[node name="GoalFlag" type="Node2D"]
+
+[node name="FlagSprite" type="Sprite2D" parent="."]
+position = Vector2(-1.44, -88.92)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("1_flag")
+centered = false
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_goal")
+}
+autoplay = &"wave"
+callback_mode_process = 1

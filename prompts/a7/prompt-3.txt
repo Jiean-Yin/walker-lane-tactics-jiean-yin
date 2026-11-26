@@ -1,0 +1,25 @@
+Read CLAUDE.md first. The sprite sheet is
+godot/assets/art/flag/flag_red.png. Its source, license, cell size,
+grid and frame order are in CHANGE-BRIEF.md, with the frame count,
+frame rate and loop rule for wave.
+
+Set up wave on FlagSprite in godot/game/goal_flag.tscn (root GoalFlag,
+a Node2D, with the Sprite2D FlagSprite and the AnimationPlayer that
+plays wave; the clip itself in godot/animations/wave.tres) as
+Sprite2D with an AnimationPlayer frame track, using Godot 4
+properties for the version in CLAUDE.md. Slice the sheet from the
+brief, not by guessing from the image. Set Animation.step to one frame
+period at the brief's frame rate. The brief's registration fix (the
+discrete offset track), autoplay and callback mode are part of the
+clip and the scene.
+
+Add a read-back test, godot/tests/test_flag_readback.gd. For a frame
+track, assert every frame key is inside the sheet, the track uses
+discrete updates, and key times, step and loop mode match the brief;
+compare key times with a tolerance of half a frame period, never with
+==. Also assert every track resolves to a real node and property, and
+the brief's seam rule.
+
+Run it through ./scripts/run-test.sh at 60 and show the real output.
+Do not wire the clip into the state machine yet: do not add GoalFlag
+to main.tscn. Do not edit any .gdshader file. Do not commit.
