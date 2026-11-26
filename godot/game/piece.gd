@@ -116,6 +116,17 @@ func _apply_clip() -> void:
 		_rig_anim.advance(0.0) # MANUAL mode: apply the frame-0 pose now (CLAUDE.md "Headless facts")
 
 
+## Read-only view of the rig for logs (the shoot preview): writes nothing. The keyed values follow
+## from `pos` and the key table in res://animations/shoot.tres.
+func rig_snapshot() -> Dictionary:
+	if _rig_anim == null:
+		return {}
+	var playing: bool = _rig_anim.is_playing()
+	return {"clip": String(_rig_anim.current_animation), "playing": playing,
+		"pos": _rig_anim.current_animation_position if playing else -1.0,
+		"rig_visible": _rig_mount.visible, "sprite_visible": _sprite.visible}
+
+
 func show_hurt() -> void:
 	set_state("hurt")
 	_hurt_left = HURT_TIME
