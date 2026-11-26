@@ -45,7 +45,17 @@ Usage `scripts/run-test.sh <test-file.gd> <fps|realtime> [timeout-seconds]` (`sc
 ./scripts/run-test.sh <file>.gd realtime 300        # realtime mode, longer timeout
 ```
 
-Existing list: `README.md:59-72`. Planned A7 files, all at 60 (`CHANGE-BRIEF.md` §8): `test_flag_readback.gd`, `test_shoot_readback.gd`, `test_pins_a7.gd`, `test_anim_states.gd`, `test_shoot_edges.gd`; none exists yet. Each suite writes `evidence/<name>-<unix time>.json` via `godot/tests/test_report.gd:2`. Existing tests press keys with `root.push_input()` (`test_exposed_tint.gd:52`, `test_hit_burst_state.gd:61`) and sample from a node with `process_priority` 1000 (`test_exposed_tint.gd:245`). Headless runs use a dummy renderer: node state is observable, the look is not; frame strips come from Jiean's windowed Movie Maker run (`CHANGE-BRIEF.md` §9). Clean logs with `scripts/redact-paths.sh` before committing.
+Existing list: `README.md:59-72`. Planned A7 files, all at 60 (`CHANGE-BRIEF.md` §8): `test_flag_readback.gd`, `test_shoot_readback.gd`, `test_pins_a7.gd`, `test_anim_states.gd`, `test_shoot_edges.gd`; none exists yet. Each suite writes `evidence/<name>-<unix time>.json` via `godot/tests/test_report.gd:2`. Existing tests press keys with `root.push_input()` (`test_exposed_tint.gd:52`, `test_hit_burst_state.gd:61`) and sample from a node with `process_priority` 1000 (`test_exposed_tint.gd:245`). Clean logs with `scripts/redact-paths.sh` before committing.
+
+## Headless facts (confirmed in review, 2026-11-25, throwaway probes under `--headless --fixed-fps 60` on 4.7.2)
+
+- A headless run advances clips and reads their structure. It draws nothing, so whether the motion reads is not observable here. (Probe: display `headless`, empty video adapter; a `MANUAL` player moved a keyed `position` from 10 to 50 on `advance(0.4)`.)
+- Key times are 32-bit floats; compare them with a tolerance. (Probe: a key at 33/60 s reads back from a `.tres` as 0.55000001192…; `==` fails, half a frame passes.)
+- `value_track_get_update_mode` applies only to value tracks. (Probe: on a `TYPE_POSITION_3D` track it prints `ERROR: Condition "t->type != TYPE_VALUE"` and answers `UPDATE_CONTINUOUS`.)
+- Frame strips come from a windowed Movie Maker run, which I start.
+- `MANUAL` mode: `play()` alone applies no key; `advance(0)` applies the frame-0 pose; without `advance()` idle frames don't move the clip.
+- `Input.parse_input_event` reaches `main._unhandled_input` headless **one frame later** (Enter on frame 2 → `PLAN_MOVE` on frame 3); `root.push_input()` acts in the same frame. New A7 tests use `parse_input_event` and allow for that frame.
+- From A5/A6, still true: `--fixed-fps N` makes every `delta` exactly `1/N`; game time is `delta * time_scale` and stops while `paused` (`main.gd:162-171`).
 
 # Current change
 
@@ -76,7 +86,7 @@ Exactly one node writes each animated property. Never add a second writer to a n
 
 - Use Godot 4.7.2 names only: `AnimationPlayer`, `AnimationLibrary`, `Animation`, `Sprite2D` (`hframes`, `vframes`, `frame`, `offset`, `region_enabled`, `region_rect`), `Animation.loop_mode` with `Animation.LOOP_NONE` / `LOOP_LINEAR`, `Animation.step`, `Animation.UPDATE_DISCRETE` / `UPDATE_CONTINUOUS`, `AnimationPlayer.speed_scale`, `callback_mode_process` with `ANIMATION_CALLBACK_MODE_PROCESS_IDLE` / `_MANUAL`, `advance()`, `autoplay`, `current_animation`, `current_animation_position`, `root_node`.
 - Godot 3 names never to write: a boolean `loop` on `Animation`, `playback_speed`, `playback_process_mode`, `method_call_mode`, `AnimatedSprite` (now `AnimatedSprite2D`), `Sprite` (now `Sprite2D`), `Position2D` (now `Marker2D`). No `Bone2D`, no `AnimatedSprite2D` and no `AnimationTree` in this change (`CHANGE-BRIEF.md` §5-6).
-- **Not checked in this session:** none of the names above was listed from `ClassDB` on 4.7.2 here. In particular I am **not sure** `callback_mode_process` and its enum still sit on `AnimationMixer` in 4.7.2, how per-key easing is stored in a `.tres` (`transitions` array), or that `track_problems()` (`CHANGE-BRIEF.md` §8) is a Godot method at all. Confirm with `ClassDB` before relying on them.
+- **Listed from `ClassDB` in review (2026-11-25):** `root_node` and `callback_mode_process` are on `AnimationMixer`, with `ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS` 0, `_IDLE` 1, `_MANUAL` 2; `advance()` is on `AnimationMixer`; `current_animation`, `current_animation_position`, `autoplay`, `speed_scale` are on `AnimationPlayer`; `Animation` has `loop_mode`, `step` (default 1/30), `track_set_key_transition()`, and **no** `loop`; `playback_speed`, `playback_process_mode`, `method_call_mode` don't exist. `track_problems()` is **not** a Godot method: the read-back tests write it as a helper (assignment text).
 
 # Out of scope
 
@@ -89,11 +99,11 @@ Exactly one node writes each animated property. Never add a second writer to a n
 
 # Unconfirmed
 
-1. **Names and enums** for 4.7.2 (see "Godot 4 names"), and what `track_problems()` is: likely a test helper still to be written.
-2. **Key input in the structure test:** the brief names `Input.parse_input_event` (`CHANGE-BRIEF.md` §8); every existing test uses `root.push_input()`. Not checked that both reach `main._unhandled_input` the same way headless.
-3. **`MANUAL` mode:** whether `play("shoot")` already applies the frame-0 pose before the first `advance()`, and how far the clip sits ahead of the cue clock on the first frame (brief answer 5 says at most 1/60 s). Not measured.
+1. *(Resolved in review: the names are listed from `ClassDB`, see "Godot 4 names".)*
+2. *(Resolved in review: `parse_input_event` reaches `_unhandled_input` one frame later, see "Headless facts".)*
+3. **Clip lead over the cue clock:** `play()` needs `advance(0)` to show frame 0 (probe), but how far `shoot` sits ahead of the cue clock in the game depends on how `piece.gd` calls `play` and `advance` on the `draw` frame (brief answer 5 says at most 1/60 s). Measured in the "Two clocks" check.
 4. **GoalFlag draw order and place:** `main.tscn` children are drawn before the layers `_ready()` adds, unless `z_index` says otherwise; its `z_index` and exact position (≈ x 1176) are not fixed in the files.
 5. **Rig scale and placement:** the `_sprite` scale comes from the idle image height (`piece.gd:193-202`); how `Mount` matches it (and `BASE_FROM_BOTTOM`) for the 288 × 321 draw art is not stated.
 6. **Freeing on R:** `_build_pieces()` calls `queue_free()` then `remove_child()` (`main.gd:337-339`); whether the old `AnimationPlayer` can still be read for one frame in the edge test is not measured.
 7. **`_arrows` window:** leaves 0–2 frames before frame 33 (`README.md:81`, A6 brief revision 1); the pins test will measure it again.
-8. The agent ran no Godot command in this step; nothing above was probed at run time.
+8. The agent ran no Godot command in Step 1. The review probed only what "Headless facts" and "Godot 4 names" say it did; items 3–7 are still unmeasured. Item 4 is real: the board layer draws the full-screen table at z 0 after `main.tscn`'s children, so a `GoalFlag` at z 0 would be hidden under it.
