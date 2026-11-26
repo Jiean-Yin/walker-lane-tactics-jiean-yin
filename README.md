@@ -81,7 +81,12 @@ Tests (through the course wrapper, `scripts/run-test.sh <test> <fps|realtime> [t
 
 ### Film (Assignment 7)
 
-To be added: the Brutalist godot-gamedev explainer (walker modifier).
+**[Lane Tactics: A Waving Flag and a Committed Shot](https://youtu.be/1DWyaSYxO24)** (YouTube), the Brutalist godot-gamedev explainer (walker modifier).
+
+- File: `claude-liam-walker-lane-tactics-jiean-yin-a7-gamedev.mp4`, 3840 × 2160, 30 fps, 7:54
+- SHA-256: `3c2e831bcc2624b7431bc0088a1a8f612781fdbb3a2f396fd8ec9cbc526fb794`
+- Game source shown: tag `a7` (`37c4698`)
+- Film records: [youtube/claude-liam-walker-lane-tactics-jiean-yin-a7-gamedev/](youtube/claude-liam-walker-lane-tactics-jiean-yin-a7-gamedev/)
 
 ## Assignment 6 — particle effects
 

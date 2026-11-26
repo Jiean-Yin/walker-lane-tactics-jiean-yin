@@ -16,4 +16,4 @@ Master: `exports/landscape/claude-liam-walker-lane-tactics-jiean-yin-a7-gamedev.
 
 **Known blemish:** in B04's first seconds (the title card), the 3× crop on the flag catches the right ends of the title card's instruction lines. This is real footage, labelled as cropped, and left as is.
 
-**Still to do:** Jiean's watch-through of the full export. Upload is Jiean's step.
+**Jiean's watch-through of the full export (2026-11-26):** "Ready". Uploaded by Jiean: https://youtu.be/1DWyaSYxO24

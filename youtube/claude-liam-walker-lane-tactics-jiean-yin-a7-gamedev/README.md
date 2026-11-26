@@ -12,7 +12,8 @@ It also covers their one authority, the two clocks, the phase table in frames, t
 - 3840×2160, 30 fps, 7:54.4;
 - SHA-256 `3c2e831bcc2624b7431bc0088a1a8f612781fdbb3a2f396fd8ec9cbc526fb794`;
 - checks and QC in [_qc/MASTER-QC.md](_qc/MASTER-QC.md);
-- Jiean's watch-through and upload: to do.
+- Jiean's watch-through of the full export (2026-11-26): "Ready";
+- Uploaded by Jiean to YouTube: https://youtu.be/1DWyaSYxO24
 
 | File | What it is |
 |---|---|
