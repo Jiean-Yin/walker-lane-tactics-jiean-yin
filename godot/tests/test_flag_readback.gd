@@ -216,8 +216,8 @@ func _run() -> void:
 			continue
 		if i < OFFSET_X.size():
 			off_vals_ok = off_vals_ok and is_equal_approx(off.x, OFFSET_X[i]) and is_zero_approx(off.y)
-		if i < values.size():
-			pole.append(POLE_X[values[i]] + off.x)
+		if i < values.size() and values[i] >= 0 and values[i] < POLE_X.size():
+			pole.append(POLE_X[values[i]] + off.x)  # guarded: a key outside the sheet fails above, not here
 	rep.check("offset keys on the same times as the frame keys", off_times_ok)
 	rep.check("offset keys are Vector2(0, 0), (-4, 0), (-2, 0), (+1, 0)", off_vals_ok, ok_)
 	var still: bool = pole.size() == FRAME_ORDER.size()
