@@ -118,21 +118,11 @@ Frames 10–29 are pixel-identical between r0 and r1, and frames 31–33 differ 
 
 ## A7.9 The cycle seam (HUMAN CHECK)
 
-The flag looped through at least five wraps at normal speed: is there no stutter, no duplicated frame and no jump? **TO FILL** (Jiean)
-
-> *Hint (Claude):* The flag waves from the title screen on, at 8 fps (0.5 s per wrap). Watch it for 3 s or more (6 wraps) on the title and in play. Write what you saw: a steady ripple, or a hitch once per loop? The headless side already holds: no key at `length` and one interval from the last key to `length` (A7.3), but only your eyes can say it looks seamless.
+The flag looped through at least five wraps at normal speed: is there no stutter, no duplicated frame and no jump? **Smooth steady ripple.** (Jiean)
 
 ## A7.10 The action in play (HUMAN CHECK)
 
-The shot was triggered by normal play many times, including an interrupt in each phase. Do startup, active and recovery read as distinct? **TO FILL** (Jiean)
-
-> *Hint (Claude):* Play the win route, which has three shots: Space for turns 1–3; then Right and Enter, and Enter on the enemy; then Enter again. Then press R and play again with interrupts:
-> - P while an archer draws (startup);
-> - P while the arrow flies (active);
-> - P just after the hit (recovery);
-> - R in one of the shots.
->
-> Write how many shots you watched, what each interrupt did on screen, and whether you can tell the draw, the release and the bow drop apart. A6's habit of giving the count ("at least 3 times") is good evidence.
+The shot was triggered by normal play many times, including an interrupt in each phase. Do startup, active and recovery read as distinct? **All distinct. While drawing, the archer lean back with bows moving, and retreating clearly after the arrow flying away.** (Jiean)
 
 ## A7.11 Registration (HUMAN CHECK)
 
@@ -140,17 +130,11 @@ The shot was triggered by normal play many times, including an interrupt in each
 
 **Claude's measurement (a claim):** the darkest column of the pole is at the same screen x (1176) in all 13 frames. The drift fix's offset track (0 / −4 / −2 / +1 source px × 0.36) holds the pole still.
 
-Does the flag stay put within its cells? **TO FILL** (Jiean)
-
-> *Hint (Claude):* Open the strip and look at the pole against the guide line. Then watch the flag in the game. Does the pole stand still while the cloth waves, or does it shuffle sideways?
+Does the flag stay put within its cells? **Stand still while the cloth waves.** (Jiean)
 
 ## A7.12 Against the background (HUMAN CHECK)
 
-Both clips over the darkest and the lightest stretch of real level art they can appear on. **TO FILL** (Jiean)
-
-> *Hint (Claude):*
-> - **The flag** never moves; it stands on the dark wood table right of the board. Its "darkest and lightest" are the table's dark grain and its lighter streaks under the cloth. Does the red cloth and the black pole read on both?
-> - **The rig** is shown only while an archer draws. The player's start square is a light square touching the dark table. Does the bow still read over the light square, and does the rig's edge vanish against the dark table?
+Both clips over the darkest and the lightest stretch of real level art they can appear on. **The flag never moves but can form enough contrast to the background with its bright red color. The rig is clearly readable over the light square.** (Jiean)
 
 ## A7.13 Two clocks
 
@@ -170,13 +154,7 @@ Both clips over the darkest and the lightest stretch of real level art they can 
 | r0 | The bow drop splits the bow from the forearm and string at the rig's x = 204 cut; a stray dash stays under the bow; the release (recoil about 1.5 screen px) is too small to see. | First look: "The bow seems to leave the archer's hand." This agrees on the split. Jiean also saw "a clear leaning back", where Claude had read the lean back as slight. |
 | r1 | The gaps shrink to about 1 px; the dash no longer shows; whether the 8° drop is still visible at normal speed is for Jiean's eyes. | "This time the bow stays in archer's hand, and it is still clear to see the bow lowering at the end." **Keep.** |
 
-Name at least one point where you disagreed with Claude, or say there was none. **TO FILL** (Jiean)
-
-> *Hint (Claude):* Two candidates:
-> - Claude called the lean back "slight" in r0; you called it "clear".
-> - Claude worried the 8° drop might be too small to see; you found it "still clear".
->
-> Say in your own words whether either was a real disagreement.
+Name at least one point where you disagreed with Claude, or say there was none. **Claude considered leaning back and bow moving angle too small for human eyes to catch, but I think they are clear enough.** (Jiean)
 
 ## A7.15 Predicted failures (CHANGE-BRIEF §10) against results
 
@@ -410,14 +388,12 @@ Jiean's conclusion: Both effects are under the 0.2 ms budget on the price that m
 | scale over life applied | 254 | s.scale *= texture(scale_curve, vec2(lifetime)).rgb; |
 | a line tied to a brief setting, with that setting's value | 441 | `turbulence_enabled` true |
 
-
 Which of the brief's settings live in this shader, and which belong to the draw step instead: (Jiean)
 Shader:
 All settings start with uniform or #define. Like direction, spread, gravity.
 "start()" or "process()" that changes `VELOCITY, COLOR or TRANSFORM`. Like process_display_param, where the brief's colour ramp and scale curve take effect
 Draw Step:
 Draw-side settings are texture, CanvasItemMaterial blend mode, visibility_rect.
-
 
 ## A6.8 In play (HUMAN CHECK): Jiean's playtest
 
@@ -434,7 +410,6 @@ Jiean's own playtest of the running game at 1280 × 720 (at least three full gam
 | Edge of the screen (the player's start square touches the table) | Effects work exactly same at edge of boarder. |
 | Does it read as "hit" and "who shot whom"? | Yes, there are animation of shooting and getting hit, plus the effect of arrow and wounded. |
 | Claude against you: one point where you disagreed with a strip reading of Claude's in TUNING.md, or "none" | Claude first consider a very brief red flash timing enough for human eyes and tried to adjust color instead, while I pointed out that it is the visibility that mattered so we put brighter and longer effect.  |
-
 
 ## A6.9 Predicted failures (CHANGE-BRIEF §6) against results
 
