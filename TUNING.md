@@ -1,4 +1,55 @@
-# TUNING — Assignment 6 particle effects
+# TUNING — Lane Tactics
+
+Newest assignment first. Assignment 7 below; the Assignment 6 entries follow unchanged.
+
+# Assignment 7 — `shoot`, the committing action
+
+One entry per tuning revision, oldest first. Every strip is a **fixture capture** from `godot/previews/shoot_preview.tscn`, rendered with Movie Maker at 30 fps by Jiean. Each strip frame N lines up with line N of `logs/shoot_preview.log` (frame, pose, clip time). Claude's reading of a strip is a claim; Jiean's verdict in the running game decides. When play says the timing is wrong, the change goes to the phase table (CHANGE-BRIEF §4), and the keys follow it.
+
+- **"What I saw"** and **"My verdict"**: Jiean's words only.
+- **Claude's reading, prediction and comparison**: copied from the session record.
+- **The change**: approved by Jiean before it was made.
+
+Strip frames to read (CHANGE-BRIEF revision 3): 10 (trigger), 15 (release key), 16, 25 / 26 (the impact key, 33, falls between them), 29 (bow-drop key), 30, 33 (end pose), 34 (back to idle).
+
+## First look (strip r0, before any revision)
+
+What I saw (preview windowed at 1280 × 720, at normal speed and at `--time-scale 0.25`; and in the running game): 
+Normal speed, a clear leaning back of the archer on my side, and a glimps of bow moves back a bit. Red flag shaking on the other side behind the enemy archer. This can be seem more obviously under a slower speed of 0.25. The bow seems to leave the archer's hand while retreating the bow though.
+
+
+
+### Claude's reading of r0 (fixture; read after Jiean's first look, from 3× crops of the player archer and 7× crops of the bow hand)
+
+Strip frames 9, 10, 15, 16, 20, 25, 26, 29, 30, 31, 32, 33 and 34, with the clip time from `logs/shoot_preview.log`. Screen sizes are estimates: the art is drawn at 0.248 scale, so 1 art pixel ≈ 0.25 screen pixel.
+
+| Frame (clip frame at 60 fps) | Phase-table intent (CHANGE-BRIEF §4) | What the strip shows |
+|---|---|---|
+| 9 (—) | idle | the idle art, bow on the back |
+| 10 (2) | startup begins: bow 12° below level | the draw art appears with the bow tipped down (a pose pop, by design) |
+| 15 (12) | release key: bow level, leaning back 4° | bow level; a slight lean back of the head and arms |
+| 16, 20 (14, 22) | release: recoil 6 px back, lean 2° forward, fast then slowing | **almost no visible change.** 6 art px is about 1.5 screen px, and 2° on the upper body is about 2 px at the head. Nothing marks a release. |
+| 25, 26 (32, 34) | impact (33); the hold begins | same as 20 |
+| 29 (40) | bow-drop key; hold until here | same as 20 |
+| 30–33 (42–48) | bow tips 20° forward and down, ease in-out | **the bow breaks away from the archer.** It rotates about the bow hand, but the rig cuts the art at x = 204. The forearm and the back half of the string stay with the body. So as the bow turns, a step opens in the forearm and the string's top segment no longer meets the bow tip. A **stray dash** also stays under the bow: the `Lower` part's region (y 196 on) also holds the bow's lower tip, which doesn't rotate. |
+| 34 (—) | back to idle | the idle art (the expected pop) |
+
+**Where the motion and the table disagree:**
+1. **Recovery, frames 30–33:** the intent is "the bow tips forward". What shows is the bow coming apart from the hand and string, which matches Jiean's "the bow seems to leave the archer's hand".
+2. **Active, frames 16–25:** the intent is "fast at the release". What shows is a still pose; the recoil and the forward lean are too small to see at this scale.
+3. **A rig defect, not timing:** `Lower`'s region overlaps the bow's lower tip (brief §4 "Rig"), which causes the stray dash.
+
+**Proposed change (one, for r1), driven by Jiean's observation (1):** in the brief's §4 key table, the bow's frame-48 key goes from **20° to 8°**. The keys follow it, and the read-back's expected bow angle changes with it. Nothing else changes: same frames, transitions, regions and other tracks.
+
+**Claude's prediction for r1** (before the change):
+- **Frames 30–33:** the bow still visibly tips forward, by less than half as much.
+- **The step at the forearm and the string's gap:** shrink from about 3–4 screen px at frame 33 to about 1–1.5 px. They should be hard to see at normal speed and still visible in a 7× crop.
+- **The stray dash under the bow:** still there but shorter (about 3 px instead of about 6).
+- **Frames 10–29 and 34:** pixel-identical to r0.
+
+Issues 2 and 3 are left for later revisions, one change at a time.
+
+# Assignment 6 — particle effects
 
 One entry per tuning revision, oldest first, in the format the assignment gives. Every strip is a **fixture capture** from a preview scene (`godot/previews/`), rendered with Movie Maker at 30 fps by Jiean. Claude's reading of a strip is a claim; Jiean's verdict in the running game decides.
 
