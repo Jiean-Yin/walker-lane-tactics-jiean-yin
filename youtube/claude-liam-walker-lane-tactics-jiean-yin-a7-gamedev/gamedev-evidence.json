@@ -1,0 +1,844 @@
+{
+  "schema_version": 1,
+  "teaching_contract": "code-then-result-v1",
+  "game": {
+    "name": "walker-lane-tactics-jiean-yin",
+    "project": "godot/project.godot",
+    "source_revision": "tag a7 = 37c4698 (tree dd91e92)",
+    "game_dir": "isolated git-archive copy of a7:godot (core.autocrlf=false)",
+    "note": "All 121 authored files (and the .uid files) are byte-identical to the a7 blobs."
+  },
+  "files": [
+    {
+      "path": "animations/shoot.tres",
+      "sha256": "18a09e108520c23003ad0d64b9ebe85f30a1ff434e9afda08d44a066ea7b94a0",
+      "role": "resource",
+      "component_ids": [
+        "rig-clip"
+      ]
+    },
+    {
+      "path": "animations/wave.tres",
+      "sha256": "b832f407033ea11cd6758f062d11784b19b2edf9fd21da76b858ac21eeadb872",
+      "role": "resource",
+      "component_ids": [
+        "flag-clip"
+      ]
+    },
+    {
+      "path": "assets/art/archer_draw.png",
+      "sha256": "d54a878381ddf3075d10815ce1812f36ab7ccf256a7b68d96475c4bafe09f5dc",
+      "role": "image",
+      "component_ids": [
+        "rig-clip"
+      ]
+    },
+    {
+      "path": "assets/art/archer_draw.png.import",
+      "sha256": "f31231641c562a423806d0d14a2f8f56d1f45134c467969d9dfa432edf75d242",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "rig-clip"
+      ]
+    },
+    {
+      "path": "assets/art/archer_draw_enemy.png",
+      "sha256": "029f12e47c3872e34bb2323a5713fa3ce034e71260540e5bf0688c5c5e2eb39a",
+      "role": "image",
+      "component_ids": [
+        "rig-clip"
+      ]
+    },
+    {
+      "path": "assets/art/archer_draw_enemy.png.import",
+      "sha256": "f793802f9c72ad5a2f3f466da5b82cc211356dd1aea82c513f96cd69fe4db809",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "rig-clip"
+      ]
+    },
+    {
+      "path": "assets/art/flag/ATTRIBUTION.md",
+      "sha256": "11a0c0ef0245903167e8a61ba50ab23bd0e5a4e23a0f85c20f835e45f99abeb5",
+      "role": "document",
+      "component_ids": [
+        "flag-clip"
+      ]
+    },
+    {
+      "path": "assets/art/flag/flag_red.png",
+      "sha256": "bbe98fe4e54613a1f024b5e9e6d62828f4378b1404a18a4aecea5606dee5a1c4",
+      "role": "image",
+      "component_ids": [
+        "flag-clip"
+      ]
+    },
+    {
+      "path": "assets/art/flag/flag_red.png.import",
+      "sha256": "d07aeee4d5900fe85b1df48afe4a7c9a0b3146c93bde03a0e3f025dd2ca93770",
+      "role": "import settings sidecar",
+      "component_ids": [
+        "flag-clip"
+      ]
+    },
+    {
+      "path": "game/archer_rig.tscn",
+      "sha256": "642bf47167cfbb9f219e3b9c335d009c062a666b94d423a07c8bcb8e6d1f4e5a",
+      "role": "saved scene",
+      "component_ids": [
+        "rig-clip"
+      ]
+    },
+    {
+      "path": "game/goal_flag.tscn",
+      "sha256": "54dc6f68277d229b65db2c7260dd46d24659c9abe5af1833dcd6994be507af79",
+      "role": "saved scene",
+      "component_ids": [
+        "flag-clip"
+      ]
+    },
+    {
+      "path": "game/main.gd",
+      "sha256": "66a03dc441865aa5e40df6c8893b5ae47e2ead0a94acf02d3809a004a0db3351",
+      "role": "GDScript source",
+      "component_ids": [
+        "one-authority-and-clocks"
+      ]
+    },
+    {
+      "path": "game/main.tscn",
+      "sha256": "45336cd988528690916a402c0a16bb358f52a6f2bead755114bbcb519f79356e",
+      "role": "saved scene",
+      "component_ids": [
+        "flag-clip"
+      ]
+    },
+    {
+      "path": "game/piece.gd",
+      "sha256": "7bca2d81ca4125ecbad097c8dd7d6a5d8daead7154bce6eb52eb288676529839",
+      "role": "GDScript source",
+      "component_ids": [
+        "one-authority-and-clocks"
+      ]
+    },
+    {
+      "path": "previews/shoot_preview.gd",
+      "sha256": "ac310523f54de70b9e99b2e84f7e8942e26316a55ff1a8fc7cd30fdea21f653f",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests-and-preview"
+      ]
+    },
+    {
+      "path": "previews/shoot_preview.tscn",
+      "sha256": "de392611732196fcc6c8c4f0daf98686db9e1abbb6ddf77093dfb337ed44abcd",
+      "role": "saved scene",
+      "component_ids": [
+        "tests-and-preview"
+      ]
+    },
+    {
+      "path": "project.godot",
+      "sha256": "80383d20d46b8aaa3663127b27ee5593aeeceb66f40a17968888372c860b9c92",
+      "role": "project configuration",
+      "component_ids": [
+        "project"
+      ]
+    },
+    {
+      "path": "tests/fixtures/win_route.json",
+      "sha256": "3f04c4a423bd3a666921e0d1245a451008434002e6e3571ce877f60a6920bc1e",
+      "role": "test fixture",
+      "component_ids": [
+        "tests-and-preview"
+      ]
+    },
+    {
+      "path": "tests/route_runner.gd",
+      "sha256": "7be5b20acdfa1a7dc00aa23675e3bf8e24ecb4b651057f316340742028c91292",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests-and-preview"
+      ]
+    },
+    {
+      "path": "tests/test_anim_states.gd",
+      "sha256": "820ae2f488577b179392c8d5b1631fc258b3f2db2da39a8b90b3b46b4e020cc7",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests-and-preview"
+      ]
+    },
+    {
+      "path": "tests/test_flag_readback.gd",
+      "sha256": "2be272ac7cad6b62b552c76fd70e1d35b5f745a18ffc9406a8484f18931c798e",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests-and-preview"
+      ]
+    },
+    {
+      "path": "tests/test_pins_a7.gd",
+      "sha256": "695c65af8c2f044d1dc71700b1dccc2e2b2eb989c1ec88431499b017131da17c",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests-and-preview"
+      ]
+    },
+    {
+      "path": "tests/test_report.gd",
+      "sha256": "9f0ceb144e7209743f4a279ea620394a0dfb1ef99f55d9a85dc3c72c09963971",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests-and-preview"
+      ]
+    },
+    {
+      "path": "tests/test_shoot_edges.gd",
+      "sha256": "b794788c40f78061c60429ba4b00506a3def05592a816d6217093b179f7ef7e1",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests-and-preview"
+      ]
+    },
+    {
+      "path": "tests/test_shoot_readback.gd",
+      "sha256": "90e471f4bcd3abb8c0781e256af2d40030b82e4d9b482c8552b8ff91a35af32a",
+      "role": "GDScript source",
+      "component_ids": [
+        "tests-and-preview"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "flag-clip",
+      "explanation": "animations/wave.tres: a frame track keying FlagSprite:frame 0-3 at 0/0.125/0.25/0.375 s, step 0.125, length 0.5, LOOP_LINEAR, no key at length (the seam rule), plus a discrete offset track 0/-4/-2/+1 for the sheet's pole drift (B03, B05). game/goal_flag.tscn: Sprite2D hframes 4 x vframes 1 on assets/art/flag/flag_red.png (Fokko, CC0, as downloaded), AnimationPlayer autoplay wave, callback mode IDLE; instanced in game/main.tscn at (1176, 458), z 1. Results: B04, B06.",
+      "beat_ids": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06"
+      ],
+      "files": [
+        "animations/wave.tres",
+        "game/goal_flag.tscn",
+        "assets/art/flag/flag_red.png",
+        "assets/art/flag/flag_red.png.import",
+        "assets/art/flag/ATTRIBUTION.md",
+        "game/main.tscn"
+      ]
+    },
+    {
+      "id": "rig-clip",
+      "explanation": "animations/shoot.tres: three value tracks (Rig:position, Rig/Upper:rotation, Rig/Upper/Bow:rotation) keyed at frames 0/12/33/40/48 of a 60 fps phase table (step 1/60, length 0.8, LOOP_NONE), the bow's frame-48 key tuned 20 -> 8 degrees (B10, B18). game/archer_rig.tscn: Mount > Rig > Lower, Upper > UpperSprite, Bow > BowSprite, regions of the A2 draw art, AnimationPlayer MANUAL with root_node Mount. Results: B11, B19.",
+      "beat_ids": [
+        "B09",
+        "B10",
+        "B11",
+        "B18",
+        "B19"
+      ],
+      "files": [
+        "animations/shoot.tres",
+        "game/archer_rig.tscn",
+        "assets/art/archer_draw.png",
+        "assets/art/archer_draw_enemy.png",
+        "assets/art/archer_draw.png.import",
+        "assets/art/archer_draw_enemy.png.import"
+      ]
+    },
+    {
+      "id": "one-authority-and-clocks",
+      "explanation": "game/piece.gd: POSE_CLIPS (draw -> shoot); _apply_clip() stops, plays and advance(0)s the rig's player on set_state (lines 109-116, B12); tick(dt) advances it by game time inside main._process after the cues (lines 181-182, B14); Mount is the only node piece.gd writes on the rig. game/main.gd owns the state machine and the cue list that sets the poses. Results: B13 (interrupts), B15 (clocks).",
+      "beat_ids": [
+        "B12",
+        "B13",
+        "B14",
+        "B15"
+      ],
+      "files": [
+        "game/piece.gd",
+        "game/main.gd"
+      ]
+    },
+    {
+      "id": "tests-and-preview",
+      "explanation": "tests/test_flag_readback.gd (43 checks: frame range, discrete updates, step, loop mode, seam; B07) and test_shoot_readback.gd (51: track_problems branched on track type, key times, step, loop mode; B16); test_anim_states.gd (51) and test_shoot_edges.gd (102: P, R, Enter one frame before/on/after frames 0, 12, 33, 48; B20); test_pins_a7.gd (29, before and after the clips); test_report.gd, route_runner.gd and fixtures/win_route.json. previews/shoot_preview (.tscn/.gd) is the fixture for Jiean's strips (B19). Results: B08, B17, B21.",
+      "beat_ids": [
+        "B07",
+        "B08",
+        "B16",
+        "B17",
+        "B19",
+        "B20",
+        "B21"
+      ],
+      "files": [
+        "tests/test_flag_readback.gd",
+        "tests/test_shoot_readback.gd",
+        "tests/test_anim_states.gd",
+        "tests/test_shoot_edges.gd",
+        "tests/test_pins_a7.gd",
+        "tests/test_report.gd",
+        "tests/route_runner.gd",
+        "tests/fixtures/win_route.json",
+        "previews/shoot_preview.gd",
+        "previews/shoot_preview.tscn"
+      ]
+    },
+    {
+      "id": "project",
+      "explanation": "project.godot: main scene res://game/main.tscn and the Compatibility renderer (line 25), 1280 x 720 (B02).",
+      "beat_ids": [
+        "B02"
+      ],
+      "files": [
+        "project.godot"
+      ]
+    }
+  ],
+  "excerpts": [
+    {
+      "beat_id": "B03",
+      "path": "animations/wave.tres",
+      "start_line": 11,
+      "end_line": 24,
+      "text": "length = 0.5\nloop_mode = 1\nstep = 0.125\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"FlagSprite:frame\")\ntracks/0/interp = 0\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 0.125, 0.25, 0.375),\n\"transitions\": PackedFloat32Array(1, 1, 1, 1),\n\"update\": 1,\n\"values\": [0, 1, 2, 3]"
+    },
+    {
+      "beat_id": "B05",
+      "path": "animations/wave.tres",
+      "start_line": 26,
+      "end_line": 36,
+      "text": "tracks/1/type = \"value\"\ntracks/1/imported = false\ntracks/1/enabled = true\ntracks/1/path = NodePath(\"FlagSprite:offset\")\ntracks/1/interp = 0\ntracks/1/loop_wrap = true\ntracks/1/keys = {\n\"times\": PackedFloat32Array(0, 0.125, 0.25, 0.375),\n\"transitions\": PackedFloat32Array(1, 1, 1, 1),\n\"update\": 1,\n\"values\": [Vector2(0, 0), Vector2(-4, 0), Vector2(-2, 0), Vector2(1, 0)]"
+    },
+    {
+      "beat_id": "B07",
+      "path": "tests/test_flag_readback.gd",
+      "start_line": 165,
+      "end_line": 177,
+      "text": "\tvar n_cells: int = sprite.hframes * sprite.vframes\n\tvar inside: bool = not fk.is_empty()\n\tvar ints: bool = true\n\tvar values: Array[int] = []\n\tfor k: Array in fk:\n\t\tints = ints and typeof(k[1]) == TYPE_INT\n\t\tvar v: int = int(k[1])\n\t\tvalues.append(v)\n\t\tinside = inside and v >= 0 and v < n_cells\n\trep.check(\"every frame key is an int\", ints)\n\trep.check(\"every frame key is inside the sheet (0 <= frame < hframes x vframes = %d)\" % n_cells,\n\t\t\tinside, values)\n\trep.check(\"frame order 0, 1, 2, 3\", values == FRAME_ORDER, values)"
+    },
+    {
+      "beat_id": "B10",
+      "path": "animations/shoot.tres",
+      "start_line": 31,
+      "end_line": 43,
+      "text": "length = 0.8\nloop_mode = 0\nstep = 0.0166667\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"Rig:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 0.2, 0.55, 0.666667, 0.8),\n\"transitions\": PackedFloat32Array(2, 0.5, 1, -2, 1),\n\"update\": 0,"
+    },
+    {
+      "beat_id": "B12",
+      "path": "game/piece.gd",
+      "start_line": 109,
+      "end_line": 116,
+      "text": "func _apply_clip() -> void:\n\tif _rig_anim == null:\n\t\treturn\n\t_rig_anim.stop()\n\tvar clip: String = POSE_CLIPS.get(state, \"\")\n\tif clip != \"\" and _rig_mount.visible:\n\t\t_rig_anim.play(clip)\n\t\t_rig_anim.advance(0.0) # MANUAL mode: apply the frame-0 pose now (CLAUDE.md \"Headless facts\")"
+    },
+    {
+      "beat_id": "B14",
+      "path": "game/piece.gd",
+      "start_line": 170,
+      "end_line": 182,
+      "text": "\t\tvar k: float = _hop_t / _hop_dur\n\t\tposition = _hop_from.lerp(_hop_to, k)\n\t\t_set_lift(HOP_HEIGHT * sin(PI * k))\n\tif _hurt_left > 0.0:\n\t\t_hurt_left -= dt\n\t\tif _hurt_left <= 0.0 and state == \"hurt\":\n\t\t\tset_state(\"idle\")\n\tif _recover_left > 0.0:\n\t\t_recover_left -= dt\n\t\tif _recover_left <= 0.0 and state == \"recover\":\n\t\t\tset_state(\"idle\")\n\tif _rig_anim != null and _rig_anim.is_playing():\n\t\t_rig_anim.advance(dt) # game time: stops while paused, scales with time_scale"
+    },
+    {
+      "beat_id": "B16",
+      "path": "tests/test_shoot_readback.gd",
+      "start_line": 88,
+      "end_line": 100,
+      "text": "\t\tmatch anim.track_get_type(i):\n\t\t\tAnimation.TYPE_VALUE, Animation.TYPE_BEZIER:\n\t\t\t\tif sub == \"\":\n\t\t\t\t\tout.append(\"track %d: no property in '%s'\" % [i, path])\n\t\t\t\t\tcontinue\n\t\t\t\tvar base: String = sub.get_slice(\":\", 0)\n\t\t\t\tvar found: bool = false\n\t\t\t\tfor p: Dictionary in node.get_property_list():\n\t\t\t\t\tif p[\"name\"] == base:\n\t\t\t\t\t\tfound = true\n\t\t\t\t\t\tbreak\n\t\t\t\tif not found:\n\t\t\t\t\tout.append(\"track %d: %s has no property '%s'\" % [i, node.get_class(), base])"
+    },
+    {
+      "beat_id": "B18",
+      "path": "animations/shoot.tres",
+      "start_line": 61,
+      "end_line": 68,
+      "text": "tracks/2/path = NodePath(\"Rig/Upper/Bow:rotation\")\ntracks/2/interp = 1\ntracks/2/loop_wrap = true\ntracks/2/keys = {\n\"times\": PackedFloat32Array(0, 0.2, 0.55, 0.666667, 0.8),\n\"transitions\": PackedFloat32Array(2, 0.5, 1, -2, 1),\n\"update\": 0,\n\"values\": [0.20944, 0.0, 0.0, 0.0, 0.139626]"
+    },
+    {
+      "beat_id": "B20",
+      "path": "tests/test_shoot_edges.gd",
+      "start_line": 29,
+      "end_line": 38,
+      "text": "\nconst MAX_FRAMES: int = 20000\nconst BOUNDARIES: Array[int] = [0, 12, 33, 48] ## phase-table frames (CHANGE-BRIEF §4)\nconst OFFSETS: Array[int] = [-1, 0, 1]\nconst INTERRUPTS: Array[String] = [\"P\", \"R\", \"Enter\"]\nconst SHOT1: Array[int] = [12, 32, 47] ## pinned e1 turn-4 shot: arrow, impact, idle (test_pins_a7.gd)\nconst PAUSE_FRAMES: int = 10\nconst AFTER_R_FRAMES: int = 60\nconst STEP: float = 1.0 / 60.0\nconst TOL: float = 0.5 / 60.0"
+    }
+  ],
+  "exclusions": [
+    {
+      "path": "MATERIALS.md",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/.gitkeep",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_defeat.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_defeat.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_defeat_enemy.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_defeat_enemy.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_hurt.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_hurt.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_hurt_enemy.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_hurt_enemy.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_idle.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_idle.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_idle_enemy.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_idle_enemy.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_win.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_win.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_win_enemy.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/archer_win_enemy.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/env_table.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/art/env_table.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/models/archer_piece.glb",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/models/archer_piece.glb.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/models/board_square.glb",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/models/board_square.glb.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/models/goal_flag.glb",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/models/goal_flag.glb.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/music/.gitkeep",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/music/mus_loop.ogg",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/music/mus_loop.ogg.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/sfx/.gitkeep",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/sfx/sfx_hit.ogg",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/sfx/sfx_hit.ogg.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/sfx/sfx_hop.ogg",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/sfx/sfx_hop.ogg.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/sfx/sfx_hurt.ogg",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/sfx/sfx_hurt.ogg.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/sfx/sfx_win.ogg",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/sfx/sfx_win.ogg.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hessian_380/ATTRIBUTION.md",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_diff_1k.jpg",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_diff_1k.jpg.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_nor_dx_1k.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_nor_dx_1k.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_nor_gl_1k.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_nor_gl_1k.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_rough_1k.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hessian_380/hessian_380_rough_1k.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hint_experiment/hint_greys.png",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "assets/textures/hint_experiment/hint_greys.png.import",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "debug/capture_exposed.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "debug/capture_exposed.tscn",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "default_bus_layout.tres",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "diorama/asset_diorama.tscn",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "effects/ATTRIBUTION.md",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "effects/arrow_trail.tscn",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "effects/hit_burst.tscn",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "game/arrow_trail_driver.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "game/audio_director.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "game/draw_layer.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "game/exposed_driver.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "game/hit_burst_driver.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "game/rules.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "game/vsync_debug.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "hint/hint_experiment.tscn",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "materials/hint_raw.tres",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "materials/hint_srgb.tres",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "materials/linen_dark.tres",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "materials/linen_light.tres",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "previews/arrow_trail_preview.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "previews/arrow_trail_preview.tscn",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "previews/hit_burst_preview.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "previews/hit_burst_preview.tscn",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "previews/price_effects.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "previews/price_effects.tscn",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "shaders/exposed_tint.gdshader",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "shaders/hint_experiment.gdshader",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "shaders/linen_square.gdshader",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "shaders/particles_generated.gdshader",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "shaders/standard_generated.gdshader",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/analyze_variants.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/capture.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/check_assets.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/cost_effects.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/fixtures/lose_route.json",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/normal_map_check.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/test_arrow_trail_config.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/test_arrow_trail_state.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/test_audio_events.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/test_exposed_tint.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/test_hit_burst_config.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/test_hit_burst_state.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/test_materials.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tests/test_rules.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tools/calibrate_normal_map_check.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tools/strip_sheet.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    },
+    {
+      "path": "tools/write_hint_greys.gd",
+      "reason": "Earlier-assignment file (A2 2D slice, A3 diorama, A5 shaders and materials, A6 particle effects), unchanged by Assignment 7 except where listed above; explained in the earlier films."
+    }
+  ],
+  "code_result_pairs": [
+    {
+      "code_beat": "B03",
+      "result_beat": "B04",
+      "observation": "Final capture, play 0-452 (title, turns 1-3, turn 4 orders), cropped 3x on the GoalFlag: the flag's cell changes every 0.125 s (flag_cell in play-log.jsonl cycles 0, 1, 2, 3), from the title card on; inset: flag_red.png as downloaded with its 4 x 1 grid. Jiean's A7.9 words verbatim.",
+      "media": {
+        "path": "media/B04.mp4",
+        "sha256": "72d5311ac8ea9431fc7c56ecdf383321525130a1a043ed22fdcce739f3608425"
+      }
+    },
+    {
+      "code_beat": "B05",
+      "result_beat": "B06",
+      "observation": "captures/flag_registration_r1.png (tag a7): the GoalFlag cropped from the 13 kept frames of Jiean's r1 strip; the pole's darkest column is at screen x 1176 in all 13 (TEST-REPORT A7.11). Jiean's words verbatim.",
+      "media": {
+        "path": "media/B06.mp4",
+        "sha256": "545620754ea66bb23099188bf6f8d674bd598fed8e78260994cab7ce59c95b2c"
+      }
+    },
+    {
+      "code_beat": "B07",
+      "result_beat": "B08",
+      "observation": "evidence/a7/step6/mutations: mutation 3 (a frame key of 4) fails 'every frame key is inside the sheet' (exit 1; 37/43 after the guard); mutation 2 (LOOP_NONE) fails 'loop_mode = LOOP_LINEAR' (41/43, exit 1). Each in a git worktree.",
+      "media": {
+        "path": "media/B08.mp4",
+        "sha256": "84f152aca5a0124e860b4886977c92bc6fde3e92bf93e176a23a26f77476b812"
+      }
+    },
+    {
+      "code_beat": "B10",
+      "result_beat": "B11",
+      "observation": "Final capture, play 300-380 (e1 draws at 333, its arrow leaves at 339, hit on p1 at 349, back to idle at 357), slow 200-480 at 1/4 speed (2x crop: e1 draw 225, hit 290, idle 321; p1 draw 351, hit 417, idle 447), play 452-617 (turn 5: p1 draw 515, idle 539). Jiean's A7.10 words verbatim.",
+      "media": {
+        "path": "media/B11.mp4",
+        "sha256": "aca42589bda35573bb943110614fc5e91e1d344832806cf812177c5ad8a4f463"
+      }
+    },
+    {
+      "code_beat": "B12",
+      "result_beat": "B13",
+      "observation": "Final capture, play 700-1040 (run 2 turn 4): e1 draws at 710; P at 712-802 in its startup, 811-901 in its active phase (arrow in flight), 939-1029 in p1's recovery (clip past 0.6 s); each pose and clip held while paused ('run 2: paused in ...' OK x3 in play-summary.json); then play 1166-1270 (run 3): e1 draws at 1177, R at 1186: turn 1, no shot left ('run 3' OK).",
+      "media": {
+        "path": "media/B13.mp4",
+        "sha256": "9a3f465758e07b414f44c1f2eef52579a75ecba1fd19c7f98554be80d3135642"
+      }
+    },
+    {
+      "code_beat": "B14",
+      "result_beat": "B15",
+      "observation": "Final capture, play 617-1084 and 1084-1180, full frame: while paused the archers hold and the GoalFlag keeps changing cell (flag_cell changes while paused in play-log.jsonl). On screen: evidence/a7/step5/test_anim_states_60fps.log, clip position - arrow t = 0.20000 for each shot.",
+      "media": {
+        "path": "media/B15.mp4",
+        "sha256": "e89322f9f576796c8e04ebcc2c1786fa2d50cb687ba98ee636bf51c84739c37b"
+      }
+    },
+    {
+      "code_beat": "B16",
+      "result_beat": "B17",
+      "observation": "evidence/a7/step6/mutations: mutation 1 (Rig/Upper:rotation -> rotaton, clip only) fails track_problems with 'track 1: Node2D has no property rotaton' (exit 1); mutation 4 (empty import cache) leaves the rig read-back at 51/51, as predicted.",
+      "media": {
+        "path": "media/B17.mp4",
+        "sha256": "e60845299c7b42791a435e010199920daa9ce7124daf1d466ce53d8607373112"
+      }
+    },
+    {
+      "code_beat": "B18",
+      "result_beat": "B19",
+      "observation": "captures/shoot/r0 and r1 (shoot_preview, Jiean's Movie Maker captures), frames 15, 29, 31, 33 around the bow hand: 0 pixels changed up to frame 29, 410-458 in 31-33 (TUNING.md r1); Jiean's r0, r1 and verdict words verbatim.",
+      "media": {
+        "path": "media/B19.mp4",
+        "sha256": "a0c9721ba38591707fbb15d2c72dd276aeeb44b5d3ea49ac74d3e761a6ad68fc"
+      }
+    },
+    {
+      "code_beat": "B20",
+      "result_beat": "B21",
+      "observation": "evidence/a7/step6/test_shoot_edges_60fps.log: 102/102; evidence/a7/pins and step6: the pins 29/29 before and after the clips; measured impact 32/34 and idle 47/49 game frames (CHANGE-BRIEF revision 1).",
+      "media": {
+        "path": "media/B21.mp4",
+        "sha256": "5f7db51d594f83987dc65eb309a1f09a33efa91261196c6bb9ec498f3fe93cde"
+      }
+    }
+  ],
+  "still_quotes": [
+    {
+      "beat_id": "B02",
+      "path": "project.godot",
+      "line": 25,
+      "text": "renderer/rendering_method=\"gl_compatibility\""
+    }
+  ]
+}

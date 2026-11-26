@@ -1,0 +1,37 @@
+{
+  "source_revision": "tag a7 = 37c4698 (tree dd91e92)",
+  "quotes": {
+    "seam": {
+      "file": "TEST-REPORT.md",
+      "text": "Smooth steady ripple."
+    },
+    "action": {
+      "file": "TEST-REPORT.md",
+      "text": "All distinct. While drawing, the archer lean back with bows moving, and retreating clearly after the arrow flying away."
+    },
+    "registration": {
+      "file": "TEST-REPORT.md",
+      "text": "Stand still while the cloth waves."
+    },
+    "disagree": {
+      "file": "TEST-REPORT.md",
+      "text": "Claude considered leaning back and bow moving angle too small for human eyes to catch, but I think they are clear enough."
+    },
+    "r0": {
+      "file": "TUNING.md",
+      "text": "The bow seems to leave the archer's hand while retreating the bow though."
+    },
+    "r1": {
+      "file": "TUNING.md",
+      "text": "This time the bow stays in arhcer's hand, and it is still clear to see the bow lowering a the end."
+    },
+    "r1_verdict": {
+      "file": "TUNING.md",
+      "text": "Keep: the bow now stays in the hand."
+    },
+    "summary": {
+      "file": "SUBMISSION.md",
+      "text": "I chose and measured the exact number of adjustment, and predicted the possible failure to avoid. I approved most of the adjustments suggesstions by Claude. Every test were followed by my own human check."
+    }
+  }
+}

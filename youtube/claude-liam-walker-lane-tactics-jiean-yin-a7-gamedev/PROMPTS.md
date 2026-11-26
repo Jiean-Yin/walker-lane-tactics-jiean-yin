@@ -1,0 +1,5 @@
+# PROMPTS
+
+- **B00 (reconstructed, labelled):** "Please use Walker to convert my game design document about Lane Tactics — archers on a five-lane board, simultaneous orders, win by reaching the enemy's back row — into two animations: a goal flag that waves from a sprite sheet, and an archer's shot that moves a rig through startup, active and recovery. Test both, and show me what a headless run cannot." It is an illustration of the request, not a transcript. The real prompts are `prompts/a7/` in the repository.
+- **BHTF (suggested, labelled "not a past run"):** "In shoot.tres, change the recoil key at frame 33 from 6 to 18 pixels in the art. Before you change anything, help me predict how many screen pixels that is at the rig's scale, and which strip frames should show it. Then I'll capture a strip and we compare."
+- **The real agent prompts behind the work shown:** `prompts/a7/prompt-1.txt`, `prompt-3.txt`, `prompt-4.txt`, `prompt-5-plan.txt`, `prompt-5-implement.txt`. The redacted transcripts are in `evidence/a7/sessions/`.

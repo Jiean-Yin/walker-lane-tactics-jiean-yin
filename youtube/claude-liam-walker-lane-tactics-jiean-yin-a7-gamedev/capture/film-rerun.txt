@@ -1,0 +1,18 @@
+import exit 0
+test_rules@60 exit 0 | SUMMARY test_rules: 51/51 passed | errs 0
+test_audio_events@60 exit 0 | SUMMARY test_audio_events: 70/70 passed | errs 0
+check_assets@60 exit 0 | SUMMARY check_assets: 38/38 passed | errs 0
+test_materials@60 exit 0 | SUMMARY test_materials: 148/148 passed | errs 0
+test_hit_burst_config@60 exit 0 | SUMMARY test_hit_burst_config: 107/107 passed | errs 0
+test_arrow_trail_config@60 exit 0 | SUMMARY test_arrow_trail_config: 135/135 passed | errs 0
+test_hit_burst_state@60 exit 0 | SUMMARY test_hit_burst_state: 31/31 passed | errs 0
+test_arrow_trail_state@60 exit 0 | SUMMARY test_arrow_trail_state: 31/31 passed | errs 0
+cost_effects@60 exit 0 | SUMMARY cost_effects: 25/25 passed | errs 0
+test_pins_a7@60 exit 0 | SUMMARY test_pins_a7: 29/29 passed | errs 0
+test_flag_readback@60 exit 0 | SUMMARY test_flag_readback: 43/43 passed | errs 0
+test_shoot_readback@60 exit 0 | SUMMARY test_shoot_readback: 51/51 passed | errs 0
+test_anim_states@60 exit 0 | SUMMARY test_anim_states: 51/51 passed | errs 0
+test_shoot_edges@60 exit 0 | SUMMARY test_shoot_edges: 102/102 passed
+test_exposed_tint@30 exit 0 | SUMMARY test_exposed_tint_30fps: 46/46 passed
+test_exposed_tint@60 exit 0 | SUMMARY test_exposed_tint_60fps: 46/46 passed
+test_exposed_tint@144 exit 0 | SUMMARY test_exposed_tint_144fps: 46/46 passed

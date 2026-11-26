@@ -1,0 +1,224 @@
+{
+  "B02": {
+    "still": true,
+    "n_frames": 494,
+    "path": "media/B02.mp4",
+    "sha256": "6c9c4cc9cda6e8363f6e8a7807c681fd5a96e4c8825144b3fd0b513664320718",
+    "preview": "stills/B02.png"
+  },
+  "B06": {
+    "still": true,
+    "n_frames": 433,
+    "path": "media/B06.mp4",
+    "sha256": "545620754ea66bb23099188bf6f8d674bd598fed8e78260994cab7ce59c95b2c",
+    "preview": "stills/B06.png"
+  },
+  "B08": {
+    "still": true,
+    "n_frames": 549,
+    "path": "media/B08.mp4",
+    "sha256": "84f152aca5a0124e860b4886977c92bc6fde3e92bf93e176a23a26f77476b812",
+    "preview": "stills/B08.png"
+  },
+  "B09": {
+    "still": true,
+    "n_frames": 718,
+    "path": "media/B09.mp4",
+    "sha256": "adaaaf4ae56f0d7038eafddb1d394f3456b5fa01e8331fd63cf280fa5c15efc3",
+    "preview": "stills/B09.png"
+  },
+  "B17": {
+    "still": true,
+    "n_frames": 586,
+    "path": "media/B17.mp4",
+    "sha256": "e60845299c7b42791a435e010199920daa9ce7124daf1d466ce53d8607373112",
+    "preview": "stills/B17.png"
+  },
+  "B19": {
+    "still": true,
+    "n_frames": 540,
+    "path": "media/B19.mp4",
+    "sha256": "a0c9721ba38591707fbb15d2c72dd276aeeb44b5d3ea49ac74d3e761a6ad68fc",
+    "preview": "stills/B19.png"
+  },
+  "B21": {
+    "still": true,
+    "n_frames": 654,
+    "path": "media/B21.mp4",
+    "sha256": "5f7db51d594f83987dc65eb309a1f09a33efa91261196c6bb9ec498f3fe93cde",
+    "preview": "stills/B21.png"
+  },
+  "BCRD": {
+    "still": true,
+    "n_frames": 1040,
+    "path": "media/BCRD.mp4",
+    "sha256": "dd5298fb97bf123aec8ed15a9feed3da9c0aa57df3ac434d9d1e176ad9f4ca22",
+    "preview": "stills/BCRD.png"
+  },
+  "B04": {
+    "segments": [
+      {
+        "src": "play",
+        "a": 0,
+        "b": 452,
+        "crop": [
+          2560,
+          880,
+          1280,
+          720
+        ],
+        "label": "CROPPED 3× · REAL GODOT RENDER|the GoalFlag beside the enemy's back row · main.tscn @ tag a7 · Movie Maker, 30 fps",
+        "inset": "sheet",
+        "quote_pos": "bottom-left",
+        "quote_width": 1500,
+        "quote": [
+          [
+            "Smooth steady ripple.",
+            false
+          ],
+          [
+            "Jiean, five or more wraps (TEST-REPORT A7.9)",
+            true
+          ]
+        ]
+      }
+    ],
+    "n_frames": 452,
+    "duration_s": "452/30",
+    "sources": {
+      "play": {
+        "file": "<capture-copy>/final-out/play-4k.mkv",
+        "fps": 30,
+        "sha256": "a8110651d9171bc588068533b7afd1684bea6ca9af4ae1cbb0994d3cd9755907"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B04.mp4",
+    "sha256": "72d5311ac8ea9431fc7c56ecdf383321525130a1a043ed22fdcce739f3608425"
+  },
+  "B11": {
+    "segments": [
+      {
+        "src": "play",
+        "a": 300,
+        "b": 380,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio"
+      },
+      {
+        "src": "slow",
+        "a": 200,
+        "b": 480,
+        "crop": [
+          384,
+          990,
+          1920,
+          1080
+        ],
+        "label": "¼ SPEED · CROPPED 2× · REAL GODOT RENDER|120 fps capture played at 30 · both archers · main.tscn @ tag a7"
+      },
+      {
+        "src": "play",
+        "a": 452,
+        "b": 617,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+        "quote_pos": "bottom-right",
+        "quote_width": 1900,
+        "quote": [
+          [
+            "All distinct. While drawing, the archer lean back with bows moving, and retreating clearly after the arrow flying away.",
+            false
+          ],
+          [
+            "Jiean, in play (TEST-REPORT A7.10)",
+            true
+          ]
+        ]
+      }
+    ],
+    "n_frames": 525,
+    "duration_s": "525/30",
+    "sources": {
+      "play": {
+        "file": "<capture-copy>/final-out/play-4k.mkv",
+        "fps": 30,
+        "sha256": "a8110651d9171bc588068533b7afd1684bea6ca9af4ae1cbb0994d3cd9755907"
+      },
+      "slow": {
+        "file": "<capture-copy>/final-out/slow-4k.mkv",
+        "fps": 120,
+        "sha256": "00746b40c67910d9b8cb3a51a37c42bcbe6d4c9714da774619021a0dbc96ff97"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B11.mp4",
+    "sha256": "aca42589bda35573bb943110614fc5e91e1d344832806cf812177c5ad8a4f463"
+  },
+  "B13": {
+    "segments": [
+      {
+        "src": "play",
+        "a": 700,
+        "b": 1040,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio"
+      },
+      {
+        "src": "play",
+        "a": 1166,
+        "b": 1270,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio"
+      }
+    ],
+    "n_frames": 444,
+    "duration_s": "444/30",
+    "sources": {
+      "play": {
+        "file": "<capture-copy>/final-out/play-4k.mkv",
+        "fps": 30,
+        "sha256": "a8110651d9171bc588068533b7afd1684bea6ca9af4ae1cbb0994d3cd9755907"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B13.mp4",
+    "sha256": "9a3f465758e07b414f44c1f2eef52579a75ecba1fd19c7f98554be80d3135642"
+  },
+  "B15": {
+    "segments": [
+      {
+        "src": "play",
+        "a": 617,
+        "b": 1084,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+        "quote_pos": "bottom-right",
+        "quote_width": 2400,
+        "quote": [
+          [
+            "PASS  5 shot 1 (e1, from idle, row 222): on the arrow's first frame (game frame 12) clip position - arrow t = DRAW_LEAD 0.2 within half a frame  (0.20000)",
+            "mono"
+          ],
+          [
+            "test_anim_states.gd, 60 fps · evidence/a7/step5/test_anim_states_60fps.log",
+            true
+          ]
+        ]
+      },
+      {
+        "src": "play",
+        "a": 1084,
+        "b": 1180,
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio"
+      }
+    ],
+    "n_frames": 563,
+    "duration_s": "563/30",
+    "sources": {
+      "play": {
+        "file": "<capture-copy>/final-out/play-4k.mkv",
+        "fps": 30,
+        "sha256": "a8110651d9171bc588068533b7afd1684bea6ca9af4ae1cbb0994d3cd9755907"
+      }
+    },
+    "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER / main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+    "path": "media/B15.mp4",
+    "sha256": "e89322f9f576796c8e04ebcc2c1786fa2d50cb687ba98ee636bf51c84739c37b"
+  }
+}

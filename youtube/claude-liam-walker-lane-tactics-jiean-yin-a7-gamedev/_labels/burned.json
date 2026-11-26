@@ -1,0 +1,24 @@
+{
+  "B00": {
+    "text": "Illustrative reconstruction of the Claude interface — not a transcript",
+    "box_4k": [
+      1138,
+      1860,
+      2701,
+      1950
+    ],
+    "unlabelled_sha256": "55133017dbbf594fa6887c92a108b650e8413519ac81e7c0ddf34e0acc0981be",
+    "labelled_sha256": "f7dff574e2bad11855852d4966f0b15c5ce17fc25eb9e24b1a5c5423c1390e95"
+  },
+  "BHTF": {
+    "text": "Reconstructed interface · suggested prompt, not a past run",
+    "box_4k": [
+      1230,
+      1860,
+      2609,
+      1950
+    ],
+    "unlabelled_sha256": "6eab476e50b615ee44b19a5d378c55ca3db52220f4ecef5311ea09be06297dcd",
+    "labelled_sha256": "9d6663dc5657f47f79d356237da747a4a72b54ddbedcf5029b47dc0df042b33e"
+  }
+}

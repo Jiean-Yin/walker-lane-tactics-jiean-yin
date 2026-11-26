@@ -1,0 +1,1578 @@
+{
+  "metadata": {
+    "title": "Lane Tactics: A Waving Flag and a Committed Shot",
+    "slug": "claude-liam-walker-lane-tactics-jiean-yin-a7-gamedev",
+    "topic": "WALKER · GODOT GAMEDEV",
+    "kind": "godot-gamedev",
+    "skill": "godot-gamedev",
+    "modifier": "walker",
+    "brand": "claude-liam",
+    "audience": "Course reviewers and makers following Walker/Claude workflows",
+    "register": "Teardown",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "aspect_ratio": "16:9",
+    "fit": "crop",
+    "captions": false,
+    "channel": "@NikBearBrown",
+    "folderLabel": "@NikBearBrown",
+    "greeting": "Hello, Liam",
+    "persona": "Liam (in for Bear)",
+    "presenter": "Liam (in for Bear)",
+    "in_for_bear": true,
+    "script_status": "approved by Jiean on 2026-11-26 ('Approve as is', SCRIPT-DRAFT.md); quotes verbatim from tag a7",
+    "pronunciation_note": "Narration spells Jiean as 'Jay-Ann' for the voice only. Screen text keeps 'Jiean'.",
+    "teaching_contract": "code-then-result-v1",
+    "game": {
+      "name": "walker-lane-tactics-jiean-yin",
+      "repository": "https://github.com/Jiean-Yin/walker-lane-tactics-jiean-yin",
+      "source_revision": "tag a7 = 37c4698 (tree dd91e92)",
+      "engine": "Godot 4.7.2.stable.official.ed1daf0bf",
+      "renderer": "Compatibility"
+    },
+    "audio_policy_note": "Narration only. Engine captures carry no audio track in the film; the outro card carries only Liam's voice.",
+    "labels": {
+      "engine": "SCRIPTED KEY PRESSES · REAL GODOT RENDER",
+      "slow": "¼ SPEED · captured at 120 fps",
+      "fixture": "FIXTURE · Jiean's Movie Maker captures",
+      "reconstruction": "Illustrative reconstruction of the Claude interface — not a transcript",
+      "editor": "Godot editor reconstruction (printed by GodotDevWorkbench)",
+      "headless": "HEADLESS CHECK OUTPUT · recorded reports, no rendering"
+    },
+    "build": {
+      "at": "2026-11-26T00:49:33",
+      "cut": "master",
+      "filled": 26,
+      "of": 26,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "narration_text": "Hello, this is Liam, in for Bear. Jay-Ann Yin's game is Lane Tactics: archers on a five-lane board, where you win by reaching the enemy's back row. This assignment adds two animations: a flag that loops, and a shot that commits. The prompt on screen is an illustrative reconstruction.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on",
+        "label": "Illustrative reconstruction of the Claude interface — not a transcript",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hello, Liam",
+            "topic": "WALKER · GODOT GAMEDEV",
+            "segment": "A Waving Flag and a Committed Shot",
+            "command": "Please use Walker to convert my game design document about Lane Tactics — archers on a five-lane board, simultaneous orders, win by reaching the enemy's back row — into two animations: a goal flag that waves from a sprite sheet, and an archer's shot that moves a rig through startup, active and recovery. Test both, and show me what a headless run cannot.",
+            "runningText": "reading CHANGE-BRIEF.md…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "High",
+            "output": [
+              "test_flag_readback 43/43 · test_shoot_readback 51/51",
+              "test_anim_states 51/51 · test_shoot_edges 102/102 at 60 fps",
+              "Source shown: tag a7"
+            ],
+            "durationSeconds": 16.066666666666666
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-11-26T05:19:16.915756+00:00"
+          }
+        }
+      },
+      "role_note": "walker B00: ClaudeComposerAsk; prompt begins 'Please use Walker to convert my game design document about'; illustrative reconstruction, labelled. Result lines are recorded numbers (TEST-REPORT A7.3-A7.5).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B00-timed.wav",
+      "actual_duration_s": 16.066666666666666,
+      "voice_duration_s": 16.064,
+      "lead_silence_s": 0.0,
+      "clip_frames": 482,
+      "duration_note": "voice 16.064s + lead 0.0s, padded with silence to 482 frames = 482/30 s",
+      "render_duration_s": 16.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "lead_silence_s": 0.8,
+      "narration_text": "Two animations: a flag that waves, and a shot with three phases. Every key is a time, but the timing was designed in frames, sixty to the second, and only then turned into keys.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on-correct",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Two animations for Lane Tactics:\na flag that waves,\nan archer that shoots.\nSeconds decide the timing.",
+            "triggerWords": "Seconds",
+            "replacementWords": "Frames",
+            "fontSize": 80,
+            "lineSpacing": 2.2,
+            "align": "center",
+            "seed": "lane-tactics-a7-1126",
+            "mistakeRate": 2,
+            "hesitateWithin": 0,
+            "hesitateBetween": 1,
+            "charMs": 8,
+            "ink": "#3D3929",
+            "accent": "#D97757",
+            "bg": "#FAF9F5",
+            "durationSeconds": 12.8
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-11-26T05:21:09.490947+00:00"
+          }
+        }
+      },
+      "role_note": "walker B01: hesitant-writer summary; 'Seconds decide' -> 'Frames decide' is the film's point (feel designed in frames).",
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "Hesitant-writer BLUF bookend: centred serif lines typed on cream."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B01-timed.wav",
+      "actual_duration_s": 12.8,
+      "voice_duration_s": 10.475,
+      "clip_frames": 384,
+      "duration_note": "voice 10.475s + lead 0.8s, padded with silence to 384 frames = 384/30 s",
+      "render_duration_s": 12.8,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "SETUP",
+      "narration_text": "One clip loops, one commits. The flag tells a new player where the goal is. It's a found sheet, played by a frame track. The shot tells you who is shooting, and when: a rig of three parts cut from the archer's drawing, moved by keys. Startup, active, recovery: twelve, twenty-one and fifteen frames.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B02",
+        "label": ""
+      },
+      "role_note": "Setup: the two clips, their jobs, routes, the sheet's licence, the phase lengths (CHANGE-BRIEF §1, §4).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B02-timed.wav",
+      "actual_duration_s": 16.466666666666665,
+      "voice_duration_s": 15.851,
+      "lead_silence_s": 0.0,
+      "clip_frames": 494,
+      "duration_note": "voice 15.851s + lead 0.0s, padded with silence to 494 frames = 494/30 s",
+      "render_duration_s": 16.466666666666665,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B02.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "CODE",
+      "narration_text": "A clip is a list of keys, not a movie. This one keys a single integer: the sprite's frame, line seventeen. Four keys, an eighth of a second apart, and the step is one frame period at eight frames a second. The length is half a second, four intervals, so there's no key at the end: the last frame is three, and the wrap goes straight back to zero. Which picture is frame three? The slicing decides, not the image.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "wave.tres: a clip is a list of keys",
+            "project": "Lane Tactics",
+            "path": "res://animations/wave.tres",
+            "source": "godot/animations/wave.tres · lines 11–24 · tag a7",
+            "code": "length = 0.5\nloop_mode = 1\nstep = 0.125\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"FlagSprite:frame\")\ntracks/0/interp = 0\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 0.125, 0.25, 0.375),\n\"transitions\": PackedFloat32Array(1, 1, 1, 1),\n\"update\": 1,\n\"values\": [0, 1, 2, 3]",
+            "startLine": 11,
+            "codeFontSize": 23,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "flag_red.png",
+                "value": "500 × 249 → 4 × 1 cells of 125 × 249"
+              },
+              {
+                "label": "Seam rule",
+                "value": "no key at length"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 3 (b21c881)"
+              }
+            ],
+            "output": [
+              "Sheet: Flag Animation Sheet by Fokko, CC0"
+            ],
+            "durationSeconds": 20.066666666666666,
+            "cues": [
+              {
+                "at": 4.23,
+                "line": 17,
+                "label": "line 17: the track keys FlagSprite:frame"
+              },
+              {
+                "at": 5.01,
+                "line": 21,
+                "label": "line 21: keys at 0, 0.125, 0.25, 0.375 s"
+              },
+              {
+                "at": 7.15,
+                "line": 13,
+                "label": "line 13: step 0.125 = one frame at 8 fps"
+              },
+              {
+                "at": 9.83,
+                "line": 11,
+                "label": "line 11: length 0.5 = four intervals"
+              },
+              {
+                "at": 13.48,
+                "line": 24,
+                "label": "line 24: frames 0, 1, 2, 3; no key at length"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-11-26T05:23:16.597712+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "animations/wave.tres",
+        "start_line": 11,
+        "end_line": 24
+      },
+      "role_note": "wave frame track; code beat, result B04.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B03-timed.wav",
+      "actual_duration_s": 20.066666666666666,
+      "voice_duration_s": 20.053,
+      "lead_silence_s": 0.0,
+      "clip_frames": 602,
+      "duration_note": "voice 20.053s + lead 0.0s, padded with silence to 602 frames = 602/30 s",
+      "render_duration_s": 20.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B03.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "RESULT",
+      "narration_text": "The sheet as downloaded: four cells, left to right. In the game, the flag stands on the table beside the enemy's back row and ripples, about twice a second, from the title screen on. Jay-Ann watched it through more than five wraps: smooth, steady ripple.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "play",
+            "a": 0,
+            "b": 452,
+            "crop": [
+              2560,
+              880,
+              1280,
+              720
+            ],
+            "label": "CROPPED 3× · REAL GODOT RENDER|the GoalFlag beside the enemy's back row · main.tscn @ tag a7 · Movie Maker, 30 fps",
+            "inset": "sheet",
+            "quote_pos": "bottom-left",
+            "quote_width": 1500,
+            "quote": [
+              [
+                "Smooth steady ripple.",
+                false
+              ],
+              [
+                "Jiean, five or more wraps (TEST-REPORT A7.9)",
+                true
+              ]
+            ]
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B04.mp4"
+      },
+      "role_note": "Result of B03: play P0-P1 (title, turns 1-3, turn 4 orders), cropped 3× on the GoalFlag, with flag_red.png and its 4 × 1 grid inset; Jiean's A7.9 words.",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.3992,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill, top right). The region is the narrowest segment pill's exact extent, inside the label on every frame. Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B04-timed.wav",
+      "actual_duration_s": 15.066666666666666,
+      "lead_silence_s": 0.3,
+      "voice_duration_s": 13.589,
+      "clip_frames": 452,
+      "duration_note": "voice 13.589s + lead 0.3s, padded with silence to 452 frames = 452/30 s (clip length; no retiming)",
+      "render_duration_s": 15.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B04.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "CODE",
+      "narration_text": "Found sheets drift. In this one, the pole sits at a different place in each cell, by up to five pixels. Editing the sheet would make it a derivative. So a second track keys the sprite's offset, on the same four times: zero, minus four, minus two, plus one. The pole should stand still while the cloth moves.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "wave.tres: the registration fix",
+            "project": "Lane Tactics",
+            "path": "res://animations/wave.tres",
+            "source": "godot/animations/wave.tres · lines 26–36 · tag a7",
+            "code": "tracks/1/type = \"value\"\ntracks/1/imported = false\ntracks/1/enabled = true\ntracks/1/path = NodePath(\"FlagSprite:offset\")\ntracks/1/interp = 0\ntracks/1/loop_wrap = true\ntracks/1/keys = {\n\"times\": PackedFloat32Array(0, 0.125, 0.25, 0.375),\n\"transitions\": PackedFloat32Array(1, 1, 1, 1),\n\"update\": 1,\n\"values\": [Vector2(0, 0), Vector2(-4, 0), Vector2(-2, 0), Vector2(1, 0)]",
+            "startLine": 26,
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Pole's left edge",
+                "value": "x = 4, 8, 6, 3 in cells 0–3"
+              },
+              {
+                "label": "Offset.x",
+                "value": "0, −4, −2, +1 source px"
+              },
+              {
+                "label": "One writer",
+                "value": "the flag's AnimationPlayer"
+              }
+            ],
+            "output": [
+              "The sheet itself is never edited"
+            ],
+            "durationSeconds": 16.333333333333332,
+            "cues": [
+              {
+                "at": 7.93,
+                "line": 29,
+                "label": "line 29: FlagSprite:offset, discrete"
+              },
+              {
+                "at": 10.11,
+                "line": 33,
+                "label": "line 33: the same four times"
+              },
+              {
+                "at": 11.39,
+                "line": 36,
+                "label": "line 36: x = 0, −4, −2, +1"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": "2026-11-26T05:24:57.589702+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "animations/wave.tres",
+        "start_line": 26,
+        "end_line": 36
+      },
+      "role_note": "wave offset track; code beat, result B06.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B05-timed.wav",
+      "actual_duration_s": 16.333333333333332,
+      "voice_duration_s": 16.32,
+      "lead_silence_s": 0.0,
+      "clip_frames": 490,
+      "duration_note": "voice 16.320s + lead 0.0s, padded with silence to 490 frames = 490/30 s",
+      "render_duration_s": 16.333333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B05.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "RESULT",
+      "narration_text": "Thirteen frames, cropped from Jay-Ann's strip, with a line drawn at the pole. The cloth changes shape; the pole doesn't move. Its darkest column sits on the same screen pixel in all thirteen. Jay-Ann's check: the pole stands still while the cloth waves.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B06",
+        "label": "FIXTURE CROPS · 13 frames of Jiean's r1 strip · guide line drawn on the strip",
+        "evidence_media": "media/B06.mp4"
+      },
+      "role_note": "Result of B05: captures/flag_registration_r1.png (tag a7); Jiean's A7.11 words.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B06-timed.wav",
+      "actual_duration_s": 14.433333333333334,
+      "voice_duration_s": 13.611,
+      "lead_silence_s": 0.0,
+      "clip_frames": 433,
+      "duration_note": "voice 13.611s + lead 0.0s, padded with silence to 433 frames = 433/30 s",
+      "render_duration_s": 14.433333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B06.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "CODE",
+      "narration_text": "The read-back test reads the clip back against the brief. Line one seventy-three: every frame key has to be a cell the sheet actually has, fewer than horizontal times vertical frames. Why test that? A key for a cell that doesn't exist loads without a word.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "test_flag_readback.gd: frame range",
+            "project": "Lane Tactics",
+            "path": "res://tests/test_flag_readback.gd",
+            "source": "godot/tests/test_flag_readback.gd · lines 165–177 · tag a7",
+            "code": "\tvar n_cells: int = sprite.hframes * sprite.vframes\n\tvar inside: bool = not fk.is_empty()\n\tvar ints: bool = true\n\tvar values: Array[int] = []\n\tfor k: Array in fk:\n\t\tints = ints and typeof(k[1]) == TYPE_INT\n\t\tvar v: int = int(k[1])\n\t\tvalues.append(v)\n\t\tinside = inside and v >= 0 and v < n_cells\n\trep.check(\"every frame key is an int\", ints)\n\trep.check(\"every frame key is inside the sheet (0 <= frame < hframes x vframes = %d)\" % n_cells,\n\t\t\tinside, values)\n\trep.check(\"frame order 0, 1, 2, 3\", values == FRAME_ORDER, values)",
+            "startLine": 165,
+            "codeFontSize": 23,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Also checked",
+                "value": "discrete · step 0.125 · LOOP_LINEAR"
+              },
+              {
+                "label": "Result",
+                "value": "43/43 at 60 fps"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 3; guard by Claude Code"
+              }
+            ],
+            "output": [
+              "Key times compared within half a frame, never =="
+            ],
+            "durationSeconds": 14.366666666666667,
+            "cues": [
+              {
+                "at": 3.05,
+                "line": 173,
+                "label": "line 173: every key < hframes × vframes"
+              },
+              {
+                "at": 7.58,
+                "line": 165,
+                "label": "line 165: cells = hframes × vframes"
+              },
+              {
+                "at": 12.96,
+                "line": 175,
+                "label": "line 175: the frame-range check"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": "2026-11-26T05:26:21.268212+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "tests/test_flag_readback.gd",
+        "start_line": 165,
+        "end_line": 177
+      },
+      "role_note": "Flag read-back; code beat, result B08.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B07-timed.wav",
+      "actual_duration_s": 14.366666666666667,
+      "voice_duration_s": 14.336,
+      "lead_silence_s": 0.0,
+      "clip_frames": 431,
+      "duration_note": "voice 14.336s + lead 0.0s, padded with silence to 431 frames = 431/30 s",
+      "render_duration_s": 14.366666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B07.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "RESULT",
+      "narration_text": "Break it on purpose, in a throwaway copy. Key a fifth cell: the game would show a blank frame with no error, and the test fails on exactly that check. Turn the loop off: the flag would wave once and stop, and the loop-mode check fails. And on the first try, the fifth cell also crashed a later check in the test. That index is now guarded.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B08",
+        "label": "HEADLESS CHECK OUTPUT · recorded reports, no rendering",
+        "evidence_media": "media/B08.mp4"
+      },
+      "role_note": "Result of B07: mutations 2 and 3 (evidence/a7/step6/mutations/), exit 1 each.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B08-timed.wav",
+      "actual_duration_s": 18.3,
+      "voice_duration_s": 17.472,
+      "lead_silence_s": 0.0,
+      "clip_frames": 549,
+      "duration_note": "voice 17.472s + lead 0.0s, padded with silence to 549 frames = 549/30 s",
+      "render_duration_s": 18.3,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B08.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "SETUP",
+      "narration_text": "Feel is designed in frames. The game already fixes how long a shot takes: point two seconds to draw, point three five while the arrow flies, point two five to recover. At sixty frames a second: twelve, twenty-one, fifteen. Jay-Ann measured a slow-motion archer, frame by frame, to space the motion inside each phase. The real archer holds at full draw for longer than the whole of our shot. The game skips that. Jay-Ann put the bow drop at frame forty, by eye.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B09",
+        "label": ""
+      },
+      "role_note": "The phase table (CHANGE-BRIEF §4; revisions 1 and 4). The reference video is not shown.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B09-timed.wav",
+      "actual_duration_s": 23.933333333333334,
+      "voice_duration_s": 23.125,
+      "lead_silence_s": 0.0,
+      "clip_frames": 718,
+      "duration_note": "voice 23.125s + lead 0.0s, padded with silence to 718 frames = 718/30 s",
+      "render_duration_s": 23.933333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B09.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "CODE",
+      "narration_text": "The table becomes keys. Line thirty-three: the step is one sixtieth. The default is one thirtieth, and frame thirty-three falls between two of those. Line forty-one: a key at every boundary, each time a frame divided by sixty. Three tracks move the rig: the whole archer recoils, the upper body leans, and the bow turns at the hand.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "shoot.tres: keys from the phase table",
+            "project": "Lane Tactics",
+            "path": "res://animations/shoot.tres",
+            "source": "godot/animations/shoot.tres · lines 31–43 · tag a7",
+            "code": "length = 0.8\nloop_mode = 0\nstep = 0.0166667\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"Rig:position\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 0.2, 0.55, 0.666667, 0.8),\n\"transitions\": PackedFloat32Array(2, 0.5, 1, -2, 1),\n\"update\": 0,",
+            "startLine": 31,
+            "codeFontSize": 23,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Key time = frame ÷ 60",
+                "value": "f0 · f12 0.2 · f33 0.55 · f40 · f48 0.8"
+              },
+              {
+                "label": "Tracks",
+                "value": "Rig position · Upper and Bow rotation"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 4 (0e60554)"
+              }
+            ],
+            "output": [
+              "LOOP_NONE · 0.8 s = 48 frames at 60 fps"
+            ],
+            "durationSeconds": 18.033333333333335,
+            "cues": [
+              {
+                "at": 1.1,
+                "line": 33,
+                "label": "line 33: step = 1/60"
+              },
+              {
+                "at": 7.93,
+                "line": 41,
+                "label": "line 41: key times = frame ÷ 60"
+              },
+              {
+                "at": 12.11,
+                "line": 37,
+                "label": "line 37: track 0, Rig:position"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": "2026-11-26T05:27:41.888258+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "animations/shoot.tres",
+        "start_line": 31,
+        "end_line": 43
+      },
+      "role_note": "shoot keys; code beat, result B11.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B10-timed.wav",
+      "actual_duration_s": 18.033333333333335,
+      "voice_duration_s": 18.005,
+      "lead_silence_s": 0.0,
+      "clip_frames": 541,
+      "duration_note": "voice 18.005s + lead 0.0s, padded with silence to 541 frames = 541/30 s",
+      "render_duration_s": 18.033333333333335,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B10.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "RESULT",
+      "narration_text": "One shot at real speed, then at a quarter. Startup: the archer leans back and the bow comes up level. The arrow leaves. Active: the archer eases forward through the follow-through while the arrow flies. Recovery: a short hold after the hit, then the bow drops, and the archer is back in the idle pose. Jay-Ann's check: all distinct.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "play",
+            "a": 300,
+            "b": 380,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio"
+          },
+          {
+            "src": "slow",
+            "a": 200,
+            "b": 480,
+            "crop": [
+              384,
+              990,
+              1920,
+              1080
+            ],
+            "label": "¼ SPEED · CROPPED 2× · REAL GODOT RENDER|120 fps capture played at 30 · both archers · main.tscn @ tag a7"
+          },
+          {
+            "src": "play",
+            "a": 452,
+            "b": 617,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+            "quote_pos": "bottom-right",
+            "quote_width": 1900,
+            "quote": [
+              [
+                "All distinct. While drawing, the archer lean back with bows moving, and retreating clearly after the arrow flying away.",
+                false
+              ],
+              [
+                "Jiean, in play (TEST-REPORT A7.10)",
+                true
+              ]
+            ]
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B11.mp4"
+      },
+      "role_note": "Result of B10: play P2 (turn 4, e1's shot) at real speed, slow S2 (both turn-4 shots) at ¼ speed (2× crop), play P3 (turn 5) at real speed; Jiean's A7.10 words.",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.4836,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill, top right). The region is the narrowest segment pill's exact extent, inside the label on every frame. Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B11-timed.wav",
+      "actual_duration_s": 17.5,
+      "lead_silence_s": 0.3,
+      "voice_duration_s": 16.917,
+      "clip_frames": 525,
+      "duration_note": "voice 16.917s + lead 0.3s, padded with silence to 525 frames = 525/30 s (clip length; no retiming)",
+      "render_duration_s": 17.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B11.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "CODE",
+      "narration_text": "One authority: exactly one thing writes each animated node. The clip writes the rig's three pivots, and nothing else. Only the piece script starts it: when the pose becomes draw, line one thirteen looks up its clip, line one fifteen plays it, and line one sixteen applies frame zero at once. Line one twelve stops the last one first, so no old pose carries over. Facing lives one node up, so the clip and the script never touch the same node.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "piece.gd: one authority",
+            "project": "Lane Tactics",
+            "path": "res://game/piece.gd",
+            "source": "godot/game/piece.gd · lines 109–116 · tag a7",
+            "code": "func _apply_clip() -> void:\n\tif _rig_anim == null:\n\t\treturn\n\t_rig_anim.stop()\n\tvar clip: String = POSE_CLIPS.get(state, \"\")\n\tif clip != \"\" and _rig_mount.visible:\n\t\t_rig_anim.play(clip)\n\t\t_rig_anim.advance(0.0) # MANUAL mode: apply the frame-0 pose now (CLAUDE.md \"Headless facts\")",
+            "startLine": 109,
+            "codeFontSize": 28,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Rig, Upper, Bow",
+                "value": "written only by the clip"
+              },
+              {
+                "label": "Mount",
+                "value": "place, facing, visibility: piece.gd"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 5; plan approved by Jiean"
+              }
+            ],
+            "output": [
+              "POSE_CLIPS: draw → shoot; other poses → no clip"
+            ],
+            "durationSeconds": 22.7,
+            "cues": [
+              {
+                "at": 8.98,
+                "line": 113,
+                "label": "line 113: the pose's clip, from POSE_CLIPS"
+              },
+              {
+                "at": 10.88,
+                "line": 115,
+                "label": "line 115: play(clip)"
+              },
+              {
+                "at": 12.47,
+                "line": 116,
+                "label": "line 116: advance(0): frame 0 at once"
+              },
+              {
+                "at": 14.78,
+                "line": 112,
+                "label": "line 112: stop() first"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B12.mp4",
+            "at": "2026-11-26T05:29:20.236438+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "game/piece.gd",
+        "start_line": 109,
+        "end_line": 116
+      },
+      "role_note": "One authority; code beat, result B13.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B12-timed.wav",
+      "actual_duration_s": 22.7,
+      "voice_duration_s": 22.677,
+      "lead_silence_s": 0.0,
+      "clip_frames": 681,
+      "duration_note": "voice 22.677s + lead 0.0s, padded with silence to 681 frames = 681/30 s",
+      "render_duration_s": 22.7,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B12.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "RESULT",
+      "narration_text": "Now interrupt it. Pause in the startup, during the flight, and after the hit: each time, the archer holds mid-motion, and carries on from the same pose when unpaused. Press R in the middle of a shot: the archers are rebuilt, and nothing from the old shot comes back.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "play",
+            "a": 700,
+            "b": 1040,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio"
+          },
+          {
+            "src": "play",
+            "a": 1166,
+            "b": 1270,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio"
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B13.mp4"
+      },
+      "role_note": "Result of B12: play P4 (run 2 turn 4: P in e1's startup, in e1's active phase, in p1's recovery) and P5 (run 3: R in e1's active phase).",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.4724,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill, top right). The region is the narrowest segment pill's exact extent, inside the label on every frame. Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B13-timed.wav",
+      "actual_duration_s": 14.8,
+      "lead_silence_s": 0.5,
+      "voice_duration_s": 14.144,
+      "clip_frames": 444,
+      "duration_note": "voice 14.144s + lead 0.5s, padded with silence to 444 frames = 444/30 s (clip length; no retiming)",
+      "render_duration_s": 14.8,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B13.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "CODE",
+      "narration_text": "Two clocks. A player can advance on the process tick, or the physics tick, or not on its own at all. This one is manual. Line one eighty-two: the piece advances it by the game's own time, from inside the game's update. So when the game pauses, the clip stops. The flag's player is different: it runs on the process tick, in real time.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "piece.gd: the clip's clock",
+            "project": "Lane Tactics",
+            "path": "res://game/piece.gd",
+            "source": "godot/game/piece.gd · lines 170–182 · tag a7",
+            "code": "\t\tvar k: float = _hop_t / _hop_dur\n\t\tposition = _hop_from.lerp(_hop_to, k)\n\t\t_set_lift(HOP_HEIGHT * sin(PI * k))\n\tif _hurt_left > 0.0:\n\t\t_hurt_left -= dt\n\t\tif _hurt_left <= 0.0 and state == \"hurt\":\n\t\t\tset_state(\"idle\")\n\tif _recover_left > 0.0:\n\t\t_recover_left -= dt\n\t\tif _recover_left <= 0.0 and state == \"recover\":\n\t\t\tset_state(\"idle\")\n\tif _rig_anim != null and _rig_anim.is_playing():\n\t\t_rig_anim.advance(dt) # game time: stops while paused, scales with time_scale",
+            "startLine": 170,
+            "codeFontSize": 23,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "shoot",
+                "value": "MANUAL · advance(dt), game time"
+              },
+              {
+                "label": "wave",
+                "value": "IDLE · process tick, real time"
+              },
+              {
+                "label": "tick()",
+                "value": "not while paused (main.gd:166)"
+              }
+            ],
+            "output": [
+              "Gameplay reads _arrows on the process tick; no physics tick"
+            ],
+            "durationSeconds": 17.266666666666666,
+            "cues": [
+              {
+                "at": 6.04,
+                "line": 182,
+                "label": "line 182: advance(dt), the game's time"
+              },
+              {
+                "at": 11.1,
+                "line": 181,
+                "label": "line 181: only while the clip plays"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B14.mp4",
+            "at": "2026-11-26T05:40:29.729974+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "game/piece.gd",
+        "start_line": 170,
+        "end_line": 182
+      },
+      "role_note": "Two clocks; code beat, result B15.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B14-timed.wav",
+      "actual_duration_s": 17.266666666666666,
+      "voice_duration_s": 17.237,
+      "lead_silence_s": 0.0,
+      "clip_frames": 518,
+      "duration_note": "voice 17.237s + lead 0.0s, padded with silence to 518 frames = 518/30 s",
+      "render_duration_s": 17.266666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B14.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "RESULT",
+      "narration_text": "Paused: the archers freeze, the flag keeps waving. That's by design: wind isn't part of the game. And the two clocks agree to within a frame. On the arrow's first frame, the clip is exactly point two seconds ahead of the arrow: one sixtieth of a second ahead of the cue clock, because it advances right after the cue, in the same frame. No physics tick anywhere.",
+      "shot": {
+        "type": "VIDEO",
+        "source": "own",
+        "treatment": "none",
+        "segments": [
+          {
+            "src": "play",
+            "a": 617,
+            "b": 1084,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+            "quote_pos": "bottom-right",
+            "quote_width": 2400,
+            "quote": [
+              [
+                "PASS  5 shot 1 (e1, from idle, row 222): on the arrow's first frame (game frame 12) clip position - arrow t = DRAW_LEAD 0.2 within half a frame  (0.20000)",
+                "mono"
+              ],
+              [
+                "test_anim_states.gd, 60 fps · evidence/a7/step5/test_anim_states_60fps.log",
+                true
+              ]
+            ]
+          },
+          {
+            "src": "play",
+            "a": 1084,
+            "b": 1180,
+            "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio"
+          }
+        ],
+        "label": "SCRIPTED KEY PRESSES · REAL GODOT RENDER|main.tscn @ tag a7, isolated copy · Movie Maker, 30 fps · no audio",
+        "evidence_media": "media/B15.mp4"
+      },
+      "role_note": "Result of B14: play P4 full frame (archers frozen, the flag waving while paused) and P5, with the recorded test_anim_states line burned in.",
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Real Godot render, edge to edge; reframing would misrepresent it.",
+        "contrast_regions": [
+          {
+            "label": "burned disclosure label",
+            "box": [
+              0.4755,
+              0.0509,
+              0.9609,
+              0.1269
+            ]
+          }
+        ],
+        "contrast_reason": "Real engine render; the essential text is our burned label (white/yellow on a dark green pill, top right). The region is the narrowest segment pill's exact extent, inside the label on every frame. Scene colours are not text."
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B15-timed.wav",
+      "actual_duration_s": 18.766666666666666,
+      "lead_silence_s": 0.3,
+      "voice_duration_s": 18.411,
+      "clip_frames": 563,
+      "duration_note": "voice 18.411s + lead 0.3s, padded with silence to 563 frames = 563/30 s (clip length; no retiming)",
+      "render_duration_s": 18.766666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B15.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "CODE",
+      "narration_text": "The rig's read-back resolves every track to a real node and property. It branches on track type: a 3D transform track names a bone, not a property, so a plain check would call every bone track broken. Here, a value track has to name a property the node really has, line ninety-nine.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "test_shoot_readback.gd: tracks resolve",
+            "project": "Lane Tactics",
+            "path": "res://tests/test_shoot_readback.gd",
+            "source": "godot/tests/test_shoot_readback.gd · lines 88–100 · tag a7",
+            "code": "\t\tmatch anim.track_get_type(i):\n\t\t\tAnimation.TYPE_VALUE, Animation.TYPE_BEZIER:\n\t\t\t\tif sub == \"\":\n\t\t\t\t\tout.append(\"track %d: no property in '%s'\" % [i, path])\n\t\t\t\t\tcontinue\n\t\t\t\tvar base: String = sub.get_slice(\":\", 0)\n\t\t\t\tvar found: bool = false\n\t\t\t\tfor p: Dictionary in node.get_property_list():\n\t\t\t\t\tif p[\"name\"] == base:\n\t\t\t\t\t\tfound = true\n\t\t\t\t\t\tbreak\n\t\t\t\tif not found:\n\t\t\t\t\tout.append(\"track %d: %s has no property '%s'\" % [i, node.get_class(), base])",
+            "startLine": 88,
+            "codeFontSize": 23,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Also checked",
+                "value": "keys f0/12/33/40/48 · step 1/60"
+              },
+              {
+                "label": "Result",
+                "value": "51/51 at 60 fps"
+              },
+              {
+                "label": "Written by",
+                "value": "agent 4 (0e60554)"
+              }
+            ],
+            "output": [
+              "track_problems() is a test helper, not Godot API"
+            ],
+            "durationSeconds": 16.366666666666667,
+            "cues": [
+              {
+                "at": 3.86,
+                "line": 88,
+                "label": "line 88: match on the track type"
+              },
+              {
+                "at": 11.79,
+                "line": 89,
+                "label": "line 89: value and bezier tracks"
+              },
+              {
+                "at": 15.16,
+                "line": 99,
+                "label": "line 99: no such property → reported"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B16.mp4",
+            "at": "2026-11-26T05:31:51.602546+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "tests/test_shoot_readback.gd",
+        "start_line": 88,
+        "end_line": 100
+      },
+      "role_note": "Rig read-back; code beat, result B17.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B16-timed.wav",
+      "actual_duration_s": 16.366666666666667,
+      "voice_duration_s": 16.341,
+      "lead_silence_s": 0.0,
+      "clip_frames": 491,
+      "duration_note": "voice 16.341s + lead 0.0s, padded with silence to 491 frames = 491/30 s",
+      "render_duration_s": 16.366666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B16.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B17",
+      "act": "RESULT",
+      "narration_text": "Rename one property in the clip, a single letter, and in the game the upper body would just stop leaning. No error, no warning: a track that points at nothing is silently inert. The read-back names the track and the missing property. Mutation four empties the import cache, and this one passes, as predicted: the rig is keyed in text, so no import setting can be lost.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B17",
+        "label": "HEADLESS CHECK OUTPUT · recorded reports, no rendering",
+        "evidence_media": "media/B17.mp4"
+      },
+      "role_note": "Result of B16: mutations 1 and 4 (evidence/a7/step6/mutations/).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B17-timed.wav",
+      "actual_duration_s": 19.533333333333335,
+      "voice_duration_s": 18.709,
+      "lead_silence_s": 0.0,
+      "clip_frames": 586,
+      "duration_note": "voice 18.709s + lead 0.0s, padded with silence to 586 frames = 586/30 s",
+      "render_duration_s": 19.533333333333335,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B17.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B18",
+      "act": "CODE",
+      "narration_text": "Strips are where the motion gets judged. Jay-Ann watched the first strip before Claude read it, and wrote: the bow seems to leave the archer's hand. Claude found why: the bow turns at the hand, but the rig cuts the drawing at one column, so the forearm and the string stay behind. One change: the bow's last key, line sixty-eight, from twenty degrees to eight.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "shoot.tres: the bow key, tuned",
+            "project": "Lane Tactics",
+            "path": "res://animations/shoot.tres",
+            "source": "godot/animations/shoot.tres · lines 61–68 · tag a7",
+            "code": "tracks/2/path = NodePath(\"Rig/Upper/Bow:rotation\")\ntracks/2/interp = 1\ntracks/2/loop_wrap = true\ntracks/2/keys = {\n\"times\": PackedFloat32Array(0, 0.2, 0.55, 0.666667, 0.8),\n\"transitions\": PackedFloat32Array(2, 0.5, 1, -2, 1),\n\"update\": 0,\n\"values\": [0.20944, 0.0, 0.0, 0.0, 0.139626]",
+            "startLine": 61,
+            "codeFontSize": 30,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Tuning r1",
+                "value": "bow's frame-48 key 20° → 8°"
+              },
+              {
+                "label": "Approved by",
+                "value": "Jiean: \"Approve r1\""
+              },
+              {
+                "label": "Read-back",
+                "value": "expected values follow the brief"
+              }
+            ],
+            "output": [
+              "One change per revision; prediction before the edit"
+            ],
+            "durationSeconds": 18.0,
+            "cues": [
+              {
+                "at": 8.14,
+                "line": 61,
+                "label": "line 61: Rig/Upper/Bow:rotation"
+              },
+              {
+                "at": 15.44,
+                "line": 68,
+                "label": "line 68: last key 0.139626 rad = 8° (was 20°)"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B18.mp4",
+            "at": "2026-11-26T05:33:10.468277+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "animations/shoot.tres",
+        "start_line": 61,
+        "end_line": 68
+      },
+      "role_note": "Tuning r1; code beat, result B19.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B18-timed.wav",
+      "actual_duration_s": 18.0,
+      "voice_duration_s": 17.984,
+      "lead_silence_s": 0.0,
+      "clip_frames": 540,
+      "duration_note": "voice 17.984s + lead 0.0s, padded with silence to 540 frames = 540/30 s",
+      "render_duration_s": 18.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B18.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B19",
+      "act": "RESULT",
+      "narration_text": "Revision zero above, revision one below. Up to frame twenty-nine, not one pixel changed. In the drop, the gap at the hand closes to about a pixel. Claude had worried that eight degrees might be too small to see. Jay-Ann watched it in the game, and disagreed: the bow stays in the hand, and the lowering is still clear. Kept.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B19",
+        "label": "FIXTURE · shoot_preview.tscn · Jiean's Movie Maker captures, 30 fps",
+        "evidence_media": "media/B19.mp4"
+      },
+      "role_note": "Result of B18: captures/shoot/r0 and r1, bow hand at 6×, frames 15, 29, 31, 33; Jiean's words.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B19-timed.wav",
+      "actual_duration_s": 18.0,
+      "voice_duration_s": 17.173,
+      "lead_silence_s": 0.0,
+      "clip_frames": 540,
+      "duration_note": "voice 17.173s + lead 0.0s, padded with silence to 540 frames = 540/30 s",
+      "render_duration_s": 18.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B19.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B20",
+      "act": "CODE",
+      "narration_text": "Edges. At every boundary of the table, frames zero, twelve, thirty-three and forty-eight, three interrupts, P, R and Enter, each arriving one frame before, on, and after. Thirty-six cases, and each one first proves its key landed on the frame it was aimed at.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "test_shoot_edges.gd: every boundary",
+            "project": "Lane Tactics",
+            "path": "res://tests/test_shoot_edges.gd",
+            "source": "godot/tests/test_shoot_edges.gd · lines 29–38 · tag a7",
+            "code": "\nconst MAX_FRAMES: int = 20000\nconst BOUNDARIES: Array[int] = [0, 12, 33, 48] ## phase-table frames (CHANGE-BRIEF §4)\nconst OFFSETS: Array[int] = [-1, 0, 1]\nconst INTERRUPTS: Array[String] = [\"P\", \"R\", \"Enter\"]\nconst SHOT1: Array[int] = [12, 32, 47] ## pinned e1 turn-4 shot: arrow, impact, idle (test_pins_a7.gd)\nconst PAUSE_FRAMES: int = 10\nconst AFTER_R_FRAMES: int = 60\nconst STEP: float = 1.0 / 60.0\nconst TOL: float = 0.5 / 60.0",
+            "startLine": 29,
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes · not Inspector values",
+            "notes": [
+              {
+                "label": "Cases",
+                "value": "4 boundaries × 3 offsets × 3 keys"
+              },
+              {
+                "label": "Result",
+                "value": "102/102 at 60 fps"
+              },
+              {
+                "label": "Written by",
+                "value": "Claude Code (ab95468)"
+              }
+            ],
+            "output": [
+              "Keys go in through Input.parse_input_event"
+            ],
+            "durationSeconds": 14.333333333333334,
+            "cues": [
+              {
+                "at": 1.96,
+                "line": 31,
+                "label": "line 31: boundaries 0, 12, 33, 48"
+              },
+              {
+                "at": 5.77,
+                "line": 33,
+                "label": "line 33: the three interrupts"
+              },
+              {
+                "at": 7.43,
+                "line": 32,
+                "label": "line 32: offsets −1, 0, +1"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B20.mp4",
+            "at": "2026-11-26T05:34:15.127908+00:00"
+          }
+        }
+      },
+      "excerpt": {
+        "path": "tests/test_shoot_edges.gd",
+        "start_line": 29,
+        "end_line": 38
+      },
+      "role_note": "Edge tests; code beat, result B21.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B20-timed.wav",
+      "actual_duration_s": 14.333333333333334,
+      "voice_duration_s": 14.315,
+      "lead_silence_s": 0.0,
+      "clip_frames": 430,
+      "duration_note": "voice 14.315s + lead 0.0s, padded with silence to 430 frames = 430/30 s",
+      "render_duration_s": 14.333333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B20.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "B21",
+      "act": "RESULT",
+      "narration_text": "One hundred two out of one hundred two. Two findings on the way. One frame before the draw, the game is still waiting for the attack order: there, Enter is the order itself, so the first version of the test was wrong, and was fixed to match the game. And the game's own cues land a frame early or late, so the end pose shows for zero or two frames. Game timing was out of scope, so that stays as it is. None of this draws a single pixel.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py B21",
+        "label": "HEADLESS CHECK OUTPUT · recorded reports, no rendering",
+        "evidence_media": "media/B21.mp4"
+      },
+      "role_note": "Result of B20: test_shoot_edges 102/102 and the pins (evidence/a7/step6, evidence/a7/pins).",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B21-timed.wav",
+      "actual_duration_s": 21.8,
+      "voice_duration_s": 20.992,
+      "lead_silence_s": 0.0,
+      "clip_frames": 654,
+      "duration_note": "voice 20.992s + lead 0.0s, padded with silence to 654 frames = 654/30 s",
+      "render_duration_s": 21.8,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B21.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "BCRD",
+      "act": "CREDITS",
+      "narration_text": "Who did what. Jay-Ann chose both clips, the sheet and the reference, measured its frames, wrote the phase table, the predictions and the answers, captured every strip, and judged every one, including the human checks. Claude agents, working from the brief, wrote the clips, the read-backs and the wiring. Claude Code reviewed them, wrote the pins, the edge tests and the preview, and made the one tuning change Jay-Ann approved. Caught on the way: a recovery split that fell outside the clip, a capture folder that didn't exist, and an author email in a transcript, removed before anything was pushed. The flag sheet is by Fokko, CC0. Source shown: tag a7.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "treatment": "none",
+        "motion": "hold",
+        "composite": "tools/make_media.py BCRD",
+        "label": ""
+      },
+      "role_note": "Human and AI contributions (SOURCES.md A7), mistakes caught (FRICTIONAL A7), the sheet's licence.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BCRD-timed.wav",
+      "actual_duration_s": 34.666666666666664,
+      "voice_duration_s": 34.063,
+      "lead_silence_s": 0.0,
+      "clip_frames": 1040,
+      "duration_note": "voice 34.063s + lead 0.0s, padded with silence to 1040 frames = 1040/30 s",
+      "render_duration_s": 34.666666666666664,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BCRD.mp4",
+        "filled_by": "media",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "VERDICT",
+      "narration_text": "Verdict. Checked: every track resolves, every key sits on its frame, both loop modes and the frame range are pinned, three mutations fail their tests and the fourth passes for the right reason, the pins didn't move, and a hundred and two edge cases hold. Wrong: where Claude's rig cut the drawing, which split the bow from the hand at twenty degrees, and a frame-before-the-draw assumption in a test. Uncertain: why the game's cues land a frame off, and the recoil, still about a pixel and a half on screen. In Jay-Ann's words: every test was followed by a human check. Next: make the release readable.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "artifact-reveal",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Two Lane Tactics animations at tag a7.",
+            "brandLabel": "@NikBearBrown",
+            "artifactLines": [
+              "Checked: read-backs 43/43 and 51/51 · mutations 1–3 exit 1, mutation 4 passes (keyed rig) · pins 29/29 unchanged · edges 102/102 at 60 fps.",
+              "Wrong: the rig's cut split the bow from the hand at 20° (tuned to 8°) · the edge test's first frame-before-the-draw assumption.",
+              "Uncertain: why the game's cues land ±1 frame · the recoil, about 1.5 screen px.",
+              "In Jiean's words: I chose and measured the exact number of adjustment, and predicted the possible failure to avoid. I approved most of the adjustments suggesstions by Claude. Every test were followed by my own human check.",
+              "Next step: make the release readable; predict it first."
+            ],
+            "durationSeconds": 31.133333333333333
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": "2026-11-26T05:36:28.810709+00:00"
+          }
+        }
+      },
+      "role_note": "Verdict: checked vs wrong vs uncertain vs human judgement vs next step.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BVDT-timed.wav",
+      "actual_duration_s": 31.133333333333333,
+      "voice_duration_s": 31.119,
+      "lead_silence_s": 0.0,
+      "clip_frames": 934,
+      "duration_note": "voice 31.119s + lead 0.0s, padded with silence to 934 frames = 934/30 s",
+      "render_duration_s": 31.133333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BVDT.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "HANDOFF",
+      "narration_text": "Your turn. One key, and a prediction first. Here's a prompt to start with: raise the recoil at frame thirty-three from six to eighteen pixels in the art; before changing anything, predict how far that moves on screen, and on which strip frames. Then capture a strip and compare. If the release still doesn't read, that isn't a failure. That's a finding. I'm Liam, in for Bear.",
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "type-on",
+        "label": "Reconstructed interface — suggested prompt, not a past run",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "WALKER · YOUR TURN",
+            "segment": "One Key, One Prediction",
+            "command": "In shoot.tres, change the recoil key at frame 33 from 6 to 18 pixels in the art. Before you change anything, help me predict how many screen pixels that is at the rig's scale, and which strip frames should show it. Then I'll capture a strip and we compare.",
+            "runningText": "paste this into Claude…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "High",
+            "durationSeconds": 17.966666666666665
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": "2026-11-26T05:37:47.498696+00:00"
+          }
+        }
+      },
+      "role_note": "Your Turn: one bounded change + prediction + strip; Liam signs off.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BHTF-timed.wav",
+      "actual_duration_s": 17.966666666666665,
+      "voice_duration_s": 17.963,
+      "lead_silence_s": 0.0,
+      "clip_frames": 539,
+      "duration_note": "voice 17.963s + lead 0.0s, padded with silence to 539 frames = 539/30 s",
+      "render_duration_s": 17.966666666666665,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BHTF.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-11-26T00:49:33"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "OUTRO",
+      "kind": "outro_voice",
+      "role_note": "OUTRO-LOCK: ClaudeTitleOutro, exact title, @NikBearBrown, slug-seeded mascot, no subline. Spoken, never scored; 1.0 s silent tail.",
+      "narration_text": "Lane Tactics: A Waving Flag and a Committed Shot. At Nik Bear Brown.",
+      "tail_hold_s": 1.0,
+      "shot": {
+        "type": "GRAPHIC",
+        "class": "SHOW",
+        "source": "remotion",
+        "motion": "mascot-title",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Lane Tactics: A Waving Flag and a Committed Shot.",
+            "slug": "claude-liam-walker-lane-tactics-jiean-yin-a7-gamedev",
+            "handle": "@NikBearBrown",
+            "subline": "",
+            "durationSeconds": 5.733333333333333
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": "2026-11-26T05:38:17.770851+00:00"
+          }
+        }
+      },
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BOUT-timed.wav",
+      "actual_duration_s": 5.733333333333333,
+      "voice_duration_s": 4.715,
+      "lead_silence_s": 0.0,
+      "clip_frames": 172,
+      "duration_note": "voice 4.715s + lead 0.0s, padded with silence to 172 frames = 172/30 s",
+      "render_duration_s": 5.733333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BOUT.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-11-26T00:49:33"
+      }
+    }
+  ]
+}

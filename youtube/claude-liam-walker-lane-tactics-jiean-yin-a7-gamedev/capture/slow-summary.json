@@ -1,0 +1,27 @@
+{
+	"engine_frames": 983,
+	"failed": "",
+	"fps": 120,
+	"master": "slow-4k.mkv (FFV1 lossless, bgr0, 120 fps)",
+	"master_frames": 640,
+	"mode": "slow",
+	"notes": [
+		"OK: slow: 2 shots"
+	],
+	"shots": [
+		{
+			"master_frames": [
+				0,
+				640
+			],
+			"seconds": "640/120",
+			"shot": "S2_turn4_two_shots",
+			"what": "turn 4 at 120 fps (the film plays it at 30 = 1/4 speed)"
+		}
+	],
+	"shots_seen": 2,
+	"subviewport": [
+		3840,
+		2160
+	]
+}
