@@ -210,3 +210,20 @@ mkdir -p captures/shoot/r0
 7. If your rig is imported: where does loop mode have to live so that a reimport keeps it, and how will you prove it survived an empty import cache? **Keyed rig: loop mode lives in the resource text (not imported). If imported: in the .import per-animation settings. Prove via mutation 4 (delete godot/.godot, --import, read-back); keyed rig survives.**
 
 ## Revisions
+
+### Revision 1, 2026-11-25 (pins; drafted by Claude from the measurements in `evidence/a7/pins/test_pins_a7_60fps.log`)
+
+1. **Phase boundaries land ±1 frame from the table.**
+   - **The table says** (§4): the impact on frame 33, and the attacker back to `idle` on frame 48.
+   - **Measured at 60 fps,** for the three shots of the win route, counted in game frames after the draw frame:
+     - arrow: 12, 12, 12;
+     - impact: **32, 34, 32**;
+     - idle: **47, 49, 47**;
+     - `_arrows` empty again: 32, 32, 32;
+     - turn 4's two shots start **62** frames apart, not 63.
+   - **Why** (an inference, not measured): each cue fires on the first frame where the summed 1/60 s game clock reaches its time (`main.gd:193-196`). So 0.55 s and 0.8 s fall one frame either side of 33 and 48.
+   - **Consequences for wiring:**
+     - The `shoot` clip is 48 frames long. When `idle` comes on frame 47, its last frame is never shown; when it comes on frame 49, the end pose holds one frame.
+     - The edge tests use these measured frames.
+     - Game timing stays out of scope, so the table is not changed.
+2. **Turns 1–3 of the win route skip `PLAN_ATTACK`,** because no target is in range. **The `hop` pose never shows,** because there is no hop image, so a hop draws `idle` (`piece.gd:16`, `:115-116`). §5's `hop` row describes the code path, not what is seen.
