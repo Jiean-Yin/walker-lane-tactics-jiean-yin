@@ -49,6 +49,34 @@ Strip frames 9, 10, 15, 16, 20, 25, 26, 29, 30, 31, 32, 33 and 34, with the clip
 
 Issues 2 and 3 are left for later revisions, one change at a time.
 
+## r1: bow's frame-48 key 20° → 8° (CHANGE-BRIEF revision 4, commit `f05c97e`)
+
+**The change** (approved by Jiean: "Approve r1"): in `shoot.tres`, the bow's last key goes from 20° to 8°. Nothing else changed.
+
+**Claude's prediction** (from the r0 entry above, written before the change):
+- In frames 30–33 the bow still visibly tips, by less than half as much.
+- The step in the forearm and the string gap shrink to about 1–1.5 screen px.
+- The stray dash stays, shorter.
+- Frames 10–29 and 34 are unchanged.
+
+**Claude's comparison** (fixture; r0 and r1 crops of the bow hand at 6×, plus a pixel count in the archer's area):
+
+| Frame | Pixels that differ, r0 vs r1 | What changed |
+|---|---|---|
+| 10, 15, 20, 29 | **0** | nothing, as predicted |
+| 31, 32, 33 | 410, 458, 456 | the bow tips less. The string's top segment now almost meets the bow tip, and the step in the forearm is about 1 px. **The stray dash under the bow is no longer visible as a separate mark** at frame 33; it now sits on the bow's lower tip. |
+
+- **Against the prediction:** frames 10–29 matched, and so did the smaller gaps. The dash did better than predicted: I said "shorter", and it no longer shows separately. The defect is still in the rig (the legs part's region still holds the bow's lower tip); at 8° it just hides under the tip.
+- **Whether the bow still visibly tips at normal speed is a question for your eyes.** At 8° the tip moves about 2–3 screen px over four frames.
+
+**What I saw** (Jiean, the preview at normal speed and at `--time-scale 0.25`, and in the running game): **TO FILL**
+
+> *Hint (Claude):* Compare with your r0 note. Does the bow still look like it leaves the hand? Can you still see the bow lowering at the end at all, or did it become too small? Watch two or three shots in the running game (turn 4 has both archers shooting), not only the preview.
+
+**My verdict** (Jiean: keep r1, revert it, or what to try next): **TO FILL**
+
+> *Hint (Claude):* One line is enough, for example "keep: the bow stays in the hand" or "revert: the drop is gone". If you want another revision, say what you saw, not the fix. The candidates from r0 were the release being too small to see (recoil about 1.5 px) and the rig's leftover dash. The assignment needs at least one revision driven by what you saw in play; r1 already is one.
+
 # Assignment 6 — particle effects
 
 One entry per tuning revision, oldest first, in the format the assignment gives. Every strip is a **fixture capture** from a preview scene (`godot/previews/`), rendered with Movie Maker at 30 fps by Jiean. Claude's reading of a strip is a claim; Jiean's verdict in the running game decides.

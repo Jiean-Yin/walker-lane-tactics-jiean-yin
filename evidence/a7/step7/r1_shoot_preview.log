@@ -1,0 +1,64 @@
+PREVIEW shoot: state PLAN_MOVE, trigger frame 10, back to idle 0.80 s later
+frame	pose	clip	clip_s	clip_frame60	rig_shown	sprite_shown
+0	idle		-	-	false	true
+1	idle		-	-	false	true
+2	idle		-	-	false	true
+3	idle		-	-	false	true
+4	idle		-	-	false	true
+5	idle		-	-	false	true
+6	idle		-	-	false	true
+7	idle		-	-	false	true
+8	idle		-	-	false	true
+9	idle		-	-	false	true
+PREVIEW frame 10: p1 -> draw (idle on frame 34)
+10	draw	shoot	0.0333	2.0	true	false
+11	draw	shoot	0.0667	4.0	true	false
+12	draw	shoot	0.1000	6.0	true	false
+13	draw	shoot	0.1333	8.0	true	false
+14	draw	shoot	0.1667	10.0	true	false
+15	draw	shoot	0.2000	12.0	true	false
+16	draw	shoot	0.2333	14.0	true	false
+17	draw	shoot	0.2667	16.0	true	false
+18	draw	shoot	0.3000	18.0	true	false
+19	draw	shoot	0.3333	20.0	true	false
+20	draw	shoot	0.3667	22.0	true	false
+21	draw	shoot	0.4000	24.0	true	false
+22	draw	shoot	0.4333	26.0	true	false
+23	draw	shoot	0.4667	28.0	true	false
+24	draw	shoot	0.5000	30.0	true	false
+25	draw	shoot	0.5333	32.0	true	false
+26	draw	shoot	0.5667	34.0	true	false
+27	draw	shoot	0.6000	36.0	true	false
+28	draw	shoot	0.6333	38.0	true	false
+29	draw	shoot	0.6667	40.0	true	false
+30	draw	shoot	0.7000	42.0	true	false
+31	draw	shoot	0.7333	44.0	true	false
+32	draw	shoot	0.7667	46.0	true	false
+33	draw		-	-	true	false
+PREVIEW frame 34: p1 -> idle
+34	idle		-	-	false	true
+35	idle		-	-	false	true
+36	idle		-	-	false	true
+37	idle		-	-	false	true
+38	idle		-	-	false	true
+39	idle		-	-	false	true
+40	idle		-	-	false	true
+41	idle		-	-	false	true
+42	idle		-	-	false	true
+43	idle		-	-	false	true
+44	idle		-	-	false	true
+45	idle		-	-	false	true
+46	idle		-	-	false	true
+47	idle		-	-	false	true
+48	idle		-	-	false	true
+49	idle		-	-	false	true
+50	idle		-	-	false	true
+51	idle		-	-	false	true
+52	idle		-	-	false	true
+53	idle		-	-	false	true
+54	idle		-	-	false	true
+55	idle		-	-	false	true
+56	idle		-	-	false	true
+57	idle		-	-	false	true
+58	idle		-	-	false	true
+59	idle		-	-	false	true
