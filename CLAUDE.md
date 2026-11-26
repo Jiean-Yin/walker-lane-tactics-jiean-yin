@@ -15,7 +15,7 @@ Every fact has a file reference. Line numbers are from commit `e08eb62` (A7 brie
 
 - **`wave` (cycle):** `Sprite2D` `FlagSprite` sliced `hframes = 4`, `vframes = 1`, keyed by an `AnimationPlayer` frame track plus a discrete `offset` track, autoplay, `ANIMATION_CALLBACK_MODE_PROCESS_IDLE`. Lives in a new prop `GoalFlag` added to `main.tscn` (`CHANGE-BRIEF.md` §1-3, §7). Sheet: `godot/assets/art/flag/flag_red.png`, 500 × 249, CC0 (`godot/assets/art/flag/ATTRIBUTION.md:5-19`).
 - **`shoot` (committing action):** cutout rig of plain `Node2D` pivots and `Sprite2D` parts cut by `region_rect` from `archer_draw.png` / `archer_draw_enemy.png`, keyed on `position` / `rotation`, no `Bone2D`. New scene `godot/game/archer_rig.tscn` (`Mount` → `Rig` → `Lower`, `Upper` → `UpperSprite`, `Bow` → `BowSprite`, plus `AnimationPlayer` with `root_node` = `Mount`), one instance per `piece.gd`, `ANIMATION_CALLBACK_MODE_PROCESS_MANUAL`, advanced by `piece.tick(dt)` (`CHANGE-BRIEF.md` §1, §4, §6).
-- **Clip resources:** `godot/animations/shoot.tres`, `wave.tres` (`CHANGE-BRIEF.md` §7). None of `godot/animations/`, `archer_rig.tscn`, `GoalFlag` or `godot/previews/shoot_preview.tscn` exists yet (Glob of `godot/`).
+- **Clip resources:** `godot/animations/shoot.tres`, `wave.tres` (`CHANGE-BRIEF.md` §7). All built since: `GoalFlag` at `godot/game/main.tscn` (instance of `goal_flag.tscn`), the rig instanced in `piece.gd` `setup()`, the fixture `godot/previews/shoot_preview.tscn` (brief revisions 1-4 record what was measured and tuned).
 - **Scenes the clips appear in:** the game `godot/game/main.tscn` (flag as a node; rig instanced at run time by each piece, pieces built by `main._build_pieces()` `main.gd:336-352`), and the fixture `godot/previews/shoot_preview.tscn` (`CHANGE-BRIEF.md` §9).
 
 ## Who owns the state machines
@@ -45,7 +45,7 @@ Usage `scripts/run-test.sh <test-file.gd> <fps|realtime> [timeout-seconds]` (`sc
 ./scripts/run-test.sh <file>.gd realtime 300        # realtime mode, longer timeout
 ```
 
-Existing list: `README.md:59-72`. Planned A7 files, all at 60 (`CHANGE-BRIEF.md` §8): `test_flag_readback.gd`, `test_shoot_readback.gd`, `test_pins_a7.gd`, `test_anim_states.gd`, `test_shoot_edges.gd`; none exists yet. Each suite writes `evidence/<name>-<unix time>.json` via `godot/tests/test_report.gd:2`. Existing tests press keys with `root.push_input()` (`test_exposed_tint.gd:52`, `test_hit_burst_state.gd:61`) and sample from a node with `process_priority` 1000 (`test_exposed_tint.gd:245`). Clean logs with `scripts/redact-paths.sh` before committing.
+A7 suites, all at 60 (`TEST-REPORT.md` A7.2-A7.5): `test_pins_a7.gd` 29/29, `test_flag_readback.gd` 43/43, `test_shoot_readback.gd` 51/51, `test_anim_states.gd` 51/51, `test_shoot_edges.gd` 102/102 (give it a 600 s timeout); A7 tests press keys with `Input.parse_input_event`. Each suite writes `evidence/<name>-<unix time>.json` via `godot/tests/test_report.gd:2`. Existing tests press keys with `root.push_input()` (`test_exposed_tint.gd:52`, `test_hit_burst_state.gd:61`) and sample from a node with `process_priority` 1000 (`test_exposed_tint.gd:245`). Clean logs with `scripts/redact-paths.sh` before committing.
 
 ## Headless facts (confirmed in review, 2026-11-25, throwaway probes under `--headless --fixed-fps 60` on 4.7.2)
 

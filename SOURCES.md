@@ -189,3 +189,41 @@ No image file was sourced, downloaded or generated. The particle textures (a 32 
 ## Tools (Assignment 6)
 
 Godot 4.7.2 (standard, Compatibility renderer; Movie Maker for the strips); Claude Code 2.1.316 with Claude Opus 5.5 (interactive session and `claude -p` agent sessions); Windows 11 Home 10.0.26200; NVIDIA GeForce RTX 3070 Ti Laptop GPU for the GPU price.
+
+# Assignment 7 — two animations
+
+## The sprite sheet
+
+**"Flag Animation Sheet"** by **Fokko**, https://opengameart.org/content/flag-animation-sheet, licence **CC0** (public domain; no credit required, credited anyway), checked 2026-11-25.
+- **File:** `godot/assets/art/flag/flag_red.png`, committed exactly as downloaded (SHA-256 `bbe98fe4…a5c4`).
+- **Credits file:** `godot/assets/art/flag/ATTRIBUTION.md`.
+- **Fixes:** the sheet is never edited. Its pole drift is fixed by a node offset track.
+
+## The reference video (measured only)
+
+"Archery in slow motion S01E010 BONUS: Ki Bo Bae (Coach Cam)", World Archery, https://youtu.be/9o0g6FQPhts.
+- **How it was used:** Jiean picked event frames from contact sheets drawn in the browser, for the proportions of the shot.
+- **Not copied:** no frame of it is committed or shown in the film, because it is under YouTube's standard licence.
+
+## Art reused from earlier assignments
+
+The rig's three parts are crops (`region_rect`) of the A2 archer draw art, `archer_draw.png` and `archer_draw_enemy.png`. The art files are unchanged. No generative image, sound or 3D model was used in Assignment 7.
+
+## Code and documents: who wrote what
+
+| Work | Written by |
+|---|---|
+| `CHANGE-BRIEF.md` | Jiean chose the clips, the sheet, the reference and its event frames. Jiean also wrote the cycle's frame rate, the recovery split (frame 40, chosen by eye), every prediction, the strip expectations and the seven answers. Claude drafted the wording and the project facts, measured the sheet and the art, and proposed the rig parts, key directions, flag place and drift fix, which Jiean accepted. Revisions 1–3 were drafted by Claude from measurements; revision 4 records Jiean's approved tuning change. |
+| `CLAUDE.md` | `claude -p` agent draft (`prompts/a7/prompt-1.txt`), reviewed by Claude Code (`8b9e326`) |
+| `godot/animations/wave.tres`, `godot/game/goal_flag.tscn`, `godot/tests/test_flag_readback.gd` | `claude -p` agent, session 3 (`prompt-3.txt`). The index guard was added by Claude Code after mutation 3. |
+| `godot/animations/shoot.tres`, `godot/game/archer_rig.tscn`, `godot/tests/test_shoot_readback.gd` | `claude -p` agent, session 4 (`prompt-4.txt`). The tuning r1 key and expected values were changed by Claude Code after Jiean's approval. |
+| `godot/game/piece.gd` (rig wiring), the `GoalFlag` node in `godot/game/main.tscn`, `godot/tests/test_anim_states.gd` | `claude -p` agent, session 5, plan then implement; plan approved by Jiean. `piece.rig_snapshot()` was added by Claude Code for the preview's log. |
+| `godot/tests/test_pins_a7.gd`, `godot/tests/test_shoot_edges.gd`, `godot/previews/shoot_preview.*` | Claude Code (main session) |
+| `scripts/run-test.sh` | The course's A7 wrapper; one local change by Claude Code (Godot from `$GODOT`) |
+| Frame strips in `captures/shoot/` | Rendered by Jiean (Movie Maker); crops and the flag registration strip by Claude Code |
+| First look and verdicts in `TUNING.md`, human checks in `TEST-REPORT.md`, judgment lines in `FRICTIONAL.md` | Jiean |
+| Strip readings, predictions and comparisons in `TUNING.md`, the rest of `TEST-REPORT.md`, `README.md`, `SOURCES.md`, `SUBMISSION.md`, the factual lines of `FRICTIONAL.md` | Claude Code, from the session record |
+
+## Tools (Assignment 7)
+
+Godot 4.7.2 (standard, Compatibility renderer; Movie Maker for the strips); Claude Code 2.1.316 with Claude Opus 5.5 (interactive session and `claude -p` agent sessions); the Claude desktop app's browser pane for the reference contact sheets; Windows 11 Home 10.0.26200.

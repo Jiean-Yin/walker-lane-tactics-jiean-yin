@@ -1,8 +1,8 @@
 # walker-lane-tactics-jiean-yin
 
-**Lane Tactics · Jiean Yin · current layer: Assignment 6 — Creating Particle Effects with Godot and Claude** (earlier layers below)
+**Lane Tactics · Jiean Yin · current layer: Assignment 7 — Doing Animation with Claude and Godot** (earlier layers below)
 
-*Lane Tactics* (working title): a turn-based, simultaneous-orders tactics game. Carved wooden pieces fight on a five-lane tabletop board, and you win by standing a piece on the enemy's back row. This is the one game I build all semester: each assignment adds a layer to this repository and is submitted as a git tag (`a3` for Assignment 3, `a5` for Assignment 5, `a6` for Assignment 6).
+*Lane Tactics* (working title): a turn-based, simultaneous-orders tactics game. Carved wooden pieces fight on a five-lane tabletop board, and you win by standing a piece on the enemy's back row. This is the one game I build all semester: each assignment adds a layer to this repository and is submitted as a git tag (`a3` for Assignment 3, `a5` for Assignment 5, `a6` for Assignment 6, `a7` for Assignment 7).
 
 **Started from:** an empty Godot 4.7.2 project (no code from walker-jumpman or my Assignment 1). The test-and-evidence practice and document set come from Assignment 1, which extended Nik Bear Brown's [walker-jumpman](https://github.com/nikbearbrown/walker-jumpman). See [SOURCES.md](SOURCES.md).
 
@@ -11,7 +11,7 @@
 | Godot | 4.7.2.stable.official.ed1daf0bf, standard build (not .NET), Compatibility renderer |
 | Blender | 5.2.2 LTS (the course chapter used 5.1.2); glTF 2.0 exporter 5.2.40 |
 | Blender MCP | [mcp-for-blender](https://github.com/ahujasid/mcp-for-blender) 2.1.9 (server, from PyPI) with its Blender add-on 1.8; uv 0.13.1; telemetry off; every asset library and generator off |
-| Claude Code | 2.1.295 (bundled with the Claude desktop app), Claude Opus 5.5 |
+| Claude Code | 2.1.316 (bundled with the Claude desktop app), Claude Opus 5.5 |
 | OS | Windows 11 Home 10.0.26200 |
 
 ## Assignment 8 — final project pitch film
@@ -21,6 +21,67 @@ The pitch for the final project (Lane Tactics as a one-level vertical slice) is 
 ## Game Design Document
 
 [GDD.md](GDD.md) is the whole game in one document: concept, game flow, assets, characters, the story told episode by episode, gameplay (goal, mechanics, abilities, the four episodes, losing and restarting, player skills), graphics, sound and the technical description. It brings together the design docs below and adds the campaign: goblin enemies, mountains, night raids, the Mend ability and the giant boss. The rules for all of this are in [RULES.md](RULES.md), and how each one was decided is in [DESIGN-HISTORY.md](DESIGN-HISTORY.md) section 8. The figures come from `design/tools/draw_gdd_sketches.py` (rendered with `bash design/tools/render_png.sh design/gdd`).
+
+## Assignment 7 — two animations
+
+**What this layer adds** (contract: [CHANGE-BRIEF.md](CHANGE-BRIEF.md); tuning: [TUNING.md](TUNING.md); results: [TEST-REPORT.md](TEST-REPORT.md), section "Assignment 7"):
+
+- **`wave`, the cycle:**
+  - **What it is:** a red goal flag waving on the table beside the enemy back row (the row you win by reaching).
+  - **Route:** Sprite2D with an AnimationPlayer frame track. The found CC0 sheet `godot/assets/art/flag/flag_red.png` is sliced 4 × 1 (125 × 249 cells) and played at 8 fps with `LOOP_LINEAR`. A second discrete track keys `offset` to cancel the sheet's 5 px pole drift.
+  - **Files:** clip `godot/animations/wave.tres`; scene `godot/game/goal_flag.tscn`, instanced in `main.tscn`.
+  - **Authority:** the flag's own `AnimationPlayer` (autoplay, process tick, real time).
+- **`shoot`, the committing action:**
+  - **What it is:** the archer draws, looses and follows through, on both archers.
+  - **Route:** a cutout rig keyed as resource text. Three `Sprite2D` parts cut from the draw art by `region_rect`, under `Node2D` pivots keyed on `position` and `rotation`.
+  - **Timing:** the phase table runs at 60 fps (startup 12, active 21, recovery 15 frames). These are the game's own fixed attack timings, spaced inside each phase from a measured reference video.
+  - **Files:** clip `godot/animations/shoot.tres`; rig `godot/game/archer_rig.tscn`.
+  - **Authority:** `piece.gd`. In `draw` it plays the clip from frame 0 and advances it by game time (`MANUAL` mode), so the clip freezes with P.
+- **One authority per animated node:** each keyed node has exactly one writer (`CLAUDE.md`, "One authority"). The A5 tint carries over to the rig: its parts share their own piece's material.
+- **Tests:**
+  - pins of today's behaviour, written before any clip (`test_pins_a7.gd`);
+  - a read-back per clip (`test_flag_readback.gd`, `test_shoot_readback.gd`);
+  - the state machine (`test_anim_states.gd`);
+  - edges, with P, R and Enter one frame before, on and after each phase boundary (`test_shoot_edges.gd`);
+  - four mutations, each in a git worktree.
+
+  New tests press keys through `Input.parse_input_event`.
+- **Preview and strips:** `godot/previews/shoot_preview.tscn` is the fixture for the Movie Maker strips (`captures/shoot/r0`, `r1`). One tuning revision, driven by what Jiean saw: the bow drop went from 20° to 8°, so the bow stays in the hand.
+- **Agent sessions:** `CLAUDE.md`, both clips, their read-backs and the wiring were written by `claude -p` sessions. Their prompts are in `prompts/a7/`, and their redacted transcripts in `evidence/a7/sessions/`. No agent edited `godot/shaders/`.
+
+### Run it
+
+Set `GODOT` to the Godot 4.7.2 console executable, then from the repository root:
+
+```bash
+"$GODOT" --headless --path godot --import
+"$GODOT" --path godot                                         # the game (main.tscn): the flag waves, both archers shoot
+"$GODOT" --path godot res://previews/shoot_preview.tscn       # shoot fixture (draw on frame 10, idle 0.8 s later)
+```
+
+Tests (through the course wrapper, `scripts/run-test.sh <test> <fps|realtime> [timeout]`). The ten earlier suites are listed under Assignment 6 below; A7 adds:
+
+```bash
+./scripts/run-test.sh test_pins_a7.gd 60
+./scripts/run-test.sh test_flag_readback.gd 60
+./scripts/run-test.sh test_shoot_readback.gd 60
+./scripts/run-test.sh test_anim_states.gd 60
+./scripts/run-test.sh test_shoot_edges.gd 60 600
+```
+
+**Controls:** unchanged from Assignment 6. No new key.
+
+### Known limitations (Assignment 7)
+
+- **The release barely shows:** the recoil is 6 px in the art, about 1.5 px on screen.
+- **The rig is cut from one pose drawing:** a large bow rotation splits the bow from the forearm and string, which is why the drop is only 8°. The legs part still holds the bow's lower tip, now hidden.
+- **The flag waves in real time:** it doesn't freeze with P, by design.
+- **The shot's end:** the impact and back-to-idle cues land one frame either side of the phase table (32–34 and 47–49 at 60 fps). So the clip's end pose is shown for 0 or 2 frames.
+- **The swap back to the idle art is a pose pop.**
+
+### Film (Assignment 7)
+
+To be added: the Brutalist godot-gamedev explainer (walker modifier).
 
 ## Assignment 6 — particle effects
 

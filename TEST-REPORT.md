@@ -2,7 +2,7 @@
 
 Newest assignment first. Assignment 7 below; the Assignment 6, 5, 2 and 3 reports follow unchanged.
 
-# Assignment 7 — two animations (in progress)
+# Assignment 7 — two animations
 
 | | |
 |---|---|
@@ -98,6 +98,121 @@ My first version of the test assumed `PLAY_ATTACKS` at frame −1 and failed 6 c
 **Mutation 3 also tripped a weakness in the test.** After the frame-range check failed, the test's pole-offset check indexed a 5th cell and stopped with `SCRIPT ERROR: Out of bounds get index '4'`, so no `SUMMARY` line was written. The wrapper turned the script error into exit 1. The mutation was caught by the assertion before the crash, but the test should guard that index. Not fixed yet.
 
 Logs: `evidence/a7/step6/mutations/`.
+
+After the guard fix (A7.17), the same mutation runs to the end: 37/43, exit 1, no script error (`evidence/a7/step6/mutations/m3_cell_guarded.log`).
+
+## A7.7 Fresh cache
+
+Mutation 4 above is also the fresh-cache check. After `godot/.godot` is deleted and the project re-imported, the rig read-back is 51/51 and the flag read-back 43/43. The rig is keyed as resource text, not imported, so no importer setting can be lost.
+
+## A7.8 Frame strips (fixture captures)
+
+All strips come from `godot/previews/shoot_preview.tscn`, a fixture: no real arrow, impact or burst. Jiean rendered them with Movie Maker at 30 fps. The frames kept are 9, 10, 15, 16, 20, 25, 26, 29, 30, 31, 32, 33 and 34, with the per-frame logs in `evidence/a7/step7/`.
+
+| Strip | Clip | Folder | Entry in `TUNING.md` |
+|---|---|---|---|
+| r0 | bow's frame-48 key 20° (brief v1) | `captures/shoot/r0/` | first look, Claude's reading, proposed change |
+| r1 | bow's frame-48 key 8° (brief revision 4) | `captures/shoot/r1/` | Claude's comparison; Jiean's verdict **keep** |
+
+Frames 10–29 are pixel-identical between r0 and r1, and frames 31–33 differ by 410–458 pixels in the archer's area.
+
+## A7.9 The cycle seam (HUMAN CHECK)
+
+The flag looped through at least five wraps at normal speed: is there no stutter, no duplicated frame and no jump? **TO FILL** (Jiean)
+
+> *Hint (Claude):* The flag waves from the title screen on, at 8 fps (0.5 s per wrap). Watch it for 3 s or more (6 wraps) on the title and in play. Write what you saw: a steady ripple, or a hitch once per loop? The headless side already holds: no key at `length` and one interval from the last key to `length` (A7.3), but only your eyes can say it looks seamless.
+
+## A7.10 The action in play (HUMAN CHECK)
+
+The shot was triggered by normal play many times, including an interrupt in each phase. Do startup, active and recovery read as distinct? **TO FILL** (Jiean)
+
+> *Hint (Claude):* Play the win route, which has three shots: Space for turns 1–3; then Right and Enter, and Enter on the enemy; then Enter again. Then press R and play again with interrupts:
+> - P while an archer draws (startup);
+> - P while the arrow flies (active);
+> - P just after the hit (recovery);
+> - R in one of the shots.
+>
+> Write how many shots you watched, what each interrupt did on screen, and whether you can tell the draw, the release and the bow drop apart. A6's habit of giving the count ("at least 3 times") is good evidence.
+
+## A7.11 Registration (HUMAN CHECK)
+
+**The strip:** `captures/flag_registration_r1.png`, the GoalFlag cropped from the 13 kept r1 frames at 4×, with a thin cyan guide line (drawn on the strip only).
+
+**Claude's measurement (a claim):** the darkest column of the pole is at the same screen x (1176) in all 13 frames. The drift fix's offset track (0 / −4 / −2 / +1 source px × 0.36) holds the pole still.
+
+Does the flag stay put within its cells? **TO FILL** (Jiean)
+
+> *Hint (Claude):* Open the strip and look at the pole against the guide line. Then watch the flag in the game. Does the pole stand still while the cloth waves, or does it shuffle sideways?
+
+## A7.12 Against the background (HUMAN CHECK)
+
+Both clips over the darkest and the lightest stretch of real level art they can appear on. **TO FILL** (Jiean)
+
+> *Hint (Claude):*
+> - **The flag** never moves; it stands on the dark wood table right of the board. Its "darkest and lightest" are the table's dark grain and its lighter streaks under the cloth. Does the red cloth and the black pole read on both?
+> - **The rig** is shown only while an archer draws. The player's start square is a light square touching the dark table. Does the bow still read over the light square, and does the rig's edge vanish against the dark table?
+
+## A7.13 Two clocks
+
+| Clip | Clock | Advances on | Measured |
+|---|---|---|---|
+| `shoot` | `ANIMATION_CALLBACK_MODE_PROCESS_MANUAL` | process tick, game time (`piece.tick` → `advance(dt)` inside `main._process`, after the cues) | it steps exactly 1/60 per game frame and holds while paused (A7.4, A7.5) |
+| `wave` | `ANIMATION_CALLBACK_MODE_PROCESS_IDLE` | process tick, real time | it keeps waving while paused (`test_anim_states`, assertion 7) |
+| gameplay fact (the active window, `_arrows`) | the cue list | process tick (`main._process`, `main.gd:162-171`) | — |
+
+- **No physics tick is involved:** the game has no `_physics_process`.
+- **Largest disagreement:** the clip runs **one game frame ahead** of the cue clock. On the arrow's first frame, clip time − arrow time = 0.20000 s, the same for all three shots. The clip is already at 1/60 s on the draw frame. **One frame, 1/60 s ≈ 0.017 s** (brief revision 2).
+
+## A7.14 Claude against you
+
+| Strip | Claude's reading | Jiean's verdict |
+|---|---|---|
+| r0 | The bow drop splits the bow from the forearm and string at the rig's x = 204 cut; a stray dash stays under the bow; the release (recoil about 1.5 screen px) is too small to see. | First look: "The bow seems to leave the archer's hand." This agrees on the split. Jiean also saw "a clear leaning back", where Claude had read the lean back as slight. |
+| r1 | The gaps shrink to about 1 px; the dash no longer shows; whether the 8° drop is still visible at normal speed is for Jiean's eyes. | "This time the bow stays in archer's hand, and it is still clear to see the bow lowering at the end." **Keep.** |
+
+Name at least one point where you disagreed with Claude, or say there was none. **TO FILL** (Jiean)
+
+> *Hint (Claude):* Two candidates:
+> - Claude called the lean back "slight" in r0; you called it "clear".
+> - Claude worried the 8° drop might be too small to see; you found it "still clear".
+>
+> Say in your own words whether either was a real disagreement.
+
+## A7.15 Predicted failures (CHANGE-BRIEF §10) against results
+
+| # | Prediction (Jiean) | Result |
+|---|---|---|
+| 1 | Step left at 1/30, so frame 33 can't be keyed | **Did not happen.** `step` is 1/60 within 1e-6, and the keys sit on f0.00 / f12.00 / f33.00 / f40.00 / f48.00 (A7.3). |
+| 2 | Two writers on the rig (facing on `Rig.scale` while the clip keys `Rig.position`) | **Did not happen.** Facing lives on `Mount`, written only by `piece.gd`. The structure test's source scan finds no second writer. It did catch the preview's first version reading the rig directly (A7.16). |
+| 3 | Clip not stopped on R or idle, so a stale pose carries into the next draw | **Did not happen.** `_apply_clip()` stops the clip before every play. The draw frame shows the frame-0 pose (`test_anim_states`, assertion 4), and R leaves a new piece with no clip (A7.5). |
+
+**Not predicted:**
+- the rig's cut splitting the bow from the hand when the bow rotates (fixed by tuning r1);
+- the legs part's region holding the bow's lower tip (hidden at 8°, still in the rig);
+- the cue clock's ±1-frame landing (brief revision 1).
+
+## A7.16 What else turned up
+
+- **The preview vs the one-authority scan:** the first `shoot_preview.gd` read the rig's `AnimationPlayer` and keyed nodes for its log. `test_anim_states` (assertion 9) failed on it. The test was not weakened: the log now goes through a read-only `piece.rig_snapshot()`, which names no keyed node.
+- **The wiring session's leak warning:** `test_arrow_trail_state` prints exit-time leak lines that its baseline log lacks. The pre-wiring commit prints the same lines (A7.1).
+- **A fresh `--import` crashed once** with a segmentation fault, in a throwaway worktree during Step 5. The import had completed, and the tests ran normally afterwards. It did not recur in the Step 6 worktrees.
+
+## A7.17 Fixes after Step 6
+
+- **`test_flag_readback.gd`:** the pole-offset check now skips a frame key outside the sheet, so mutation 3 fails on its assertion and no longer on a script error.
+- **The six A7 scripts** got their `.gd.uid` files from `--import`, committed so a fresh clone keeps the same script IDs.
+
+## A7.18 Known limitations and what no headless run can show
+
+- **Headless runs draw nothing.** Whether the motion reads, whether the seam is clean, and how the clips look against the art are human checks (A7.9–A7.12).
+- **The release still barely shows.** The recoil is 6 art px, about 1.5 screen px (r0 reading). Jiean kept r1 and asked for no further change.
+- **The rig is cut from one pose drawing.** The string and the forearm cross the bow part's edge, so a large bow rotation splits them; 8° hides it. The legs part still holds the bow's lower tip.
+- **The flag waves in real time.** It doesn't freeze with P, by design (brief §3).
+- **The idle swap is a pose pop:** the rig is shown only in `draw`.
+
+## A7.19 Fresh-clone verification
+
+To do after the tag: clone `a7` into a new folder, run `--import`, then every suite at its stated rate. Compare the counts with this report, and confirm no log contains `SHADER ERROR`, `SCRIPT ERROR` or `Failed loading resource`.
 
 # Assignment 6 — particle effects
 

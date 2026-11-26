@@ -380,3 +380,102 @@ Same format. Claude Code wrote the factual lines (Asked, Got, Human / Claude / m
 - **Next:** TEST-REPORT A6.6, Jiean's conclusion.
 - **Human / Claude / model:** the profiler readings were Jiean's; the fixture, the sweep and the analysis were Claude's.
 - **Still unresolved:** The game logic has not be implemented completely, so the timing of this kind of testing is just a piece of cake comparing to later full gaming status. (Jiean)
+
+
+# Assignment 7 — two animations
+
+Same format. Claude Code wrote the factual lines (Asked, Got, Human / Claude / model) from the session record. The judgment lines (Wanted, Decided, Still unresolved) are Jiean's own words, marked (Jiean), and stay TO FILL until written.
+
+## 2026-11-25 — Choosing the clips, the sheet and the reference
+- **Wanted:** **TO FILL** (Jiean)
+  > *Hint (Claude):* Why a waving goal flag and an archer shot? What did you want each to tell a new player (where the goal is, who is shooting)? Why a found sheet rather than drawing?
+- **Asked:**
+  - Claude to check what was left from earlier assignments and to read the A7 assignment.
+  - To find a CC0 flag sheet (downloaded with Jiean's permission).
+  - To capture contact sheets from a side-on archery video Jiean found (World Archery, "Archery in slow motion S01E010 BONUS: Ki Bo Bae (Coach Cam)"), skipping the long hold.
+- **Got:**
+  - `flag_red.png` (Fokko, CC0, OpenGameArt): 4 × 1 cells of 125 × 249 px, with the pole drifting 4/8/6/3 px between cells (`godot/assets/art/flag/ATTRIBUTION.md`).
+  - Contact sheets in the browser at 25 fps video frames, never saved or committed (standard YouTube licence).
+  - Jiean picked five event frames: f747, f809, f1202, f1275, f1285.
+  - Claude pointed out that the shot fades to a title card at about f1390, so the archer never reaches rest on camera. Jiean chose f1275 → f1385 for recovery.
+- **Decided:** **TO FILL** (Jiean)
+  > *Hint (Claude):* What did you decide about the recovery stretch, and why? What did you accept from the proposals (rig parts, key directions, flag place, drift fix)?
+- **Next:** the brief.
+- **Human / Claude / model:** the clips, the sheet and every event frame were Jiean's. Claude found the sheet, drew the contact sheets and measured the art. No generative model.
+- **Still unresolved:** **TO FILL** (Jiean)
+  > *Hint (Claude):* For example: the reference is slow motion by an unknown factor, so it gives proportions only, not real timing.
+
+## 2026-11-25 — Writing the brief: the phase table in frames
+- **Wanted:** **TO FILL** (Jiean)
+  > *Hint (Claude):* What did you want the phase table to do: keep the game's fixed 12 / 21 / 15 frames and take only the spacing inside each phase from the reference?
+- **Asked:**
+  - Claude to explain "write each gap in video frames, then scale it into the game's 12 / 21 / 15 frames at 60 fps".
+  - Claude to draft `CHANGE-BRIEF.md`, with Jiean's parts left TO FILL.
+  - Claude to check the filled brief, twice.
+- **Got:**
+  - **First check:** the recovery split was frame 50, outside the clip (recovery is frames 33–48), and the strip frame followed it. Answer 5 put the clip one frame *behind* the cue clock; the code order (cues, then `piece.tick`) puts it level or one frame *ahead*.
+  - **Second check:** frame 40, in range but not from the reference's 10 : 100 ratio. Jiean kept it on purpose; the brief records it as chosen by eye.
+  - Claude also noted that answer 5 had been rewritten almost word for word from Claude's review.
+  - Brief v1 committed (`e08eb62`) before the first agent prompt.
+- **Decided:** **TO FILL** (Jiean)
+  > *Hint (Claude):* Why did you keep frame 40 rather than the ratio's result? What did you change after each check?
+- **Next:** Step 1.
+- **Human / Claude / model:** the phase-table values, predictions and answers were Jiean's. The wording, facts and the two reviews were Claude's.
+- **Still unresolved:** **TO FILL** (Jiean)
+  > *Hint (Claude):* For example: whether 12 frames is enough for a readable draw, now that the game's timings stay fixed.
+
+## 2026-11-25 — Agent sessions: CLAUDE.md, both clips, the wiring
+- **Wanted:** **TO FILL** (Jiean)
+  > *Hint (Claude):* What did you want the agents to build, and what did you want to keep for yourself?
+- **Asked:** five scoped `claude -p` runs with the course prompts (`prompts/a7/`, session records in `evidence/a7/sessions/`):
+  - Step 1, the CLAUDE.md draft;
+  - Step 3, the flag clip and its read-back;
+  - Step 4, the rig and its read-back;
+  - Step 5, a read-only plan, then the implementation resumed from it.
+- **Got:**
+  - **CLAUDE.md:** 99 lines. The draft dropped the "Headless facts" block; Claude's review restored it, with each line confirmed in a probe (`8b9e326`).
+  - **The flag:** `wave.tres` + `goal_flag.tscn`, read-back 43/43.
+  - **The rig:** `archer_rig.tscn` + `shoot.tres`, read-back 51/51.
+  - **The wiring plan:** 5 questions; Jiean: "Approve all defaults".
+  - **The wiring:** `GoalFlag` in `main.tscn`, the rig in `piece.gd`; `test_anim_states` 51/51; the pins unchanged at 29/29; every earlier suite at its baseline.
+  - **Permission denials:** every run had some (compound shell commands outside the allow list). None changed `godot/shaders/` (`git diff --stat` empty after each).
+  - **A privacy slip:** the plan session ran `git log`, so its transcript held the author email; the redaction had masked only the domain. Claude amended that commit before any push and added the email and account name to the redaction.
+- **Decided:** **TO FILL** (Jiean)
+  > *Hint (Claude):* What did you accept, change or reject from the plan and the agents' choices (flag place, scale from the idle image, the held end pose)?
+- **Next:** edges and mutations.
+- **Human / Claude / model:** Jiean approved each step and the plan's defaults. The agents (Claude Opus 5.5 via `claude -p`) wrote the drafts, committed unedited. Claude Code reviewed them, re-ran every suite and committed its review separately.
+- **Still unresolved:** **TO FILL** (Jiean)
+  > *Hint (Claude):* For example: the source scan is text only, so it can't prove there is no second writer outside the scanned scripts.
+
+## 2026-11-25 — Pins, edges and mutations
+- **Wanted:** **TO FILL** (Jiean)
+  > *Hint (Claude):* What did you want the pins and edge tests to protect while the clips were wired in?
+- **Asked:** Claude to pin today's behaviour before any clip, then to write edge tests at every phase boundary and run the four mutations in git worktrees.
+- **Got:**
+  - **Pins:** 29/29. They showed that the impact and back-to-idle cues land at 32/34 and 47/49 game frames, not the table's 33 and 48 (brief revision 1).
+  - **Edges:** 102/102. The first version assumed the frame before the draw was already `PLAY_ATTACKS`; it is still `PLAN_ATTACK`, where Enter *is* the attack order. The test was fixed to assert what the game does.
+  - **Mutations:** 1–3 exit 1. Mutation 4 (empty cache) passed, as predicted for a rig keyed in resource text. Mutation 3 also exposed an unguarded index in the flag test, since fixed.
+- **Decided:** **TO FILL** (Jiean)
+  > *Hint (Claude):* What did you make of the ±1-frame finding: leave the game's timing alone, as the brief says?
+- **Next:** the preview and the strip.
+- **Human / Claude / model:** Claude wrote the pins, the edge test and ran the mutations; the predictions they were checked against were Jiean's.
+- **Still unresolved:** **TO FILL** (Jiean)
+  > *Hint (Claude):* For example: why the cue clock lands one frame early or late was not investigated (game timing is out of scope).
+
+## 2026-11-25 — Tuning r1: "the bow seems to leave the archer's hand" (see `TUNING.md`)
+- **Wanted:** **TO FILL** (Jiean)
+  > *Hint (Claude):* What did you want the shot to look like when you first watched r0?
+- **Asked:**
+  - Claude for the preview and the capture commands.
+  - Claude to read r0 after Jiean's first look and propose one change.
+  - Claude to make the approved change.
+- **Got:**
+  - **Two slips on the way to r0.** The first capture command had a placeholder path that Jiean ran literally. Then the capture folder didn't exist, so Movie Maker wrote no frames. Claude gave the real local path and created the folder.
+  - **Claude's reading of r0:** the bow part's rotation split it from the forearm and string at the rig's x = 204 cut, and a stray dash stayed under the bow. Proposed: the bow's frame-48 key 20° → 8°.
+  - **r1:** frames 10–29 pixel-identical to r0; the gaps about 1 px; the dash hidden. Jiean's verdict: keep.
+- **Decided:** **TO FILL** (Jiean)
+  > *Hint (Claude):* Why keep r1? Is there anything you'd still like to change?
+- **Next:** the human checks in TEST-REPORT A7.9–A7.14.
+- **Human / Claude / model:** the observation, the approval and the verdict were Jiean's. The reading, the proposal and the change were Claude's.
+- **Still unresolved:** **TO FILL** (Jiean)
+  > *Hint (Claude):* For example: the release (recoil about 1.5 px) still barely shows, and the rig's legs part still holds the bow's lower tip.
