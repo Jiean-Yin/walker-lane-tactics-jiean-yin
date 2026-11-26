@@ -255,3 +255,9 @@ mkdir -p captures/shoot/r0
 | 34 | — | back to idle (the preview sets it on 34, 0.8 s after the trigger) |
 
 To read: 10, 15, 16, 25, 26, 29, 30, 33 and 34. The capture command in §9 (`--quit-after 60`) covers all of them.
+
+### Revision 4, 2026-11-25 (tuning r1; Jiean approved: "Approve r1")
+
+- **§4 key table, frame 48, `Rig/Upper/Bow:rotation`:** bow tipped **8°** forward and down, was 20°. Every other key, frame and transition is unchanged.
+- **Why** (`TUNING.md` r0): Jiean saw "the bow seems to leave the archer's hand". In the r0 strip, the 20° bow drop split the bow from the forearm and string at the rig's x = 204 cut.
+- **Follow-on changes:** `shoot.tres` and the read-backs' expected values (`test_shoot_readback.gd`, and `test_anim_states.gd`'s end pose).

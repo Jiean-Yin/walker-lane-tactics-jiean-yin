@@ -28,7 +28,7 @@ const HALF: float = 0.5 / 60.0
 const ANG_TOL: float = 0.01 ## rad: frame 0 + one frame of an ease-in segment moves the bow < 0.002
 ## shoot.tres key values (read back by test_shoot_readback.gd; repeated here only to recognise poses).
 const BOW_FRAME0: float = 0.20944
-const BOW_END: float = 0.349066
+const BOW_END: float = 0.139626 # 8°, the bow's frame-48 key since tuning r1 (brief revision 4)
 const DRAW_LEAD: float = 0.2 ## main.gd:29
 ## The keyed nodes: no game, preview or debug script may name them (one authority).
 const KEYED_PATHS: Array[String] = ["\"Rig\"", "\"Rig/Upper\"", "\"Rig/Upper/Bow\"", "\"FlagSprite\""]

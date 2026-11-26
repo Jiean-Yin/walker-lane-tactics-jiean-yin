@@ -57,7 +57,7 @@ const NODE_CLASSES: Dictionary = {
 ## back = -x / negative angle; forward and down = positive angle.
 const KEYS_POS: Array[Vector2] = [Vector2(0, 0), Vector2(0, 0), Vector2(-6, 0), Vector2(-6, 0), Vector2(0, 0)]
 const KEYS_UPPER_DEG: Array[float] = [0.0, -4.0, 2.0, 2.0, 0.0]
-const KEYS_BOW_DEG: Array[float] = [12.0, 0.0, 0.0, 0.0, 20.0]
+const KEYS_BOW_DEG: Array[float] = [12.0, 0.0, 0.0, 0.0, 8.0] # frame-48 key 8° since tuning r1 (brief revision 4)
 const ANGLE_TOL: float = 0.0001                     # rad, for values written to 6 digits
 ## Transition per key (segment to the next): ease in, ease out, hold, ease in-out, last.
 const TRANSITIONS: Array[float] = [2.0, 0.5, 1.0, -2.0, 1.0]
@@ -306,7 +306,7 @@ func _run() -> void:
 		pos_ok = pos_ok and typeof(pos_v[k]) == TYPE_VECTOR2 and (pos_v[k] as Vector2).is_equal_approx(KEYS_POS[k])
 	rep.check("Rig:position = rest, rest, recoiled 6 px back (-6, 0), same, rest", pos_ok, pos_v)
 	for pair: Array in [[t_up, KEYS_UPPER_DEG, "Rig/Upper:rotation = 0°, lean back -4°, 2° forward, same, 0°"],
-			[t_bow, KEYS_BOW_DEG, "Rig/Upper/Bow:rotation = 12° below level (+), level, level, level, 20° forward/down (+)"]]:
+			[t_bow, KEYS_BOW_DEG, "Rig/Upper/Bow:rotation = 12° below level (+), level, level, level, 8° forward/down (+)"]]:
 		var vals: Array = _values(anim, pair[0])
 		var want: Array[float] = pair[1]
 		var ok: bool = vals.size() == want.size()
@@ -352,15 +352,15 @@ func _run() -> void:
 	# In-out on 40 -> 48: symmetric, half way at frame 44, slow at both ends.
 	var bow44: float = rad_to_deg(float(anim.value_track_interpolate(t_bow, 44.0 / FPS)))
 	var bow41: float = rad_to_deg(float(anim.value_track_interpolate(t_bow, 41.0 / FPS)))
-	rep.check("bow drop eases in-out: about half way (10°) at frame 44, under 1/8 of the way at frame 41",
-			absf(bow44 - 10.0) < 0.5 and bow41 < 20.0 / 8.0, "f41 %.3f°, f44 %.3f°" % [bow41, bow44])
+	rep.check("bow drop eases in-out: about half way (4°) at frame 44, under 1/8 of the way at frame 41",
+			absf(bow44 - 4.0) < 0.5 and bow41 < 8.0 / 8.0, "f41 %.3f°, f44 %.3f°" % [bow41, bow44])
 	# Every sampled angle stays inside the key range: no overshoot from the curves.
 	var lo_hi_ok: bool = true
 	for f: int in LENGTH_FRAMES + 1:
 		var b: float = rad_to_deg(float(anim.value_track_interpolate(t_bow, f / FPS)))
 		var u: float = rad_to_deg(float(anim.value_track_interpolate(t_up, f / FPS)))
-		lo_hi_ok = lo_hi_ok and b >= -0.01 and b <= 20.01 and u >= -4.01 and u <= 2.01
-	rep.check("no overshoot: bow stays in [0°, 20°] and Upper in [-4°, 2°] on every frame 0-48", lo_hi_ok)
+		lo_hi_ok = lo_hi_ok and b >= -0.01 and b <= 12.01 and u >= -4.01 and u <= 2.01
+	rep.check("no overshoot: bow stays in [0°, 12°] and Upper in [-4°, 2°] on every frame 0-48", lo_hi_ok)
 
 	mount.free()
 	quit(rep.finish(extra))

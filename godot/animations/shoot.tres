@@ -15,8 +15,9 @@
 ; turns clockwise on screen, so "back" is -x / negative angle and "forward and down" is positive.
 ;   Rig:position             (0,0)  (0,0)   (-6,0)  (-6,0)  (0,0)     recoil 6 px backwards
 ;   Rig/Upper:rotation        0°    -4°     +2°     +2°      0°       lean back 4°, then 2° forward
-;   Rig/Upper/Bow:rotation   +12°    0°      0°      0°     +20°      12° below level -> level -> tipped 20° forward/down
-; (radians: 4° = 0.0698132, 2° = 0.0349066, 12° = 0.20944, 20° = 0.349066)
+;   Rig/Upper/Bow:rotation   +12°    0°      0°      0°     +8°       12° below level -> level -> tipped 8° forward/down
+;   (tuning r1, CHANGE-BRIEF revision 4: the frame-48 bow key was 20°)
+; (radians: 4° = 0.0698132, 2° = 0.0349066, 12° = 0.20944, 8° = 0.139626)
 ;
 ; Transition on each key (the segment from that key to the next; Godot ease() curve):
 ;   frame  0: 2.0   ease in, accelerating towards the release
@@ -64,5 +65,5 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.55, 0.666667, 0.8),
 "transitions": PackedFloat32Array(2, 0.5, 1, -2, 1),
 "update": 0,
-"values": [0.20944, 0.0, 0.0, 0.0, 0.349066]
+"values": [0.20944, 0.0, 0.0, 0.0, 0.139626]
 }
