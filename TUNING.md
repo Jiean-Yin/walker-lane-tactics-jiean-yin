@@ -69,13 +69,11 @@ Issues 2 and 3 are left for later revisions, one change at a time.
 - **Against the prediction:** frames 10–29 matched, and so did the smaller gaps. The dash did better than predicted: I said "shorter", and it no longer shows separately. The defect is still in the rig (the legs part's region still holds the bow's lower tip); at 8° it just hides under the tip.
 - **Whether the bow still visibly tips at normal speed is a question for your eyes.** At 8° the tip moves about 2–3 screen px over four frames.
 
-**What I saw** (Jiean, the preview at normal speed and at `--time-scale 0.25`, and in the running game): **TO FILL**
+**What I saw** (Jiean, the preview at normal speed and at `--time-scale 0.25`, and in the running game): **This time the bow stays in arhcer's hand, and it is still clear to see the bow lowering a the end.**
 
-> *Hint (Claude):* Compare with your r0 note. Does the bow still look like it leaves the hand? Can you still see the bow lowering at the end at all, or did it become too small? Watch two or three shots in the running game (turn 4 has both archers shooting), not only the preview.
 
-**My verdict** (Jiean: keep r1, revert it, or what to try next): **TO FILL**
+**My verdict** (Jiean: keep r1, revert it, or what to try next): **Keep: the bow now stays in the hand.**
 
-> *Hint (Claude):* One line is enough, for example "keep: the bow stays in the hand" or "revert: the drop is gone". If you want another revision, say what you saw, not the fix. The candidates from r0 were the release being too small to see (recoil about 1.5 px) and the rig's leftover dash. The assignment needs at least one revision driven by what you saw in play; r1 already is one.
 
 # Assignment 6 — particle effects
 
