@@ -238,3 +238,20 @@ mkdir -p captures/shoot/r0
    - **Shots whose `idle` comes on frame 49:** the finished end pose is held for **2** frames, not 1.
    - **Measured holds:** 0, 2, 0.
 3. **`draw` is entered from `hurt` as well as from `idle`:** p1's turn-4 shot comes 1.05 s after it was hit. §5 lists only `_cue_draw` from `idle`. The clip plays from 0 either way (measured).
+
+### Revision 3, 2026-11-25 (preview; drafted by Claude from a headless run of `shoot_preview.tscn` at `--fixed-fps 30`)
+
+**The strip frames move one frame earlier.** §9 maps each phase-table frame to strip frame 10 + frame × 30/60. The clip, though, runs one game frame ahead of the cue clock (revision 2), so at 30 fps each boundary shows one strip frame earlier. Measured clip positions in the preview log:
+
+| Strip frame | Clip shows (60 fps frame) | Boundary |
+|---|---|---|
+| 10 | 2 | trigger (startup has begun) |
+| **15** | 12 | release key (§9 said 16) |
+| 16 | 14 | first frame after the release |
+| **25 / 26** | 32 / 34 | the impact key (33) falls between them (§9 said 26 / 27) |
+| **29** | 40 | bow-drop key (§9 said 30) |
+| 30 | 42 | the drop under way |
+| **33** | end pose (48), clip finished | (§9 said 34) |
+| 34 | — | back to idle (the preview sets it on 34, 0.8 s after the trigger) |
+
+To read: 10, 15, 16, 25, 26, 29, 30, 33 and 34. The capture command in §9 (`--quit-after 60`) covers all of them.
