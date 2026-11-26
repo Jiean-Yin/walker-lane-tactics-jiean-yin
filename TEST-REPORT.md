@@ -212,7 +212,20 @@ Name at least one point where you disagreed with Claude, or say there was none. 
 
 ## A7.19 Fresh-clone verification
 
-To do after the tag: clone `a7` into a new folder, run `--import`, then every suite at its stated rate. Compare the counts with this report, and confirm no log contains `SHADER ERROR`, `SCRIPT ERROR` or `Failed loading resource`.
+**Pre-tag check, 2026-11-25, by Claude Code.** The branch at `c7a58e8` was cloned from the local repository into a new folder (the branch is not pushed yet). One `--import` finished with exit 0 and no crash. Then every suite ran through `scripts/run-test.sh`:
+
+| Suite | fps | Result |
+|---|---|---|
+| test_rules / test_audio_events / check_assets | 60 | 51/51, 70/70, 38/38 |
+| test_materials / test_hit_burst_config / test_arrow_trail_config | 60 | 148/148, 107/107, 135/135 |
+| test_hit_burst_state / test_arrow_trail_state / cost_effects | 60 | 31/31, 31/31, 25/25 |
+| test_pins_a7 / test_flag_readback / test_shoot_readback | 60 | 29/29, 43/43, 51/51 |
+| test_anim_states / test_shoot_edges | 60 | 51/51, 102/102 |
+| test_exposed_tint | 30 / 60 / 144 | 46/46 each |
+
+Every run exited 0, and no log contains `SHADER ERROR`, `SCRIPT ERROR` or `Failed loading resource`. The counts match this report.
+
+**Still to do after the tag:** the same check from a clone of the pushed `a7` tag on GitHub.
 
 # Assignment 6 — particle effects
 
