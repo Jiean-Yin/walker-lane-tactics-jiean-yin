@@ -203,7 +203,7 @@ Name at least one point where you disagreed with Claude, or say there was none. 
 
 Every run exited 0, and no log contains `SHADER ERROR`, `SCRIPT ERROR` or `Failed loading resource`. The counts match this report.
 
-**Still to do after the tag:** the same check from a clone of the pushed `a7` tag on GitHub.
+**Tag check, 2026-11-25, by Claude Code.** The pushed tag `a7` (`37c4698`) was cloned from GitHub into a new folder. One `--import` finished with exit 0, and all 17 suite runs gave the same counts as the pre-tag table above. Every run exited 0, and no log contains `SHADER ERROR`, `SCRIPT ERROR` or `Failed loading resource`.
 
 # Assignment 6 — particle effects
 
