@@ -1,0 +1,29 @@
+Read CLAUDE.md first. The rig is godot/game/archer_rig.tscn (to be
+created from CHANGE-BRIEF.md §4 "Rig": Mount, Rig, Lower, Upper,
+UpperSprite, Bow, BowSprite and an AnimationPlayer whose root_node is
+Mount; the parts are Sprite2D regions of
+res://assets/art/archer_draw.png, with the pivots and regions the brief
+gives), and its route is keyed cutout. The phase table or cycle spec
+for shoot is in CHANGE-BRIEF.md, in frames at 60 fps.
+
+For a keyed cutout rig: write the shoot clip for the AnimationPlayer
+in godot/game/archer_rig.tscn, as the resource
+godot/animations/shoot.tres, using Godot 4 Animation properties for the
+version in CLAUDE.md (loop_mode, not loop). Put a key at every phase
+boundary in the table, and list each key's time beside the frame it
+comes from. The key values and transitions are the brief's §4 key
+table; the art faces right, and in Godot 2D a positive rotation turns
+clockwise on screen. Set callback_mode_process as the brief's §6 says.
+Do not touch piece.gd: the rig is not instanced by any piece yet.
+
+Either way, add a read-back test, godot/tests/test_shoot_readback.gd,
+that asserts every track resolves to a real node and property, bone or
+blend shape; that the key times or clip length match the brief,
+compared with a tolerance; and that the loop mode is as stated. Branch
+the track check on track type: a 3D position, rotation or scale track
+names a bone, and a blend-shape track names a blend shape. Also assert
+Animation.step is one frame period at 60 fps.
+
+Run it through ./scripts/run-test.sh at 60 and show the real output. Do
+not wire the clip into the state machine yet. Do not edit any .gdshader
+file. Do not commit.

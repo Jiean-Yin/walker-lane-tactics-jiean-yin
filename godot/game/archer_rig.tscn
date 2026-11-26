@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3]
+
+; Keyed cutout rig for the archer's `shoot` clip (CHANGE-BRIEF.md §4 "Rig").
+; Rig-local origin = the centre of archer_draw.png (144, 160.5), the same point a centred
+; Sprite2D of that image sits on; an art pixel p is at p - (144, 160.5) under Rig.
+; Pivots: Upper at the belt (144, 200), Bow at the bow hand (236, 120). Regions crop the art;
+; the art is never edited. Not instanced by piece.gd yet; piece.gd will own Mount and the player.
+
+[ext_resource type="Texture2D" uid="uid://eckywjb5nug" path="res://assets/art/archer_draw.png" id="1_draw"]
+[ext_resource type="Animation" path="res://animations/shoot.tres" id="2_shoot"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rig"]
+_data = {
+&"shoot": ExtResource("2_shoot")
+}
+
+[node name="Mount" type="Node2D"]
+
+[node name="Rig" type="Node2D" parent="."]
+
+[node name="Lower" type="Sprite2D" parent="Rig"]
+position = Vector2(-144, 35.5)
+texture = ExtResource("1_draw")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 196, 288, 125)
+
+[node name="Upper" type="Node2D" parent="Rig"]
+position = Vector2(0, 39.5)
+
+[node name="UpperSprite" type="Sprite2D" parent="Rig/Upper"]
+position = Vector2(-144, -200)
+texture = ExtResource("1_draw")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 204, 204)
+
+[node name="Bow" type="Node2D" parent="Rig/Upper"]
+position = Vector2(92, -80)
+
+[node name="BowSprite" type="Sprite2D" parent="Rig/Upper/Bow"]
+position = Vector2(-32, -80)
+texture = ExtResource("1_draw")
+centered = false
+region_enabled = true
+region_rect = Rect2(204, 40, 84, 164)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_rig")
+}
+callback_mode_process = 2

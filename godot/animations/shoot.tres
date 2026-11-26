@@ -1,0 +1,68 @@
+[gd_resource type="Animation" format=3]
+
+; shoot: the archer's committing action on the keyed cutout rig (CHANGE-BRIEF.md §4, §6).
+; 60 fps: step 1/60, length 48 frames = 0.8 s, LOOP_NONE. Played by the rig's AnimationPlayer
+; (root_node = Mount) in ANIMATION_CALLBACK_MODE_PROCESS_MANUAL; nothing here is read by the game.
+;
+; One key per track at every phase boundary (time = frame / 60):
+;   frame  0 -> 0.0        trigger, startup begins      (_cue_draw)
+;   frame 12 -> 0.2        active opens, release        (_cue_arrow, DRAW_LEAD 0.2)
+;   frame 33 -> 0.55       recovery opens, impact       (_cue_impact, + ARROW_TIME 0.35)
+;   frame 40 -> 0.666667   bow drop begins              (recovery split, chosen by eye)
+;   frame 48 -> 0.8        back to idle, clip ends      (_cue_attacker_idle, + ATTACK_RECOVER 0.25)
+;
+; Values in the art's own pixels and angles. The art faces right; in Godot 2D a positive rotation
+; turns clockwise on screen, so "back" is -x / negative angle and "forward and down" is positive.
+;   Rig:position             (0,0)  (0,0)   (-6,0)  (-6,0)  (0,0)     recoil 6 px backwards
+;   Rig/Upper:rotation        0°    -4°     +2°     +2°      0°       lean back 4°, then 2° forward
+;   Rig/Upper/Bow:rotation   +12°    0°      0°      0°     +20°      12° below level -> level -> tipped 20° forward/down
+; (radians: 4° = 0.0698132, 2° = 0.0349066, 12° = 0.20944, 20° = 0.349066)
+;
+; Transition on each key (the segment from that key to the next; Godot ease() curve):
+;   frame  0: 2.0   ease in, accelerating towards the release
+;   frame 12: 0.5   ease out, fast at the release, slowing through the follow-through
+;   frame 33: 1.0   hold (keys 33 and 40 have the same values, so nothing moves)
+;   frame 40: -2.0  ease in-out (the bow drop)
+;   frame 48: 1.0   last key, no segment after it
+
+[resource]
+resource_name = "shoot"
+length = 0.8
+loop_mode = 0
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.55, 0.666667, 0.8),
+"transitions": PackedFloat32Array(2, 0.5, 1, -2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-6, 0), Vector2(-6, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rig/Upper:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.55, 0.666667, 0.8),
+"transitions": PackedFloat32Array(2, 0.5, 1, -2, 1),
+"update": 0,
+"values": [0.0, -0.0698132, 0.0349066, 0.0349066, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rig/Upper/Bow:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.55, 0.666667, 0.8),
+"transitions": PackedFloat32Array(2, 0.5, 1, -2, 1),
+"update": 0,
+"values": [0.20944, 0.0, 0.0, 0.0, 0.349066]
+}
